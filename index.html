@@ -139,7 +139,7 @@ select {
 
 
 /* =====================================================
-   LÍNEAS VERTICALES
+   LÍNEAS PORTADA
 ===================================================== */
 
 .linea-vertical {
@@ -171,7 +171,8 @@ select {
 
 
 /* =====================================================
-   RAMAS ANIMADAS PORTADA
+   RAMAS PORTADA
+   CRECEN AUTOMÁTICAMENTE
 ===================================================== */
 
 .floral {
@@ -191,9 +192,6 @@ select {
   overflow: visible;
 }
 
-
-/* TALLO PRINCIPAL */
-
 .floral .tallo {
   fill: none;
 
@@ -202,11 +200,9 @@ select {
   stroke-width: 1.8;
 
   stroke-linecap: round;
-
   stroke-linejoin: round;
 
   stroke-dasharray: 900;
-
   stroke-dashoffset: 900;
 
   animation:
@@ -214,9 +210,6 @@ select {
     cubic-bezier(.45,.05,.22,.97)
     forwards;
 }
-
-
-/* RAMAS SECUNDARIAS */
 
 .floral .rama {
   fill: none;
@@ -226,11 +219,9 @@ select {
   stroke-width: 1.45;
 
   stroke-linecap: round;
-
   stroke-linejoin: round;
 
   stroke-dasharray: 240;
-
   stroke-dashoffset: 240;
 
   animation:
@@ -261,16 +252,12 @@ select {
   animation-delay: 2.35s;
 }
 
-
-/* HOJAS */
-
 .floral .hoja {
   fill: currentColor;
 
   opacity: 0;
 
   transform-box: fill-box;
-
   transform-origin: center;
 
   animation:
@@ -279,51 +266,16 @@ select {
     forwards;
 }
 
-
-/* RETARDOS PARA QUE "NAZCAN" */
-
-.floral .hoja-1 {
-  animation-delay: 1.15s;
-}
-
-.floral .hoja-2 {
-  animation-delay: 1.4s;
-}
-
-.floral .hoja-3 {
-  animation-delay: 1.65s;
-}
-
-.floral .hoja-4 {
-  animation-delay: 1.9s;
-}
-
-.floral .hoja-5 {
-  animation-delay: 2.15s;
-}
-
-.floral .hoja-6 {
-  animation-delay: 2.4s;
-}
-
-.floral .hoja-7 {
-  animation-delay: 2.65s;
-}
-
-.floral .hoja-8 {
-  animation-delay: 2.9s;
-}
-
-.floral .hoja-9 {
-  animation-delay: 3.1s;
-}
-
-.floral .hoja-10 {
-  animation-delay: 3.3s;
-}
-
-
-/* LADO DERECHO */
+.floral .hoja-1 { animation-delay: 1.15s; }
+.floral .hoja-2 { animation-delay: 1.4s; }
+.floral .hoja-3 { animation-delay: 1.65s; }
+.floral .hoja-4 { animation-delay: 1.9s; }
+.floral .hoja-5 { animation-delay: 2.15s; }
+.floral .hoja-6 { animation-delay: 2.4s; }
+.floral .hoja-7 { animation-delay: 2.65s; }
+.floral .hoja-8 { animation-delay: 2.9s; }
+.floral .hoja-9 { animation-delay: 3.1s; }
+.floral .hoja-10 { animation-delay: 3.3s; }
 
 .floral-arriba-derecha {
   width: 290px;
@@ -332,8 +284,7 @@ select {
   top: -55px;
   right: -38px;
 
-  transform-origin:
-    bottom right;
+  transform-origin: bottom right;
 
   animation:
     respirarDerecha
@@ -343,9 +294,6 @@ select {
     infinite alternate;
 }
 
-
-/* LADO IZQUIERDO */
-
 .floral-abajo-izquierda {
   width: 285px;
   height: 610px;
@@ -353,8 +301,7 @@ select {
   bottom: -70px;
   left: -40px;
 
-  transform-origin:
-    bottom left;
+  transform-origin: bottom left;
 
   animation:
     respirarIzquierda
@@ -362,6 +309,172 @@ select {
     ease-in-out
     3.4s
     infinite alternate;
+}
+
+
+/* =====================================================
+   BOTÁNICA CONTROLADA POR SCROLL
+===================================================== */
+
+.scroll-botanical {
+  position: absolute;
+
+  pointer-events: none;
+
+  z-index: 2;
+
+  opacity: 0.9;
+}
+
+.scroll-botanical svg {
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.scroll-botanical .scroll-tallo,
+.scroll-botanical .scroll-rama {
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scroll-botanical .scroll-tallo {
+  stroke-width: 1.6;
+}
+
+.scroll-botanical .scroll-rama {
+  stroke-width: 1.25;
+}
+
+.scroll-botanical .scroll-hoja {
+  fill: currentColor;
+
+  opacity: 0;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  transform: scale(0.05);
+}
+
+.scroll-botanical.terminada {
+  animation:
+    respirarScroll
+    7s ease-in-out
+    infinite alternate;
+}
+
+
+/* CONTADOR */
+
+.botanica-contador-izq {
+  width: 255px;
+  height: 520px;
+
+  left: -55px;
+  bottom: -75px;
+
+  color: rgba(164, 81, 52, 0.55);
+
+  transform-origin: bottom left;
+}
+
+.botanica-contador-der {
+  width: 230px;
+  height: 470px;
+
+  right: -48px;
+  top: -70px;
+
+  color: rgba(174, 93, 62, 0.46);
+
+  transform-origin: top right;
+}
+
+
+/* DRESS */
+
+.botanica-dress-izq {
+  width: 235px;
+  height: 490px;
+
+  left: -55px;
+  bottom: -70px;
+
+  color: rgba(255, 241, 232, 0.30);
+
+  transform-origin: bottom left;
+}
+
+.botanica-dress-der {
+  width: 230px;
+  height: 470px;
+
+  right: -55px;
+  top: -65px;
+
+  color: rgba(255, 245, 238, 0.24);
+
+  transform-origin: top right;
+}
+
+
+/* REGALOS */
+
+.botanica-regalos-izq {
+  width: 250px;
+  height: 530px;
+
+  left: -55px;
+  bottom: -80px;
+
+  color: rgba(245, 211, 193, 0.25);
+
+  transform-origin: bottom left;
+}
+
+.botanica-regalos-der {
+  width: 245px;
+  height: 500px;
+
+  right: -60px;
+  top: -80px;
+
+  color: rgba(248, 224, 211, 0.20);
+
+  transform-origin: top right;
+}
+
+
+/* RSVP */
+
+.botanica-rsvp-izq {
+  width: 245px;
+  height: 520px;
+
+  left: -60px;
+  bottom: -85px;
+
+  color: rgba(240, 207, 193, 0.20);
+
+  transform-origin: bottom left;
+}
+
+.botanica-rsvp-der {
+  width: 230px;
+  height: 490px;
+
+  right: -55px;
+  top: -75px;
+
+  color: rgba(245, 218, 205, 0.18);
+
+  transform-origin: top right;
 }
 
 
@@ -633,8 +746,7 @@ select {
 
   opacity: 0;
 
-  transform:
-    translateY(30px);
+  transform: translateY(30px);
 
   transition:
     opacity 1s ease,
@@ -661,8 +773,7 @@ select {
 .segunda-seccion.visible {
   opacity: 1;
 
-  transform:
-    translateY(0);
+  transform: translateY(0);
 }
 
 .segunda-contenido {
@@ -2634,9 +2745,6 @@ select {
 
 }
 
-
-/* TALLITO CRECE */
-
 @keyframes crecerTallo {
 
   from {
@@ -2649,9 +2757,6 @@ select {
 
 }
 
-
-/* RAMITAS CRECEN */
-
 @keyframes crecerRama {
 
   from {
@@ -2663,9 +2768,6 @@ select {
   }
 
 }
-
-
-/* HOJITAS APARECEN */
 
 @keyframes aparecerHoja {
 
@@ -2695,62 +2797,53 @@ select {
 
 }
 
-
-/* MOVIMIENTO SUAVE DERECHO */
-
 @keyframes respirarDerecha {
 
-  0% {
+  from {
     transform:
       rotate(0deg)
-      translateY(0)
-      translateX(0);
+      translateY(0);
   }
 
-  50% {
-    transform:
-      rotate(1.2deg)
-      translateY(3px)
-      translateX(-1px);
-  }
-
-  100% {
+  to {
     transform:
       rotate(2deg)
-      translateY(6px)
-      translateX(-3px);
+      translateY(5px);
   }
 
 }
-
-
-/* MOVIMIENTO SUAVE IZQUIERDO */
 
 @keyframes respirarIzquierda {
 
-  0% {
+  from {
     transform:
       rotate(0deg)
-      translateY(0)
-      translateX(0);
+      translateY(0);
   }
 
-  50% {
-    transform:
-      rotate(-1deg)
-      translateY(-2px)
-      translateX(1px);
-  }
-
-  100% {
+  to {
     transform:
       rotate(-1.8deg)
-      translateY(-5px)
-      translateX(2px);
+      translateY(-4px);
   }
 
 }
 
+@keyframes respirarScroll {
+
+  from {
+    transform:
+      rotate(-0.7deg)
+      translateY(0);
+  }
+
+  to {
+    transform:
+      rotate(0.8deg)
+      translateY(4px);
+  }
+
+}
 
 @keyframes flotarFlecha {
 
@@ -2767,7 +2860,6 @@ select {
 
 }
 
-
 @keyframes fotoBaja {
 
   from {
@@ -2781,7 +2873,6 @@ select {
   }
 
 }
-
 
 @keyframes fotoSube {
 
@@ -2813,17 +2904,12 @@ select {
     letter-spacing: -1px;
   }
 
-
-  /* RAMAS MÓVIL */
-
   .floral-arriba-derecha {
     width: 180px;
     height: 390px;
 
     top: -30px;
     right: -75px;
-
-    opacity: 0.72;
   }
 
   .floral-abajo-izquierda {
@@ -2832,8 +2918,33 @@ select {
 
     bottom: -35px;
     left: -75px;
+  }
 
-    opacity: 0.72;
+
+  /* BOTÁNICA MÓVIL */
+
+  .scroll-botanical {
+    opacity: 0.55;
+  }
+
+  .botanica-contador-izq,
+  .botanica-dress-izq,
+  .botanica-regalos-izq,
+  .botanica-rsvp-izq {
+    width: 155px;
+    height: 330px;
+
+    left: -72px;
+  }
+
+  .botanica-contador-der,
+  .botanica-dress-der,
+  .botanica-regalos-der,
+  .botanica-rsvp-der {
+    width: 145px;
+    height: 315px;
+
+    right: -70px;
   }
 
 
@@ -2897,7 +3008,7 @@ select {
   }
 
 
-  /* DRESS CODE */
+  /* DRESS */
 
   .dress-seccion {
     height: auto;
@@ -2989,12 +3100,7 @@ select {
 }
 
 
-/* =====================================================
-   ACCESIBILIDAD
-===================================================== */
-
-@media
-(prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
 
   * {
     animation-duration:
@@ -3032,385 +3138,84 @@ select {
   <div class="linea-vertical linea-derecha"></div>
 
 
-  <!-- ===================================================
-       RAMA DERECHA
-  ==================================================== -->
+  <!-- RAMA DERECHA PORTADA -->
 
-  <div
-    class="floral floral-arriba-derecha"
-  >
+  <div class="floral floral-arriba-derecha">
 
     <svg
       viewBox="0 0 280 620"
       xmlns="http://www.w3.org/2000/svg"
     >
 
-      <!-- TALLO PRINCIPAL -->
-
       <path
         class="tallo"
         d="
         M262 0
-        C245 70,
-        232 130,
-        217 185
-        C197 260,
-        174 322,
-        143 392
-        C115 455,
-        84 525,
-        44 620
+        C245 70 232 130 217 185
+        C197 260 174 322 143 392
+        C115 455 84 525 44 620
         "
       />
 
+      <path class="rama rama-1" d="M231 132 C205 118 186 97 172 73" />
+      <path class="rama rama-2" d="M214 198 C240 178 254 154 262 126" />
+      <path class="rama rama-3" d="M190 282 C160 260 139 236 124 205" />
+      <path class="rama rama-4" d="M163 348 C193 332 216 306 228 275" />
+      <path class="rama rama-5" d="M124 438 C94 418 74 394 58 365" />
+      <path class="rama rama-6" d="M86 522 C111 509 130 489 145 462" />
 
-      <!-- RAMITAS -->
-
-      <path
-        class="rama rama-1"
-        d="
-        M231 132
-        C205 118,
-        186 97,
-        172 73
-        "
-      />
-
-      <path
-        class="rama rama-2"
-        d="
-        M214 198
-        C240 178,
-        254 154,
-        262 126
-        "
-      />
-
-      <path
-        class="rama rama-3"
-        d="
-        M190 282
-        C160 260,
-        139 236,
-        124 205
-        "
-      />
-
-      <path
-        class="rama rama-4"
-        d="
-        M163 348
-        C193 332,
-        216 306,
-        228 275
-        "
-      />
-
-      <path
-        class="rama rama-5"
-        d="
-        M124 438
-        C94 418,
-        74 394,
-        58 365
-        "
-      />
-
-      <path
-        class="rama rama-6"
-        d="
-        M86 522
-        C111 509,
-        130 489,
-        145 462
-        "
-      />
-
-
-      <!-- HOJAS -->
-
-      <ellipse
-        class="hoja hoja-1"
-        cx="182"
-        cy="88"
-        rx="9"
-        ry="21"
-        transform="rotate(-42 182 88)"
-      />
-
-      <ellipse
-        class="hoja hoja-2"
-        cx="216"
-        cy="122"
-        rx="10"
-        ry="23"
-        transform="rotate(32 216 122)"
-      />
-
-      <ellipse
-        class="hoja hoja-3"
-        cx="248"
-        cy="160"
-        rx="9"
-        ry="20"
-        transform="rotate(38 248 160)"
-      />
-
-      <ellipse
-        class="hoja hoja-4"
-        cx="145"
-        cy="246"
-        rx="11"
-        ry="25"
-        transform="rotate(-48 145 246)"
-      />
-
-      <ellipse
-        class="hoja hoja-5"
-        cx="213"
-        cy="305"
-        rx="11"
-        ry="24"
-        transform="rotate(40 213 305)"
-      />
-
-      <ellipse
-        class="hoja hoja-6"
-        cx="178"
-        cy="343"
-        rx="9"
-        ry="21"
-        transform="rotate(32 178 343)"
-      />
-
-      <ellipse
-        class="hoja hoja-7"
-        cx="79"
-        cy="397"
-        rx="11"
-        ry="25"
-        transform="rotate(-48 79 397)"
-      />
-
-      <ellipse
-        class="hoja hoja-8"
-        cx="126"
-        cy="447"
-        rx="10"
-        ry="23"
-        transform="rotate(-35 126 447)"
-      />
-
-      <ellipse
-        class="hoja hoja-9"
-        cx="128"
-        cy="488"
-        rx="10"
-        ry="22"
-        transform="rotate(40 128 488)"
-      />
-
-      <ellipse
-        class="hoja hoja-10"
-        cx="68"
-        cy="548"
-        rx="9"
-        ry="21"
-        transform="rotate(-38 68 548)"
-      />
-
+      <ellipse class="hoja hoja-1" cx="182" cy="88" rx="9" ry="21" transform="rotate(-42 182 88)" />
+      <ellipse class="hoja hoja-2" cx="216" cy="122" rx="10" ry="23" transform="rotate(32 216 122)" />
+      <ellipse class="hoja hoja-3" cx="248" cy="160" rx="9" ry="20" transform="rotate(38 248 160)" />
+      <ellipse class="hoja hoja-4" cx="145" cy="246" rx="11" ry="25" transform="rotate(-48 145 246)" />
+      <ellipse class="hoja hoja-5" cx="213" cy="305" rx="11" ry="24" transform="rotate(40 213 305)" />
+      <ellipse class="hoja hoja-6" cx="178" cy="343" rx="9" ry="21" transform="rotate(32 178 343)" />
+      <ellipse class="hoja hoja-7" cx="79" cy="397" rx="11" ry="25" transform="rotate(-48 79 397)" />
+      <ellipse class="hoja hoja-8" cx="126" cy="447" rx="10" ry="23" transform="rotate(-35 126 447)" />
+      <ellipse class="hoja hoja-9" cx="128" cy="488" rx="10" ry="22" transform="rotate(40 128 488)" />
+      <ellipse class="hoja hoja-10" cx="68" cy="548" rx="9" ry="21" transform="rotate(-38 68 548)" />
 
     </svg>
 
   </div>
 
 
-  <!-- ===================================================
-       RAMA IZQUIERDA
-  ==================================================== -->
+  <!-- RAMA IZQUIERDA PORTADA -->
 
-  <div
-    class="floral floral-abajo-izquierda"
-  >
+  <div class="floral floral-abajo-izquierda">
 
     <svg
       viewBox="0 0 280 620"
       xmlns="http://www.w3.org/2000/svg"
     >
 
-      <!-- TALLO PRINCIPAL -->
-
       <path
         class="tallo"
         d="
         M18 620
-        C40 545,
-        58 485,
-        75 430
-        C97 360,
-        120 300,
-        145 240
-        C170 178,
-        197 110,
-        235 0
+        C40 545 58 485 75 430
+        C97 360 120 300 145 240
+        C170 178 197 110 235 0
         "
       />
 
+      <path class="rama rama-1" d="M58 487 C30 470 16 447 8 420" />
+      <path class="rama rama-2" d="M79 419 C108 402 127 378 140 349" />
+      <path class="rama rama-3" d="M111 328 C79 306 58 281 45 250" />
+      <path class="rama rama-4" d="M145 241 C174 224 193 201 206 172" />
+      <path class="rama rama-5" d="M179 155 C150 134 132 111 120 83" />
+      <path class="rama rama-6" d="M205 82 C226 67 240 48 250 26" />
 
-      <!-- RAMITAS -->
-
-      <path
-        class="rama rama-1"
-        d="
-        M58 487
-        C30 470,
-        16 447,
-        8 420
-        "
-      />
-
-      <path
-        class="rama rama-2"
-        d="
-        M79 419
-        C108 402,
-        127 378,
-        140 349
-        "
-      />
-
-      <path
-        class="rama rama-3"
-        d="
-        M111 328
-        C79 306,
-        58 281,
-        45 250
-        "
-      />
-
-      <path
-        class="rama rama-4"
-        d="
-        M145 241
-        C174 224,
-        193 201,
-        206 172
-        "
-      />
-
-      <path
-        class="rama rama-5"
-        d="
-        M179 155
-        C150 134,
-        132 111,
-        120 83
-        "
-      />
-
-      <path
-        class="rama rama-6"
-        d="
-        M205 82
-        C226 67,
-        240 48,
-        250 26
-        "
-      />
-
-
-      <!-- HOJAS -->
-
-      <ellipse
-        class="hoja hoja-1"
-        cx="23"
-        cy="438"
-        rx="10"
-        ry="23"
-        transform="rotate(-38 23 438)"
-      />
-
-      <ellipse
-        class="hoja hoja-2"
-        cx="98"
-        cy="396"
-        rx="11"
-        ry="24"
-        transform="rotate(40 98 396)"
-      />
-
-      <ellipse
-        class="hoja hoja-3"
-        cx="124"
-        cy="362"
-        rx="9"
-        ry="20"
-        transform="rotate(36 124 362)"
-      />
-
-      <ellipse
-        class="hoja hoja-4"
-        cx="65"
-        cy="283"
-        rx="11"
-        ry="25"
-        transform="rotate(-46 65 283)"
-      />
-
-      <ellipse
-        class="hoja hoja-5"
-        cx="180"
-        cy="210"
-        rx="10"
-        ry="23"
-        transform="rotate(38 180 210)"
-      />
-
-      <ellipse
-        class="hoja hoja-6"
-        cx="154"
-        cy="153"
-        rx="10"
-        ry="22"
-        transform="rotate(-42 154 153)"
-      />
-
-      <ellipse
-        class="hoja hoja-7"
-        cx="130"
-        cy="110"
-        rx="9"
-        ry="21"
-        transform="rotate(-42 130 110)"
-      />
-
-      <ellipse
-        class="hoja hoja-8"
-        cx="221"
-        cy="63"
-        rx="10"
-        ry="23"
-        transform="rotate(37 221 63)"
-      />
-
-      <ellipse
-        class="hoja hoja-9"
-        cx="244"
-        cy="38"
-        rx="8"
-        ry="18"
-        transform="rotate(31 244 38)"
-      />
-
-      <ellipse
-        class="hoja hoja-10"
-        cx="44"
-        cy="522"
-        rx="10"
-        ry="22"
-        transform="rotate(-35 44 522)"
-      />
+      <ellipse class="hoja hoja-1" cx="23" cy="438" rx="10" ry="23" transform="rotate(-38 23 438)" />
+      <ellipse class="hoja hoja-2" cx="98" cy="396" rx="11" ry="24" transform="rotate(40 98 396)" />
+      <ellipse class="hoja hoja-3" cx="124" cy="362" rx="9" ry="20" transform="rotate(36 124 362)" />
+      <ellipse class="hoja hoja-4" cx="65" cy="283" rx="11" ry="25" transform="rotate(-46 65 283)" />
+      <ellipse class="hoja hoja-5" cx="180" cy="210" rx="10" ry="23" transform="rotate(38 180 210)" />
+      <ellipse class="hoja hoja-6" cx="154" cy="153" rx="10" ry="22" transform="rotate(-42 154 153)" />
+      <ellipse class="hoja hoja-7" cx="130" cy="110" rx="9" ry="21" transform="rotate(-42 130 110)" />
+      <ellipse class="hoja hoja-8" cx="221" cy="63" rx="10" ry="23" transform="rotate(37 221 63)" />
+      <ellipse class="hoja hoja-9" cx="244" cy="38" rx="8" ry="18" transform="rotate(31 244 38)" />
+      <ellipse class="hoja hoja-10" cx="44" cy="522" rx="10" ry="22" transform="rotate(-35 44 522)" />
 
     </svg>
 
@@ -3419,13 +3224,9 @@ select {
 
   <div class="contenido">
 
-
     <div class="sobrelinea">
-
       Nos casamos
-
     </div>
-
 
     <h1 class="nombres">
 
@@ -3439,53 +3240,35 @@ select {
 
     </h1>
 
-
     <div class="separador"></div>
 
-
     <div id="cargando">
-
       Preparando tu invitación...
-
     </div>
-
 
     <div id="contenidoInvitado">
 
-
       <div class="texto-invitacion">
-
         Invitación especial para
-
       </div>
-
 
       <div id="nombreInvitado"></div>
 
-
       <div id="cupos"></div>
-
 
       <button
         class="boton"
         id="abrirInvitacion"
         type="button"
       >
-
         ABRIR INVITACIÓN
-
       </button>
 
-
       <div class="detalle-inferior">
-
         Nuestra historia comienza aquí
-
       </div>
 
-
     </div>
-
 
     <div id="error">
 
@@ -3496,7 +3279,6 @@ select {
       Revisa que hayas abierto el enlace correcto.
 
     </div>
-
 
   </div>
 
@@ -3514,28 +3296,16 @@ select {
 
   <div class="segunda-contenido">
 
-
     <div class="segunda-nombres">
-
       Carolina & Alexander
-
     </div>
-
 
     <div class="ramita-central">
 
-      <svg
-        viewBox="0 0 100 70"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 100 70">
 
         <path
-          d="
-          M50 65
-          C46 48,
-          43 34,
-          45 10
-          "
+          d="M50 65 C46 48 43 34 45 10"
           fill="none"
           stroke="currentColor"
           stroke-width="1.5"
@@ -3545,7 +3315,6 @@ select {
 
     </div>
 
-
     <blockquote class="versiculo">
 
       “Y sobre todas estas cosas,
@@ -3554,37 +3323,23 @@ select {
 
     </blockquote>
 
-
     <div class="referencia">
-
       Colosenses 3:14
-
     </div>
-
 
     <div class="linea-fecha"></div>
 
-
     <div class="fecha-boda">
-
       14 · 11 · 2026
-
     </div>
-
 
     <div class="desliza">
-
       Desliza para continuar
-
     </div>
-
 
     <div class="flecha">
-
       ↓
-
     </div>
-
 
   </div>
 
@@ -3596,36 +3351,89 @@ select {
 ====================================================== -->
 
 <section
-  class="tercera-seccion"
+  class="tercera-seccion scroll-section"
   id="cuentaRegresiva"
 >
 
+
+  <!-- BOTÁNICA IZQUIERDA -->
+
+  <div class="scroll-botanical botanica-contador-izq">
+
+    <svg viewBox="0 0 260 540">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M20 540
+        C42 472 58 420 78 360
+        C98 300 126 240 151 180
+        C177 119 198 68 226 10
+        "
+      />
+
+      <path class="scroll-rama" d="M61 410 C35 396 20 372 12 345" />
+      <path class="scroll-rama" d="M90 327 C118 314 137 294 150 267" />
+      <path class="scroll-rama" d="M122 249 C96 232 78 210 65 182" />
+      <path class="scroll-rama" d="M161 159 C187 145 205 123 216 99" />
+
+      <ellipse class="scroll-hoja" data-start="0.18" cx="28" cy="382" rx="10" ry="23" transform="rotate(-42 28 382)" />
+      <ellipse class="scroll-hoja" data-start="0.28" cx="119" cy="301" rx="10" ry="22" transform="rotate(38 119 301)" />
+      <ellipse class="scroll-hoja" data-start="0.39" cx="82" cy="213" rx="10" ry="23" transform="rotate(-45 82 213)" />
+      <ellipse class="scroll-hoja" data-start="0.50" cx="195" cy="131" rx="10" ry="22" transform="rotate(38 195 131)" />
+      <ellipse class="scroll-hoja" data-start="0.62" cx="177" cy="111" rx="8" ry="18" transform="rotate(-35 177 111)" />
+      <ellipse class="scroll-hoja" data-start="0.72" cx="218" cy="59" rx="9" ry="20" transform="rotate(35 218 59)" />
+
+    </svg>
+
+  </div>
+
+
+  <!-- BOTÁNICA DERECHA -->
+
+  <div class="scroll-botanical botanica-contador-der">
+
+    <svg viewBox="0 0 250 500">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M235 0
+        C218 58 200 115 185 169
+        C164 237 139 298 111 357
+        C87 407 61 454 25 500
+        "
+      />
+
+      <path class="scroll-rama" d="M202 113 C176 95 160 76 150 53" />
+      <path class="scroll-rama" d="M171 216 C198 199 216 179 228 154" />
+      <path class="scroll-rama" d="M128 324 C103 306 87 286 76 262" />
+
+      <ellipse class="scroll-hoja" data-start="0.18" cx="167" cy="82" rx="9" ry="21" transform="rotate(-42 167 82)" />
+      <ellipse class="scroll-hoja" data-start="0.34" cx="207" cy="181" rx="10" ry="22" transform="rotate(40 207 181)" />
+      <ellipse class="scroll-hoja" data-start="0.50" cx="95" cy="290" rx="10" ry="23" transform="rotate(-42 95 290)" />
+      <ellipse class="scroll-hoja" data-start="0.65" cx="73" cy="403" rx="9" ry="21" transform="rotate(-38 73 403)" />
+
+    </svg>
+
+  </div>
+
+
   <div class="tercera-contenido">
 
-
     <div class="tercera-etiqueta">
-
       La espera casi termina
-
     </div>
-
 
     <h2 class="tercera-titulo">
-
       Faltan
-
     </h2>
 
-
     <div class="tercera-subtitulo">
-
       para celebrar nuestro amor
-
     </div>
 
-
     <div class="contador">
-
 
       <div class="contador-item">
 
@@ -3642,7 +3450,6 @@ select {
 
       </div>
 
-
       <div class="contador-item">
 
         <span
@@ -3657,7 +3464,6 @@ select {
         </span>
 
       </div>
-
 
       <div class="contador-item">
 
@@ -3674,7 +3480,6 @@ select {
 
       </div>
 
-
       <div class="contador-item">
 
         <span
@@ -3690,26 +3495,17 @@ select {
 
       </div>
 
-
     </div>
-
 
     <div class="contador-separador"></div>
 
-
     <div class="gran-dia">
-
       para nuestro gran día
-
     </div>
-
 
     <div class="fecha-pequena">
-
       14 de noviembre de 2026
-
     </div>
-
 
   </div>
 
@@ -3725,13 +3521,7 @@ select {
   id="eventoSeccion"
 >
 
-
-  <div
-    class="
-      evento-foto
-      evento-foto-izquierda
-    "
-  >
+  <div class="evento-foto evento-foto-izquierda">
 
     <img
       src="F1.jpeg"
@@ -3740,13 +3530,7 @@ select {
 
   </div>
 
-
-  <div
-    class="
-      evento-foto
-      evento-foto-derecha
-    "
-  >
+  <div class="evento-foto evento-foto-derecha">
 
     <img
       src="F2.jpeg"
@@ -3755,9 +3539,7 @@ select {
 
   </div>
 
-
   <div class="evento-centro">
-
 
     <div class="evento-logo-marco">
 
@@ -3769,51 +3551,31 @@ select {
 
     </div>
 
-
     <div class="evento-etiqueta">
-
       Aquí celebraremos nuestro sí
-
     </div>
-
 
     <h2 class="evento-titulo">
-
       Karla Ramírez
-
     </h2>
 
-
     <div class="evento-subtitulo">
-
       Event Studio · La Solé
-
     </div>
-
 
     <div class="evento-linea"></div>
 
-
     <div class="evento-tipo">
-
       Ceremonia & Recepción
-
     </div>
-
 
     <div class="evento-hora">
-
       16:30
-
     </div>
-
 
     <div class="evento-hora-label">
-
       Hora de la ceremonia
-
     </div>
-
 
     <div class="evento-direccion">
 
@@ -3825,28 +3587,20 @@ select {
 
     </div>
 
-
     <a
       class="evento-boton"
       href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
       target="_blank"
       rel="noopener noreferrer"
     >
-
       ◇ &nbsp; CÓMO LLEGAR
-
     </a>
 
-
     <div class="evento-nota">
-
       14 · 11 · 2026
-
     </div>
 
-
   </div>
-
 
 </section>
 
@@ -3856,49 +3610,92 @@ select {
 ====================================================== -->
 
 <section
-  class="dress-seccion"
+  class="dress-seccion scroll-section"
   id="dressSeccion"
 >
 
+
+  <div class="scroll-botanical botanica-dress-izq">
+
+    <svg viewBox="0 0 250 500">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M18 500
+        C38 440 61 382 82 320
+        C105 255 130 197 153 144
+        C177 88 199 45 225 5
+        "
+      />
+
+      <path class="scroll-rama" d="M62 382 C35 366 20 345 13 321" />
+      <path class="scroll-rama" d="M99 273 C128 256 148 235 159 207" />
+      <path class="scroll-rama" d="M143 167 C114 149 96 129 83 102" />
+
+      <ellipse class="scroll-hoja" data-start="0.18" cx="28" cy="348" rx="10" ry="23" transform="rotate(-40 28 348)" />
+      <ellipse class="scroll-hoja" data-start="0.31" cx="136" cy="239" rx="10" ry="23" transform="rotate(39 136 239)" />
+      <ellipse class="scroll-hoja" data-start="0.45" cx="101" cy="132" rx="10" ry="22" transform="rotate(-43 101 132)" />
+      <ellipse class="scroll-hoja" data-start="0.59" cx="181" cy="94" rx="9" ry="20" transform="rotate(37 181 94)" />
+      <ellipse class="scroll-hoja" data-start="0.72" cx="211" cy="40" rx="8" ry="18" transform="rotate(34 211 40)" />
+
+    </svg>
+
+  </div>
+
+
+  <div class="scroll-botanical botanica-dress-der">
+
+    <svg viewBox="0 0 250 500">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M233 0
+        C215 62 198 119 180 174
+        C159 239 138 301 109 361
+        C84 412 58 459 21 500
+        "
+      />
+
+      <path class="scroll-rama" d="M201 105 C176 89 158 69 149 46" />
+      <path class="scroll-rama" d="M164 230 C192 213 211 192 223 166" />
+      <path class="scroll-rama" d="M112 358 C87 339 70 316 60 290" />
+
+      <ellipse class="scroll-hoja" data-start="0.18" cx="167" cy="76" rx="9" ry="20" transform="rotate(-40 167 76)" />
+      <ellipse class="scroll-hoja" data-start="0.34" cx="202" cy="196" rx="10" ry="22" transform="rotate(39 202 196)" />
+      <ellipse class="scroll-hoja" data-start="0.51" cx="79" cy="323" rx="10" ry="23" transform="rotate(-42 79 323)" />
+      <ellipse class="scroll-hoja" data-start="0.67" cx="58" cy="415" rx="9" ry="20" transform="rotate(-35 58 415)" />
+
+    </svg>
+
+  </div>
+
+
   <div class="dress-contenido">
 
-
     <div class="dress-etiqueta">
-
       Código de vestimenta
-
     </div>
-
 
     <h2 class="dress-titulo">
-
       Dress Code
-
     </h2>
 
-
     <div class="dress-formal">
-
       Elegante / Formal
-
     </div>
 
-
     <div class="dress-linea"></div>
-
 
     <div class="dress-opciones">
 
 
       <div class="dress-item">
 
-
         <div class="dress-icono">
 
-          <svg
-            viewBox="0 0 120 150"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg viewBox="0 0 120 150">
 
             <g
               fill="none"
@@ -3909,11 +3706,8 @@ select {
             >
 
               <path d="M42 15 L60 30 L78 15" />
-
               <path d="M42 15 L25 31 L15 135" />
-
               <path d="M78 15 L95 31 L105 135" />
-
               <path d="M15 135 L105 135" />
 
             </g>
@@ -3922,33 +3716,22 @@ select {
 
         </div>
 
-
         <div class="dress-genero">
-
           Caballeros
-
         </div>
-
 
         <div class="dress-descripcion">
-
           Traje formal
-
         </div>
-
 
       </div>
 
 
       <div class="dress-item">
 
-
         <div class="dress-icono">
 
-          <svg
-            viewBox="0 0 120 150"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg viewBox="0 0 120 150">
 
             <g
               fill="none"
@@ -3961,39 +3744,29 @@ select {
               <path
                 d="
                 M46 12
-                C47 25,
-                50 35,
-                60 40
-                C70 35,
-                73 25,
-                74 12
+                C47 25 50 35 60 40
+                C70 35 73 25 74 12
                 "
               />
 
               <path
                 d="
                 M43 60
-                C35 83,
-                25 110,
-                15 137
+                C35 83 25 110 15 137
                 "
               />
 
               <path
                 d="
                 M77 60
-                C85 83,
-                95 110,
-                105 137
+                C85 83 95 110 105 137
                 "
               />
 
               <path
                 d="
                 M15 137
-                C40 143,
-                80 143,
-                105 137
+                C40 143 80 143 105 137
                 "
               />
 
@@ -4003,36 +3776,24 @@ select {
 
         </div>
 
-
         <div class="dress-genero">
-
           Damas
-
         </div>
-
 
         <div class="dress-descripcion">
-
           Vestido largo o midi elegante
-
         </div>
 
-
       </div>
-
 
     </div>
 
 
     <div class="reservados">
 
-
       <div class="reservados-titulo">
-
         Colores reservados para los novios
-
       </div>
-
 
       <div class="paleta-reservada">
 
@@ -4043,7 +3804,6 @@ select {
         <div class="color-reservado color-beige"></div>
 
       </div>
-
 
       <div class="reservados-texto">
 
@@ -4057,9 +3817,7 @@ select {
 
       </div>
 
-
     </div>
-
 
   </div>
 
@@ -4071,31 +3829,82 @@ select {
 ====================================================== -->
 
 <section
-  class="regalos-seccion"
+  class="regalos-seccion scroll-section"
   id="regalosSeccion"
 >
 
-  <div class="regalos-contenido">
 
+  <div class="scroll-botanical botanica-regalos-izq">
+
+    <svg viewBox="0 0 260 540">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M18 540
+        C38 474 58 420 79 362
+        C101 300 126 240 151 182
+        C176 123 199 70 229 8
+        "
+      />
+
+      <path class="scroll-rama" d="M57 424 C31 406 17 383 10 357" />
+      <path class="scroll-rama" d="M94 325 C121 308 140 285 152 258" />
+      <path class="scroll-rama" d="M128 239 C101 222 81 199 69 171" />
+      <path class="scroll-rama" d="M174 127 C198 113 215 93 225 70" />
+
+      <ellipse class="scroll-hoja" data-start="0.16" cx="28" cy="393" rx="10" ry="23" transform="rotate(-41 28 393)" />
+      <ellipse class="scroll-hoja" data-start="0.29" cx="123" cy="292" rx="10" ry="22" transform="rotate(39 123 292)" />
+      <ellipse class="scroll-hoja" data-start="0.42" cx="87" cy="202" rx="10" ry="23" transform="rotate(-43 87 202)" />
+      <ellipse class="scroll-hoja" data-start="0.55" cx="199" cy="101" rx="9" ry="21" transform="rotate(36 199 101)" />
+      <ellipse class="scroll-hoja" data-start="0.69" cx="219" cy="50" rx="8" ry="18" transform="rotate(32 219 50)" />
+
+    </svg>
+
+  </div>
+
+
+  <div class="scroll-botanical botanica-regalos-der">
+
+    <svg viewBox="0 0 255 520">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M240 0
+        C219 63 203 119 187 175
+        C165 245 143 307 114 366
+        C89 419 60 469 24 520
+        "
+      />
+
+      <path class="scroll-rama" d="M205 115 C178 97 162 77 152 53" />
+      <path class="scroll-rama" d="M172 229 C199 211 216 190 228 163" />
+      <path class="scroll-rama" d="M116 364 C90 347 73 324 61 297" />
+
+      <ellipse class="scroll-hoja" data-start="0.18" cx="170" cy="82" rx="9" ry="21" transform="rotate(-41 170 82)" />
+      <ellipse class="scroll-hoja" data-start="0.34" cx="205" cy="194" rx="10" ry="22" transform="rotate(38 205 194)" />
+      <ellipse class="scroll-hoja" data-start="0.51" cx="80" cy="329" rx="10" ry="23" transform="rotate(-42 80 329)" />
+      <ellipse class="scroll-hoja" data-start="0.67" cx="59" cy="424" rx="9" ry="21" transform="rotate(-37 59 424)" />
+
+    </svg>
+
+  </div>
+
+
+  <div class="regalos-contenido">
 
     <div class="regalos-icono">
       ♡
     </div>
 
-
     <div class="regalos-etiqueta">
-
       Un detalle para nosotros
-
     </div>
 
-
     <h2 class="regalos-titulo">
-
       Regalos
-
     </h2>
-
 
     <div class="regalos-texto">
 
@@ -4105,13 +3914,10 @@ select {
 
     </div>
 
-
     <div class="regalos-linea"></div>
-
 
     <div class="bancos-preview">
 
-
       <div class="banco-preview">
 
         <div class="banco-icono">
@@ -4119,19 +3925,14 @@ select {
         </div>
 
         <div class="banco-preview-nombre">
-
           Banco Pichincha
-
         </div>
 
         <div class="banco-preview-titular">
-
           Carolina Pricila González Almeida
-
         </div>
 
       </div>
-
 
       <div class="banco-preview">
 
@@ -4140,40 +3941,28 @@ select {
         </div>
 
         <div class="banco-preview-nombre">
-
           Banco Guayaquil
-
         </div>
 
         <div class="banco-preview-titular">
-
           Darling Alexander Mendoza Pérez
-
         </div>
 
       </div>
-
 
     </div>
-
 
     <button
       class="regalos-boton"
       type="button"
       id="abrirBancos"
     >
-
       VER DATOS PARA TRANSFERENCIA
-
     </button>
 
-
     <div class="regalos-nota">
-
       Gracias por acompañarnos en este nuevo capítulo
-
     </div>
-
 
   </div>
 
@@ -4185,38 +3974,86 @@ select {
 ====================================================== -->
 
 <section
-  class="rsvp-seccion"
+  class="rsvp-seccion scroll-section"
   id="rsvpSeccion"
 >
 
-  <div class="rsvp-contenido">
 
+  <div class="scroll-botanical botanica-rsvp-izq">
+
+    <svg viewBox="0 0 255 535">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M18 535
+        C38 470 59 414 78 358
+        C102 292 127 235 151 178
+        C176 120 199 66 229 7
+        "
+      />
+
+      <path class="scroll-rama" d="M58 416 C31 399 17 378 10 350" />
+      <path class="scroll-rama" d="M95 320 C123 304 142 282 153 255" />
+      <path class="scroll-rama" d="M130 232 C102 214 83 192 70 164" />
+      <path class="scroll-rama" d="M173 129 C199 114 216 94 226 70" />
+
+      <ellipse class="scroll-hoja" data-start="0.17" cx="28" cy="386" rx="10" ry="23" transform="rotate(-42 28 386)" />
+      <ellipse class="scroll-hoja" data-start="0.31" cx="124" cy="290" rx="10" ry="22" transform="rotate(38 124 290)" />
+      <ellipse class="scroll-hoja" data-start="0.44" cx="88" cy="196" rx="10" ry="23" transform="rotate(-43 88 196)" />
+      <ellipse class="scroll-hoja" data-start="0.57" cx="198" cy="102" rx="9" ry="21" transform="rotate(37 198 102)" />
+      <ellipse class="scroll-hoja" data-start="0.71" cx="217" cy="51" rx="8" ry="18" transform="rotate(31 217 51)" />
+
+    </svg>
+
+  </div>
+
+
+  <div class="scroll-botanical botanica-rsvp-der">
+
+    <svg viewBox="0 0 250 520">
+
+      <path
+        class="scroll-tallo"
+        d="
+        M238 0
+        C220 62 203 118 186 174
+        C164 241 142 306 114 365
+        C88 418 60 469 22 520
+        "
+      />
+
+      <path class="scroll-rama" d="M204 112 C179 96 160 76 151 52" />
+      <path class="scroll-rama" d="M171 228 C198 210 217 189 228 162" />
+      <path class="scroll-rama" d="M116 364 C90 346 72 324 60 297" />
+
+      <ellipse class="scroll-hoja" data-start="0.19" cx="168" cy="80" rx="9" ry="21" transform="rotate(-41 168 80)" />
+      <ellipse class="scroll-hoja" data-start="0.35" cx="205" cy="193" rx="10" ry="22" transform="rotate(39 205 193)" />
+      <ellipse class="scroll-hoja" data-start="0.52" cx="79" cy="329" rx="10" ry="23" transform="rotate(-42 79 329)" />
+      <ellipse class="scroll-hoja" data-start="0.68" cx="57" cy="422" rx="9" ry="20" transform="rotate(-36 57 422)" />
+
+    </svg>
+
+  </div>
+
+
+  <div class="rsvp-contenido">
 
     <div class="rsvp-icono">
       ♡
     </div>
 
-
     <div class="rsvp-etiqueta">
-
       Nuestro gran día
-
     </div>
-
 
     <h2 class="rsvp-titulo">
-
       Confirma tu asistencia
-
     </h2>
 
-
     <div class="rsvp-subtitulo">
-
       Nos encantará compartir este momento contigo.
-
     </div>
-
 
     <div class="rsvp-linea"></div>
 
@@ -4226,57 +4063,41 @@ select {
       id="rsvpPanel"
     >
 
-
       <div class="rsvp-invitado-label">
-
         Invitación para
-
       </div>
-
 
       <div
         class="rsvp-invitado"
         id="rsvpNombre"
       ></div>
 
-
       <div
         class="rsvp-cupos"
         id="rsvpCupos"
       ></div>
 
-
       <div class="rsvp-pregunta">
-
         ¿Nos acompañarás?
-
       </div>
 
-
       <div class="rsvp-opciones">
-
 
         <button
           type="button"
           class="rsvp-opcion"
           id="rsvpSi"
         >
-
           Sí, asistiré
-
         </button>
-
 
         <button
           type="button"
           class="rsvp-opcion"
           id="rsvpNo"
         >
-
           No podré asistir
-
         </button>
-
 
       </div>
 
@@ -4286,25 +4107,19 @@ select {
         id="rsvpDetalles"
       >
 
-
         <div class="asistentes-label">
-
           ¿Cuántas personas asistirán?
-
         </div>
-
 
         <div
           class="asistentes-selector"
           id="asistentesSelector"
         ></div>
 
-
         <div
           class="acompanantes-contenedor"
           id="acompanantesContenedor"
         ></div>
-
 
       </div>
 
@@ -4320,11 +4135,8 @@ select {
         type="button"
         id="rsvpConfirmar"
       >
-
         CONFIRMAR ASISTENCIA
-
       </button>
-
 
     </div>
 
@@ -4334,7 +4146,6 @@ select {
       id="rsvpResultado"
     >
 
-
       <div
         class="rsvp-resultado-icono"
         id="rsvpResultadoIcono"
@@ -4342,32 +4153,25 @@ select {
         ♡
       </div>
 
-
       <div
         class="rsvp-resultado-titulo"
         id="rsvpResultadoTitulo"
       ></div>
-
 
       <div
         class="rsvp-resultado-texto"
         id="rsvpResultadoTexto"
       ></div>
 
-
       <button
         class="rsvp-modificar"
         id="rsvpModificar"
         type="button"
       >
-
         MODIFICAR RESPUESTA
-
       </button>
 
-
     </div>
-
 
   </div>
 
@@ -4385,7 +4189,6 @@ select {
 
   <div class="modal-caja">
 
-
     <button
       class="modal-cerrar"
       id="cerrarModalBancos"
@@ -4394,18 +4197,13 @@ select {
       ×
     </button>
 
-
     <div class="modal-icono">
       🔒
     </div>
 
-
     <h3 class="modal-titulo">
-
       Datos para transferencia
-
     </h3>
-
 
     <div class="modal-texto">
 
@@ -4415,12 +4213,10 @@ select {
 
     </div>
 
-
     <div
       class="pin-contenedor"
       id="pinContenedor"
     >
-
 
       <input
         type="password"
@@ -4432,38 +4228,30 @@ select {
         placeholder="••••"
       >
 
-
       <button
         class="pin-boton"
         id="verificarPin"
         type="button"
       >
-
         VER DATOS
-
       </button>
-
 
       <div
         class="pin-error"
         id="pinError"
       ></div>
 
-
     </div>
 
 
     <div id="datosBancarios">
-
 
       <div
         class="datos-bancos-grid"
         id="datosBancosGrid"
       ></div>
 
-
     </div>
-
 
   </div>
 
@@ -4495,10 +4283,410 @@ let cantidadAsistentes = 1;
 
 
 /* =====================================================
+   PREPARAR RAMAS CONTROLADAS POR SCROLL
+===================================================== */
+
+function prepararBotanicasScroll() {
+
+  const botanicas =
+    document.querySelectorAll(
+      ".scroll-botanical"
+    );
+
+
+  botanicas.forEach(
+    function (botanica) {
+
+
+      const caminos =
+        botanica.querySelectorAll(
+          ".scroll-tallo, .scroll-rama"
+        );
+
+
+      caminos.forEach(
+        function (camino) {
+
+
+          const longitud =
+            camino.getTotalLength();
+
+
+          camino.dataset.longitud =
+            longitud;
+
+
+          camino.style.strokeDasharray =
+            longitud;
+
+
+          camino.style.strokeDashoffset =
+            longitud;
+
+
+        }
+      );
+
+
+      const hojas =
+        botanica.querySelectorAll(
+          ".scroll-hoja"
+        );
+
+
+      hojas.forEach(
+        function (hoja) {
+
+
+          hoja.style.opacity =
+            "0";
+
+
+          hoja.style.transform =
+            "scale(0.05)";
+
+
+        }
+      );
+
+
+    }
+  );
+
+
+}
+
+
+/* =====================================================
+   PROGRESO DE SECCIÓN
+===================================================== */
+
+function obtenerProgresoSeccion(
+  seccion
+) {
+
+
+  const rect =
+    seccion.getBoundingClientRect();
+
+
+  const viewport =
+    window.innerHeight;
+
+
+  /*
+     Empieza a crecer cuando la sección
+     entra por la parte inferior.
+
+     Termina aproximadamente cuando
+     la sección llega al centro.
+  */
+
+
+  const inicio =
+    viewport * 0.92;
+
+
+  const final =
+    viewport * 0.12;
+
+
+  let progreso =
+    (
+      inicio -
+      rect.top
+    ) /
+    (
+      inicio -
+      final
+    );
+
+
+  progreso =
+    Math.max(
+      0,
+      Math.min(
+        1,
+        progreso
+      )
+    );
+
+
+  return progreso;
+
+}
+
+
+/* =====================================================
+   ACTUALIZAR RAMAS CON SCROLL
+===================================================== */
+
+function actualizarBotanicasScroll() {
+
+
+  const secciones =
+    document.querySelectorAll(
+      ".scroll-section"
+    );
+
+
+  secciones.forEach(
+    function (seccion) {
+
+
+      if (
+        getComputedStyle(seccion)
+          .display === "none"
+      ) {
+
+        return;
+
+      }
+
+
+      const progreso =
+        obtenerProgresoSeccion(
+          seccion
+        );
+
+
+      const botanicas =
+        seccion.querySelectorAll(
+          ".scroll-botanical"
+        );
+
+
+      botanicas.forEach(
+        function (botanica) {
+
+
+          const tallos =
+            botanica.querySelectorAll(
+              ".scroll-tallo"
+            );
+
+
+          tallos.forEach(
+            function (tallo) {
+
+
+              const longitud =
+                Number(
+                  tallo.dataset.longitud
+                );
+
+
+              tallo.style.strokeDashoffset =
+                longitud *
+                (
+                  1 -
+                  progreso
+                );
+
+
+            }
+          );
+
+
+          const ramas =
+            botanica.querySelectorAll(
+              ".scroll-rama"
+            );
+
+
+          ramas.forEach(
+            function (
+              rama,
+              indice
+            ) {
+
+
+              const longitud =
+                Number(
+                  rama.dataset.longitud
+                );
+
+
+              const comienzo =
+                0.13 +
+                (
+                  indice *
+                  0.10
+                );
+
+
+              const progresoRama =
+                Math.max(
+                  0,
+                  Math.min(
+                    1,
+                    (
+                      progreso -
+                      comienzo
+                    ) /
+                    0.36
+                  )
+                );
+
+
+              rama.style.strokeDashoffset =
+                longitud *
+                (
+                  1 -
+                  progresoRama
+                );
+
+
+            }
+          );
+
+
+          const hojas =
+            botanica.querySelectorAll(
+              ".scroll-hoja"
+            );
+
+
+          hojas.forEach(
+            function (hoja) {
+
+
+              const inicioHoja =
+                Number(
+                  hoja.dataset.start ||
+                  0.3
+                );
+
+
+              const progresoHoja =
+                Math.max(
+                  0,
+                  Math.min(
+                    1,
+                    (
+                      progreso -
+                      inicioHoja
+                    ) /
+                    0.16
+                  )
+                );
+
+
+              hoja.style.opacity =
+                progresoHoja *
+                0.88;
+
+
+              const escala =
+                0.05 +
+                (
+                  progresoHoja *
+                  0.95
+                );
+
+
+              hoja.style.transform =
+                "scale(" +
+                escala +
+                ")";
+
+
+            }
+          );
+
+
+          if (
+            progreso >= 0.99
+          ) {
+
+            botanica
+              .classList
+              .add(
+                "terminada"
+              );
+
+          } else {
+
+            botanica
+              .classList
+              .remove(
+                "terminada"
+              );
+
+          }
+
+
+        }
+      );
+
+
+    }
+  );
+
+
+}
+
+
+/* =====================================================
+   OPTIMIZAR SCROLL
+===================================================== */
+
+let scrollPendiente =
+  false;
+
+
+window.addEventListener(
+  "scroll",
+  function () {
+
+
+    if (
+      scrollPendiente
+    ) {
+
+      return;
+
+    }
+
+
+    scrollPendiente =
+      true;
+
+
+    requestAnimationFrame(
+      function () {
+
+
+        actualizarBotanicasScroll();
+
+
+        scrollPendiente =
+          false;
+
+
+      }
+    );
+
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+window.addEventListener(
+  "resize",
+  actualizarBotanicasScroll
+);
+
+
+/* =====================================================
    CARGAR INVITADO
 ===================================================== */
 
 function cargarInvitado() {
+
 
   if (!codigo) {
 
@@ -4533,7 +4721,9 @@ function cargarInvitado() {
     };
 
 
-  document.body.appendChild(script);
+  document.body.appendChild(
+    script
+  );
 
 }
 
@@ -4544,7 +4734,11 @@ function cargarInvitado() {
 
 function recibirInvitado(datos) {
 
-  if (!datos || !datos.ok) {
+
+  if (
+    !datos ||
+    !datos.ok
+  ) {
 
     mostrarError();
 
@@ -4553,11 +4747,14 @@ function recibirInvitado(datos) {
   }
 
 
-  invitadoActual = datos;
+  invitadoActual =
+    datos;
 
 
   document
-    .getElementById("nombreInvitado")
+    .getElementById(
+      "nombreInvitado"
+    )
     .textContent =
     datos.invitado;
 
@@ -4565,7 +4762,11 @@ function recibirInvitado(datos) {
   let mensajeCupos;
 
 
-  if (Number(datos.cupos) === 1) {
+  if (
+    Number(
+      datos.cupos
+    ) === 1
+  ) {
 
     mensajeCupos =
       "Hemos reservado 1 lugar para ti";
@@ -4581,31 +4782,41 @@ function recibirInvitado(datos) {
 
 
   document
-    .getElementById("cupos")
+    .getElementById(
+      "cupos"
+    )
     .textContent =
     mensajeCupos;
 
 
   document
-    .getElementById("rsvpNombre")
+    .getElementById(
+      "rsvpNombre"
+    )
     .textContent =
     datos.invitado;
 
 
   document
-    .getElementById("rsvpCupos")
+    .getElementById(
+      "rsvpCupos"
+    )
     .textContent =
     mensajeCupos;
 
 
   document
-    .getElementById("cargando")
+    .getElementById(
+      "cargando"
+    )
     .style.display =
     "none";
 
 
   document
-    .getElementById("contenidoInvitado")
+    .getElementById(
+      "contenidoInvitado"
+    )
     .style.display =
     "block";
 
@@ -4621,20 +4832,27 @@ function recibirInvitado(datos) {
 
 function mostrarError() {
 
+
   document
-    .getElementById("cargando")
+    .getElementById(
+      "cargando"
+    )
     .style.display =
     "none";
 
 
   document
-    .getElementById("contenidoInvitado")
+    .getElementById(
+      "contenidoInvitado"
+    )
     .style.display =
     "none";
 
 
   document
-    .getElementById("error")
+    .getElementById(
+      "error"
+    )
     .style.display =
     "block";
 
@@ -4646,7 +4864,9 @@ function mostrarError() {
 ===================================================== */
 
 document
-  .getElementById("abrirInvitacion")
+  .getElementById(
+    "abrirInvitacion"
+  )
   .addEventListener(
     "click",
     function () {
@@ -4660,7 +4880,9 @@ document
 
       portada
         .classList
-        .add("saliendo");
+        .add(
+          "saliendo"
+        );
 
 
       setTimeout(
@@ -4672,37 +4894,49 @@ document
 
 
           document
-            .getElementById("segundaSeccion")
+            .getElementById(
+              "segundaSeccion"
+            )
             .style.display =
             "flex";
 
 
           document
-            .getElementById("cuentaRegresiva")
+            .getElementById(
+              "cuentaRegresiva"
+            )
             .style.display =
             "flex";
 
 
           document
-            .getElementById("eventoSeccion")
+            .getElementById(
+              "eventoSeccion"
+            )
             .style.display =
             "block";
 
 
           document
-            .getElementById("dressSeccion")
+            .getElementById(
+              "dressSeccion"
+            )
             .style.display =
             "flex";
 
 
           document
-            .getElementById("regalosSeccion")
+            .getElementById(
+              "regalosSeccion"
+            )
             .style.display =
             "flex";
 
 
           document
-            .getElementById("rsvpSeccion")
+            .getElementById(
+              "rsvpSeccion"
+            )
             .style.display =
             "flex";
 
@@ -4710,10 +4944,21 @@ document
           setTimeout(
             function () {
 
+
               document
-                .getElementById("segundaSeccion")
+                .getElementById(
+                  "segundaSeccion"
+                )
                 .classList
-                .add("visible");
+                .add(
+                  "visible"
+                );
+
+
+              prepararBotanicasScroll();
+
+              actualizarBotanicasScroll();
+
 
             },
             50
@@ -4740,35 +4985,51 @@ document
 ===================================================== */
 
 const rsvpSi =
-  document.getElementById("rsvpSi");
+  document.getElementById(
+    "rsvpSi"
+  );
 
 
 const rsvpNo =
-  document.getElementById("rsvpNo");
+  document.getElementById(
+    "rsvpNo"
+  );
 
 
 const rsvpDetalles =
-  document.getElementById("rsvpDetalles");
+  document.getElementById(
+    "rsvpDetalles"
+  );
 
 
 const rsvpConfirmar =
-  document.getElementById("rsvpConfirmar");
+  document.getElementById(
+    "rsvpConfirmar"
+  );
 
 
 const rsvpMensaje =
-  document.getElementById("rsvpMensaje");
+  document.getElementById(
+    "rsvpMensaje"
+  );
 
 
 function prepararRSVP() {
 
-  if (!invitadoActual) {
+
+  if (
+    !invitadoActual
+  ) {
+
     return;
+
   }
 
 
   const estado =
     String(
-      invitadoActual.estado || ""
+      invitadoActual.estado ||
+      ""
     )
     .trim()
     .toUpperCase();
@@ -4792,21 +5053,29 @@ function prepararRSVP() {
 
 function mostrarFormularioRSVP() {
 
+
   document
-    .getElementById("rsvpPanel")
+    .getElementById(
+      "rsvpPanel"
+    )
     .style.display =
     "block";
 
 
   document
-    .getElementById("rsvpResultado")
+    .getElementById(
+      "rsvpResultado"
+    )
     .style.display =
     "none";
 
 
-  respuestaRSVP = "";
+  respuestaRSVP =
+    "";
 
-  cantidadAsistentes = 1;
+
+  cantidadAsistentes =
+    1;
 
 
   rsvpSi.classList.remove(
@@ -4841,21 +5110,29 @@ function mostrarFormularioRSVP() {
 }
 
 
+/* SÍ */
+
 rsvpSi.addEventListener(
   "click",
   function () {
 
-    respuestaRSVP = "SI";
+
+    respuestaRSVP =
+      "SI";
 
 
     rsvpSi
       .classList
-      .add("seleccionado");
+      .add(
+        "seleccionado"
+      );
 
 
     rsvpNo
       .classList
-      .remove("seleccionado");
+      .remove(
+        "seleccionado"
+      );
 
 
     rsvpDetalles.style.display =
@@ -4872,25 +5149,34 @@ rsvpSi.addEventListener(
 
     crearSelectorAsistentes();
 
+
   }
 );
 
+
+/* NO */
 
 rsvpNo.addEventListener(
   "click",
   function () {
 
-    respuestaRSVP = "NO";
+
+    respuestaRSVP =
+      "NO";
 
 
     rsvpNo
       .classList
-      .add("seleccionado");
+      .add(
+        "seleccionado"
+      );
 
 
     rsvpSi
       .classList
-      .remove("seleccionado");
+      .remove(
+        "seleccionado"
+      );
 
 
     rsvpDetalles.style.display =
@@ -4904,11 +5190,17 @@ rsvpNo.addEventListener(
     rsvpMensaje.textContent =
       "";
 
+
   }
 );
 
 
+/* =====================================================
+   SELECTOR ASISTENTES
+===================================================== */
+
 function crearSelectorAsistentes() {
+
 
   const selector =
     document.getElementById(
@@ -4932,6 +5224,7 @@ function crearSelectorAsistentes() {
     i++
   ) {
 
+
     const boton =
       document.createElement(
         "button"
@@ -4950,11 +5243,16 @@ function crearSelectorAsistentes() {
       i;
 
 
-    if (i === cantidadAsistentes) {
+    if (
+      i ===
+      cantidadAsistentes
+    ) {
 
       boton
         .classList
-        .add("seleccionado");
+        .add(
+          "seleccionado"
+        );
 
     }
 
@@ -4962,6 +5260,7 @@ function crearSelectorAsistentes() {
     boton.addEventListener(
       "click",
       function () {
+
 
         cantidadAsistentes =
           i;
@@ -4971,6 +5270,7 @@ function crearSelectorAsistentes() {
 
         crearCamposAcompanantes();
 
+
       }
     );
 
@@ -4978,6 +5278,7 @@ function crearSelectorAsistentes() {
     selector.appendChild(
       boton
     );
+
 
   }
 
@@ -4987,7 +5288,12 @@ function crearSelectorAsistentes() {
 }
 
 
+/* =====================================================
+   CAMPOS ACOMPAÑANTES
+===================================================== */
+
 function crearCamposAcompanantes() {
+
 
   const contenedor =
     document.getElementById(
@@ -4999,15 +5305,17 @@ function crearCamposAcompanantes() {
     "";
 
 
-  const cantidadAcompanantes =
-    cantidadAsistentes - 1;
+  const cantidad =
+    cantidadAsistentes -
+    1;
 
 
   for (
     let i = 1;
-    i <= cantidadAcompanantes;
+    i <= cantidad;
     i++
   ) {
+
 
     const input =
       document.createElement(
@@ -5028,18 +5336,19 @@ function crearCamposAcompanantes() {
       i;
 
 
-    input.dataset.indice =
-      i;
-
-
     contenedor.appendChild(
       input
     );
+
 
   }
 
 }
 
+
+/* =====================================================
+   GUARDAR RSVP
+===================================================== */
 
 rsvpConfirmar.addEventListener(
   "click",
@@ -5049,7 +5358,10 @@ rsvpConfirmar.addEventListener(
 
 function guardarRSVP() {
 
-  if (!respuestaRSVP) {
+
+  if (
+    !respuestaRSVP
+  ) {
 
     rsvpMensaje.textContent =
       "Selecciona una respuesta.";
@@ -5064,8 +5376,10 @@ function guardarRSVP() {
 
 
   if (
-    respuestaRSVP === "SI"
+    respuestaRSVP ===
+    "SI"
   ) {
+
 
     const campos =
       document.querySelectorAll(
@@ -5080,13 +5394,17 @@ function guardarRSVP() {
     campos.forEach(
       function (campo) {
 
+
         const nombre =
           campo.value.trim();
 
 
-        if (!nombre) {
+        if (
+          !nombre
+        ) {
 
-          incompleto = true;
+          incompleto =
+            true;
 
         } else {
 
@@ -5096,11 +5414,14 @@ function guardarRSVP() {
 
         }
 
+
       }
     );
 
 
-    if (incompleto) {
+    if (
+      incompleto
+    ) {
 
       rsvpMensaje.textContent =
         "Por favor escribe el nombre completo de cada acompañante.";
@@ -5108,6 +5429,7 @@ function guardarRSVP() {
       return;
 
     }
+
 
   }
 
@@ -5130,7 +5452,9 @@ function guardarRSVP() {
     API_URL +
     "?accion=confirmar" +
     "&codigo=" +
-    encodeURIComponent(codigo) +
+    encodeURIComponent(
+      codigo
+    ) +
     "&respuesta=" +
     encodeURIComponent(
       respuestaRSVP
@@ -5138,8 +5462,10 @@ function guardarRSVP() {
 
 
   if (
-    respuestaRSVP === "SI"
+    respuestaRSVP ===
+    "SI"
   ) {
+
 
     url +=
       "&asisten=" +
@@ -5154,11 +5480,14 @@ function guardarRSVP() {
         acompanantes.join("|")
       );
 
+
   } else {
+
 
     url +=
       "&asisten=0" +
       "&acompanantes=";
+
 
   }
 
@@ -5176,12 +5505,14 @@ function guardarRSVP() {
   script.onerror =
     function () {
 
+
       rsvpConfirmar.disabled =
         false;
 
 
       rsvpMensaje.textContent =
         "No pudimos guardar tu respuesta. Intenta nuevamente.";
+
 
     };
 
@@ -5193,7 +5524,14 @@ function guardarRSVP() {
 }
 
 
-function recibirConfirmacion(datos) {
+/* =====================================================
+   RESPUESTA RSVP
+===================================================== */
+
+function recibirConfirmacion(
+  datos
+) {
+
 
   rsvpConfirmar.disabled =
     false;
@@ -5204,10 +5542,13 @@ function recibirConfirmacion(datos) {
     !datos.ok
   ) {
 
+
     rsvpMensaje.textContent =
-      datos && datos.mensaje
+      datos &&
+      datos.mensaje
         ? datos.mensaje
         : "No pudimos guardar tu respuesta.";
+
 
     return;
 
@@ -5236,10 +5577,17 @@ function recibirConfirmacion(datos) {
 }
 
 
+/* =====================================================
+   RESPUESTA GUARDADA
+===================================================== */
+
 function mostrarRespuestaGuardada() {
 
+
   document
-    .getElementById("rsvpPanel")
+    .getElementById(
+      "rsvpPanel"
+    )
     .style.display =
     "none";
 
@@ -5274,14 +5622,17 @@ function mostrarRespuestaGuardada() {
 
   const estado =
     String(
-      invitadoActual.estado || ""
+      invitadoActual.estado ||
+      ""
     )
     .toUpperCase();
 
 
   if (
-    estado === "CONFIRMADO"
+    estado ===
+    "CONFIRMADO"
   ) {
+
 
     icono.textContent =
       "✓";
@@ -5299,7 +5650,10 @@ function mostrarRespuestaGuardada() {
       );
 
 
-    if (cantidad === 1) {
+    if (
+      cantidad ===
+      1
+    ) {
 
       texto.textContent =
         "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
@@ -5313,7 +5667,9 @@ function mostrarRespuestaGuardada() {
 
     }
 
+
   } else {
+
 
     icono.textContent =
       "♡";
@@ -5326,25 +5682,34 @@ function mostrarRespuestaGuardada() {
     texto.textContent =
       "Hemos registrado que no podrás acompañarnos. Gracias por formar parte de nuestra historia.";
 
+
   }
 
 }
 
 
+/* =====================================================
+   MODIFICAR RSVP
+===================================================== */
+
 document
-  .getElementById("rsvpModificar")
+  .getElementById(
+    "rsvpModificar"
+  )
   .addEventListener(
     "click",
     function () {
 
+
       mostrarFormularioRSVP();
+
 
     }
   );
 
 
 /* =====================================================
-   MODAL BANCARIO
+   MODAL BANCOS
 ===================================================== */
 
 const modalBancos =
@@ -5378,14 +5743,19 @@ const datosBancarios =
 
 
 document
-  .getElementById("abrirBancos")
+  .getElementById(
+    "abrirBancos"
+  )
   .addEventListener(
     "click",
     function () {
 
+
       modalBancos
         .classList
-        .add("activo");
+        .add(
+          "activo"
+        );
 
 
       pinInput.value =
@@ -5407,11 +5777,14 @@ document
       setTimeout(
         function () {
 
+
           pinInput.focus();
+
 
         },
         100
       );
+
 
     }
   );
@@ -5431,14 +5804,18 @@ modalBancos.addEventListener(
   "click",
   function (event) {
 
+
     if (
       event.target ===
       modalBancos
     ) {
 
+
       cerrarModalBancos();
 
+
     }
+
 
   }
 );
@@ -5446,19 +5823,24 @@ modalBancos.addEventListener(
 
 function cerrarModalBancos() {
 
+
   modalBancos
     .classList
-    .remove("activo");
+    .remove(
+      "activo"
+    );
 
 }
 
 
 /* =====================================================
-   VERIFICAR PIN
+   PIN BANCOS
 ===================================================== */
 
 document
-  .getElementById("verificarPin")
+  .getElementById(
+    "verificarPin"
+  )
   .addEventListener(
     "click",
     verificarPinBancos
@@ -5469,13 +5851,18 @@ pinInput.addEventListener(
   "keydown",
   function (event) {
 
+
     if (
-      event.key === "Enter"
+      event.key ===
+      "Enter"
     ) {
+
 
       verificarPinBancos();
 
+
     }
+
 
   }
 );
@@ -5483,16 +5870,20 @@ pinInput.addEventListener(
 
 function verificarPinBancos() {
 
+
   const pin =
     pinInput.value.trim();
 
 
   if (
-    pin.length !== 4
+    pin.length !==
+    4
   ) {
+
 
     pinError.textContent =
       "Ingresa el código de 4 dígitos.";
+
 
     return;
 
@@ -5513,9 +5904,13 @@ function verificarPinBancos() {
     API_URL +
     "?accion=bancos" +
     "&codigo=" +
-    encodeURIComponent(codigo) +
+    encodeURIComponent(
+      codigo
+    ) +
     "&pin=" +
-    encodeURIComponent(pin) +
+    encodeURIComponent(
+      pin
+    ) +
     "&callback=recibirBancos" +
     "&t=" +
     Date.now();
@@ -5524,8 +5919,10 @@ function verificarPinBancos() {
   script.onerror =
     function () {
 
+
       pinError.textContent =
         "No pudimos consultar los datos.";
+
 
     };
 
@@ -5537,15 +5934,24 @@ function verificarPinBancos() {
 }
 
 
-function recibirBancos(datos) {
+/* =====================================================
+   BANCOS
+===================================================== */
+
+function recibirBancos(
+  datos
+) {
+
 
   if (
     !datos ||
     !datos.ok
   ) {
 
+
     pinError.textContent =
       "Código incorrecto.";
+
 
     return;
 
@@ -5567,7 +5973,10 @@ function recibirBancos(datos) {
 }
 
 
-function mostrarDatosBancarios(bancos) {
+function mostrarDatosBancarios(
+  bancos
+) {
+
 
   const grid =
     document.getElementById(
@@ -5654,6 +6063,7 @@ function mostrarDatosBancarios(bancos) {
         tarjeta
       );
 
+
     }
   );
 
@@ -5664,15 +6074,23 @@ function mostrarDatosBancarios(bancos) {
 }
 
 
+/* =====================================================
+   COPIAR
+===================================================== */
+
 function copiarTexto(
   texto,
   boton
 ) {
 
+
   navigator.clipboard
-    .writeText(texto)
+    .writeText(
+      texto
+    )
     .then(
       function () {
+
 
         const original =
           boton.textContent;
@@ -5685,12 +6103,15 @@ function copiarTexto(
         setTimeout(
           function () {
 
+
             boton.textContent =
               original;
+
 
           },
           1500
         );
+
 
       }
     );
@@ -5710,6 +6131,7 @@ const fechaBoda =
 
 function actualizarContador() {
 
+
   const ahora =
     new Date();
 
@@ -5720,10 +6142,14 @@ function actualizarContador() {
 
 
   if (
-    diferencia <= 0
+    diferencia <=
+    0
   ) {
 
-    diferencia = 0;
+
+    diferencia =
+      0;
+
 
   }
 
@@ -5766,7 +6192,9 @@ function actualizarContador() {
 
 
   document
-    .getElementById("dias")
+    .getElementById(
+      "dias"
+    )
     .textContent =
     String(dias)
       .padStart(
@@ -5776,7 +6204,9 @@ function actualizarContador() {
 
 
   document
-    .getElementById("horas")
+    .getElementById(
+      "horas"
+    )
     .textContent =
     String(horas)
       .padStart(
@@ -5786,7 +6216,9 @@ function actualizarContador() {
 
 
   document
-    .getElementById("minutos")
+    .getElementById(
+      "minutos"
+    )
     .textContent =
     String(minutos)
       .padStart(
@@ -5796,13 +6228,16 @@ function actualizarContador() {
 
 
   document
-    .getElementById("segundos")
+    .getElementById(
+      "segundos"
+    )
     .textContent =
     String(segundos)
       .padStart(
         2,
         "0"
       );
+
 
 }
 
@@ -5815,6 +6250,10 @@ setInterval(
   1000
 );
 
+
+/* =====================================================
+   INICIO
+===================================================== */
 
 cargarInvitado();
 
