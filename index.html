@@ -8,6 +8,11 @@
   <title>Carolina & Alexander</title>
 
   <style>
+
+    /* =========================================
+       CONFIGURACIÓN GENERAL
+    ========================================= */
+
     * {
       box-sizing: border-box;
     }
@@ -19,206 +24,429 @@
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at top right, rgba(191, 111, 78, 0.12), transparent 32%),
-        radial-gradient(circle at bottom left, rgba(191, 111, 78, 0.10), transparent 28%),
-        #f7f1eb;
+      background: #f7f1eb;
       color: #4b342a;
       overflow-x: hidden;
     }
 
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
     .portada {
       min-height: 100vh;
       position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 22px;
+
+      padding: 50px 22px;
+
       text-align: center;
       overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(190, 102, 67, 0.13),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at bottom left,
+          rgba(190, 102, 67, 0.12),
+          transparent 32%
+        ),
+
+        #f7f1eb;
     }
 
-    .detalle {
+
+    /* =========================================
+       MANCHAS SUAVES TERRACOTA
+    ========================================= */
+
+    .mancha {
       position: absolute;
       border-radius: 50%;
-      filter: blur(1px);
-      opacity: 0.55;
       pointer-events: none;
+      z-index: 0;
     }
 
-    .detalle-1 {
-      width: 260px;
-      height: 260px;
-      background: rgba(181, 92, 58, 0.12);
-      top: -90px;
-      right: -70px;
+    .mancha-arriba {
+      width: 420px;
+      height: 420px;
+
+      top: -220px;
+      right: -180px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(190, 102, 67, 0.13),
+          rgba(190, 102, 67, 0.04) 60%,
+          transparent 72%
+        );
     }
 
-    .detalle-2 {
-      width: 330px;
-      height: 330px;
-      background: rgba(154, 80, 52, 0.10);
-      bottom: -140px;
-      left: -100px;
+    .mancha-abajo {
+      width: 470px;
+      height: 470px;
+
+      bottom: -260px;
+      left: -210px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(167, 83, 52, 0.14),
+          rgba(190, 102, 67, 0.04) 60%,
+          transparent 72%
+        );
     }
+
+
+    /* =========================================
+       LÍNEAS LATERALES
+    ========================================= */
 
     .linea-vertical {
       position: absolute;
-      top: 0;
-      bottom: 0;
+
+      top: 5%;
+      bottom: 5%;
+
       width: 1px;
-      background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(151, 83, 56, 0.22),
-        transparent
-      );
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(155, 82, 53, 0.22),
+          transparent
+        );
+
+      z-index: 1;
     }
 
-    .linea-izq {
+    .linea-izquierda {
       left: 7%;
     }
 
-    .linea-der {
+    .linea-derecha {
       right: 7%;
     }
 
+
+    /* =========================================
+       DECORACIÓN BOTÁNICA
+    ========================================= */
+
+    .floral {
+      position: absolute;
+
+      color: #ad5939;
+
+      pointer-events: none;
+
+      z-index: 1;
+
+      opacity: 0.72;
+    }
+
+    .floral svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+
+    /* RAMA SUPERIOR DERECHA */
+
+    .floral-arriba-derecha {
+      width: 300px;
+      height: 520px;
+
+      top: -40px;
+      right: -25px;
+
+      transform: rotate(2deg);
+    }
+
+
+    /* RAMA INFERIOR IZQUIERDA */
+
+    .floral-abajo-izquierda {
+      width: 280px;
+      height: 500px;
+
+      bottom: -50px;
+      left: -35px;
+
+      transform: rotate(-3deg);
+    }
+
+
+    /* =========================================
+       CONTENIDO CENTRAL
+    ========================================= */
+
     .contenido {
       width: 100%;
-      max-width: 720px;
+      max-width: 760px;
+
       position: relative;
-      z-index: 2;
-      animation: aparecer 1.1s ease forwards;
+
+      z-index: 5;
+
+      animation: aparecer 1.2s ease forwards;
     }
+
+
+    /* NOS CASAMOS */
 
     .sobrelinea {
       font-family: Arial, sans-serif;
+
       font-size: 12px;
+
       letter-spacing: 6px;
+
       text-transform: uppercase;
+
       color: #a45c3f;
-      margin-bottom: 26px;
+
+      margin-bottom: 28px;
     }
+
+
+    /* =========================================
+       NOMBRES
+    ========================================= */
 
     .nombres {
       margin: 0;
-      font-size: clamp(48px, 9vw, 90px);
+
+      font-size: clamp(52px, 8vw, 92px);
+
       font-weight: 400;
+
       line-height: 0.95;
+
       letter-spacing: -2px;
-      color: #7f422e;
+
+      color: #85452f;
     }
 
     .ampersand {
       display: block;
-      font-size: 0.54em;
+
+      font-size: 0.53em;
+
       font-style: italic;
-      margin: 14px 0 10px;
-      color: #bc6a47;
+
+      margin: 13px 0 11px;
+
+      color: #bc6947;
     }
 
+
+    /* =========================================
+       SEPARADOR
+    ========================================= */
+
     .separador {
-      width: 110px;
+      width: 120px;
       height: 1px;
-      background: rgba(155, 82, 53, 0.45);
-      margin: 34px auto;
+
+      margin: 37px auto;
+
       position: relative;
+
+      background:
+        rgba(166, 86, 55, 0.48);
     }
 
     .separador::after {
       content: "♥";
+
       position: absolute;
+
       left: 50%;
       top: 50%;
+
       transform: translate(-50%, -50%);
+
       background: #f7f1eb;
-      padding: 0 12px;
-      color: #b65e3c;
-      font-size: 12px;
+
+      padding: 0 13px;
+
+      color: #b75f3d;
+
+      font-size: 11px;
     }
+
+
+    /* =========================================
+       INVITADO
+    ========================================= */
 
     .texto-invitacion {
       font-family: Arial, sans-serif;
+
       font-size: 11px;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
-      color: #9a7362;
-      margin-bottom: 14px;
+
+      color: #a77b68;
+
+      margin-bottom: 15px;
     }
 
     #nombreInvitado {
-      font-size: clamp(30px, 5vw, 44px);
-      margin: 0;
-      color: #4f3429;
+      font-size: clamp(31px, 5vw, 46px);
+
       line-height: 1.15;
+
+      color: #4f3429;
+
+      margin: 0;
     }
 
     #cupos {
-      margin-top: 16px;
+      margin-top: 17px;
+
       font-family: Arial, sans-serif;
+
       font-size: 15px;
+
       line-height: 1.6;
+
       color: #6d554a;
     }
 
+
+    /* =========================================
+       CARGANDO
+    ========================================= */
+
     #cargando {
       font-family: Arial, sans-serif;
+
       font-size: 14px;
+
       color: #8a6a5d;
+
       margin-top: 28px;
     }
 
     #contenidoInvitado {
       display: none;
-      margin-top: 34px;
     }
+
+
+    /* =========================================
+       ERROR
+    ========================================= */
 
     #error {
       display: none;
+
       font-family: Arial, sans-serif;
+
       max-width: 420px;
+
       margin: 30px auto 0;
+
       line-height: 1.7;
+
       color: #7b5140;
     }
 
+
+    /* =========================================
+       BOTÓN
+    ========================================= */
+
     .boton {
       margin-top: 34px;
-      min-width: 220px;
-      padding: 16px 28px;
-      border: 1px solid rgba(255,255,255,0.25);
+
+      min-width: 235px;
+
+      padding: 17px 31px;
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+
       border-radius: 999px;
-      background: linear-gradient(135deg, #bb6745, #94452d);
+
+      background:
+        linear-gradient(
+          135deg,
+          #c16a46,
+          #a54e31
+        );
+
       color: white;
+
       font-family: Arial, sans-serif;
-      font-size: 13px;
-      letter-spacing: 2px;
+
+      font-size: 12px;
+
+      letter-spacing: 2.4px;
+
       cursor: pointer;
-      box-shadow: 0 14px 30px rgba(117, 62, 42, 0.18);
+
+      box-shadow:
+        0 15px 35px
+        rgba(117, 62, 42, 0.20);
+
       transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .boton:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 35px rgba(117, 62, 42, 0.24);
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 19px 38px
+        rgba(117, 62, 42, 0.27);
     }
 
     .boton:active {
       transform: translateY(0);
     }
 
+
+    /* =========================================
+       TEXTO INFERIOR
+    ========================================= */
+
     .detalle-inferior {
-      margin-top: 35px;
+      margin-top: 38px;
+
       font-family: Arial, sans-serif;
+
       font-size: 10px;
+
       letter-spacing: 4px;
+
       color: #b07a66;
+
       text-transform: uppercase;
     }
 
+
+    /* =========================================
+       ANIMACIONES
+    ========================================= */
+
     @keyframes aparecer {
+
       from {
         opacity: 0;
         transform: translateY(18px);
@@ -228,120 +456,594 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
+
+    /* Movimiento muy sutil de las ramas */
+
+    .floral-arriba-derecha {
+      animation:
+        moverRamaDerecha
+        8s ease-in-out infinite alternate;
+    }
+
+    .floral-abajo-izquierda {
+      animation:
+        moverRamaIzquierda
+        9s ease-in-out infinite alternate;
+    }
+
+    @keyframes moverRamaDerecha {
+
+      from {
+        transform:
+          rotate(2deg)
+          translateY(0);
+      }
+
+      to {
+        transform:
+          rotate(4deg)
+          translateY(6px);
+      }
+
+    }
+
+    @keyframes moverRamaIzquierda {
+
+      from {
+        transform:
+          rotate(-3deg)
+          translateY(0);
+      }
+
+      to {
+        transform:
+          rotate(-1deg)
+          translateY(-5px);
+      }
+
+    }
+
+
+    /* =========================================
+       CELULARES
+    ========================================= */
+
     @media (max-width: 600px) {
+
       .portada {
-        padding: 34px 20px;
+        padding:
+          45px
+          22px
+          55px;
       }
 
       .sobrelinea {
-        letter-spacing: 4px;
         font-size: 10px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 25px;
       }
 
       .nombres {
         letter-spacing: -1px;
       }
 
-      .linea-izq {
+      .linea-izquierda {
         left: 4%;
       }
 
-      .linea-der {
+      .linea-derecha {
         right: 4%;
+      }
+
+      .floral-arriba-derecha {
+        width: 175px;
+        height: 330px;
+
+        right: -55px;
+        top: -25px;
+
+        opacity: 0.55;
+      }
+
+      .floral-abajo-izquierda {
+        width: 175px;
+        height: 330px;
+
+        left: -55px;
+        bottom: -40px;
+
+        opacity: 0.55;
       }
 
       .boton {
         width: 100%;
-        max-width: 320px;
+
+        max-width: 310px;
       }
+
+      .detalle-inferior {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
   <section class="portada">
 
-    <div class="detalle detalle-1"></div>
-    <div class="detalle detalle-2"></div>
 
-    <div class="linea-vertical linea-izq"></div>
-    <div class="linea-vertical linea-der"></div>
+    <!-- MANCHAS TERRACOTA -->
+
+    <div class="mancha mancha-arriba"></div>
+
+    <div class="mancha mancha-abajo"></div>
+
+
+    <!-- LÍNEAS DECORATIVAS -->
+
+    <div class="linea-vertical linea-izquierda"></div>
+
+    <div class="linea-vertical linea-derecha"></div>
+
+
+    <!-- =====================================
+         RAMA SUPERIOR DERECHA
+    ====================================== -->
+
+    <div class="floral floral-arriba-derecha">
+
+      <svg
+        viewBox="0 0 240 450"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <!-- RAMA PRINCIPAL -->
+
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round">
+
+          <path
+            d="
+            M210 0
+            C195 70,
+            175 130,
+            162 195
+            C145 275,
+            105 350,
+            55 450
+            "
+          />
+
+          <path
+            d="
+            M183 100
+            C205 82,
+            220 58,
+            230 30
+            "
+          />
+
+          <path
+            d="
+            M170 145
+            C140 125,
+            112 100,
+            90 65
+            "
+          />
+
+          <path
+            d="
+            M157 195
+            C190 176,
+            215 150,
+            230 120
+            "
+          />
+
+          <path
+            d="
+            M140 255
+            C108 235,
+            82 205,
+            62 170
+            "
+          />
+
+          <path
+            d="
+            M115 320
+            C145 305,
+            175 275,
+            195 240
+            "
+          />
+
+          <path
+            d="
+            M88 380
+            C62 360,
+            40 330,
+            25 295
+            "
+          />
+
+        </g>
+
+
+        <!-- HOJAS -->
+
+        <g
+          fill="currentColor"
+          opacity="0.45">
+
+          <ellipse
+            cx="215"
+            cy="58"
+            rx="11"
+            ry="28"
+            transform="rotate(38 215 58)"
+          />
+
+          <ellipse
+            cx="112"
+            cy="100"
+            rx="12"
+            ry="30"
+            transform="rotate(-42 112 100)"
+          />
+
+          <ellipse
+            cx="205"
+            cy="153"
+            rx="12"
+            ry="30"
+            transform="rotate(42 205 153)"
+          />
+
+          <ellipse
+            cx="86"
+            cy="215"
+            rx="12"
+            ry="29"
+            transform="rotate(-43 86 215)"
+          />
+
+          <ellipse
+            cx="170"
+            cy="282"
+            rx="11"
+            ry="28"
+            transform="rotate(42 170 282)"
+          />
+
+          <ellipse
+            cx="48"
+            cy="342"
+            rx="10"
+            ry="27"
+            transform="rotate(-40 48 342)"
+          />
+
+        </g>
+
+
+        <!-- PEQUEÑOS PUNTOS -->
+
+        <g
+          fill="currentColor"
+          opacity="0.45">
+
+          <circle cx="186" cy="70" r="3"/>
+          <circle cx="198" cy="82" r="2"/>
+          <circle cx="175" cy="92" r="2"/>
+
+          <circle cx="130" cy="230" r="3"/>
+          <circle cx="120" cy="242" r="2"/>
+
+        </g>
+
+      </svg>
+
+    </div>
+
+
+    <!-- =====================================
+         RAMA INFERIOR IZQUIERDA
+    ====================================== -->
+
+    <div class="floral floral-abajo-izquierda">
+
+      <svg
+        viewBox="0 0 240 450"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <!-- RAMA -->
+
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round">
+
+          <path
+            d="
+            M25 450
+            C45 380,
+            68 320,
+            85 250
+            C105 175,
+            145 95,
+            195 0
+            "
+          />
+
+          <path
+            d="
+            M60 350
+            C35 330,
+            18 305,
+            8 275
+            "
+          />
+
+          <path
+            d="
+            M76 300
+            C108 285,
+            135 260,
+            155 230
+            "
+          />
+
+          <path
+            d="
+            M91 245
+            C62 225,
+            40 200,
+            25 170
+            "
+          />
+
+          <path
+            d="
+            M112 185
+            C145 165,
+            170 138,
+            190 105
+            "
+          />
+
+          <path
+            d="
+            M145 115
+            C120 95,
+            100 70,
+            85 40
+            "
+          />
+
+        </g>
+
+
+        <!-- HOJAS -->
+
+        <g
+          fill="currentColor"
+          opacity="0.45">
+
+          <ellipse
+            cx="30"
+            cy="318"
+            rx="11"
+            ry="29"
+            transform="rotate(-40 30 318)"
+          />
+
+          <ellipse
+            cx="130"
+            cy="265"
+            rx="11"
+            ry="28"
+            transform="rotate(40 130 265)"
+          />
+
+          <ellipse
+            cx="52"
+            cy="205"
+            rx="11"
+            ry="28"
+            transform="rotate(-40 52 205)"
+          />
+
+          <ellipse
+            cx="165"
+            cy="145"
+            rx="12"
+            ry="29"
+            transform="rotate(40 165 145)"
+          />
+
+          <ellipse
+            cx="105"
+            cy="80"
+            rx="11"
+            ry="27"
+            transform="rotate(-40 105 80)"
+          />
+
+        </g>
+
+
+        <!-- FLORECITAS -->
+
+        <g
+          fill="currentColor"
+          opacity="0.58">
+
+          <circle cx="45" cy="360" r="4"/>
+          <circle cx="34" cy="350" r="3"/>
+          <circle cx="54" cy="344" r="3"/>
+
+          <circle cx="80" cy="285" r="3"/>
+          <circle cx="68" cy="278" r="2"/>
+          <circle cx="91" cy="273" r="2"/>
+
+        </g>
+
+      </svg>
+
+    </div>
+
+
+    <!-- =====================================
+         CONTENIDO
+    ====================================== -->
 
     <div class="contenido">
+
 
       <div class="sobrelinea">
         Nos casamos
       </div>
 
+
       <h1 class="nombres">
+
         Carolina
-        <span class="ampersand">&</span>
+
+        <span class="ampersand">
+          &
+        </span>
+
         Alexander
+
       </h1>
+
 
       <div class="separador"></div>
 
+
+      <!-- CARGANDO DATOS -->
+
       <div id="cargando">
+
         Preparando tu invitación...
+
       </div>
+
+
+      <!-- DATOS PERSONALIZADOS -->
 
       <div id="contenidoInvitado">
 
+
         <div class="texto-invitacion">
+
           Invitación especial para
+
         </div>
+
 
         <div id="nombreInvitado"></div>
 
+
         <div id="cupos"></div>
+
 
         <button
           class="boton"
           id="abrirInvitacion"
           type="button">
+
           ABRIR INVITACIÓN
+
         </button>
 
+
         <div class="detalle-inferior">
+
           Nuestra historia comienza aquí
+
         </div>
 
+
       </div>
 
+
+      <!-- ERROR -->
+
       <div id="error">
-        No pudimos encontrar esta invitación.<br>
-        Revisa que hayas abierto el enlace correcto.
+
+        No pudimos encontrar esta invitación.
+
+        <br>
+
+        Revisa que hayas abierto
+        el enlace correcto.
+
       </div>
+
 
     </div>
 
+
   </section>
 
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
 
   <script>
 
     const API_URL =
       "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
 
+
     const parametros =
-      new URLSearchParams(window.location.search);
+      new URLSearchParams(
+        window.location.search
+      );
+
 
     const codigo =
       parametros.get("i");
 
 
+    /* ======================================
+       CARGAR INVITADO
+    ====================================== */
+
     function cargarInvitado() {
 
       if (!codigo) {
+
         mostrarError();
+
         return;
+
       }
+
 
       const script =
         document.createElement("script");
+
 
       script.src =
         API_URL +
@@ -351,75 +1053,132 @@
         "&t=" +
         Date.now();
 
+
       script.onerror = function () {
+
         mostrarError();
+
       };
 
+
       document.body.appendChild(script);
+
     }
 
 
+    /* ======================================
+       RECIBIR DATOS
+    ====================================== */
+
     function recibirInvitado(datos) {
 
+
       if (!datos || !datos.ok) {
+
         mostrarError();
+
         return;
+
       }
 
-      document.getElementById("nombreInvitado").textContent =
+
+      document
+        .getElementById("nombreInvitado")
+        .textContent =
         datos.invitado;
 
+
       let mensajeCupos;
+
 
       if (Number(datos.cupos) === 1) {
 
         mensajeCupos =
           "Hemos reservado 1 lugar para ti";
 
-      } else {
+      }
+
+      else {
 
         mensajeCupos =
           "Hemos reservado " +
           datos.cupos +
           " lugares para ti";
+
       }
 
-      document.getElementById("cupos").textContent =
+
+      document
+        .getElementById("cupos")
+        .textContent =
         mensajeCupos;
 
-      document.getElementById("cargando").style.display =
+
+      document
+        .getElementById("cargando")
+        .style.display =
         "none";
 
-      document.getElementById("contenidoInvitado").style.display =
+
+      document
+        .getElementById("contenidoInvitado")
+        .style.display =
         "block";
+
     }
 
+
+    /* ======================================
+       ERROR
+    ====================================== */
 
     function mostrarError() {
 
-      document.getElementById("cargando").style.display =
+
+      document
+        .getElementById("cargando")
+        .style.display =
         "none";
 
-      document.getElementById("contenidoInvitado").style.display =
+
+      document
+        .getElementById("contenidoInvitado")
+        .style.display =
         "none";
 
-      document.getElementById("error").style.display =
+
+      document
+        .getElementById("error")
+        .style.display =
         "block";
+
     }
 
 
+    /* ======================================
+       BOTÓN
+    ====================================== */
+
     document
       .getElementById("abrirInvitacion")
-      .addEventListener("click", function () {
+      .addEventListener(
+        "click",
+        function () {
 
-        alert("Aquí comenzará la invitación 💍");
+          alert(
+            "Aquí comenzará la invitación 💍"
+          );
 
-      });
+        }
+      );
 
+
+    /* INICIAR */
 
     cargarInvitado();
 
   </script>
+
 
 </body>
 
