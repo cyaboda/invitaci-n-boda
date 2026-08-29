@@ -496,12 +496,14 @@
 
     /* =========================================
        PASO 3 - CUENTA REGRESIVA
+       OCULTA AL INICIO
     ========================================= */
 
     .tercera-seccion {
       min-height: 100vh;
 
-      display: flex;
+      display: none;
+
       align-items: center;
       justify-content: center;
 
@@ -911,6 +913,7 @@
 
     <div class="linea-vertical linea-izquierda"></div>
     <div class="linea-vertical linea-derecha"></div>
+
 
     <div class="floral floral-arriba-derecha">
 
@@ -1660,6 +1663,10 @@
             document.getElementById("segundaSeccion");
 
 
+          const tercera =
+            document.getElementById("cuentaRegresiva");
+
+
           portada.classList.add("saliendo");
 
 
@@ -1672,6 +1679,10 @@
 
 
               segunda.style.display =
+                "flex";
+
+
+              tercera.style.display =
                 "flex";
 
 
