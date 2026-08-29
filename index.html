@@ -11,6 +11,7 @@
 
   <title>Carolina & Alexander</title>
 
+
   <style>
 
     * {
@@ -30,6 +31,7 @@
         serif;
 
       background: #f7f1eb;
+
       color: #4b342a;
 
       overflow-x: hidden;
@@ -52,6 +54,7 @@
       padding: 50px 22px;
 
       text-align: center;
+
       overflow: hidden;
 
       background:
@@ -74,7 +77,9 @@
 
     .portada.saliendo {
       opacity: 0;
-      transform: scale(1.02);
+
+      transform:
+        scale(1.02);
     }
 
 
@@ -84,8 +89,11 @@
 
     .mancha {
       position: absolute;
+
       border-radius: 50%;
+
       pointer-events: none;
+
       z-index: 0;
     }
 
@@ -172,15 +180,19 @@
 
     .floral svg {
       width: 100%;
+
       height: 100%;
+
       overflow: visible;
     }
 
     .floral-arriba-derecha {
       width: 300px;
+
       height: 520px;
 
       top: -40px;
+
       right: -25px;
 
       animation:
@@ -190,9 +202,11 @@
 
     .floral-abajo-izquierda {
       width: 280px;
+
       height: 500px;
 
       bottom: -50px;
+
       left: -35px;
 
       animation:
@@ -207,6 +221,7 @@
 
     .contenido {
       width: 100%;
+
       max-width: 760px;
 
       position: relative;
@@ -266,6 +281,7 @@
 
     .separador {
       width: 120px;
+
       height: 1px;
 
       margin: 37px auto;
@@ -443,6 +459,7 @@
       display: none;
 
       align-items: center;
+
       justify-content: center;
 
       position: relative;
@@ -538,6 +555,7 @@
 
     .ramita-central svg {
       width: 100%;
+
       height: auto;
     }
 
@@ -578,6 +596,7 @@
 
     .linea-fecha {
       width: 90px;
+
       height: 1px;
 
       margin: 32px auto;
@@ -637,6 +656,7 @@
       display: none;
 
       align-items: center;
+
       justify-content: center;
 
       position: relative;
@@ -789,6 +809,7 @@
 
     .contador-separador {
       width: 120px;
+
       height: 1px;
 
       margin:
@@ -806,6 +827,7 @@
       position: absolute;
 
       left: 50%;
+
       top: 50%;
 
       transform:
@@ -849,7 +871,7 @@
 
     /* =====================================================
        PASO 4
-       LUGAR DEL EVENTO
+       EVENTO
     ===================================================== */
 
     .evento-seccion {
@@ -864,15 +886,11 @@
       background: #f7f1eb;
     }
 
-
-    /* =====================================================
-       FOTOS LATERALES
-    ===================================================== */
-
     .evento-foto {
       position: absolute;
 
       top: 0;
+
       bottom: 0;
 
       width: 31%;
@@ -896,6 +914,7 @@
       left: 0;
 
       width: 100%;
+
       height: 118%;
 
       object-fit: cover;
@@ -905,12 +924,6 @@
         contrast(0.96)
         brightness(0.95);
     }
-
-
-    /* =====================================================
-       FILTRO TERRACOTA
-       MISMA IDENTIDAD DEL VERSÍCULO
-    ===================================================== */
 
     .evento-foto::before {
       content: "";
@@ -929,11 +942,6 @@
 
       pointer-events: none;
     }
-
-
-    /* =====================================================
-       FUNDIDO HACIA EL CENTRO
-    ===================================================== */
 
     .evento-foto-izquierda::after {
       content: "";
@@ -975,11 +983,6 @@
       pointer-events: none;
     }
 
-
-    /* =====================================================
-       MOVIMIENTO DE FOTOS
-    ===================================================== */
-
     .evento-foto-izquierda img {
       top: -18%;
 
@@ -997,11 +1000,6 @@
         18s ease-in-out
         infinite alternate;
     }
-
-
-    /* =====================================================
-       CENTRO
-    ===================================================== */
 
     .evento-centro {
       min-height: 100vh;
@@ -1021,6 +1019,7 @@
       flex-direction: column;
 
       justify-content: center;
+
       align-items: center;
 
       text-align: center;
@@ -1029,18 +1028,15 @@
         55px 30px;
     }
 
-
-    /* =====================================================
-       LOGO
-    ===================================================== */
-
     .evento-logo-marco {
       width: 105px;
+
       height: 105px;
 
       display: flex;
 
       justify-content: center;
+
       align-items: center;
 
       margin-bottom: 25px;
@@ -1065,6 +1061,7 @@
 
     .evento-logo {
       width: 66px;
+
       height: 66px;
 
       object-fit: contain;
@@ -1075,11 +1072,6 @@
 
       opacity: 0.96;
     }
-
-
-    /* =====================================================
-       TEXTO EVENTO
-    ===================================================== */
 
     .evento-etiqueta {
       font-family: Arial, sans-serif;
@@ -1121,6 +1113,7 @@
 
     .evento-linea {
       width: 90px;
+
       height: 1px;
 
       margin:
@@ -1183,6 +1176,7 @@
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
       gap: 10px;
@@ -1216,23 +1210,6 @@
       box-shadow:
         0 14px 30px
         rgba(115, 57, 37, 0.18);
-
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .evento-boton:hover {
-      transform:
-        translateY(-3px);
-
-      box-shadow:
-        0 18px 35px
-        rgba(115, 57, 37, 0.27);
-    }
-
-    .evento-boton-icono {
-      font-size: 15px;
     }
 
     .evento-nota {
@@ -1247,6 +1224,363 @@
       text-transform: uppercase;
 
       color: #b98d78;
+    }
+
+
+    /* =====================================================
+       PASO 5
+       DRESS CODE
+    ===================================================== */
+
+    .dress-seccion {
+      min-height: 100vh;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding:
+        90px 30px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(188, 102, 69, 0.13),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at bottom left,
+          rgba(188, 102, 69, 0.11),
+          transparent 32%
+        ),
+        #f7f1eb;
+    }
+
+
+    .dress-contenido {
+      width: 100%;
+
+      max-width: 950px;
+
+      position: relative;
+
+      z-index: 5;
+    }
+
+
+    .dress-etiqueta {
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 6px;
+
+      text-transform: uppercase;
+
+      color: #b17256;
+
+      margin-bottom: 22px;
+    }
+
+
+    .dress-titulo {
+      margin: 0;
+
+      font-size:
+        clamp(50px, 7vw, 82px);
+
+      font-weight: 400;
+
+      color: #84462f;
+    }
+
+
+    .dress-formal {
+      margin-top: 13px;
+
+      font-size:
+        clamp(20px, 2.2vw, 28px);
+
+      font-style: italic;
+
+      color: #a0634c;
+    }
+
+
+    .dress-linea {
+      width: 110px;
+
+      height: 1px;
+
+      margin:
+        35px auto 50px;
+
+      position: relative;
+
+      background:
+        rgba(163, 84, 55, 0.38);
+    }
+
+
+    .dress-linea::after {
+      content: "♥";
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
+      padding:
+        0 13px;
+
+      background: #f7f1eb;
+
+      color: #b86140;
+
+      font-size: 10px;
+    }
+
+
+    .dress-opciones {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      max-width: 740px;
+
+      margin: auto;
+
+      gap: 70px;
+    }
+
+
+    .dress-item {
+      position: relative;
+    }
+
+
+    .dress-item:first-child::after {
+      content: "";
+
+      position: absolute;
+
+      top: 5%;
+
+      right: -35px;
+
+      width: 1px;
+
+      height: 90%;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(163, 84, 55, 0.25),
+          transparent
+        );
+    }
+
+
+    .dress-icono {
+      width: 135px;
+
+      height: 160px;
+
+      margin:
+        0 auto 25px;
+
+      color: #985039;
+    }
+
+
+    .dress-icono svg {
+      width: 100%;
+
+      height: 100%;
+    }
+
+
+    .dress-genero {
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #ad7259;
+    }
+
+
+    .dress-descripcion {
+      margin-top: 11px;
+
+      font-size:
+        clamp(22px, 2.5vw, 30px);
+
+      font-style: italic;
+
+      color: #644237;
+    }
+
+
+    /* COLORES RESERVADOS */
+
+    .reservados {
+      margin:
+        65px auto 0;
+
+      max-width: 700px;
+
+      padding-top: 40px;
+
+      border-top:
+        1px solid
+        rgba(164, 91, 62, 0.16);
+    }
+
+
+    .reservados-titulo {
+      font-family: Arial, sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #b2765c;
+
+      margin-bottom: 22px;
+    }
+
+
+    .paleta-reservada {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 18px;
+
+      margin-bottom: 24px;
+    }
+
+
+    .color-reservado {
+      width: 52px;
+
+      height: 52px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(128, 74, 55, 0.25);
+
+      box-shadow:
+        0 7px 18px
+        rgba(105, 62, 47, 0.10);
+
+      position: relative;
+    }
+
+
+    .color-blanco {
+      background: #ffffff;
+    }
+
+
+    .color-marfil {
+      background: #f4eedf;
+    }
+
+
+    .color-beige {
+      background: #dfcbb2;
+    }
+
+
+    .reservados-texto {
+      max-width: 580px;
+
+      margin: auto;
+
+      font-size:
+        clamp(18px, 2vw, 24px);
+
+      line-height: 1.55;
+
+      font-style: italic;
+
+      color: #68493d;
+    }
+
+
+    .reservados-texto strong {
+      color: #934e37;
+
+      font-weight: 400;
+    }
+
+
+    /* DECORACIÓN DRESS CODE */
+
+    .dress-floral {
+      position: absolute;
+
+      width: 260px;
+
+      height: 450px;
+
+      color: #b96847;
+
+      opacity: 0.22;
+
+      pointer-events: none;
+    }
+
+
+    .dress-floral svg {
+      width: 100%;
+
+      height: 100%;
+    }
+
+
+    .dress-floral-izquierda {
+      left: -80px;
+
+      bottom: -80px;
+
+      transform:
+        rotate(-10deg);
+    }
+
+
+    .dress-floral-derecha {
+      right: -80px;
+
+      top: -80px;
+
+      transform:
+        rotate(170deg);
     }
 
 
@@ -1272,6 +1606,7 @@
 
     }
 
+
     @keyframes moverRamaDerecha {
 
       from {
@@ -1287,6 +1622,7 @@
       }
 
     }
+
 
     @keyframes moverRamaIzquierda {
 
@@ -1304,6 +1640,7 @@
 
     }
 
+
     @keyframes flotarFlecha {
 
       0%,
@@ -1319,6 +1656,7 @@
 
     }
 
+
     @keyframes fotoBaja {
 
       from {
@@ -1332,6 +1670,7 @@
       }
 
     }
+
 
     @keyframes fotoSube {
 
@@ -1359,67 +1698,86 @@
           45px 22px 55px;
       }
 
+
       .sobrelinea {
         font-size: 10px;
+
         letter-spacing: 4px;
       }
+
 
       .nombres {
         letter-spacing: -1px;
       }
 
+
       .linea-izquierda {
         left: 4%;
       }
+
 
       .linea-derecha {
         right: 4%;
       }
 
+
       .floral-arriba-derecha {
         width: 175px;
+
         height: 330px;
 
         right: -55px;
+
         top: -25px;
 
         opacity: 0.55;
       }
 
+
       .floral-abajo-izquierda {
         width: 175px;
+
         height: 330px;
 
         left: -55px;
+
         bottom: -40px;
 
         opacity: 0.55;
       }
 
+
       .boton {
         width: 100%;
+
         max-width: 310px;
       }
 
+
       .segunda-seccion {
-        padding: 65px 28px;
+        padding:
+          65px 28px;
 
         background-position:
           48% center;
       }
 
+
       .versiculo {
         font-size: 29px;
       }
+
 
       .fecha-boda {
         letter-spacing: 5px;
       }
 
+
       .tercera-seccion {
         padding:
           70px 20px;
       }
+
 
       .contador {
         grid-template-columns:
@@ -1436,9 +1794,11 @@
         margin-top: 55px;
       }
 
+
       .contador-item:nth-child(2)::after {
         display: none;
       }
+
 
       .contador-numero {
         font-size: 52px;
@@ -1449,11 +1809,8 @@
 
       .evento-seccion {
         min-height: auto;
-
-        display: none;
-
-        padding-bottom: 0;
       }
+
 
       .evento-centro {
         width: 100%;
@@ -1464,19 +1821,25 @@
           65px 28px 55px;
       }
 
+
       .evento-logo-marco {
         width: 90px;
+
         height: 90px;
       }
 
+
       .evento-logo {
         width: 55px;
+
         height: 55px;
       }
+
 
       .evento-titulo {
         font-size: 42px;
       }
+
 
       .evento-foto {
         position: relative;
@@ -1484,40 +1847,89 @@
         display: inline-block;
 
         width: 50%;
+
         height: 42vh;
 
         vertical-align: top;
       }
 
+
       .evento-foto-izquierda {
         left: auto;
       }
+
 
       .evento-foto-derecha {
         right: auto;
       }
 
+
       .evento-foto img {
         width: 100%;
+
         height: 118%;
       }
 
-      .evento-foto::before {
-        background:
-          linear-gradient(
-            rgba(132, 54, 31, 0.48),
-            rgba(95, 38, 24, 0.58)
-          );
+
+      /* DRESS CODE */
+
+      .dress-seccion {
+        padding:
+          75px 24px;
       }
 
-      .evento-foto-izquierda::after,
-      .evento-foto-derecha::after {
-        background:
-          linear-gradient(
-            to bottom,
-            #f7f1eb 0%,
-            transparent 20%
-          );
+
+      .dress-titulo {
+        font-size: 52px;
+      }
+
+
+      .dress-opciones {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+      }
+
+
+      .dress-item:first-child::after {
+        display: none;
+      }
+
+
+      .dress-item:first-child {
+        padding-bottom: 50px;
+
+        border-bottom:
+          1px solid
+          rgba(164, 91, 62, 0.16);
+      }
+
+
+      .dress-icono {
+        width: 115px;
+
+        height: 140px;
+      }
+
+
+      .reservados {
+        margin-top: 55px;
+      }
+
+
+      .color-reservado {
+        width: 47px;
+
+        height: 47px;
+      }
+
+
+      .dress-floral {
+        width: 170px;
+
+        height: 300px;
+
+        opacity: 0.15;
       }
 
     }
@@ -1545,7 +1957,7 @@
 
 
   <!-- =====================================================
-       PORTADA
+       PASO 1
   ====================================================== -->
 
   <section
@@ -1576,18 +1988,15 @@
     <div
       class="floral floral-arriba-derecha">
 
-
       <svg
         viewBox="0 0 240 450"
         xmlns="http://www.w3.org/2000/svg">
-
 
         <g
           fill="none"
           stroke="currentColor"
           stroke-width="1.6"
           stroke-linecap="round">
-
 
           <path
             d="
@@ -1601,7 +2010,6 @@
             "
           />
 
-
           <path
             d="
             M183 100
@@ -1610,7 +2018,6 @@
             230 30
             "
           />
-
 
           <path
             d="
@@ -1621,14 +2028,11 @@
             "
           />
 
-
         </g>
-
 
         <g
           fill="currentColor"
           opacity="0.45">
-
 
           <ellipse
             cx="215"
@@ -1638,7 +2042,6 @@
             transform="rotate(38 215 58)"
           />
 
-
           <ellipse
             cx="112"
             cy="100"
@@ -1647,12 +2050,9 @@
             transform="rotate(-42 112 100)"
           />
 
-
         </g>
 
-
       </svg>
-
 
     </div>
 
@@ -1660,18 +2060,15 @@
     <div
       class="floral floral-abajo-izquierda">
 
-
       <svg
         viewBox="0 0 240 450"
         xmlns="http://www.w3.org/2000/svg">
-
 
         <g
           fill="none"
           stroke="currentColor"
           stroke-width="1.6"
           stroke-linecap="round">
-
 
           <path
             d="
@@ -1685,7 +2082,6 @@
             "
           />
 
-
           <path
             d="
             M60 350
@@ -1695,14 +2091,11 @@
             "
           />
 
-
         </g>
-
 
         <g
           fill="currentColor"
           opacity="0.45">
-
 
           <ellipse
             cx="30"
@@ -1712,7 +2105,6 @@
             transform="rotate(-40 30 318)"
           />
 
-
           <ellipse
             cx="130"
             cy="265"
@@ -1721,12 +2113,9 @@
             transform="rotate(40 130 265)"
           />
 
-
         </g>
 
-
       </svg>
-
 
     </div>
 
@@ -1745,13 +2134,11 @@
 
         Carolina
 
-
         <span class="ampersand">
 
           &
 
         </span>
-
 
         Alexander
 
@@ -1846,17 +2233,14 @@
 
       <div class="ramita-central">
 
-
         <svg
           viewBox="0 0 100 70"
           xmlns="http://www.w3.org/2000/svg">
-
 
           <g
             fill="none"
             stroke="currentColor"
             stroke-width="1.5">
-
 
             <path
               d="
@@ -1867,7 +2251,6 @@
               "
             />
 
-
             <path
               d="
               M46 42
@@ -1877,12 +2260,9 @@
               "
             />
 
-
           </g>
 
-
         </svg>
-
 
       </div>
 
@@ -2075,7 +2455,6 @@
 
   <!-- =====================================================
        PASO 4
-       EVENTO
   ====================================================== -->
 
   <section
@@ -2089,11 +2468,9 @@
         evento-foto-izquierda
       ">
 
-
       <img
         src="F1.jpeg"
         alt="">
-
 
     </div>
 
@@ -2104,11 +2481,9 @@
         evento-foto-derecha
       ">
 
-
       <img
         src="F2.jpeg"
         alt="">
-
 
     </div>
 
@@ -2118,12 +2493,10 @@
 
       <div class="evento-logo-marco">
 
-
         <img
           src="LOGO.png"
           class="evento-logo"
           alt="Karla Ramírez Event Studio">
-
 
       </div>
 
@@ -2191,16 +2564,7 @@
         target="_blank"
         rel="noopener noreferrer">
 
-
-        <span class="evento-boton-icono">
-
-          ◇
-
-        </span>
-
-
-        Cómo llegar
-
+        ◇ &nbsp; CÓMO LLEGAR
 
       </a>
 
@@ -2217,6 +2581,529 @@
 
   </section>
 
+
+  <!-- =====================================================
+       PASO 5
+       DRESS CODE
+  ====================================================== -->
+
+  <section
+    class="dress-seccion"
+    id="dressSeccion">
+
+
+    <!-- RAMA IZQUIERDA -->
+
+    <div
+      class="
+        dress-floral
+        dress-floral-izquierda
+      ">
+
+      <svg
+        viewBox="0 0 220 400"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6">
+
+          <path
+            d="
+            M35 390
+            C60 315,
+            85 245,
+            115 165
+            C140 105,
+            165 55,
+            195 10
+            "
+          />
+
+          <path
+            d="
+            M82 270
+            C55 250,
+            35 225,
+            20 195
+            "
+          />
+
+          <path
+            d="
+            M115 195
+            C145 175,
+            168 145,
+            182 115
+            "
+          />
+
+        </g>
+
+        <g
+          fill="currentColor"
+          opacity="0.48">
+
+          <ellipse
+            cx="52"
+            cy="235"
+            rx="11"
+            ry="28"
+            transform="rotate(-40 52 235)"
+          />
+
+          <ellipse
+            cx="158"
+            cy="152"
+            rx="11"
+            ry="28"
+            transform="rotate(42 158 152)"
+          />
+
+        </g>
+
+      </svg>
+
+    </div>
+
+
+    <!-- RAMA DERECHA -->
+
+    <div
+      class="
+        dress-floral
+        dress-floral-derecha
+      ">
+
+      <svg
+        viewBox="0 0 220 400"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6">
+
+          <path
+            d="
+            M35 390
+            C60 315,
+            85 245,
+            115 165
+            C140 105,
+            165 55,
+            195 10
+            "
+          />
+
+          <path
+            d="
+            M82 270
+            C55 250,
+            35 225,
+            20 195
+            "
+          />
+
+          <path
+            d="
+            M115 195
+            C145 175,
+            168 145,
+            182 115
+            "
+          />
+
+        </g>
+
+        <g
+          fill="currentColor"
+          opacity="0.48">
+
+          <ellipse
+            cx="52"
+            cy="235"
+            rx="11"
+            ry="28"
+            transform="rotate(-40 52 235)"
+          />
+
+          <ellipse
+            cx="158"
+            cy="152"
+            rx="11"
+            ry="28"
+            transform="rotate(42 158 152)"
+          />
+
+        </g>
+
+      </svg>
+
+    </div>
+
+
+    <div class="dress-contenido">
+
+
+      <div class="dress-etiqueta">
+
+        Código de vestimenta
+
+      </div>
+
+
+      <h2 class="dress-titulo">
+
+        Dress Code
+
+      </h2>
+
+
+      <div class="dress-formal">
+
+        Elegante / Formal
+
+      </div>
+
+
+      <div class="dress-linea">
+      </div>
+
+
+      <div class="dress-opciones">
+
+
+        <!-- CABALLEROS -->
+
+        <div class="dress-item">
+
+
+          <div class="dress-icono">
+
+            <svg
+              viewBox="0 0 120 150"
+              xmlns="http://www.w3.org/2000/svg">
+
+
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+
+                <path
+                  d="
+                  M42 15
+                  L60 30
+                  L78 15
+                  "
+                />
+
+
+                <path
+                  d="
+                  M42 15
+                  L25 31
+                  L15 135
+                  "
+                />
+
+
+                <path
+                  d="
+                  M78 15
+                  L95 31
+                  L105 135
+                  "
+                />
+
+
+                <path
+                  d="
+                  M25 31
+                  L46 50
+                  L60 35
+                  L74 50
+                  L95 31
+                  "
+                />
+
+
+                <path
+                  d="
+                  M46 50
+                  L52 135
+                  "
+                />
+
+
+                <path
+                  d="
+                  M74 50
+                  L68 135
+                  "
+                />
+
+
+                <path
+                  d="
+                  M15 135
+                  L105 135
+                  "
+                />
+
+
+                <path
+                  d="
+                  M55 29
+                  L60 42
+                  L65 29
+                  "
+                />
+
+
+                <circle
+                  cx="60"
+                  cy="65"
+                  r="2.2"
+                  fill="currentColor"
+                />
+
+
+                <circle
+                  cx="60"
+                  cy="80"
+                  r="2.2"
+                  fill="currentColor"
+                />
+
+
+                <circle
+                  cx="60"
+                  cy="95"
+                  r="2.2"
+                  fill="currentColor"
+                />
+
+
+              </g>
+
+
+            </svg>
+
+          </div>
+
+
+          <div class="dress-genero">
+
+            Caballeros
+
+          </div>
+
+
+          <div class="dress-descripcion">
+
+            Traje formal
+
+          </div>
+
+
+        </div>
+
+
+        <!-- DAMAS -->
+
+        <div class="dress-item">
+
+
+          <div class="dress-icono">
+
+            <svg
+              viewBox="0 0 120 150"
+              xmlns="http://www.w3.org/2000/svg">
+
+
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+
+                <path
+                  d="
+                  M46 12
+                  C47 25,
+                  50 35,
+                  60 40
+                  C70 35,
+                  73 25,
+                  74 12
+                  "
+                />
+
+
+                <path
+                  d="
+                  M46 12
+                  C42 30,
+                  40 45,
+                  43 60
+                  "
+                />
+
+
+                <path
+                  d="
+                  M74 12
+                  C78 30,
+                  80 45,
+                  77 60
+                  "
+                />
+
+
+                <path
+                  d="
+                  M43 60
+                  C35 83,
+                  25 110,
+                  15 137
+                  "
+                />
+
+
+                <path
+                  d="
+                  M77 60
+                  C85 83,
+                  95 110,
+                  105 137
+                  "
+                />
+
+
+                <path
+                  d="
+                  M15 137
+                  C40 143,
+                  80 143,
+                  105 137
+                  "
+                />
+
+
+                <path
+                  d="
+                  M43 60
+                  C52 64,
+                  68 64,
+                  77 60
+                  "
+                />
+
+
+              </g>
+
+
+            </svg>
+
+          </div>
+
+
+          <div class="dress-genero">
+
+            Damas
+
+          </div>
+
+
+          <div class="dress-descripcion">
+
+            Vestido largo o midi elegante
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+      <!-- COLORES RESERVADOS -->
+
+      <div class="reservados">
+
+
+        <div class="reservados-titulo">
+
+          Colores reservados para los novios
+
+        </div>
+
+
+        <div class="paleta-reservada">
+
+
+          <div
+            class="
+              color-reservado
+              color-blanco
+            "
+            title="Blanco">
+          </div>
+
+
+          <div
+            class="
+              color-reservado
+              color-marfil
+            "
+            title="Marfil">
+          </div>
+
+
+          <div
+            class="
+              color-reservado
+              color-beige
+            "
+            title="Beige">
+          </div>
+
+
+        </div>
+
+
+        <div class="reservados-texto">
+
+          Nos encantaría que el
+          <strong>
+            blanco, beige y sus variantes
+          </strong>
+          queden reservados para los novios.
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
 
   <script>
 
@@ -2376,6 +3263,11 @@
     }
 
 
+    /* =====================================================
+       ABRIR INVITACIÓN
+    ===================================================== */
+
+
     document
       .getElementById(
         "abrirInvitacion"
@@ -2386,31 +3278,33 @@
 
 
           const portada =
-            document
-              .getElementById(
-                "portada"
-              );
+            document.getElementById(
+              "portada"
+            );
 
 
           const segunda =
-            document
-              .getElementById(
-                "segundaSeccion"
-              );
+            document.getElementById(
+              "segundaSeccion"
+            );
 
 
           const tercera =
-            document
-              .getElementById(
-                "cuentaRegresiva"
-              );
+            document.getElementById(
+              "cuentaRegresiva"
+            );
 
 
           const evento =
-            document
-              .getElementById(
-                "eventoSeccion"
-              );
+            document.getElementById(
+              "eventoSeccion"
+            );
+
+
+          const dress =
+            document.getElementById(
+              "dressSeccion"
+            );
 
 
           portada
@@ -2424,28 +3318,24 @@
             function () {
 
 
-              portada
-                .style
-                .display =
+              portada.style.display =
                 "none";
 
 
-              segunda
-                .style
-                .display =
+              segunda.style.display =
                 "flex";
 
 
-              tercera
-                .style
-                .display =
+              tercera.style.display =
                 "flex";
 
 
-              evento
-                .style
-                .display =
+              evento.style.display =
                 "block";
+
+
+              dress.style.display =
+                "flex";
 
 
               setTimeout(
@@ -2477,6 +3367,11 @@
 
         }
       );
+
+
+    /* =====================================================
+       CUENTA REGRESIVA
+    ===================================================== */
 
 
     const fechaBoda =
@@ -2545,28 +3440,40 @@
         .getElementById("dias")
         .textContent =
         String(dias)
-          .padStart(2, "0");
+          .padStart(
+            2,
+            "0"
+          );
 
 
       document
         .getElementById("horas")
         .textContent =
         String(horas)
-          .padStart(2, "0");
+          .padStart(
+            2,
+            "0"
+          );
 
 
       document
         .getElementById("minutos")
         .textContent =
         String(minutos)
-          .padStart(2, "0");
+          .padStart(
+            2,
+            "0"
+          );
 
 
       document
         .getElementById("segundos")
         .textContent =
         String(segundos)
-          .padStart(2, "0");
+          .padStart(
+            2,
+            "0"
+          );
 
 
     }
