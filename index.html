@@ -1,6265 +1,2710 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>Carolina & Alexander</title>
+<title>Carolina & Alexander | 14.11.2026</title>
 
 <style>
 
-/* =====================================================
-   BASE
-===================================================== */
-
-* {
-  box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  background: #f7f1eb;
-
-  color: #4b342a;
-
-  overflow-x: hidden;
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f7f1eb;
+    color:#713724;
+    overflow-x:hidden;
 }
 
 button,
 input,
-select {
-  font: inherit;
+select{
+    font-family:inherit;
 }
 
+button{
+    cursor:pointer;
+}
 
-/* =====================================================
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --vino:#642a20;
+    --vino-oscuro:#4c201a;
+    --terracota:#9a4c32;
+    --terracota-claro:#c98265;
+    --rosa:#cf9075;
+    --crema:#f7f1eb;
+    --crema2:#f3e6dc;
+    --texto:#713724;
+    --blanco:#fffaf5;
+}
+
+/* =========================================================
    PORTADA
-===================================================== */
+========================================================= */
 
-.portada {
-  min-height: 100vh;
+#portada{
+    width:100%;
+    height:100vh;
+    min-height:650px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
 
-  position: relative;
+    background:
+        radial-gradient(circle at 10% 90%, rgba(201,130,101,.18), transparent 28%),
+        radial-gradient(circle at 92% 10%, rgba(201,130,101,.15), transparent 30%),
+        #f8f2ed;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 50px 22px;
-
-  text-align: center;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(190, 102, 67, 0.13),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(190, 102, 67, 0.12),
-      transparent 32%
-    ),
-    #f7f1eb;
-
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
 }
 
-.portada.saliendo {
-  opacity: 0;
-  transform: scale(1.02);
+#portada.saliendo{
+    opacity:0;
+    transform:scale(1.025);
 }
 
-
-/* =====================================================
-   MANCHAS
-===================================================== */
-
-.mancha {
-  position: absolute;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  z-index: 0;
+.marco-portada{
+    position:absolute;
+    top:7%;
+    bottom:7%;
+    left:7%;
+    right:7%;
+    border-left:1px solid rgba(154,76,50,.13);
+    border-right:1px solid rgba(154,76,50,.13);
+    pointer-events:none;
 }
 
-.mancha-arriba {
-  width: 420px;
-  height: 420px;
-
-  top: -220px;
-  right: -180px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(190, 102, 67, 0.13),
-      rgba(190, 102, 67, 0.04) 60%,
-      transparent 72%
-    );
+.portada-contenido{
+    position:relative;
+    z-index:10;
+    width:min(900px,88%);
 }
 
-.mancha-abajo {
-  width: 470px;
-  height: 470px;
-
-  bottom: -260px;
-  left: -210px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(167, 83, 52, 0.14),
-      rgba(190, 102, 67, 0.04) 60%,
-      transparent 72%
-    );
+.mini-titulo{
+    font-size:14px;
+    letter-spacing:8px;
+    color:#a55b40;
+    margin-bottom:25px;
 }
 
-
-/* =====================================================
-   LÍNEAS PORTADA
-===================================================== */
-
-.linea-vertical {
-  position: absolute;
-
-  top: 5%;
-  bottom: 5%;
-
-  width: 1px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgba(155, 82, 53, 0.22),
-      transparent
-    );
-
-  z-index: 1;
+.nombres{
+    font-family:Georgia, "Times New Roman", serif;
+    color:#8b422c;
+    line-height:.84;
+    font-weight:normal;
 }
 
-.linea-izquierda {
-  left: 7%;
+.nombres .nombre{
+    display:block;
+    font-size:clamp(64px,7.5vw,110px);
 }
 
-.linea-derecha {
-  right: 7%;
+.nombres .amp{
+    display:block;
+    font-size:55px;
+    color:#bc6645;
+    margin:25px 0;
+    font-style:italic;
 }
 
+.separador-portada{
+    margin:45px auto 32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    color:#bc6645;
+}
 
-/* =====================================================
+.separador-portada span:first-child,
+.separador-portada span:last-child{
+    width:50px;
+    height:1px;
+    background:#d3a28f;
+}
+
+.invitacion-especial{
+    font-size:13px;
+    letter-spacing:6px;
+    color:#ad715c;
+    margin-bottom:18px;
+}
+
+#nombreInvitado{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(34px,4vw,52px);
+    font-weight:normal;
+    color:#593327;
+    margin-bottom:22px;
+}
+
+#textoCupos{
+    font-size:16px;
+    color:#72574d;
+    margin-bottom:38px;
+}
+
+#abrirInvitacion{
+    border:0;
+    background:#bd5c39;
+    color:white;
+    border-radius:40px;
+    padding:19px 55px;
+    letter-spacing:3px;
+    font-size:13px;
+    box-shadow:0 15px 35px rgba(108,48,30,.18);
+    transition:.3s ease;
+}
+
+#abrirInvitacion:hover{
+    transform:translateY(-3px);
+    background:#a94e31;
+    box-shadow:0 18px 40px rgba(108,48,30,.27);
+}
+
+.historia{
+    margin-top:40px;
+    font-size:12px;
+    letter-spacing:6px;
+    color:#b77962;
+}
+
+/* =========================================================
    RAMAS PORTADA
-   CRECEN AUTOMÁTICAMENTE
-===================================================== */
+========================================================= */
 
-.floral {
-  position: absolute;
-
-  pointer-events: none;
-
-  z-index: 2;
-
-  color: #b85f3d;
+.rama-portada{
+    position:absolute;
+    z-index:2;
+    width:240px;
+    height:650px;
+    color:#c77a5c;
+    pointer-events:none;
 }
 
-.floral svg {
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
+.rama-portada.izquierda{
+    left:-10px;
+    bottom:-30px;
 }
 
-.floral .tallo {
-  fill: none;
-
-  stroke: currentColor;
-
-  stroke-width: 1.8;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  stroke-dasharray: 900;
-  stroke-dashoffset: 900;
-
-  animation:
-    crecerTallo 3.2s
-    cubic-bezier(.45,.05,.22,.97)
-    forwards;
+.rama-portada.derecha{
+    right:-10px;
+    top:-30px;
+    transform:scaleX(-1) rotate(180deg);
 }
 
-.floral .rama {
-  fill: none;
-
-  stroke: currentColor;
-
-  stroke-width: 1.45;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  stroke-dasharray: 240;
-  stroke-dashoffset: 240;
-
-  animation:
-    crecerRama 1.5s ease forwards;
+.rama-portada svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
 }
 
-.floral .rama-1 {
-  animation-delay: 0.9s;
+.tallo-animado{
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2;
+    stroke-linecap:round;
+
+    stroke-dasharray:800;
+    stroke-dashoffset:800;
+
+    animation:
+        crecerTallo 2.8s cubic-bezier(.3,.7,.3,1) forwards,
+        respirarTallo 6s ease-in-out 3s infinite;
 }
 
-.floral .rama-2 {
-  animation-delay: 1.25s;
+.ramita-animada{
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.5;
+    stroke-linecap:round;
+
+    stroke-dasharray:150;
+    stroke-dashoffset:150;
+
+    animation:crecerTallo 1.2s ease forwards;
 }
 
-.floral .rama-3 {
-  animation-delay: 1.55s;
+.r1{animation-delay:1.2s;}
+.r2{animation-delay:1.55s;}
+.r3{animation-delay:1.9s;}
+.r4{animation-delay:2.2s;}
+
+.hoja-animada{
+    fill:currentColor;
+    opacity:0;
+    transform-box:fill-box;
+    transform-origin:center;
+    transform:scale(0);
+    animation:aparecerHoja .8s ease forwards;
 }
 
-.floral .rama-4 {
-  animation-delay: 1.85s;
+.h1{animation-delay:1.6s;}
+.h2{animation-delay:1.9s;}
+.h3{animation-delay:2.25s;}
+.h4{animation-delay:2.55s;}
+
+@keyframes crecerTallo{
+    to{
+        stroke-dashoffset:0;
+    }
 }
 
-.floral .rama-5 {
-  animation-delay: 2.1s;
+@keyframes aparecerHoja{
+    0%{
+        opacity:0;
+        transform:scale(0) rotate(-12deg);
+    }
+    100%{
+        opacity:.72;
+        transform:scale(1) rotate(0);
+    }
 }
 
-.floral .rama-6 {
-  animation-delay: 2.35s;
+@keyframes respirarTallo{
+    0%,100%{transform:translateX(0);}
+    50%{transform:translateX(5px);}
 }
 
-.floral .hoja {
-  fill: currentColor;
+/* =========================================================
+   SECCIONES OCULTAS
+========================================================= */
 
-  opacity: 0;
-
-  transform-box: fill-box;
-  transform-origin: center;
-
-  animation:
-    aparecerHoja 0.75s
-    cubic-bezier(.2,.8,.2,1)
-    forwards;
+#versiculoSeccion,
+#contadorSeccion,
+#eventoSeccion,
+#dressSeccion,
+#regalosSeccion,
+#rsvpSeccion{
+    display:none;
 }
 
-.floral .hoja-1 { animation-delay: 1.15s; }
-.floral .hoja-2 { animation-delay: 1.4s; }
-.floral .hoja-3 { animation-delay: 1.65s; }
-.floral .hoja-4 { animation-delay: 1.9s; }
-.floral .hoja-5 { animation-delay: 2.15s; }
-.floral .hoja-6 { animation-delay: 2.4s; }
-.floral .hoja-7 { animation-delay: 2.65s; }
-.floral .hoja-8 { animation-delay: 2.9s; }
-.floral .hoja-9 { animation-delay: 3.1s; }
-.floral .hoja-10 { animation-delay: 3.3s; }
+/* =========================================================
+   VERSÍCULO
+========================================================= */
 
-.floral-arriba-derecha {
-  width: 290px;
-  height: 610px;
+#versiculoSeccion{
+    min-height:100vh;
+    position:relative;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fffaf5;
+    overflow:hidden;
 
-  top: -55px;
-  right: -38px;
+    background:
+        linear-gradient(
+            rgba(132,54,31,.60),
+            rgba(95,38,24,.70)
+        ),
+        url("foto-carolina-alexanderv2.jpeg");
 
-  transform-origin: bottom right;
-
-  animation:
-    respirarDerecha
-    6.8s
-    ease-in-out
-    3.4s
-    infinite alternate;
+    background-size:cover;
+    background-position:center;
 }
 
-.floral-abajo-izquierda {
-  width: 285px;
-  height: 610px;
-
-  bottom: -70px;
-  left: -40px;
-
-  transform-origin: bottom left;
-
-  animation:
-    respirarIzquierda
-    7.4s
-    ease-in-out
-    3.4s
-    infinite alternate;
+.versiculo-contenido{
+    width:min(850px,88%);
+    position:relative;
+    z-index:3;
+    opacity:0;
+    transform:translateY(30px);
+    transition:1.1s ease;
 }
 
-
-/* =====================================================
-   BOTÁNICA CONTROLADA POR SCROLL
-===================================================== */
-
-.scroll-botanical {
-  position: absolute;
-
-  pointer-events: none;
-
-  z-index: 2;
-
-  opacity: 0.9;
+#versiculoSeccion.visible .versiculo-contenido{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.scroll-botanical svg {
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
+.pareja-mini{
+    letter-spacing:7px;
+    font-size:13px;
+    margin-bottom:42px;
 }
 
-.scroll-botanical .scroll-tallo,
-.scroll-botanical .scroll-rama {
-  fill: none;
+/* RAMITA CORREGIDA */
 
-  stroke: currentColor;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.ramita-central{
+    width:105px;
+    height:80px;
+    margin:0 auto 40px;
+    color:#f1c5ab;
 }
 
-.scroll-botanical .scroll-tallo {
-  stroke-width: 1.6;
+.ramita-central svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
 }
 
-.scroll-botanical .scroll-rama {
-  stroke-width: 1.25;
+.ramita-central .rc-tallo,
+.ramita-central .rc-rama{
+    fill:none;
+    stroke:currentColor;
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
-.scroll-botanical .scroll-hoja {
-  fill: currentColor;
-
-  opacity: 0;
-
-  transform-box: fill-box;
-  transform-origin: center;
-
-  transform: scale(0.05);
+.ramita-central .rc-tallo{
+    stroke-width:1.7;
 }
 
-.scroll-botanical.terminada {
-  animation:
-    respirarScroll
-    7s ease-in-out
-    infinite alternate;
+.ramita-central .rc-rama{
+    stroke-width:1.5;
 }
 
-
-/* CONTADOR */
-
-.botanica-contador-izq {
-  width: 255px;
-  height: 520px;
-
-  left: -55px;
-  bottom: -75px;
-
-  color: rgba(164, 81, 52, 0.55);
-
-  transform-origin: bottom left;
+.ramita-central .rc-hoja{
+    fill:currentColor;
+    opacity:.78;
 }
 
-.botanica-contador-der {
-  width: 230px;
-  height: 470px;
-
-  right: -48px;
-  top: -70px;
-
-  color: rgba(174, 93, 62, 0.46);
-
-  transform-origin: top right;
+.frase-biblica{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(30px,5vw,50px);
+    line-height:1.45;
+    font-style:italic;
+    font-weight:normal;
 }
 
-
-/* DRESS */
-
-.botanica-dress-izq {
-  width: 235px;
-  height: 490px;
-
-  left: -55px;
-  bottom: -70px;
-
-  color: rgba(255, 241, 232, 0.30);
-
-  transform-origin: bottom left;
+.referencia{
+    margin-top:28px;
+    font-size:12px;
+    letter-spacing:6px;
 }
 
-.botanica-dress-der {
-  width: 230px;
-  height: 470px;
-
-  right: -55px;
-  top: -65px;
-
-  color: rgba(255, 245, 238, 0.24);
-
-  transform-origin: top right;
+.linea-versiculo{
+    width:100px;
+    height:1px;
+    background:rgba(255,240,230,.55);
+    margin:36px auto;
 }
 
-
-/* REGALOS */
-
-.botanica-regalos-izq {
-  width: 250px;
-  height: 530px;
-
-  left: -55px;
-  bottom: -80px;
-
-  color: rgba(245, 211, 193, 0.25);
-
-  transform-origin: bottom left;
+.fecha-versiculo{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:42px;
+    letter-spacing:12px;
 }
 
-.botanica-regalos-der {
-  width: 245px;
-  height: 500px;
-
-  right: -60px;
-  top: -80px;
-
-  color: rgba(248, 224, 211, 0.20);
-
-  transform-origin: top right;
+.desliza{
+    margin-top:55px;
+    font-size:11px;
+    letter-spacing:6px;
 }
 
-
-/* RSVP */
-
-.botanica-rsvp-izq {
-  width: 245px;
-  height: 520px;
-
-  left: -60px;
-  bottom: -85px;
-
-  color: rgba(240, 207, 193, 0.20);
-
-  transform-origin: bottom left;
+.flecha{
+    margin-top:15px;
+    font-size:30px;
+    animation:flecha 1.8s ease-in-out infinite;
 }
 
-.botanica-rsvp-der {
-  width: 230px;
-  height: 490px;
-
-  right: -55px;
-  top: -75px;
-
-  color: rgba(245, 218, 205, 0.18);
-
-  transform-origin: top right;
+@keyframes flecha{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(8px);}
 }
 
-
-/* =====================================================
-   CONTENIDO PORTADA
-===================================================== */
-
-.contenido {
-  width: 100%;
-
-  max-width: 760px;
-
-  position: relative;
-
-  z-index: 5;
-
-  animation:
-    aparecer
-    1.2s ease forwards;
-}
-
-.sobrelinea {
-  font-family: Arial, sans-serif;
-
-  font-size: 12px;
-
-  letter-spacing: 6px;
-
-  text-transform: uppercase;
-
-  color: #a45c3f;
-
-  margin-bottom: 28px;
-}
-
-.nombres {
-  margin: 0;
-
-  font-size:
-    clamp(52px, 8vw, 92px);
-
-  font-weight: 400;
-
-  line-height: 0.95;
-
-  letter-spacing: -2px;
-
-  color: #85452f;
-}
-
-.ampersand {
-  display: block;
-
-  font-size: 0.53em;
-
-  font-style: italic;
-
-  margin: 13px 0 11px;
-
-  color: #bc6947;
-}
-
-
-/* =====================================================
-   SEPARADOR
-===================================================== */
-
-.separador {
-  width: 120px;
-  height: 1px;
-
-  margin: 37px auto;
-
-  position: relative;
-
-  background:
-    rgba(166, 86, 55, 0.48);
-}
-
-.separador::after {
-  content: "♥";
-
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  transform:
-    translate(-50%, -50%);
-
-  background: #f7f1eb;
-
-  padding: 0 13px;
-
-  color: #b75f3d;
-
-  font-size: 11px;
-}
-
-
-/* =====================================================
-   INVITADO PORTADA
-===================================================== */
-
-.texto-invitacion {
-  font-family: Arial, sans-serif;
-
-  font-size: 11px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color: #a77b68;
-
-  margin-bottom: 15px;
-}
-
-#nombreInvitado {
-  font-size:
-    clamp(31px, 5vw, 46px);
-
-  line-height: 1.15;
-
-  color: #4f3429;
-}
-
-#cupos {
-  margin-top: 17px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 15px;
-
-  line-height: 1.6;
-
-  color: #6d554a;
-}
-
-#cargando {
-  font-family: Arial, sans-serif;
-
-  font-size: 14px;
-
-  color: #8a6a5d;
-
-  margin-top: 28px;
-}
-
-#contenidoInvitado {
-  display: none;
-}
-
-#error {
-  display: none;
-
-  font-family: Arial, sans-serif;
-
-  max-width: 420px;
-
-  margin: 30px auto 0;
-
-  line-height: 1.7;
-
-  color: #7b5140;
-}
-
-
-/* =====================================================
-   BOTÓN GENERAL
-===================================================== */
-
-.boton {
-  margin-top: 34px;
-
-  min-width: 235px;
-
-  padding: 17px 31px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.25);
-
-  border-radius: 999px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #c16a46,
-      #a54e31
-    );
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 12px;
-
-  letter-spacing: 2.4px;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 15px 35px
-    rgba(117,62,42,0.20);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.boton:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 19px 38px
-    rgba(117,62,42,0.27);
-}
-
-.detalle-inferior {
-  margin-top: 38px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 4px;
-
-  color: #b07a66;
-
-  text-transform: uppercase;
-}
-
-
-/* =====================================================
-   PASO 2
-   FOTO + VERSÍCULO
-===================================================== */
-
-.segunda-seccion {
-  min-height: 100vh;
-
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-
-  text-align: center;
-
-  padding: 80px 25px;
-
-  overflow: hidden;
-
-  background-image:
-    linear-gradient(
-      rgba(132,54,31,0.60),
-      rgba(95,38,24,0.70)
-    ),
-    url("foto-carolina-alexanderv2.jpeg");
-
-  background-size: cover;
-
-  background-position:
-    center 42%;
-
-  background-repeat: no-repeat;
-
-  opacity: 0;
-
-  transform: translateY(30px);
-
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
-}
-
-.segunda-seccion::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    radial-gradient(
-      circle at center,
-      transparent 30%,
-      rgba(58,22,14,0.14) 100%
-    );
-
-  z-index: 1;
-}
-
-.segunda-seccion.visible {
-  opacity: 1;
-
-  transform: translateY(0);
-}
-
-.segunda-contenido {
-  width: 100%;
-
-  max-width: 760px;
-
-  position: relative;
-
-  z-index: 5;
-}
-
-.segunda-nombres {
-  font-family: Arial, sans-serif;
-
-  text-transform: uppercase;
-
-  font-size: 11px;
-
-  letter-spacing: 5px;
-
-  color: #f4d8c8;
-
-  margin-bottom: 38px;
-}
-
-.ramita-central {
-  width: 100px;
-
-  margin:
-    0 auto 38px;
-
-  color: #f1c5ab;
-
-  opacity: 0.9;
-}
-
-.ramita-central svg {
-  width: 100%;
-}
-
-.versiculo {
-  max-width: 680px;
-
-  margin: 0 auto;
-
-  font-size:
-    clamp(30px, 5vw, 50px);
-
-  font-weight: 400;
-
-  line-height: 1.35;
-
-  color: #fff8f1;
-
-  font-style: italic;
-
-  text-shadow:
-    0 2px 18px
-    rgba(40,15,8,0.25);
-}
-
-.referencia {
-  margin-top: 24px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 11px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color: #f0cbb7;
-}
-
-.linea-fecha {
-  width: 90px;
-  height: 1px;
-
-  margin: 32px auto;
-
-  background:
-    rgba(255,237,225,0.55);
-}
-
-.fecha-boda {
-  font-size:
-    clamp(30px, 5vw, 46px);
-
-  letter-spacing: 8px;
-
-  color: #fff7ef;
-}
-
-.desliza {
-  margin-top: 48px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color: #efd0bd;
-}
-
-.flecha {
-  margin-top: 14px;
-
-  font-size: 24px;
-
-  color: #fff0e5;
-
-  animation:
-    flotarFlecha
-    1.8s ease-in-out infinite;
-}
-
-
-/* =====================================================
-   PASO 3
+/* =========================================================
    CONTADOR
-===================================================== */
+========================================================= */
 
-.tercera-seccion {
-  min-height: 100vh;
-
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-
-  padding: 80px 25px;
-
-  text-align: center;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(190,102,67,0.12),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(190,102,67,0.10),
-      transparent 30%
-    ),
-    #f7f1eb;
+#contadorSeccion{
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at top left, rgba(194,112,80,.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(194,112,80,.10), transparent 30%),
+        #f7f1eb;
 }
 
-.tercera-contenido {
-  width: 100%;
-
-  max-width: 900px;
-
-  position: relative;
-
-  z-index: 5;
+.contador-contenido{
+    width:min(1100px,90%);
+    position:relative;
+    z-index:4;
 }
 
-.tercera-etiqueta {
-  font-family: Arial, sans-serif;
-
-  font-size: 11px;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  color: #a66043;
-
-  margin-bottom: 30px;
+.pre-titulo{
+    font-size:12px;
+    letter-spacing:7px;
+    color:#b46346;
+    margin-bottom:28px;
 }
 
-.tercera-titulo {
-  margin: 0;
-
-  font-size:
-    clamp(48px, 8vw, 86px);
-
-  font-weight: 400;
-
-  line-height: 1;
-
-  color: #87472f;
+.contador-titulo{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(70px,8vw,110px);
+    font-weight:normal;
+    color:#91452e;
 }
 
-.tercera-subtitulo {
-  margin-top: 18px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 11px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color: #ae7963;
+.contador-subtitulo{
+    margin-top:18px;
+    font-size:12px;
+    letter-spacing:7px;
+    color:#b46346;
 }
 
-.contador {
-  width: 100%;
-
-  margin:
-    70px auto 0;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(100px, 1fr));
-
-  gap: 25px;
+.contador{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin:95px auto 85px;
+    max-width:1000px;
 }
 
-.contador-item {
-  position: relative;
-
-  padding:
-    10px 10px 20px;
+.tiempo{
+    position:relative;
+    padding:0 30px;
 }
 
-.contador-item:not(:last-child)::after {
-  content: "";
-
-  position: absolute;
-
-  right: -13px;
-
-  top: 15%;
-
-  height: 70%;
-
-  width: 1px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgba(157,81,53,0.28),
-      transparent
-    );
+.tiempo:not(:last-child){
+    border-right:1px solid rgba(154,76,50,.14);
 }
 
-.contador-numero {
-  display: block;
-
-  font-size:
-    clamp(42px, 7vw, 78px);
-
-  line-height: 1;
-
-  color: #8d4931;
+.numero{
+    display:block;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(55px,6vw,82px);
+    color:#91452e;
 }
 
-.contador-label {
-  display: block;
-
-  margin-top: 17px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-
-  color: #a77c6a;
+.etiqueta{
+    display:block;
+    margin-top:12px;
+    letter-spacing:6px;
+    font-size:10px;
+    color:#a96249;
 }
 
-.contador-separador {
-  width: 120px;
-  height: 1px;
-
-  margin:
-    60px auto 0;
-
-  background:
-    rgba(159,82,55,0.35);
+.contador-linea{
+    width:140px;
+    height:1px;
+    margin:0 auto 40px;
+    background:#d5aa98;
 }
 
-.gran-dia {
-  margin-top: 36px;
-
-  font-size:
-    clamp(27px, 4vw, 42px);
-
-  font-style: italic;
-
-  color: #634033;
+.gran-dia{
+    font-family:Georgia, "Times New Roman", serif;
+    font-style:italic;
+    font-size:clamp(35px,4vw,52px);
+    color:#634136;
 }
 
-.fecha-pequena {
-  margin-top: 15px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color: #a7725c;
+.fecha-contador{
+    margin-top:20px;
+    letter-spacing:6px;
+    font-size:11px;
+    color:#b46346;
 }
 
+/* =========================================================
+   BOTÁNICA DE SCROLL
+========================================================= */
 
-/* =====================================================
-   PASO 4
+.botanica-scroll{
+    position:absolute;
+    width:190px;
+    height:500px;
+    opacity:.30;
+    color:#b86547;
+    pointer-events:none;
+    z-index:1;
+}
+
+.botanica-scroll.izq{
+    left:-20px;
+    bottom:-40px;
+}
+
+.botanica-scroll.der{
+    right:-20px;
+    top:-30px;
+    transform:scaleX(-1);
+}
+
+.botanica-scroll svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
+}
+
+.botanica-scroll .scroll-tallo,
+.botanica-scroll .scroll-rama{
+    fill:none;
+    stroke:currentColor;
+    stroke-linecap:round;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    transition:stroke-dashoffset 1.7s ease;
+}
+
+.botanica-scroll .scroll-tallo{
+    stroke-width:2;
+}
+
+.botanica-scroll .scroll-rama{
+    stroke-width:1.5;
+}
+
+.botanica-scroll .scroll-hoja{
+    fill:currentColor;
+    opacity:0;
+    transform:scale(0);
+    transform-box:fill-box;
+    transform-origin:center;
+    transition:
+        opacity .8s ease .5s,
+        transform .8s ease .5s;
+}
+
+.seccion-en-vista .scroll-tallo,
+.seccion-en-vista .scroll-rama{
+    stroke-dashoffset:0;
+}
+
+.seccion-en-vista .scroll-hoja{
+    opacity:.7;
+    transform:scale(1);
+}
+
+/* =========================================================
    EVENTO
-===================================================== */
+========================================================= */
 
-.evento-seccion {
-  min-height: 100vh;
-
-  display: none;
-
-  position: relative;
-
-  overflow: hidden;
-
-  background: #f7f1eb;
+#eventoSeccion{
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:#f7f1eb;
 }
 
-.evento-foto {
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  width: 31%;
-
-  overflow: hidden;
-
-  z-index: 1;
+.evento-foto{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:31%;
+    overflow:hidden;
 }
 
-.evento-foto-izquierda {
-  left: 0;
+.evento-foto::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            rgba(132,54,31,.52),
+            rgba(95,38,24,.62)
+        );
+    z-index:3;
 }
 
-.evento-foto-derecha {
-  right: 0;
+.evento-foto img{
+    position:absolute;
+    width:100%;
+    height:118%;
+    object-fit:cover;
 }
 
-.evento-foto img {
-  position: absolute;
-
-  left: 0;
-
-  width: 100%;
-  height: 118%;
-
-  object-fit: cover;
-
-  filter:
-    saturate(0.92)
-    contrast(0.96)
-    brightness(0.95);
+.evento-izq{
+    left:0;
 }
 
-.evento-foto::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 3;
-
-  background:
-    linear-gradient(
-      rgba(132,54,31,0.52),
-      rgba(95,38,24,0.62)
-    );
+.evento-der{
+    right:0;
 }
 
-.evento-foto-izquierda::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 4;
-
-  background:
-    linear-gradient(
-      to right,
-      transparent 48%,
-      rgba(247,241,235,0.40) 72%,
-      #f7f1eb 100%
-    );
+.evento-izq img{
+    top:-18%;
+    animation:fotoBaja 14s ease-in-out infinite alternate;
 }
 
-.evento-foto-derecha::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 4;
-
-  background:
-    linear-gradient(
-      to left,
-      transparent 48%,
-      rgba(247,241,235,0.40) 72%,
-      #f7f1eb 100%
-    );
+.evento-der img{
+    top:0;
+    animation:fotoSube 14s ease-in-out infinite alternate;
 }
 
-.evento-foto-izquierda img {
-  top: -18%;
-
-  animation:
-    fotoBaja
-    18s ease-in-out infinite alternate;
+@keyframes fotoBaja{
+    from{transform:translateY(0);}
+    to{transform:translateY(15%);}
 }
 
-.evento-foto-derecha img {
-  bottom: -18%;
-
-  animation:
-    fotoSube
-    18s ease-in-out infinite alternate;
+@keyframes fotoSube{
+    from{transform:translateY(0);}
+    to{transform:translateY(-15%);}
 }
 
-.evento-centro {
-  min-height: 100vh;
-
-  width: 44%;
-
-  max-width: 650px;
-
-  margin: auto;
-
-  position: relative;
-
-  z-index: 6;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-
-  padding:
-    55px 30px;
+.evento-izq::after,
+.evento-der::after{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:50%;
+    z-index:4;
 }
 
-.evento-logo-marco {
-  width: 105px;
-  height: 105px;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  margin-bottom: 25px;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      145deg,
-      #b96140,
-      #88412e
-    );
+.evento-izq::after{
+    right:0;
+    background:linear-gradient(to right, transparent, #f7f1eb);
 }
 
-.evento-logo {
-  width: 66px;
-  height: 66px;
-
-  object-fit: contain;
-
-  filter:
-    brightness(0)
-    invert(1);
+.evento-der::after{
+    left:0;
+    background:linear-gradient(to left, transparent, #f7f1eb);
 }
 
-.evento-etiqueta {
-  font-family: Arial, sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  color: #ad7157;
-
-  margin-bottom: 25px;
+.evento-centro{
+    position:relative;
+    z-index:8;
+    width:44%;
+    min-height:100vh;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:45px 30px;
 }
 
-.evento-titulo {
-  margin: 0;
-
-  font-size:
-    clamp(42px, 5vw, 68px);
-
-  line-height: 1.05;
-
-  font-weight: 400;
-
-  color: #82452f;
+.evento-logo-marco{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#a95237;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:26px;
+    box-shadow:0 12px 35px rgba(111,48,31,.16);
 }
 
-.evento-subtitulo {
-  margin-top: 13px;
-
-  font-size:
-    clamp(20px, 2vw, 28px);
-
-  font-style: italic;
-
-  color: #9b634c;
+.evento-logo-marco img{
+    width:80%;
+    height:80%;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
 }
 
-.evento-linea {
-  width: 90px;
-  height: 1px;
-
-  margin:
-    30px auto;
-
-  background:
-    rgba(162,84,56,0.38);
+.evento-mini{
+    font-size:10px;
+    letter-spacing:5px;
+    color:#a75c43;
+    margin-bottom:16px;
 }
 
-.evento-tipo {
-  font-family: Arial, sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color: #b06f53;
-
-  margin-bottom: 20px;
+.evento-centro h2{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(42px,4vw,65px);
+    font-weight:normal;
+    color:#81402d;
 }
 
-.evento-hora {
-  font-size:
-    clamp(36px, 4vw, 52px);
-
-  color: #87472f;
-
-  margin-bottom: 8px;
+.event-studio{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:24px;
+    font-style:italic;
+    color:#a55d46;
+    margin:4px 0 28px;
 }
 
-.evento-hora-label {
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color: #b1826c;
+.ceremonia-recepcion{
+    font-size:10px;
+    letter-spacing:5px;
+    color:#ad6a53;
 }
 
-.evento-direccion {
-  margin-top: 27px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 14px;
-
-  line-height: 1.8;
-
-  color: #76584b;
+.hora-evento{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:50px;
+    color:#82412e;
+    margin:12px 0 2px;
 }
 
-.evento-boton {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 28px;
-
-  padding:
-    15px 29px;
-
-  border-radius: 999px;
-
-  text-decoration: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      #bb6543,
-      #99472f
-    );
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 2.4px;
-
-  text-transform: uppercase;
+.hora-label{
+    font-size:9px;
+    letter-spacing:4px;
+    color:#b2735c;
 }
 
-.evento-nota {
-  margin-top: 27px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 3px;
-
-  color: #b98d78;
+.direccion{
+    max-width:400px;
+    margin:25px auto;
+    color:#6d554c;
+    line-height:1.7;
+    font-size:14px;
 }
 
+.boton-mapa{
+    display:inline-block;
+    padding:16px 35px;
+    border-radius:40px;
+    text-decoration:none;
+    background:#a85236;
+    color:#fff;
+    font-size:10px;
+    letter-spacing:4px;
+    transition:.3s;
+}
 
-/* =====================================================
-   PASO 5
+.boton-mapa:hover{
+    transform:translateY(-3px);
+    background:#8d422e;
+}
+
+.fecha-evento{
+    margin-top:26px;
+    font-family:Georgia, "Times New Roman", serif;
+    letter-spacing:8px;
+    font-size:22px;
+}
+
+/* =========================================================
    DRESS CODE
-===================================================== */
+========================================================= */
 
-.dress-seccion {
-  height: 100vh;
-  min-height: 100vh;
+#dressSeccion{
+    height:100vh;
+    min-height:700px;
+    position:relative;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    color:#fff8f3;
 
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-
-  overflow: hidden;
-
-  padding:
-    42px 30px;
-
-  text-align: center;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(255,245,239,0.16),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(95,38,24,0.10),
-      transparent 32%
-    ),
-    linear-gradient(
-      135deg,
-      #d7a38c 0%,
-      #c9896f 42%,
-      #b97358 100%
-    );
+    background:
+        radial-gradient(circle at top right, rgba(255,245,239,.15), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(95,38,24,.10), transparent 32%),
+        linear-gradient(135deg,#cf967e 0%,#c37f64 48%,#b56d52 100%);
 }
 
-.dress-contenido {
-  width: 100%;
-
-  max-width: 930px;
-
-  position: relative;
-
-  z-index: 5;
+.dress-contenido{
+    width:min(900px,90%);
+    position:relative;
+    z-index:4;
 }
 
-.dress-etiqueta {
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  color:
-    rgba(255,255,255,0.78);
-
-  margin-bottom: 12px;
+.dress-mini{
+    letter-spacing:7px;
+    font-size:10px;
+    margin-bottom:20px;
 }
 
-.dress-titulo {
-  margin: 0;
-
-  font-size:
-    clamp(46px, 6vw, 70px);
-
-  font-weight: 400;
-
-  color: #fff8f4;
+.dress-titulo{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(48px,6vw,70px);
+    font-weight:normal;
 }
 
-.dress-formal {
-  margin-top: 8px;
-
-  font-size:
-    clamp(18px, 2vw, 24px);
-
-  font-style: italic;
-
-  color: #fbe9df;
+.dress-subtitulo{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:27px;
+    font-style:italic;
+    margin-top:10px;
 }
 
-.dress-linea {
-  width: 100px;
-  height: 1px;
-
-  margin:
-    22px auto 30px;
-
-  background:
-    rgba(255,255,255,0.45);
+.dress-linea{
+    width:115px;
+    height:1px;
+    margin:25px auto 35px;
+    background:rgba(255,255,255,.5);
 }
 
-.dress-opciones {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  max-width: 700px;
-
-  margin: auto;
-
-  gap: 60px;
+.dress-opciones{
+    max-width:700px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
 }
 
-.dress-item {
-  position: relative;
+.dress-item{
+    position:relative;
 }
 
-.dress-item:first-child::after {
-  content: "";
-
-  position: absolute;
-
-  top: 6%;
-  right: -30px;
-
-  width: 1px;
-
-  height: 88%;
-
-  background:
-    rgba(255,255,255,0.25);
+.dress-item:first-child{
+    border-right:1px solid rgba(255,255,255,.4);
 }
 
-.dress-icono {
-  width: 108px;
-  height: 125px;
-
-  margin:
-    0 auto 16px;
-
-  color: #fff4ee;
+.dress-icono{
+    width:108px;
+    height:125px;
+    margin:auto;
 }
 
-.dress-icono svg {
-  width: 100%;
-  height: 100%;
+.dress-icono svg{
+    width:100%;
+    height:100%;
 }
 
-.dress-genero {
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color:
-    rgba(255,255,255,0.78);
+.dress-label{
+    font-size:9px;
+    letter-spacing:5px;
+    margin-top:12px;
 }
 
-.dress-descripcion {
-  margin-top: 8px;
-
-  font-size:
-    clamp(20px, 2.1vw, 27px);
-
-  font-style: italic;
-
-  color: #fffaf6;
+.dress-texto{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:27px;
+    font-style:italic;
+    margin-top:8px;
 }
 
-.reservados {
-  margin:
-    32px auto 0;
-
-  max-width: 660px;
-
-  padding-top: 24px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,0.28);
+.reservados{
+    border-top:1px solid rgba(255,255,255,.35);
+    max-width:760px;
+    margin:32px auto 0;
+    padding-top:24px;
 }
 
-.reservados-titulo {
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 4px;
-
-  text-transform: uppercase;
-
-  color:
-    rgba(255,255,255,0.78);
-
-  margin-bottom: 15px;
+.reservados-titulo{
+    font-size:9px;
+    letter-spacing:5px;
 }
 
-.paleta-reservada {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 15px;
-
-  margin-bottom: 16px;
+.paleta{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin:18px 0;
 }
 
-.color-reservado {
-  width: 44px;
-  height: 44px;
-
-  border-radius: 50%;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.65);
+.color-circulo{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.8);
 }
 
-.color-blanco {
-  background: #ffffff;
+.blanco{background:#fff;}
+.marfil{background:#f3ead8;}
+.beige{background:#ddc4a4;}
+
+.reservados-texto{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:21px;
+    font-style:italic;
+    line-height:1.45;
 }
 
-.color-marfil {
-  background: #f3ebdb;
-}
-
-.color-beige {
-  background: #d9c1a3;
-}
-
-.reservados-texto {
-  max-width: 600px;
-
-  margin: auto;
-
-  font-size:
-    clamp(16px, 1.7vw, 21px);
-
-  line-height: 1.45;
-
-  font-style: italic;
-
-  color: #fff9f5;
-}
-
-
-/* =====================================================
-   PASO 6
+/* =========================================================
    REGALOS
-===================================================== */
+========================================================= */
 
-.regalos-seccion {
-  height: 100vh;
-  min-height: 100vh;
+#regalosSeccion{
+    height:100vh;
+    min-height:680px;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    color:#fff7f1;
 
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-
-  overflow: hidden;
-
-  padding:
-    32px 30px;
-
-  text-align: center;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(255,225,205,0.09),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(208,118,82,0.12),
-      transparent 35%
-    ),
-    linear-gradient(
-      145deg,
-      #633026 0%,
-      #79392c 42%,
-      #57261f 100%
-    );
-
-  color: white;
+    background:
+        radial-gradient(circle at 15% 85%,rgba(193,104,72,.26),transparent 30%),
+        radial-gradient(circle at 90% 10%,rgba(129,52,37,.20),transparent 30%),
+        linear-gradient(135deg,#914735 0%,#7b372b 50%,#5b271f 100%);
 }
 
-.regalos-contenido {
-  width: 100%;
-
-  max-width: 1020px;
-
-  position: relative;
-
-  z-index: 5;
+.regalos-contenido{
+    width:min(1000px,90%);
+    position:relative;
+    z-index:5;
 }
 
-.regalos-icono {
-  width: 52px;
-  height: 52px;
-
-  margin:
-    0 auto 12px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.28);
-
-  border-radius: 50%;
-
-  font-size: 23px;
-
-  background:
-    rgba(255,255,255,0.05);
+.icono-corazon{
+    width:62px;
+    height:62px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:50%;
+    margin:0 auto 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
 }
 
-.regalos-etiqueta {
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  color: #eec4ae;
-
-  margin-bottom: 8px;
+.regalos-mini{
+    letter-spacing:7px;
+    font-size:10px;
+    margin-bottom:10px;
 }
 
-.regalos-titulo {
-  margin: 0;
-
-  font-size:
-    clamp(48px, 6vw, 72px);
-
-  font-weight: 400;
-
-  line-height: 0.95;
-
-  color: #fff7f1;
+.regalos-titulo{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(52px,6vw,78px);
+    font-weight:normal;
 }
 
-.regalos-texto {
-  max-width: 620px;
-
-  margin:
-    15px auto 0;
-
-  font-size:
-    clamp(17px, 1.8vw, 22px);
-
-  line-height: 1.45;
-
-  font-style: italic;
-
-  color: #f6ddd0;
+.regalos-frase{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:22px;
+    font-style:italic;
+    line-height:1.5;
+    margin:14px auto 25px;
 }
 
-.regalos-linea {
-  width: 100px;
-  height: 1px;
-
-  margin:
-    21px auto 23px;
-
-  background:
-    rgba(255,255,255,0.35);
+.regalos-linea{
+    width:100px;
+    height:1px;
+    background:rgba(255,255,255,.4);
+    margin:0 auto 25px;
 }
 
-.bancos-preview {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 22px;
-
-  max-width: 800px;
-
-  margin: auto;
+.bancos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    max-width:900px;
+    margin:auto;
 }
 
-.banco-preview {
-  min-height: 170px;
-
-  padding:
-    23px 24px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.18);
-
-  border-radius: 24px;
-
-  background:
-    rgba(255,255,255,0.07);
-
-  box-shadow:
-    0 18px 42px
-    rgba(20,5,4,0.14);
+.banco{
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:28px;
+    padding:25px 20px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(5px);
 }
 
-.banco-icono {
-  width: 42px;
-  height: 42px;
-
-  margin:
-    0 auto 13px;
-
-  border-radius: 50%;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.28);
-
-  font-size: 17px;
+.banco-icon{
+    width:50px;
+    height:50px;
+    margin:0 auto 14px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.banco-preview-nombre {
-  font-size: 24px;
-
-  color: #fff8f3;
+.banco h3{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:26px;
+    font-weight:normal;
 }
 
-.banco-preview-titular {
-  margin-top: 8px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 11px;
-
-  line-height: 1.5;
-
-  color: #e9cbbb;
+.banco p{
+    margin-top:10px;
+    font-size:13px;
+    color:#f2d9cf;
 }
 
-.regalos-boton {
-  margin-top: 25px;
-
-  padding:
-    15px 30px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.28);
-
-  border-radius: 999px;
-
-  background: #f6e2d6;
-
-  color: #633026;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 2.5px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
+.boton-transferencia{
+    margin-top:28px;
+    border:0;
+    border-radius:40px;
+    background:#f6e8df;
+    color:#773729;
+    padding:17px 38px;
+    font-size:10px;
+    letter-spacing:4px;
 }
 
-.regalos-nota {
-  margin-top: 17px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-
-  color:
-    rgba(255,235,225,0.62);
+.gracias-regalos{
+    margin-top:20px;
+    font-size:9px;
+    letter-spacing:5px;
+    color:#eabdad;
 }
 
+/* =========================================================
+   MODAL TRANSFERENCIAS
+========================================================= */
 
-/* =====================================================
-   PASO 7
+#modalTransferencia{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:rgba(43,19,15,.78);
+    backdrop-filter:blur(9px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.modal-caja{
+    width:min(700px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#f8f0e9;
+    color:#693729;
+    border-radius:30px;
+    padding:40px;
+    position:relative;
+    box-shadow:0 30px 90px rgba(0,0,0,.3);
+}
+
+.cerrar-modal{
+    position:absolute;
+    top:18px;
+    right:22px;
+    border:0;
+    background:transparent;
+    color:#713724;
+    font-size:28px;
+}
+
+.modal-caja h2{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:38px;
+    font-weight:normal;
+    margin-bottom:30px;
+}
+
+.dato-banco{
+    text-align:left;
+    padding:22px 0;
+    border-top:1px solid #dfc5b9;
+}
+
+.dato-banco h3{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.dato-banco p{
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* =========================================================
    RSVP
-===================================================== */
+========================================================= */
 
-.rsvp-seccion {
-  height: 100vh;
-  min-height: 100vh;
+#rsvpSeccion{
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    color:#fff8f3;
 
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-
-  overflow: hidden;
-
-  padding:
-    28px 30px;
-
-  text-align: center;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(212,139,107,0.11),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(255,225,211,0.06),
-      transparent 34%
-    ),
-    linear-gradient(
-      145deg,
-      #4b211d 0%,
-      #602921 45%,
-      #3f1917 100%
-    );
-
-  color: #fff9f5;
+    background:
+        radial-gradient(circle at top right,rgba(177,86,61,.25),transparent 30%),
+        linear-gradient(135deg,#783428,#642a21 52%,#4d201a);
 }
 
-.rsvp-seccion::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      115deg,
-      rgba(255,255,255,0.025),
-      transparent 38%,
-      rgba(20,4,4,0.13)
-    );
-
-  pointer-events: none;
+.rsvp-contenido{
+    width:min(950px,90%);
+    position:relative;
+    z-index:5;
 }
 
-.rsvp-contenido {
-  width: 100%;
-
-  max-width: 900px;
-
-  position: relative;
-
-  z-index: 5;
+.rsvp-corazon{
+    width:58px;
+    height:58px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 14px;
+    font-size:22px;
 }
 
-.rsvp-icono {
-  width: 48px;
-  height: 48px;
-
-  margin:
-    0 auto 11px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.28);
-
-  color: #f8d8c8;
-
-  font-size: 21px;
+.rsvp-mini{
+    font-size:9px;
+    letter-spacing:7px;
 }
 
-.rsvp-etiqueta {
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  color: #dcb29f;
-
-  margin-bottom: 8px;
+.rsvp-titulo{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(50px,6vw,78px);
+    font-weight:normal;
+    margin-top:10px;
 }
 
-.rsvp-titulo {
-  margin: 0;
-
-  font-size:
-    clamp(45px, 5.5vw, 68px);
-
-  font-weight: 400;
-
-  line-height: 1;
-
-  color: #fff8f3;
+.rsvp-subtitulo{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:22px;
+    font-style:italic;
+    margin-top:12px;
+    color:#efcfc1;
 }
 
-.rsvp-subtitulo {
-  max-width: 560px;
-
-  margin:
-    12px auto 0;
-
-  font-size:
-    clamp(16px, 1.7vw, 20px);
-
-  line-height: 1.45;
-
-  font-style: italic;
-
-  color: #ebcfc3;
+.rsvp-linea{
+    width:100px;
+    height:1px;
+    background:rgba(255,255,255,.35);
+    margin:25px auto;
 }
 
-.rsvp-linea {
-  width: 90px;
-  height: 1px;
-
-  margin:
-    18px auto;
-
-  background:
-    rgba(255,255,255,0.28);
+.rsvp-caja{
+    max-width:850px;
+    margin:auto;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:28px;
+    padding:25px 35px;
+    background:rgba(255,255,255,.05);
 }
 
-.rsvp-panel {
-  width: 100%;
-
-  max-width: 720px;
-
-  margin: auto;
-
-  padding:
-    22px 28px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.16);
-
-  border-radius: 25px;
-
-  background:
-    rgba(255,255,255,0.055);
-
-  box-shadow:
-    0 20px 55px
-    rgba(15,3,3,0.16);
+.rsvp-caja-mini{
+    font-size:9px;
+    letter-spacing:5px;
+    color:#eab6a2;
 }
 
-.rsvp-invitado-label {
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-
-  color: #cea493;
+#rsvpNombre{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:34px;
+    margin-top:7px;
 }
 
-.rsvp-invitado {
-  margin-top: 5px;
-
-  font-size:
-    clamp(24px, 3vw, 33px);
-
-  color: #fff7f2;
+#rsvpCupos{
+    font-size:13px;
+    margin-top:6px;
+    color:#edc9bb;
 }
 
-.rsvp-cupos {
-  margin-top: 5px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 11px;
-
-  color: #d9baad;
+.pregunta-rsvp{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:20px;
+    margin:20px 0 14px;
 }
 
-.rsvp-pregunta {
-  margin-top: 17px;
-
-  font-size: 18px;
-
-  color: #fff3ed;
+.rsvp-botones{
+    display:flex;
+    justify-content:center;
+    gap:14px;
 }
 
-.rsvp-opciones {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 12px;
-
-  margin-top: 13px;
+.rsvp-btn{
+    min-width:200px;
+    border:1px solid rgba(255,255,255,.28);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    border-radius:30px;
+    padding:14px 20px;
+    letter-spacing:3px;
+    font-size:9px;
+    transition:.25s;
 }
 
-.rsvp-opcion {
-  min-width: 170px;
-
-  padding:
-    12px 20px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.22);
-
-  border-radius: 999px;
-
-  background:
-    rgba(255,255,255,0.05);
-
-  color: #f8e7df;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 1.8px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+.rsvp-btn:hover,
+.rsvp-btn.activo{
+    background:#f2ded3;
+    color:#6a3025;
 }
 
-.rsvp-opcion:hover {
-  transform: translateY(-2px);
+#formAsistencia{
+    display:none;
+    margin-top:22px;
 }
 
-.rsvp-opcion.seleccionado {
-  background: #f2d7ca;
-
-  color: #55261f;
-
-  border-color: #f2d7ca;
+#cantidadAsisten{
+    width:100%;
+    max-width:400px;
+    padding:14px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    outline:none;
+    margin-top:10px;
 }
 
-.rsvp-detalles {
-  display: none;
-
-  margin-top: 17px;
-
-  padding-top: 16px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,0.12);
+#cantidadAsisten option{
+    color:#55281f;
 }
 
-.asistentes-label {
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 2.5px;
-
-  text-transform: uppercase;
-
-  color: #cba293;
+#acompaniantesInputs{
+    max-width:500px;
+    margin:15px auto 0;
 }
 
-.asistentes-selector {
-  display: flex;
-
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap: 8px;
-
-  margin-top: 10px;
+.input-acompanante{
+    width:100%;
+    padding:13px 15px;
+    margin:7px 0;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.08);
+    color:white;
+    outline:none;
 }
 
-.asistente-numero {
-  width: 38px;
-  height: 38px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.24);
-
-  border-radius: 50%;
-
-  background: transparent;
-
-  color: #f8e8e1;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 12px;
-
-  cursor: pointer;
+.input-acompanante::placeholder{
+    color:#e4bbae;
 }
 
-.asistente-numero.seleccionado {
-  background: #efd0c1;
-
-  color: #51231d;
-
-  border-color: #efd0c1;
+.confirmar-rsvp{
+    border:0;
+    border-radius:30px;
+    padding:15px 35px;
+    background:#f3e2d8;
+    color:#6a3025;
+    letter-spacing:3px;
+    font-size:9px;
+    margin-top:18px;
 }
 
-.acompanantes-contenedor {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 10px;
-
-  max-width: 600px;
-
-  margin:
-    13px auto 0;
+#mensajeRsvp{
+    margin-top:18px;
+    font-family:Georgia, "Times New Roman", serif;
+    font-style:italic;
+    font-size:18px;
 }
 
-.acompanante-campo {
-  width: 100%;
-
-  padding:
-    12px 15px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.18);
-
-  border-radius: 14px;
-
-  outline: none;
-
-  background:
-    rgba(255,255,255,0.08);
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 12px;
-}
-
-.acompanante-campo::placeholder {
-  color:
-    rgba(255,236,227,0.50);
-}
-
-.acompanante-campo:focus {
-  border-color:
-    rgba(255,220,203,0.60);
-
-  background:
-    rgba(255,255,255,0.11);
-}
-
-.rsvp-mensaje {
-  min-height: 18px;
-
-  margin-top: 10px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 11px;
-
-  color: #ffd7c8;
-}
-
-.rsvp-confirmar {
-  display: none;
-
-  margin-top: 11px;
-
-  padding:
-    13px 28px;
-
-  border: none;
-
-  border-radius: 999px;
-
-  background:
-    #f3ded3;
-
-  color: #57251e;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-}
-
-.rsvp-resultado {
-  display: none;
-
-  width: 100%;
-
-  max-width: 650px;
-
-  margin: auto;
-
-  padding:
-    29px 30px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.16);
-
-  border-radius: 25px;
-
-  background:
-    rgba(255,255,255,0.055);
-}
-
-.rsvp-resultado-icono {
-  width: 53px;
-  height: 53px;
-
-  margin:
-    0 auto 12px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background:
-    rgba(255,255,255,0.10);
-
-  font-size: 22px;
-}
-
-.rsvp-resultado-titulo {
-  font-size:
-    clamp(27px, 3vw, 37px);
-
-  color: #fff8f3;
-}
-
-.rsvp-resultado-texto {
-  max-width: 500px;
-
-  margin:
-    9px auto 0;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 12px;
-
-  line-height: 1.65;
-
-  color: #ddc0b4;
-}
-
-.rsvp-modificar {
-  margin-top: 18px;
-
-  padding:
-    11px 22px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.25);
-
-  border-radius: 999px;
-
-  background:
-    transparent;
-
-  color: #f1d9ce;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-}
-
-
-/* =====================================================
-   MODAL BANCOS
-===================================================== */
-
-.modal-bancos {
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 9999;
-
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 25px;
-
-  background:
-    rgba(35,10,8,0.78);
-
-  backdrop-filter:
-    blur(8px);
-}
-
-.modal-bancos.activo {
-  display: flex;
-}
-
-.modal-caja {
-  width: 100%;
-
-  max-width: 720px;
-
-  max-height: 90vh;
-
-  overflow-y: auto;
-
-  position: relative;
-
-  padding:
-    44px 40px;
-
-  border-radius: 28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #fbf5f0,
-      #f1e3da
-    );
-
-  color: #54352b;
-
-  text-align: center;
-}
-
-.modal-cerrar {
-  position: absolute;
-
-  right: 20px;
-  top: 18px;
-
-  width: 38px;
-  height: 38px;
-
-  border: none;
-
-  border-radius: 50%;
-
-  background:
-    rgba(116,57,41,0.08);
-
-  color: #7c432f;
-
-  font-size: 22px;
-
-  cursor: pointer;
-}
-
-.modal-icono {
-  width: 56px;
-  height: 56px;
-
-  margin:
-    0 auto 18px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: #8b4632;
-
-  color: white;
-
-  font-size: 22px;
-}
-
-.modal-titulo {
-  margin: 0;
-
-  font-size:
-    clamp(31px, 4vw, 43px);
-
-  font-weight: 400;
-
-  color: #70402f;
-}
-
-.modal-texto {
-  max-width: 500px;
-
-  margin:
-    14px auto 0;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 13px;
-
-  line-height: 1.7;
-
-  color: #82675b;
-}
-
-.pin-contenedor {
-  max-width: 320px;
-
-  margin:
-    28px auto 0;
-}
-
-.pin-input {
-  width: 100%;
-
-  padding:
-    16px 20px;
-
-  border:
-    1px solid
-    rgba(126,67,46,0.24);
-
-  border-radius: 999px;
-
-  outline: none;
-
-  text-align: center;
-
-  font-size: 24px;
-
-  letter-spacing: 12px;
-
-  color: #6c3b2c;
-
-  background:
-    rgba(255,255,255,0.72);
-}
-
-.pin-boton {
-  width: 100%;
-
-  margin-top: 14px;
-
-  padding:
-    15px 20px;
-
-  border: none;
-
-  border-radius: 999px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #9a5037,
-      #713425
-    );
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-}
-
-.pin-error {
-  min-height: 20px;
-
-  margin-top: 13px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 12px;
-
-  color: #ad3e33;
-}
-
-#datosBancarios {
-  display: none;
-
-  margin-top: 30px;
-}
-
-.datos-bancos-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 18px;
-}
-
-.banco-datos {
-  padding:
-    26px 22px;
-
-  border-radius: 22px;
-
-  background:
-    rgba(255,255,255,0.70);
-
-  border:
-    1px solid
-    rgba(133,74,52,0.13);
-
-  text-align: left;
-}
-
-.banco-datos-titulo {
-  font-size: 25px;
-
-  color: #743e2d;
-
-  margin-bottom: 18px;
-}
-
-.dato-label {
-  margin-top: 14px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
-  color: #a07968;
-}
-
-.dato-valor {
-  margin-top: 5px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 14px;
-
-  color: #50382e;
-}
-
-.dato-numero {
-  font-size: 19px;
-
-  color: #703d2d;
-}
-
-.copiar-boton {
-  margin-top: 9px;
-
-  padding:
-    8px 12px;
-
-  border:
-    1px solid
-    rgba(119,63,45,0.18);
-
-  border-radius: 999px;
-
-  background: transparent;
-
-  color: #80513f;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 1.5px;
-
-  cursor: pointer;
-}
-
-
-/* =====================================================
-   ANIMACIONES
-===================================================== */
-
-@keyframes aparecer {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-@keyframes crecerTallo {
-
-  from {
-    stroke-dashoffset: 900;
-  }
-
-  to {
-    stroke-dashoffset: 0;
-  }
-
-}
-
-@keyframes crecerRama {
-
-  from {
-    stroke-dashoffset: 240;
-  }
-
-  to {
-    stroke-dashoffset: 0;
-  }
-
-}
-
-@keyframes aparecerHoja {
-
-  0% {
-    opacity: 0;
-
-    transform:
-      scale(0.12)
-      rotate(-12deg);
-  }
-
-  65% {
-    opacity: 0.9;
-
-    transform:
-      scale(1.08)
-      rotate(2deg);
-  }
-
-  100% {
-    opacity: 0.84;
-
-    transform:
-      scale(1)
-      rotate(0deg);
-  }
-
-}
-
-@keyframes respirarDerecha {
-
-  from {
-    transform:
-      rotate(0deg)
-      translateY(0);
-  }
-
-  to {
-    transform:
-      rotate(2deg)
-      translateY(5px);
-  }
-
-}
-
-@keyframes respirarIzquierda {
-
-  from {
-    transform:
-      rotate(0deg)
-      translateY(0);
-  }
-
-  to {
-    transform:
-      rotate(-1.8deg)
-      translateY(-4px);
-  }
-
-}
-
-@keyframes respirarScroll {
-
-  from {
-    transform:
-      rotate(-0.7deg)
-      translateY(0);
-  }
-
-  to {
-    transform:
-      rotate(0.8deg)
-      translateY(4px);
-  }
-
-}
-
-@keyframes flotarFlecha {
-
-  0%,
-  100% {
-    transform:
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      translateY(8px);
-  }
-
-}
-
-@keyframes fotoBaja {
-
-  from {
-    transform:
-      translateY(0);
-  }
-
-  to {
-    transform:
-      translateY(15%);
-  }
-
-}
-
-@keyframes fotoSube {
-
-  from {
-    transform:
-      translateY(0);
-  }
-
-  to {
-    transform:
-      translateY(-15%);
-  }
-
-}
-
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media (max-width: 700px) {
-
-  .portada {
-    padding:
-      45px 22px 55px;
-  }
-
-  .nombres {
-    letter-spacing: -1px;
-  }
-
-  .floral-arriba-derecha {
-    width: 180px;
-    height: 390px;
-
-    top: -30px;
-    right: -75px;
-  }
-
-  .floral-abajo-izquierda {
-    width: 180px;
-    height: 390px;
-
-    bottom: -35px;
-    left: -75px;
-  }
-
-
-  /* BOTÁNICA MÓVIL */
-
-  .scroll-botanical {
-    opacity: 0.55;
-  }
-
-  .botanica-contador-izq,
-  .botanica-dress-izq,
-  .botanica-regalos-izq,
-  .botanica-rsvp-izq {
-    width: 155px;
-    height: 330px;
-
-    left: -72px;
-  }
-
-  .botanica-contador-der,
-  .botanica-dress-der,
-  .botanica-regalos-der,
-  .botanica-rsvp-der {
-    width: 145px;
-    height: 315px;
-
-    right: -70px;
-  }
-
-
-  .segunda-seccion {
-    padding:
-      65px 28px;
-
-    background-position:
-      48% center;
-  }
-
-  .versiculo {
-    font-size: 29px;
-  }
-
-  .tercera-seccion {
-    padding:
-      70px 20px;
-  }
-
-  .contador {
-    grid-template-columns:
-      repeat(2, 1fr);
-
-    gap:
-      30px 10px;
-
-    max-width: 360px;
-
-    margin-top: 55px;
-  }
-
-  .contador-item:nth-child(2)::after {
-    display: none;
-  }
-
-
-  /* EVENTO */
-
-  .evento-seccion {
-    min-height: auto;
-  }
-
-  .evento-centro {
-    width: 100%;
-
-    min-height: 82vh;
-
-    padding:
-      65px 28px 55px;
-  }
-
-  .evento-foto {
-    position: relative;
-
-    display: block;
-
-    width: 100%;
-
-    height: 42vh;
-  }
-
-
-  /* DRESS */
-
-  .dress-seccion {
-    height: auto;
-
-    min-height: 100vh;
-
-    padding:
-      58px 24px;
-  }
-
-  .dress-opciones {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-  }
-
-  .dress-item:first-child::after {
-    display: none;
-  }
-
-
-  /* REGALOS */
-
-  .regalos-seccion {
-    height: auto;
-
-    min-height: 100vh;
-
-    padding:
-      60px 22px;
-  }
-
-  .bancos-preview {
-    grid-template-columns: 1fr;
-
-    max-width: 420px;
-  }
-
-
-  /* RSVP */
-
-  .rsvp-seccion {
-    height: auto;
-
-    min-height: 100vh;
-
-    padding:
-      55px 20px;
-  }
-
-  .rsvp-titulo {
-    font-size: 46px;
-  }
-
-  .rsvp-panel {
-    padding:
-      24px 18px;
-  }
-
-  .rsvp-opciones {
-    flex-direction: column;
-
-    max-width: 320px;
-
-    margin:
-      14px auto 0;
-  }
-
-  .rsvp-opcion {
-    width: 100%;
-  }
-
-  .acompanantes-contenedor {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* MODAL */
-
-  .modal-caja {
-    padding:
-      42px 22px 30px;
-  }
-
-  .datos-bancos-grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-
-  * {
-    animation-duration:
-      0.01ms !important;
-
-    animation-iteration-count:
-      1 !important;
-  }
-
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:750px){
+
+    .rama-portada{
+        width:130px;
+        height:450px;
+        opacity:.7;
+    }
+
+    .nombres .nombre{
+        font-size:54px;
+    }
+
+    .nombres .amp{
+        font-size:38px;
+        margin:18px 0;
+    }
+
+    .mini-titulo,
+    .invitacion-especial,
+    .historia{
+        letter-spacing:4px;
+    }
+
+    #abrirInvitacion{
+        padding:17px 32px;
+    }
+
+    .fecha-versiculo{
+        font-size:27px;
+        letter-spacing:7px;
+    }
+
+    .contador{
+        grid-template-columns:1fr 1fr;
+        margin:60px auto;
+        gap:30px 0;
+    }
+
+    .tiempo:nth-child(2){
+        border-right:none;
+    }
+
+    .numero{
+        font-size:52px;
+    }
+
+    .evento-foto{
+        opacity:.25;
+        width:50%;
+    }
+
+    .evento-centro{
+        width:100%;
+        padding:40px 25px;
+    }
+
+    #dressSeccion{
+        height:auto;
+        min-height:100vh;
+        padding:60px 20px;
+        overflow:visible;
+    }
+
+    .dress-opciones{
+        gap:25px;
+    }
+
+    .dress-texto{
+        font-size:20px;
+    }
+
+    .dress-icono{
+        width:80px;
+        height:100px;
+    }
+
+    .reservados-texto{
+        font-size:18px;
+    }
+
+    #regalosSeccion{
+        height:auto;
+        min-height:100vh;
+        padding:55px 20px;
+    }
+
+    .bancos{
+        grid-template-columns:1fr;
+    }
+
+    .regalos-frase{
+        font-size:19px;
+    }
+
+    #rsvpSeccion{
+        padding:60px 20px;
+    }
+
+    .rsvp-caja{
+        padding:25px 18px;
+    }
+
+    .rsvp-botones{
+        flex-direction:column;
+    }
+
+    .rsvp-btn{
+        width:100%;
+    }
+
+    .botanica-scroll{
+        width:110px;
+        height:350px;
+        opacity:.18;
+    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
+<!-- ======================================================
      PORTADA
 ====================================================== -->
 
-<section
-  class="portada"
-  id="portada"
->
+<section id="portada">
 
-  <div class="mancha mancha-arriba"></div>
+    <div class="marco-portada"></div>
 
-  <div class="mancha mancha-abajo"></div>
+    <!-- RAMA IZQUIERDA -->
+    <div class="rama-portada izquierda">
+        <svg viewBox="0 0 220 650">
 
-  <div class="linea-vertical linea-izquierda"></div>
+            <path class="tallo-animado"
+                  d="M30 650 C55 555 63 475 80 390 C98 300 120 215 170 110"/>
 
-  <div class="linea-vertical linea-derecha"></div>
+            <path class="ramita-animada r1"
+                  d="M72 430 C45 410 35 385 30 355"/>
 
+            <path class="ramita-animada r2"
+                  d="M93 330 C120 310 137 285 145 250"/>
 
-  <!-- RAMA DERECHA PORTADA -->
+            <path class="ramita-animada r3"
+                  d="M118 245 C88 228 75 205 68 175"/>
 
-  <div class="floral floral-arriba-derecha">
+            <path class="ramita-animada r4"
+                  d="M145 165 C166 145 178 120 182 90"/>
 
-    <svg
-      viewBox="0 0 280 620"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+            <ellipse class="hoja-animada h1"
+                     cx="29" cy="348" rx="12" ry="25"
+                     transform="rotate(-28 29 348)"/>
 
-      <path
-        class="tallo"
-        d="
-        M262 0
-        C245 70 232 130 217 185
-        C197 260 174 322 143 392
-        C115 455 84 525 44 620
-        "
-      />
+            <ellipse class="hoja-animada h2"
+                     cx="148" cy="243" rx="12" ry="25"
+                     transform="rotate(35 148 243)"/>
 
-      <path class="rama rama-1" d="M231 132 C205 118 186 97 172 73" />
-      <path class="rama rama-2" d="M214 198 C240 178 254 154 262 126" />
-      <path class="rama rama-3" d="M190 282 C160 260 139 236 124 205" />
-      <path class="rama rama-4" d="M163 348 C193 332 216 306 228 275" />
-      <path class="rama rama-5" d="M124 438 C94 418 74 394 58 365" />
-      <path class="rama rama-6" d="M86 522 C111 509 130 489 145 462" />
+            <ellipse class="hoja-animada h3"
+                     cx="66" cy="168" rx="11" ry="24"
+                     transform="rotate(-32 66 168)"/>
 
-      <ellipse class="hoja hoja-1" cx="182" cy="88" rx="9" ry="21" transform="rotate(-42 182 88)" />
-      <ellipse class="hoja hoja-2" cx="216" cy="122" rx="10" ry="23" transform="rotate(32 216 122)" />
-      <ellipse class="hoja hoja-3" cx="248" cy="160" rx="9" ry="20" transform="rotate(38 248 160)" />
-      <ellipse class="hoja hoja-4" cx="145" cy="246" rx="11" ry="25" transform="rotate(-48 145 246)" />
-      <ellipse class="hoja hoja-5" cx="213" cy="305" rx="11" ry="24" transform="rotate(40 213 305)" />
-      <ellipse class="hoja hoja-6" cx="178" cy="343" rx="9" ry="21" transform="rotate(32 178 343)" />
-      <ellipse class="hoja hoja-7" cx="79" cy="397" rx="11" ry="25" transform="rotate(-48 79 397)" />
-      <ellipse class="hoja hoja-8" cx="126" cy="447" rx="10" ry="23" transform="rotate(-35 126 447)" />
-      <ellipse class="hoja hoja-9" cx="128" cy="488" rx="10" ry="22" transform="rotate(40 128 488)" />
-      <ellipse class="hoja hoja-10" cx="68" cy="548" rx="9" ry="21" transform="rotate(-38 68 548)" />
+            <ellipse class="hoja-animada h4"
+                     cx="184" cy="82" rx="11" ry="23"
+                     transform="rotate(32 184 82)"/>
 
-    </svg>
-
-  </div>
-
-
-  <!-- RAMA IZQUIERDA PORTADA -->
-
-  <div class="floral floral-abajo-izquierda">
-
-    <svg
-      viewBox="0 0 280 620"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-
-      <path
-        class="tallo"
-        d="
-        M18 620
-        C40 545 58 485 75 430
-        C97 360 120 300 145 240
-        C170 178 197 110 235 0
-        "
-      />
-
-      <path class="rama rama-1" d="M58 487 C30 470 16 447 8 420" />
-      <path class="rama rama-2" d="M79 419 C108 402 127 378 140 349" />
-      <path class="rama rama-3" d="M111 328 C79 306 58 281 45 250" />
-      <path class="rama rama-4" d="M145 241 C174 224 193 201 206 172" />
-      <path class="rama rama-5" d="M179 155 C150 134 132 111 120 83" />
-      <path class="rama rama-6" d="M205 82 C226 67 240 48 250 26" />
-
-      <ellipse class="hoja hoja-1" cx="23" cy="438" rx="10" ry="23" transform="rotate(-38 23 438)" />
-      <ellipse class="hoja hoja-2" cx="98" cy="396" rx="11" ry="24" transform="rotate(40 98 396)" />
-      <ellipse class="hoja hoja-3" cx="124" cy="362" rx="9" ry="20" transform="rotate(36 124 362)" />
-      <ellipse class="hoja hoja-4" cx="65" cy="283" rx="11" ry="25" transform="rotate(-46 65 283)" />
-      <ellipse class="hoja hoja-5" cx="180" cy="210" rx="10" ry="23" transform="rotate(38 180 210)" />
-      <ellipse class="hoja hoja-6" cx="154" cy="153" rx="10" ry="22" transform="rotate(-42 154 153)" />
-      <ellipse class="hoja hoja-7" cx="130" cy="110" rx="9" ry="21" transform="rotate(-42 130 110)" />
-      <ellipse class="hoja hoja-8" cx="221" cy="63" rx="10" ry="23" transform="rotate(37 221 63)" />
-      <ellipse class="hoja hoja-9" cx="244" cy="38" rx="8" ry="18" transform="rotate(31 244 38)" />
-      <ellipse class="hoja hoja-10" cx="44" cy="522" rx="10" ry="22" transform="rotate(-35 44 522)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="contenido">
-
-    <div class="sobrelinea">
-      Nos casamos
+        </svg>
     </div>
 
-    <h1 class="nombres">
+    <!-- RAMA DERECHA -->
+    <div class="rama-portada derecha">
+        <svg viewBox="0 0 220 650">
 
-      Carolina
+            <path class="tallo-animado"
+                  d="M30 650 C55 555 63 475 80 390 C98 300 120 215 170 110"/>
 
-      <span class="ampersand">
-        &
-      </span>
+            <path class="ramita-animada r1"
+                  d="M72 430 C45 410 35 385 30 355"/>
 
-      Alexander
+            <path class="ramita-animada r2"
+                  d="M93 330 C120 310 137 285 145 250"/>
 
-    </h1>
+            <path class="ramita-animada r3"
+                  d="M118 245 C88 228 75 205 68 175"/>
 
-    <div class="separador"></div>
+            <path class="ramita-animada r4"
+                  d="M145 165 C166 145 178 120 182 90"/>
 
-    <div id="cargando">
-      Preparando tu invitación...
+            <ellipse class="hoja-animada h1"
+                     cx="29" cy="348" rx="12" ry="25"/>
+
+            <ellipse class="hoja-animada h2"
+                     cx="148" cy="243" rx="12" ry="25"/>
+
+            <ellipse class="hoja-animada h3"
+                     cx="66" cy="168" rx="11" ry="24"/>
+
+            <ellipse class="hoja-animada h4"
+                     cx="184" cy="82" rx="11" ry="23"/>
+
+        </svg>
     </div>
 
-    <div id="contenidoInvitado">
+    <div class="portada-contenido">
 
-      <div class="texto-invitacion">
-        Invitación especial para
-      </div>
+        <div class="mini-titulo">NOS CASAMOS</div>
 
-      <div id="nombreInvitado"></div>
+        <h1 class="nombres">
+            <span class="nombre">Carolina</span>
+            <span class="amp">&</span>
+            <span class="nombre">Alexander</span>
+        </h1>
 
-      <div id="cupos"></div>
+        <div class="separador-portada">
+            <span></span>
+            <b>♥</b>
+            <span></span>
+        </div>
 
-      <button
-        class="boton"
-        id="abrirInvitacion"
-        type="button"
-      >
-        ABRIR INVITACIÓN
-      </button>
+        <div class="invitacion-especial">
+            INVITACIÓN ESPECIAL PARA
+        </div>
 
-      <div class="detalle-inferior">
-        Nuestra historia comienza aquí
-      </div>
+        <h2 id="nombreInvitado">
+            Cargando invitación...
+        </h2>
+
+        <div id="textoCupos"></div>
+
+        <button id="abrirInvitacion">
+            ABRIR INVITACIÓN
+        </button>
+
+        <div class="historia">
+            NUESTRA HISTORIA COMIENZA AQUÍ
+        </div>
 
     </div>
-
-    <div id="error">
-
-      No pudimos encontrar esta invitación.
-
-      <br>
-
-      Revisa que hayas abierto el enlace correcto.
-
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      VERSÍCULO
 ====================================================== -->
 
-<section
-  class="segunda-seccion"
-  id="segundaSeccion"
->
+<section id="versiculoSeccion">
 
-  <div class="segunda-contenido">
+    <div class="versiculo-contenido">
 
-    <div class="segunda-nombres">
-      Carolina & Alexander
+        <div class="pareja-mini">
+            CAROLINA & ALEXANDER
+        </div>
+
+        <!-- RAMITA COMPLETA RESTAURADA -->
+        <div class="ramita-central">
+
+            <svg viewBox="0 0 120 90"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <!-- TALLO -->
+                <path
+                    class="rc-tallo"
+                    d="M60 84
+                       C58 69 56 54 57 38
+                       C58 29 59 21 59 12"
+                />
+
+                <!-- RAMA IZQUIERDA -->
+                <path
+                    class="rc-rama"
+                    d="M57 53
+                       C47 49 38 42 30 32"
+                />
+
+                <!-- RAMA DERECHA -->
+                <path
+                    class="rc-rama"
+                    d="M58 40
+                       C70 36 80 29 90 18"
+                />
+
+                <!-- RAMITA SUPERIOR IZQUIERDA -->
+                <path
+                    class="rc-rama"
+                    d="M59 28
+                       C52 24 47 18 44 12"
+                />
+
+                <!-- HOJA IZQUIERDA -->
+                <path
+                    class="rc-hoja"
+                    d="M32 34
+                       C22 31 17 23 18 15
+                       C27 16 34 23 32 34 Z"
+                />
+
+                <!-- HOJA DERECHA -->
+                <path
+                    class="rc-hoja"
+                    d="M85 23
+                       C90 13 99 8 106 11
+                       C104 20 97 26 85 23 Z"
+                />
+
+                <!-- HOJA SUPERIOR -->
+                <path
+                    class="rc-hoja"
+                    d="M47 17
+                       C40 14 36 8 38 3
+                       C46 4 51 9 47 17 Z"
+                />
+
+            </svg>
+
+        </div>
+
+        <h2 class="frase-biblica">
+            “Y sobre todas estas cosas,<br>
+            vestíos de amor, que es el<br>
+            vínculo perfecto.”
+        </h2>
+
+        <div class="referencia">
+            COLOSENSES 3:14
+        </div>
+
+        <div class="linea-versiculo"></div>
+
+        <div class="fecha-versiculo">
+            14 · 11 · 2026
+        </div>
+
+        <div class="desliza">
+            DESLIZA PARA CONTINUAR
+        </div>
+
+        <div class="flecha">↓</div>
+
     </div>
-
-    <div class="ramita-central">
-
-      <svg viewBox="0 0 100 70">
-
-        <path
-          d="M50 65 C46 48 43 34 45 10"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        />
-
-      </svg>
-
-    </div>
-
-    <blockquote class="versiculo">
-
-      “Y sobre todas estas cosas,
-      vestíos de amor,
-      que es el vínculo perfecto.”
-
-    </blockquote>
-
-    <div class="referencia">
-      Colosenses 3:14
-    </div>
-
-    <div class="linea-fecha"></div>
-
-    <div class="fecha-boda">
-      14 · 11 · 2026
-    </div>
-
-    <div class="desliza">
-      Desliza para continuar
-    </div>
-
-    <div class="flecha">
-      ↓
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      CONTADOR
 ====================================================== -->
 
-<section
-  class="tercera-seccion scroll-section"
-  id="cuentaRegresiva"
->
+<section id="contadorSeccion">
 
-
-  <!-- BOTÁNICA IZQUIERDA -->
-
-  <div class="scroll-botanical botanica-contador-izq">
-
-    <svg viewBox="0 0 260 540">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M20 540
-        C42 472 58 420 78 360
-        C98 300 126 240 151 180
-        C177 119 198 68 226 10
-        "
-      />
-
-      <path class="scroll-rama" d="M61 410 C35 396 20 372 12 345" />
-      <path class="scroll-rama" d="M90 327 C118 314 137 294 150 267" />
-      <path class="scroll-rama" d="M122 249 C96 232 78 210 65 182" />
-      <path class="scroll-rama" d="M161 159 C187 145 205 123 216 99" />
-
-      <ellipse class="scroll-hoja" data-start="0.18" cx="28" cy="382" rx="10" ry="23" transform="rotate(-42 28 382)" />
-      <ellipse class="scroll-hoja" data-start="0.28" cx="119" cy="301" rx="10" ry="22" transform="rotate(38 119 301)" />
-      <ellipse class="scroll-hoja" data-start="0.39" cx="82" cy="213" rx="10" ry="23" transform="rotate(-45 82 213)" />
-      <ellipse class="scroll-hoja" data-start="0.50" cx="195" cy="131" rx="10" ry="22" transform="rotate(38 195 131)" />
-      <ellipse class="scroll-hoja" data-start="0.62" cx="177" cy="111" rx="8" ry="18" transform="rotate(-35 177 111)" />
-      <ellipse class="scroll-hoja" data-start="0.72" cx="218" cy="59" rx="9" ry="20" transform="rotate(35 218 59)" />
-
-    </svg>
-
-  </div>
-
-
-  <!-- BOTÁNICA DERECHA -->
-
-  <div class="scroll-botanical botanica-contador-der">
-
-    <svg viewBox="0 0 250 500">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M235 0
-        C218 58 200 115 185 169
-        C164 237 139 298 111 357
-        C87 407 61 454 25 500
-        "
-      />
-
-      <path class="scroll-rama" d="M202 113 C176 95 160 76 150 53" />
-      <path class="scroll-rama" d="M171 216 C198 199 216 179 228 154" />
-      <path class="scroll-rama" d="M128 324 C103 306 87 286 76 262" />
-
-      <ellipse class="scroll-hoja" data-start="0.18" cx="167" cy="82" rx="9" ry="21" transform="rotate(-42 167 82)" />
-      <ellipse class="scroll-hoja" data-start="0.34" cx="207" cy="181" rx="10" ry="22" transform="rotate(40 207 181)" />
-      <ellipse class="scroll-hoja" data-start="0.50" cx="95" cy="290" rx="10" ry="23" transform="rotate(-42 95 290)" />
-      <ellipse class="scroll-hoja" data-start="0.65" cx="73" cy="403" rx="9" ry="21" transform="rotate(-38 73 403)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="tercera-contenido">
-
-    <div class="tercera-etiqueta">
-      La espera casi termina
+    <div class="botanica-scroll izq">
+        <svg viewBox="0 0 200 500">
+            <path class="scroll-tallo"
+                  d="M25 500 C45 420 52 340 75 260 C95 185 120 120 165 40"/>
+            <path class="scroll-rama"
+                  d="M64 300 C40 285 28 260 25 235"/>
+            <path class="scroll-rama"
+                  d="M95 200 C120 185 137 160 145 130"/>
+            <ellipse class="scroll-hoja" cx="25" cy="230" rx="11" ry="24"/>
+            <ellipse class="scroll-hoja" cx="148" cy="125" rx="11" ry="24"/>
+        </svg>
     </div>
 
-    <h2 class="tercera-titulo">
-      Faltan
-    </h2>
-
-    <div class="tercera-subtitulo">
-      para celebrar nuestro amor
+    <div class="botanica-scroll der">
+        <svg viewBox="0 0 200 500">
+            <path class="scroll-tallo"
+                  d="M25 500 C45 420 52 340 75 260 C95 185 120 120 165 40"/>
+            <path class="scroll-rama"
+                  d="M64 300 C40 285 28 260 25 235"/>
+            <path class="scroll-rama"
+                  d="M95 200 C120 185 137 160 145 130"/>
+            <ellipse class="scroll-hoja" cx="25" cy="230" rx="11" ry="24"/>
+            <ellipse class="scroll-hoja" cx="148" cy="125" rx="11" ry="24"/>
+        </svg>
     </div>
 
-    <div class="contador">
+    <div class="contador-contenido">
 
-      <div class="contador-item">
+        <div class="pre-titulo">
+            LA ESPERA CASI TERMINA
+        </div>
 
-        <span
-          class="contador-numero"
-          id="dias"
-        >
-          00
-        </span>
+        <h2 class="contador-titulo">
+            Faltan
+        </h2>
 
-        <span class="contador-label">
-          Días
-        </span>
+        <div class="contador-subtitulo">
+            PARA CELEBRAR NUESTRO AMOR
+        </div>
 
-      </div>
+        <div class="contador">
 
-      <div class="contador-item">
+            <div class="tiempo">
+                <span class="numero" id="dias">00</span>
+                <span class="etiqueta">DÍAS</span>
+            </div>
 
-        <span
-          class="contador-numero"
-          id="horas"
-        >
-          00
-        </span>
+            <div class="tiempo">
+                <span class="numero" id="horas">00</span>
+                <span class="etiqueta">HORAS</span>
+            </div>
 
-        <span class="contador-label">
-          Horas
-        </span>
+            <div class="tiempo">
+                <span class="numero" id="minutos">00</span>
+                <span class="etiqueta">MINUTOS</span>
+            </div>
 
-      </div>
+            <div class="tiempo">
+                <span class="numero" id="segundos">00</span>
+                <span class="etiqueta">SEGUNDOS</span>
+            </div>
 
-      <div class="contador-item">
+        </div>
 
-        <span
-          class="contador-numero"
-          id="minutos"
-        >
-          00
-        </span>
+        <div class="contador-linea"></div>
 
-        <span class="contador-label">
-          Minutos
-        </span>
+        <div class="gran-dia">
+            para nuestro gran día
+        </div>
 
-      </div>
-
-      <div class="contador-item">
-
-        <span
-          class="contador-numero"
-          id="segundos"
-        >
-          00
-        </span>
-
-        <span class="contador-label">
-          Segundos
-        </span>
-
-      </div>
+        <div class="fecha-contador">
+            14 DE NOVIEMBRE DE 2026
+        </div>
 
     </div>
-
-    <div class="contador-separador"></div>
-
-    <div class="gran-dia">
-      para nuestro gran día
-    </div>
-
-    <div class="fecha-pequena">
-      14 de noviembre de 2026
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      EVENTO
 ====================================================== -->
 
-<section
-  class="evento-seccion"
-  id="eventoSeccion"
->
+<section id="eventoSeccion">
 
-  <div class="evento-foto evento-foto-izquierda">
-
-    <img
-      src="F1.jpeg"
-      alt=""
-    >
-
-  </div>
-
-  <div class="evento-foto evento-foto-derecha">
-
-    <img
-      src="F2.jpeg"
-      alt=""
-    >
-
-  </div>
-
-  <div class="evento-centro">
-
-    <div class="evento-logo-marco">
-
-      <img
-        src="LOGO.png"
-        class="evento-logo"
-        alt="Karla Ramírez Event Studio"
-      >
-
+    <div class="evento-foto evento-izq">
+        <img src="F1.jpeg" alt="">
     </div>
 
-    <div class="evento-etiqueta">
-      Aquí celebraremos nuestro sí
+    <div class="evento-foto evento-der">
+        <img src="F2.jpeg" alt="">
     </div>
 
-    <h2 class="evento-titulo">
-      Karla Ramírez
-    </h2>
+    <div class="evento-centro">
 
-    <div class="evento-subtitulo">
-      Event Studio · La Solé
+        <div class="evento-logo-marco">
+            <img src="LOGO.png" alt="Karla Ramírez Event Studio">
+        </div>
+
+        <div class="evento-mini">
+            AQUÍ CELEBRAREMOS NUESTRO SÍ
+        </div>
+
+        <h2>Karla Ramírez</h2>
+
+        <div class="event-studio">
+            Event Studio · La Solé
+        </div>
+
+        <div class="ceremonia-recepcion">
+            CEREMONIA & RECEPCIÓN
+        </div>
+
+        <div class="hora-evento">
+            16:30
+        </div>
+
+        <div class="hora-label">
+            HORA DE LA CEREMONIA
+        </div>
+
+        <div class="direccion">
+            Av. Gral. Rumiñahui S/N<br>
+            171103 Quito
+        </div>
+
+        <a
+            class="boton-mapa"
+            href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
+            target="_blank"
+            rel="noopener"
+        >
+            CÓMO LLEGAR
+        </a>
+
+        <div class="fecha-evento">
+            14 · 11 · 2026
+        </div>
+
     </div>
-
-    <div class="evento-linea"></div>
-
-    <div class="evento-tipo">
-      Ceremonia & Recepción
-    </div>
-
-    <div class="evento-hora">
-      16:30
-    </div>
-
-    <div class="evento-hora-label">
-      Hora de la ceremonia
-    </div>
-
-    <div class="evento-direccion">
-
-      Av. Gral. Rumiñahui S/N
-
-      <br>
-
-      171103 Quito
-
-    </div>
-
-    <a
-      class="evento-boton"
-      href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      ◇ &nbsp; CÓMO LLEGAR
-    </a>
-
-    <div class="evento-nota">
-      14 · 11 · 2026
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      DRESS CODE
 ====================================================== -->
 
-<section
-  class="dress-seccion scroll-section"
-  id="dressSeccion"
->
+<section id="dressSeccion">
 
-
-  <div class="scroll-botanical botanica-dress-izq">
-
-    <svg viewBox="0 0 250 500">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M18 500
-        C38 440 61 382 82 320
-        C105 255 130 197 153 144
-        C177 88 199 45 225 5
-        "
-      />
-
-      <path class="scroll-rama" d="M62 382 C35 366 20 345 13 321" />
-      <path class="scroll-rama" d="M99 273 C128 256 148 235 159 207" />
-      <path class="scroll-rama" d="M143 167 C114 149 96 129 83 102" />
-
-      <ellipse class="scroll-hoja" data-start="0.18" cx="28" cy="348" rx="10" ry="23" transform="rotate(-40 28 348)" />
-      <ellipse class="scroll-hoja" data-start="0.31" cx="136" cy="239" rx="10" ry="23" transform="rotate(39 136 239)" />
-      <ellipse class="scroll-hoja" data-start="0.45" cx="101" cy="132" rx="10" ry="22" transform="rotate(-43 101 132)" />
-      <ellipse class="scroll-hoja" data-start="0.59" cx="181" cy="94" rx="9" ry="20" transform="rotate(37 181 94)" />
-      <ellipse class="scroll-hoja" data-start="0.72" cx="211" cy="40" rx="8" ry="18" transform="rotate(34 211 40)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="scroll-botanical botanica-dress-der">
-
-    <svg viewBox="0 0 250 500">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M233 0
-        C215 62 198 119 180 174
-        C159 239 138 301 109 361
-        C84 412 58 459 21 500
-        "
-      />
-
-      <path class="scroll-rama" d="M201 105 C176 89 158 69 149 46" />
-      <path class="scroll-rama" d="M164 230 C192 213 211 192 223 166" />
-      <path class="scroll-rama" d="M112 358 C87 339 70 316 60 290" />
-
-      <ellipse class="scroll-hoja" data-start="0.18" cx="167" cy="76" rx="9" ry="20" transform="rotate(-40 167 76)" />
-      <ellipse class="scroll-hoja" data-start="0.34" cx="202" cy="196" rx="10" ry="22" transform="rotate(39 202 196)" />
-      <ellipse class="scroll-hoja" data-start="0.51" cx="79" cy="323" rx="10" ry="23" transform="rotate(-42 79 323)" />
-      <ellipse class="scroll-hoja" data-start="0.67" cx="58" cy="415" rx="9" ry="20" transform="rotate(-35 58 415)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="dress-contenido">
-
-    <div class="dress-etiqueta">
-      Código de vestimenta
+    <div class="botanica-scroll izq">
+        <svg viewBox="0 0 200 500">
+            <path class="scroll-tallo"
+                  d="M25 500 C45 420 55 340 78 255 C100 175 125 110 170 30"/>
+            <path class="scroll-rama"
+                  d="M65 305 C42 288 30 265 26 235"/>
+            <path class="scroll-rama"
+                  d="M103 185 C128 170 143 145 150 115"/>
+            <ellipse class="scroll-hoja" cx="26" cy="230" rx="11" ry="24"/>
+            <ellipse class="scroll-hoja" cx="153" cy="110" rx="11" ry="24"/>
+        </svg>
     </div>
 
-    <h2 class="dress-titulo">
-      Dress Code
-    </h2>
-
-    <div class="dress-formal">
-      Elegante / Formal
+    <div class="botanica-scroll der">
+        <svg viewBox="0 0 200 500">
+            <path class="scroll-tallo"
+                  d="M25 500 C45 420 55 340 78 255 C100 175 125 110 170 30"/>
+            <path class="scroll-rama"
+                  d="M65 305 C42 288 30 265 26 235"/>
+            <path class="scroll-rama"
+                  d="M103 185 C128 170 143 145 150 115"/>
+            <ellipse class="scroll-hoja" cx="26" cy="230" rx="11" ry="24"/>
+            <ellipse class="scroll-hoja" cx="153" cy="110" rx="11" ry="24"/>
+        </svg>
     </div>
 
-    <div class="dress-linea"></div>
+    <div class="dress-contenido">
 
-    <div class="dress-opciones">
+        <div class="dress-mini">
+            CÓDIGO DE VESTIMENTA
+        </div>
 
+        <h2 class="dress-titulo">
+            Dress Code
+        </h2>
 
-      <div class="dress-item">
+        <div class="dress-subtitulo">
+            Elegante / Formal
+        </div>
 
-        <div class="dress-icono">
+        <div class="dress-linea"></div>
 
-          <svg viewBox="0 0 120 150">
+        <div class="dress-opciones">
 
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
+            <div class="dress-item">
 
-              <path d="M42 15 L60 30 L78 15" />
-              <path d="M42 15 L25 31 L15 135" />
-              <path d="M78 15 L95 31 L105 135" />
-              <path d="M15 135 L105 135" />
+                <div class="dress-icono">
+                    <svg viewBox="0 0 120 140">
+                        <path
+                            d="M40 20 L58 35 L78 20 L95 35 L105 125 L25 125 L35 35 Z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+                    </svg>
+                </div>
 
-            </g>
+                <div class="dress-label">
+                    CABALLEROS
+                </div>
 
-          </svg>
+                <div class="dress-texto">
+                    Traje formal
+                </div>
+
+            </div>
+
+            <div class="dress-item">
+
+                <div class="dress-icono">
+                    <svg viewBox="0 0 120 140">
+
+                        <path
+                            d="M47 16 C47 32 53 40 60 43 C67 40 73 32 73 16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                        <path
+                            d="M47 55 L25 125 Q60 135 95 125 L73 55"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                    </svg>
+                </div>
+
+                <div class="dress-label">
+                    DAMAS
+                </div>
+
+                <div class="dress-texto">
+                    Vestido largo o midi<br>
+                    elegante
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="dress-genero">
-          Caballeros
-        </div>
+        <div class="reservados">
 
-        <div class="dress-descripcion">
-          Traje formal
-        </div>
+            <div class="reservados-titulo">
+                COLORES RESERVADOS PARA LOS NOVIOS
+            </div>
 
-      </div>
+            <div class="paleta">
+                <div class="color-circulo blanco"></div>
+                <div class="color-circulo marfil"></div>
+                <div class="color-circulo beige"></div>
+            </div>
 
-
-      <div class="dress-item">
-
-        <div class="dress-icono">
-
-          <svg viewBox="0 0 120 150">
-
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-
-              <path
-                d="
-                M46 12
-                C47 25 50 35 60 40
-                C70 35 73 25 74 12
-                "
-              />
-
-              <path
-                d="
-                M43 60
-                C35 83 25 110 15 137
-                "
-              />
-
-              <path
-                d="
-                M77 60
-                C85 83 95 110 105 137
-                "
-              />
-
-              <path
-                d="
-                M15 137
-                C40 143 80 143 105 137
-                "
-              />
-
-            </g>
-
-          </svg>
+            <div class="reservados-texto">
+                Con cariño, les pedimos reservar el
+                <strong>
+                    blanco, el beige y sus tonalidades
+                </strong>
+                exclusivamente para los novios.
+            </div>
 
         </div>
-
-        <div class="dress-genero">
-          Damas
-        </div>
-
-        <div class="dress-descripcion">
-          Vestido largo o midi elegante
-        </div>
-
-      </div>
 
     </div>
-
-
-    <div class="reservados">
-
-      <div class="reservados-titulo">
-        Colores reservados para los novios
-      </div>
-
-      <div class="paleta-reservada">
-
-        <div class="color-reservado color-blanco"></div>
-
-        <div class="color-reservado color-marfil"></div>
-
-        <div class="color-reservado color-beige"></div>
-
-      </div>
-
-      <div class="reservados-texto">
-
-        Con cariño, les pedimos reservar el
-
-        <strong>
-          blanco, el beige y sus tonalidades
-        </strong>
-
-        exclusivamente para los novios.
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      REGALOS
 ====================================================== -->
 
-<section
-  class="regalos-seccion scroll-section"
-  id="regalosSeccion"
->
+<section id="regalosSeccion">
 
-
-  <div class="scroll-botanical botanica-regalos-izq">
-
-    <svg viewBox="0 0 260 540">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M18 540
-        C38 474 58 420 79 362
-        C101 300 126 240 151 182
-        C176 123 199 70 229 8
-        "
-      />
-
-      <path class="scroll-rama" d="M57 424 C31 406 17 383 10 357" />
-      <path class="scroll-rama" d="M94 325 C121 308 140 285 152 258" />
-      <path class="scroll-rama" d="M128 239 C101 222 81 199 69 171" />
-      <path class="scroll-rama" d="M174 127 C198 113 215 93 225 70" />
-
-      <ellipse class="scroll-hoja" data-start="0.16" cx="28" cy="393" rx="10" ry="23" transform="rotate(-41 28 393)" />
-      <ellipse class="scroll-hoja" data-start="0.29" cx="123" cy="292" rx="10" ry="22" transform="rotate(39 123 292)" />
-      <ellipse class="scroll-hoja" data-start="0.42" cx="87" cy="202" rx="10" ry="23" transform="rotate(-43 87 202)" />
-      <ellipse class="scroll-hoja" data-start="0.55" cx="199" cy="101" rx="9" ry="21" transform="rotate(36 199 101)" />
-      <ellipse class="scroll-hoja" data-start="0.69" cx="219" cy="50" rx="8" ry="18" transform="rotate(32 219 50)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="scroll-botanical botanica-regalos-der">
-
-    <svg viewBox="0 0 255 520">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M240 0
-        C219 63 203 119 187 175
-        C165 245 143 307 114 366
-        C89 419 60 469 24 520
-        "
-      />
-
-      <path class="scroll-rama" d="M205 115 C178 97 162 77 152 53" />
-      <path class="scroll-rama" d="M172 229 C199 211 216 190 228 163" />
-      <path class="scroll-rama" d="M116 364 C90 347 73 324 61 297" />
-
-      <ellipse class="scroll-hoja" data-start="0.18" cx="170" cy="82" rx="9" ry="21" transform="rotate(-41 170 82)" />
-      <ellipse class="scroll-hoja" data-start="0.34" cx="205" cy="194" rx="10" ry="22" transform="rotate(38 205 194)" />
-      <ellipse class="scroll-hoja" data-start="0.51" cx="80" cy="329" rx="10" ry="23" transform="rotate(-42 80 329)" />
-      <ellipse class="scroll-hoja" data-start="0.67" cx="59" cy="424" rx="9" ry="21" transform="rotate(-37 59 424)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="regalos-contenido">
-
-    <div class="regalos-icono">
-      ♡
+    <div class="botanica-scroll izq">
+        <svg viewBox="0 0 200 500">
+            <path class="scroll-tallo"
+                  d="M25 500 C48 415 55 330 80 250 C102 175 130 100 170 30"/>
+            <path class="scroll-rama"
+                  d="M68 300 C45 282 32 258 28 225"/>
+            <path class="scroll-rama"
+                  d="M105 175 C130 160 145 138 152 105"/>
+            <ellipse class="scroll-hoja" cx="28" cy="220" rx="11" ry="24"/>
+            <ellipse class="scroll-hoja" cx="155" cy="100" rx="11" ry="24"/>
+        </svg>
     </div>
 
-    <div class="regalos-etiqueta">
-      Un detalle para nosotros
+    <div class="regalos-contenido">
+
+        <div class="icono-corazon">
+            ♡
+        </div>
+
+        <div class="regalos-mini">
+            UN DETALLE PARA NOSOTROS
+        </div>
+
+        <h2 class="regalos-titulo">
+            Regalos
+        </h2>
+
+        <div class="regalos-frase">
+            Si deseas regalarnos algo más que tu hermosa presencia,<br>
+            hemos preparado estas opciones para ti.
+        </div>
+
+        <div class="regalos-linea"></div>
+
+        <div class="bancos">
+
+            <div class="banco">
+
+                <div class="banco-icon">
+                    ◇
+                </div>
+
+                <h3>Banco Pichincha</h3>
+
+                <p>
+                    Carolina Pricila González Almeida
+                </p>
+
+            </div>
+
+            <div class="banco">
+
+                <div class="banco-icon">
+                    ◇
+                </div>
+
+                <h3>Banco Guayaquil</h3>
+
+                <p>
+                    Darling Alexander Mendoza Pérez
+                </p>
+
+            </div>
+
+        </div>
+
+        <button
+            class="boton-transferencia"
+            id="abrirTransferencia"
+        >
+            VER DATOS PARA TRANSFERENCIA
+        </button>
+
+        <div class="gracias-regalos">
+            GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO
+        </div>
+
     </div>
-
-    <h2 class="regalos-titulo">
-      Regalos
-    </h2>
-
-    <div class="regalos-texto">
-
-      Si deseas regalarnos algo más
-      que tu hermosa presencia,
-      hemos preparado estas opciones para ti.
-
-    </div>
-
-    <div class="regalos-linea"></div>
-
-    <div class="bancos-preview">
-
-      <div class="banco-preview">
-
-        <div class="banco-icono">
-          ◇
-        </div>
-
-        <div class="banco-preview-nombre">
-          Banco Pichincha
-        </div>
-
-        <div class="banco-preview-titular">
-          Carolina Pricila González Almeida
-        </div>
-
-      </div>
-
-      <div class="banco-preview">
-
-        <div class="banco-icono">
-          ◇
-        </div>
-
-        <div class="banco-preview-nombre">
-          Banco Guayaquil
-        </div>
-
-        <div class="banco-preview-titular">
-          Darling Alexander Mendoza Pérez
-        </div>
-
-      </div>
-
-    </div>
-
-    <button
-      class="regalos-boton"
-      type="button"
-      id="abrirBancos"
-    >
-      VER DATOS PARA TRANSFERENCIA
-    </button>
-
-    <div class="regalos-nota">
-      Gracias por acompañarnos en este nuevo capítulo
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      RSVP
 ====================================================== -->
 
-<section
-  class="rsvp-seccion scroll-section"
-  id="rsvpSeccion"
->
+<section id="rsvpSeccion">
 
-
-  <div class="scroll-botanical botanica-rsvp-izq">
-
-    <svg viewBox="0 0 255 535">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M18 535
-        C38 470 59 414 78 358
-        C102 292 127 235 151 178
-        C176 120 199 66 229 7
-        "
-      />
-
-      <path class="scroll-rama" d="M58 416 C31 399 17 378 10 350" />
-      <path class="scroll-rama" d="M95 320 C123 304 142 282 153 255" />
-      <path class="scroll-rama" d="M130 232 C102 214 83 192 70 164" />
-      <path class="scroll-rama" d="M173 129 C199 114 216 94 226 70" />
-
-      <ellipse class="scroll-hoja" data-start="0.17" cx="28" cy="386" rx="10" ry="23" transform="rotate(-42 28 386)" />
-      <ellipse class="scroll-hoja" data-start="0.31" cx="124" cy="290" rx="10" ry="22" transform="rotate(38 124 290)" />
-      <ellipse class="scroll-hoja" data-start="0.44" cx="88" cy="196" rx="10" ry="23" transform="rotate(-43 88 196)" />
-      <ellipse class="scroll-hoja" data-start="0.57" cx="198" cy="102" rx="9" ry="21" transform="rotate(37 198 102)" />
-      <ellipse class="scroll-hoja" data-start="0.71" cx="217" cy="51" rx="8" ry="18" transform="rotate(31 217 51)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="scroll-botanical botanica-rsvp-der">
-
-    <svg viewBox="0 0 250 520">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M238 0
-        C220 62 203 118 186 174
-        C164 241 142 306 114 365
-        C88 418 60 469 22 520
-        "
-      />
-
-      <path class="scroll-rama" d="M204 112 C179 96 160 76 151 52" />
-      <path class="scroll-rama" d="M171 228 C198 210 217 189 228 162" />
-      <path class="scroll-rama" d="M116 364 C90 346 72 324 60 297" />
-
-      <ellipse class="scroll-hoja" data-start="0.19" cx="168" cy="80" rx="9" ry="21" transform="rotate(-41 168 80)" />
-      <ellipse class="scroll-hoja" data-start="0.35" cx="205" cy="193" rx="10" ry="22" transform="rotate(39 205 193)" />
-      <ellipse class="scroll-hoja" data-start="0.52" cx="79" cy="329" rx="10" ry="23" transform="rotate(-42 79 329)" />
-      <ellipse class="scroll-hoja" data-start="0.68" cx="57" cy="422" rx="9" ry="20" transform="rotate(-36 57 422)" />
-
-    </svg>
-
-  </div>
-
-
-  <div class="rsvp-contenido">
-
-    <div class="rsvp-icono">
-      ♡
+    <div class="botanica-scroll der">
+        <svg viewBox="0 0 200 500">
+            <path class="scroll-tallo"
+                  d="M25 500 C48 415 55 330 80 250 C102 175 130 100 170 30"/>
+            <path class="scroll-rama"
+                  d="M68 300 C45 282 32 258 28 225"/>
+            <path class="scroll-rama"
+                  d="M105 175 C130 160 145 138 152 105"/>
+            <ellipse class="scroll-hoja" cx="28" cy="220" rx="11" ry="24"/>
+            <ellipse class="scroll-hoja" cx="155" cy="100" rx="11" ry="24"/>
+        </svg>
     </div>
 
-    <div class="rsvp-etiqueta">
-      Nuestro gran día
-    </div>
+    <div class="rsvp-contenido">
 
-    <h2 class="rsvp-titulo">
-      Confirma tu asistencia
-    </h2>
-
-    <div class="rsvp-subtitulo">
-      Nos encantará compartir este momento contigo.
-    </div>
-
-    <div class="rsvp-linea"></div>
-
-
-    <div
-      class="rsvp-panel"
-      id="rsvpPanel"
-    >
-
-      <div class="rsvp-invitado-label">
-        Invitación para
-      </div>
-
-      <div
-        class="rsvp-invitado"
-        id="rsvpNombre"
-      ></div>
-
-      <div
-        class="rsvp-cupos"
-        id="rsvpCupos"
-      ></div>
-
-      <div class="rsvp-pregunta">
-        ¿Nos acompañarás?
-      </div>
-
-      <div class="rsvp-opciones">
-
-        <button
-          type="button"
-          class="rsvp-opcion"
-          id="rsvpSi"
-        >
-          Sí, asistiré
-        </button>
-
-        <button
-          type="button"
-          class="rsvp-opcion"
-          id="rsvpNo"
-        >
-          No podré asistir
-        </button>
-
-      </div>
-
-
-      <div
-        class="rsvp-detalles"
-        id="rsvpDetalles"
-      >
-
-        <div class="asistentes-label">
-          ¿Cuántas personas asistirán?
+        <div class="rsvp-corazon">
+            ♡
         </div>
 
-        <div
-          class="asistentes-selector"
-          id="asistentesSelector"
-        ></div>
+        <div class="rsvp-mini">
+            NUESTRO GRAN DÍA
+        </div>
 
-        <div
-          class="acompanantes-contenedor"
-          id="acompanantesContenedor"
-        ></div>
+        <h2 class="rsvp-titulo">
+            Confirma tu asistencia
+        </h2>
 
-      </div>
+        <div class="rsvp-subtitulo">
+            Nos encantará compartir este momento contigo.
+        </div>
 
+        <div class="rsvp-linea"></div>
 
-      <div
-        class="rsvp-mensaje"
-        id="rsvpMensaje"
-      ></div>
+        <div class="rsvp-caja">
 
+            <div class="rsvp-caja-mini">
+                INVITACIÓN PARA
+            </div>
 
-      <button
-        class="rsvp-confirmar"
-        type="button"
-        id="rsvpConfirmar"
-      >
-        CONFIRMAR ASISTENCIA
-      </button>
+            <div id="rsvpNombre"></div>
+
+            <div id="rsvpCupos"></div>
+
+            <div class="pregunta-rsvp">
+                ¿Nos acompañarás?
+            </div>
+
+            <div class="rsvp-botones">
+
+                <button
+                    class="rsvp-btn"
+                    id="btnSi"
+                >
+                    SÍ, ASISTIRÉ
+                </button>
+
+                <button
+                    class="rsvp-btn"
+                    id="btnNo"
+                >
+                    NO PODRÉ ASISTIR
+                </button>
+
+            </div>
+
+            <div id="formAsistencia">
+
+                <div class="pregunta-rsvp">
+                    ¿Cuántas personas asistirán?
+                </div>
+
+                <select id="cantidadAsisten"></select>
+
+                <div id="acompaniantesInputs"></div>
+
+                <button
+                    class="confirmar-rsvp"
+                    id="guardarAsistencia"
+                >
+                    CONFIRMAR ASISTENCIA
+                </button>
+
+            </div>
+
+            <div id="mensajeRsvp"></div>
+
+        </div>
 
     </div>
-
-
-    <div
-      class="rsvp-resultado"
-      id="rsvpResultado"
-    >
-
-      <div
-        class="rsvp-resultado-icono"
-        id="rsvpResultadoIcono"
-      >
-        ♡
-      </div>
-
-      <div
-        class="rsvp-resultado-titulo"
-        id="rsvpResultadoTitulo"
-      ></div>
-
-      <div
-        class="rsvp-resultado-texto"
-        id="rsvpResultadoTexto"
-      ></div>
-
-      <button
-        class="rsvp-modificar"
-        id="rsvpModificar"
-        type="button"
-      >
-        MODIFICAR RESPUESTA
-      </button>
-
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
-     MODAL BANCOS
+<!-- ======================================================
+     MODAL TRANSFERENCIA
 ====================================================== -->
 
-<div
-  class="modal-bancos"
-  id="modalBancos"
->
+<div id="modalTransferencia">
 
-  <div class="modal-caja">
+    <div class="modal-caja">
 
-    <button
-      class="modal-cerrar"
-      id="cerrarModalBancos"
-      type="button"
-    >
-      ×
-    </button>
+        <button class="cerrar-modal" id="cerrarTransferencia">
+            ×
+        </button>
 
-    <div class="modal-icono">
-      🔒
-    </div>
+        <h2>
+            Datos para transferencia
+        </h2>
 
-    <h3 class="modal-titulo">
-      Datos para transferencia
-    </h3>
+        <div class="dato-banco">
 
-    <div class="modal-texto">
+            <h3>Banco Pichincha</h3>
 
-      Por seguridad, ingresa el código
-      proporcionado por los novios
-      para consultar los datos bancarios.
+            <p>
+                <strong>Titular:</strong>
+                González Almeida Carolina Pricila
+                <br>
 
-    </div>
+                <strong>Cuenta de ahorros:</strong>
+                7702688193
+                <br>
 
-    <div
-      class="pin-contenedor"
-      id="pinContenedor"
-    >
+                <strong>Número de Cédula:</strong>
+                1726921131
+            </p>
 
-      <input
-        type="password"
-        class="pin-input"
-        id="pinBancos"
-        inputmode="numeric"
-        maxlength="4"
-        autocomplete="off"
-        placeholder="••••"
-      >
+        </div>
 
-      <button
-        class="pin-boton"
-        id="verificarPin"
-        type="button"
-      >
-        VER DATOS
-      </button>
+        <div class="dato-banco">
 
-      <div
-        class="pin-error"
-        id="pinError"
-      ></div>
+            <h3>Banco Guayaquil</h3>
+
+            <p>
+                <strong>Titular:</strong>
+                Mendoza Pérez Darling Alexander
+                <br>
+
+                <strong>Cuenta de ahorros:</strong>
+                0044038638
+                <br>
+
+                <strong>Número de Cédula:</strong>
+                1753215993
+            </p>
+
+        </div>
 
     </div>
-
-
-    <div id="datosBancarios">
-
-      <div
-        class="datos-bancos-grid"
-        id="datosBancosGrid"
-      ></div>
-
-    </div>
-
-  </div>
 
 </div>
 
 
 <script>
 
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
-
-
-const parametros =
-  new URLSearchParams(
-    window.location.search
-  );
-
-
-const codigo =
-  parametros.get("i");
-
+"https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
 
 let invitadoActual = null;
-
-let respuestaRSVP = "";
-
-let cantidadAsistentes = 1;
+let respuestaAsistencia = "";
 
 
-/* =====================================================
-   PREPARAR RAMAS CONTROLADAS POR SCROLL
-===================================================== */
+/* =========================================================
+   ELEMENTOS
+========================================================= */
 
-function prepararBotanicasScroll() {
+const portada =
+document.getElementById("portada");
 
-  const botanicas =
-    document.querySelectorAll(
-      ".scroll-botanical"
-    );
+const versiculo =
+document.getElementById("versiculoSeccion");
 
+const contador =
+document.getElementById("contadorSeccion");
 
-  botanicas.forEach(
-    function (botanica) {
+const evento =
+document.getElementById("eventoSeccion");
 
+const dress =
+document.getElementById("dressSeccion");
 
-      const caminos =
-        botanica.querySelectorAll(
-          ".scroll-tallo, .scroll-rama"
-        );
+const regalos =
+document.getElementById("regalosSeccion");
 
-
-      caminos.forEach(
-        function (camino) {
-
-
-          const longitud =
-            camino.getTotalLength();
+const rsvp =
+document.getElementById("rsvpSeccion");
 
 
-          camino.dataset.longitud =
-            longitud;
+/* =========================================================
+   OBTENER CÓDIGO
+========================================================= */
 
+const parametros =
+new URLSearchParams(window.location.search);
 
-          camino.style.strokeDasharray =
-            longitud;
+const codigo =
+parametros.get("i") || parametros.get("codigo");
 
-
-          camino.style.strokeDashoffset =
-            longitud;
-
-
-        }
-      );
-
-
-      const hojas =
-        botanica.querySelectorAll(
-          ".scroll-hoja"
-        );
-
-
-      hojas.forEach(
-        function (hoja) {
-
-
-          hoja.style.opacity =
-            "0";
-
-
-          hoja.style.transform =
-            "scale(0.05)";
-
-
-        }
-      );
-
-
-    }
-  );
-
-
+if(codigo){
+    cargarInvitado(codigo);
+}else{
+    mostrarError();
 }
 
 
-/* =====================================================
-   PROGRESO DE SECCIÓN
-===================================================== */
+/* =========================================================
+   JSONP
+========================================================= */
 
-function obtenerProgresoSeccion(
-  seccion
-) {
+function cargarInvitado(codigo){
 
+    const script =
+    document.createElement("script");
 
-  const rect =
-    seccion.getBoundingClientRect();
+    script.src =
+        API_URL +
+        "?codigo=" +
+        encodeURIComponent(codigo) +
+        "&callback=recibirInvitado&t=" +
+        Date.now();
 
+    script.onerror =
+        mostrarError;
 
-  const viewport =
-    window.innerHeight;
-
-
-  /*
-     Empieza a crecer cuando la sección
-     entra por la parte inferior.
-
-     Termina aproximadamente cuando
-     la sección llega al centro.
-  */
-
-
-  const inicio =
-    viewport * 0.92;
-
-
-  const final =
-    viewport * 0.12;
-
-
-  let progreso =
-    (
-      inicio -
-      rect.top
-    ) /
-    (
-      inicio -
-      final
-    );
-
-
-  progreso =
-    Math.max(
-      0,
-      Math.min(
-        1,
-        progreso
-      )
-    );
-
-
-  return progreso;
-
+    document.body.appendChild(script);
 }
 
 
-/* =====================================================
-   ACTUALIZAR RAMAS CON SCROLL
-===================================================== */
+function recibirInvitado(datos){
 
-function actualizarBotanicasScroll() {
-
-
-  const secciones =
-    document.querySelectorAll(
-      ".scroll-section"
-    );
-
-
-  secciones.forEach(
-    function (seccion) {
-
-
-      if (
-        getComputedStyle(seccion)
-          .display === "none"
-      ) {
-
+    if(!datos || !datos.ok){
+        mostrarError();
         return;
-
-      }
-
-
-      const progreso =
-        obtenerProgresoSeccion(
-          seccion
-        );
-
-
-      const botanicas =
-        seccion.querySelectorAll(
-          ".scroll-botanical"
-        );
-
-
-      botanicas.forEach(
-        function (botanica) {
-
-
-          const tallos =
-            botanica.querySelectorAll(
-              ".scroll-tallo"
-            );
-
-
-          tallos.forEach(
-            function (tallo) {
-
-
-              const longitud =
-                Number(
-                  tallo.dataset.longitud
-                );
-
-
-              tallo.style.strokeDashoffset =
-                longitud *
-                (
-                  1 -
-                  progreso
-                );
-
-
-            }
-          );
-
-
-          const ramas =
-            botanica.querySelectorAll(
-              ".scroll-rama"
-            );
-
-
-          ramas.forEach(
-            function (
-              rama,
-              indice
-            ) {
-
-
-              const longitud =
-                Number(
-                  rama.dataset.longitud
-                );
-
-
-              const comienzo =
-                0.13 +
-                (
-                  indice *
-                  0.10
-                );
-
-
-              const progresoRama =
-                Math.max(
-                  0,
-                  Math.min(
-                    1,
-                    (
-                      progreso -
-                      comienzo
-                    ) /
-                    0.36
-                  )
-                );
-
-
-              rama.style.strokeDashoffset =
-                longitud *
-                (
-                  1 -
-                  progresoRama
-                );
-
-
-            }
-          );
-
-
-          const hojas =
-            botanica.querySelectorAll(
-              ".scroll-hoja"
-            );
-
-
-          hojas.forEach(
-            function (hoja) {
-
-
-              const inicioHoja =
-                Number(
-                  hoja.dataset.start ||
-                  0.3
-                );
-
-
-              const progresoHoja =
-                Math.max(
-                  0,
-                  Math.min(
-                    1,
-                    (
-                      progreso -
-                      inicioHoja
-                    ) /
-                    0.16
-                  )
-                );
-
-
-              hoja.style.opacity =
-                progresoHoja *
-                0.88;
-
-
-              const escala =
-                0.05 +
-                (
-                  progresoHoja *
-                  0.95
-                );
-
-
-              hoja.style.transform =
-                "scale(" +
-                escala +
-                ")";
-
-
-            }
-          );
-
-
-          if (
-            progreso >= 0.99
-          ) {
-
-            botanica
-              .classList
-              .add(
-                "terminada"
-              );
-
-          } else {
-
-            botanica
-              .classList
-              .remove(
-                "terminada"
-              );
-
-          }
-
-
-        }
-      );
-
-
-    }
-  );
-
-
-}
-
-
-/* =====================================================
-   OPTIMIZAR SCROLL
-===================================================== */
-
-let scrollPendiente =
-  false;
-
-
-window.addEventListener(
-  "scroll",
-  function () {
-
-
-    if (
-      scrollPendiente
-    ) {
-
-      return;
-
     }
 
+    invitadoActual = datos;
 
-    scrollPendiente =
-      true;
+    document.getElementById("nombreInvitado").textContent =
+        datos.invitado;
 
+    document.getElementById("rsvpNombre").textContent =
+        datos.invitado;
 
-    requestAnimationFrame(
-      function () {
+    const cupos =
+        Number(datos.cupos) || 1;
 
+    const texto =
+        cupos === 1
+        ? "Hemos reservado 1 lugar para ti"
+        : "Hemos reservado " + cupos + " lugares para ti";
 
-        actualizarBotanicasScroll();
+    document.getElementById("textoCupos").textContent =
+        texto;
 
+    document.getElementById("rsvpCupos").textContent =
+        texto;
 
-        scrollPendiente =
-          false;
-
-
-      }
-    );
-
-
-  },
-  {
-    passive: true
-  }
-);
-
-
-window.addEventListener(
-  "resize",
-  actualizarBotanicasScroll
-);
-
-
-/* =====================================================
-   CARGAR INVITADO
-===================================================== */
-
-function cargarInvitado() {
-
-
-  if (!codigo) {
-
-    mostrarError();
-
-    return;
-
-  }
-
-
-  const script =
-    document.createElement(
-      "script"
-    );
-
-
-  script.src =
-    API_URL +
-    "?accion=invitado" +
-    "&codigo=" +
-    encodeURIComponent(codigo) +
-    "&callback=recibirInvitado" +
-    "&t=" +
-    Date.now();
-
-
-  script.onerror =
-    function () {
-
-      mostrarError();
-
-    };
-
-
-  document.body.appendChild(
-    script
-  );
-
+    prepararCantidad(cupos);
 }
 
 
-/* =====================================================
-   RECIBIR INVITADO
-===================================================== */
+function mostrarError(){
 
-function recibirInvitado(datos) {
+    document.getElementById("nombreInvitado").textContent =
+        "Invitación no encontrada";
 
+    document.getElementById("textoCupos").textContent =
+        "Verifica que hayas abierto el enlace correcto.";
 
-  if (
-    !datos ||
-    !datos.ok
-  ) {
-
-    mostrarError();
-
-    return;
-
-  }
-
-
-  invitadoActual =
-    datos;
-
-
-  document
-    .getElementById(
-      "nombreInvitado"
-    )
-    .textContent =
-    datos.invitado;
-
-
-  let mensajeCupos;
-
-
-  if (
-    Number(
-      datos.cupos
-    ) === 1
-  ) {
-
-    mensajeCupos =
-      "Hemos reservado 1 lugar para ti";
-
-  } else {
-
-    mensajeCupos =
-      "Hemos reservado " +
-      datos.cupos +
-      " lugares para ti";
-
-  }
-
-
-  document
-    .getElementById(
-      "cupos"
-    )
-    .textContent =
-    mensajeCupos;
-
-
-  document
-    .getElementById(
-      "rsvpNombre"
-    )
-    .textContent =
-    datos.invitado;
-
-
-  document
-    .getElementById(
-      "rsvpCupos"
-    )
-    .textContent =
-    mensajeCupos;
-
-
-  document
-    .getElementById(
-      "cargando"
-    )
-    .style.display =
-    "none";
-
-
-  document
-    .getElementById(
-      "contenidoInvitado"
-    )
-    .style.display =
-    "block";
-
-
-  prepararRSVP();
-
-}
-
-
-/* =====================================================
-   ERROR
-===================================================== */
-
-function mostrarError() {
-
-
-  document
-    .getElementById(
-      "cargando"
-    )
-    .style.display =
-    "none";
-
-
-  document
-    .getElementById(
-      "contenidoInvitado"
-    )
-    .style.display =
-    "none";
-
-
-  document
-    .getElementById(
-      "error"
-    )
-    .style.display =
-    "block";
-
-}
-
-
-/* =====================================================
-   ABRIR INVITACIÓN
-===================================================== */
-
-document
-  .getElementById(
-    "abrirInvitacion"
-  )
-  .addEventListener(
-    "click",
-    function () {
-
-
-      const portada =
-        document.getElementById(
-          "portada"
-        );
-
-
-      portada
-        .classList
-        .add(
-          "saliendo"
-        );
-
-
-      setTimeout(
-        function () {
-
-
-          portada.style.display =
-            "none";
-
-
-          document
-            .getElementById(
-              "segundaSeccion"
-            )
-            .style.display =
-            "flex";
-
-
-          document
-            .getElementById(
-              "cuentaRegresiva"
-            )
-            .style.display =
-            "flex";
-
-
-          document
-            .getElementById(
-              "eventoSeccion"
-            )
-            .style.display =
-            "block";
-
-
-          document
-            .getElementById(
-              "dressSeccion"
-            )
-            .style.display =
-            "flex";
-
-
-          document
-            .getElementById(
-              "regalosSeccion"
-            )
-            .style.display =
-            "flex";
-
-
-          document
-            .getElementById(
-              "rsvpSeccion"
-            )
-            .style.display =
-            "flex";
-
-
-          setTimeout(
-            function () {
-
-
-              document
-                .getElementById(
-                  "segundaSeccion"
-                )
-                .classList
-                .add(
-                  "visible"
-                );
-
-
-              prepararBotanicasScroll();
-
-              actualizarBotanicasScroll();
-
-
-            },
-            50
-          );
-
-
-          window.scrollTo({
-            top: 0,
-            behavior: "auto"
-          });
-
-
-        },
-        750
-      );
-
-
-    }
-  );
-
-
-/* =====================================================
-   RSVP
-===================================================== */
-
-const rsvpSi =
-  document.getElementById(
-    "rsvpSi"
-  );
-
-
-const rsvpNo =
-  document.getElementById(
-    "rsvpNo"
-  );
-
-
-const rsvpDetalles =
-  document.getElementById(
-    "rsvpDetalles"
-  );
-
-
-const rsvpConfirmar =
-  document.getElementById(
-    "rsvpConfirmar"
-  );
-
-
-const rsvpMensaje =
-  document.getElementById(
-    "rsvpMensaje"
-  );
-
-
-function prepararRSVP() {
-
-
-  if (
-    !invitadoActual
-  ) {
-
-    return;
-
-  }
-
-
-  const estado =
-    String(
-      invitadoActual.estado ||
-      ""
-    )
-    .trim()
-    .toUpperCase();
-
-
-  if (
-    estado === "CONFIRMADO" ||
-    estado === "NO ASISTE"
-  ) {
-
-    mostrarRespuestaGuardada();
-
-  } else {
-
-    mostrarFormularioRSVP();
-
-  }
-
-}
-
-
-function mostrarFormularioRSVP() {
-
-
-  document
-    .getElementById(
-      "rsvpPanel"
-    )
-    .style.display =
-    "block";
-
-
-  document
-    .getElementById(
-      "rsvpResultado"
-    )
-    .style.display =
-    "none";
-
-
-  respuestaRSVP =
-    "";
-
-
-  cantidadAsistentes =
-    1;
-
-
-  rsvpSi.classList.remove(
-    "seleccionado"
-  );
-
-
-  rsvpNo.classList.remove(
-    "seleccionado"
-  );
-
-
-  rsvpDetalles.style.display =
-    "none";
-
-
-  rsvpConfirmar.style.display =
-    "none";
-
-
-  rsvpMensaje.textContent =
-    "";
-
-
-  document
-    .getElementById(
-      "acompanantesContenedor"
-    )
-    .innerHTML =
-    "";
-
-}
-
-
-/* SÍ */
-
-rsvpSi.addEventListener(
-  "click",
-  function () {
-
-
-    respuestaRSVP =
-      "SI";
-
-
-    rsvpSi
-      .classList
-      .add(
-        "seleccionado"
-      );
-
-
-    rsvpNo
-      .classList
-      .remove(
-        "seleccionado"
-      );
-
-
-    rsvpDetalles.style.display =
-      "block";
-
-
-    rsvpConfirmar.style.display =
-      "inline-block";
-
-
-    rsvpMensaje.textContent =
-      "";
-
-
-    crearSelectorAsistentes();
-
-
-  }
-);
-
-
-/* NO */
-
-rsvpNo.addEventListener(
-  "click",
-  function () {
-
-
-    respuestaRSVP =
-      "NO";
-
-
-    rsvpNo
-      .classList
-      .add(
-        "seleccionado"
-      );
-
-
-    rsvpSi
-      .classList
-      .remove(
-        "seleccionado"
-      );
-
-
-    rsvpDetalles.style.display =
-      "none";
-
-
-    rsvpConfirmar.style.display =
-      "inline-block";
-
-
-    rsvpMensaje.textContent =
-      "";
-
-
-  }
-);
-
-
-/* =====================================================
-   SELECTOR ASISTENTES
-===================================================== */
-
-function crearSelectorAsistentes() {
-
-
-  const selector =
-    document.getElementById(
-      "asistentesSelector"
-    );
-
-
-  selector.innerHTML =
-    "";
-
-
-  const cupos =
-    Number(
-      invitadoActual.cupos
-    );
-
-
-  for (
-    let i = 1;
-    i <= cupos;
-    i++
-  ) {
-
-
-    const boton =
-      document.createElement(
-        "button"
-      );
-
-
-    boton.type =
-      "button";
-
-
-    boton.className =
-      "asistente-numero";
-
-
-    boton.textContent =
-      i;
-
-
-    if (
-      i ===
-      cantidadAsistentes
-    ) {
-
-      boton
-        .classList
-        .add(
-          "seleccionado"
-        );
-
-    }
-
-
-    boton.addEventListener(
-      "click",
-      function () {
-
-
-        cantidadAsistentes =
-          i;
-
-
-        crearSelectorAsistentes();
-
-        crearCamposAcompanantes();
-
-
-      }
-    );
-
-
-    selector.appendChild(
-      boton
-    );
-
-
-  }
-
-
-  crearCamposAcompanantes();
-
-}
-
-
-/* =====================================================
-   CAMPOS ACOMPAÑANTES
-===================================================== */
-
-function crearCamposAcompanantes() {
-
-
-  const contenedor =
-    document.getElementById(
-      "acompanantesContenedor"
-    );
-
-
-  contenedor.innerHTML =
-    "";
-
-
-  const cantidad =
-    cantidadAsistentes -
-    1;
-
-
-  for (
-    let i = 1;
-    i <= cantidad;
-    i++
-  ) {
-
-
-    const input =
-      document.createElement(
-        "input"
-      );
-
-
-    input.type =
-      "text";
-
-
-    input.className =
-      "acompanante-campo";
-
-
-    input.placeholder =
-      "Nombre completo del acompañante " +
-      i;
-
-
-    contenedor.appendChild(
-      input
-    );
-
-
-  }
-
-}
-
-
-/* =====================================================
-   GUARDAR RSVP
-===================================================== */
-
-rsvpConfirmar.addEventListener(
-  "click",
-  guardarRSVP
-);
-
-
-function guardarRSVP() {
-
-
-  if (
-    !respuestaRSVP
-  ) {
-
-    rsvpMensaje.textContent =
-      "Selecciona una respuesta.";
-
-    return;
-
-  }
-
-
-  let acompanantes =
-    [];
-
-
-  if (
-    respuestaRSVP ===
-    "SI"
-  ) {
-
-
-    const campos =
-      document.querySelectorAll(
-        ".acompanante-campo"
-      );
-
-
-    let incompleto =
-      false;
-
-
-    campos.forEach(
-      function (campo) {
-
-
-        const nombre =
-          campo.value.trim();
-
-
-        if (
-          !nombre
-        ) {
-
-          incompleto =
-            true;
-
-        } else {
-
-          acompanantes.push(
-            nombre
-          );
-
-        }
-
-
-      }
-    );
-
-
-    if (
-      incompleto
-    ) {
-
-      rsvpMensaje.textContent =
-        "Por favor escribe el nombre completo de cada acompañante.";
-
-      return;
-
-    }
-
-
-  }
-
-
-  rsvpMensaje.textContent =
-    "Guardando tu respuesta...";
-
-
-  rsvpConfirmar.disabled =
-    true;
-
-
-  const script =
-    document.createElement(
-      "script"
-    );
-
-
-  let url =
-    API_URL +
-    "?accion=confirmar" +
-    "&codigo=" +
-    encodeURIComponent(
-      codigo
-    ) +
-    "&respuesta=" +
-    encodeURIComponent(
-      respuestaRSVP
-    );
-
-
-  if (
-    respuestaRSVP ===
-    "SI"
-  ) {
-
-
-    url +=
-      "&asisten=" +
-      encodeURIComponent(
-        cantidadAsistentes
-      );
-
-
-    url +=
-      "&acompanantes=" +
-      encodeURIComponent(
-        acompanantes.join("|")
-      );
-
-
-  } else {
-
-
-    url +=
-      "&asisten=0" +
-      "&acompanantes=";
-
-
-  }
-
-
-  url +=
-    "&callback=recibirConfirmacion" +
-    "&t=" +
-    Date.now();
-
-
-  script.src =
-    url;
-
-
-  script.onerror =
-    function () {
-
-
-      rsvpConfirmar.disabled =
-        false;
-
-
-      rsvpMensaje.textContent =
-        "No pudimos guardar tu respuesta. Intenta nuevamente.";
-
-
-    };
-
-
-  document.body.appendChild(
-    script
-  );
-
-}
-
-
-/* =====================================================
-   RESPUESTA RSVP
-===================================================== */
-
-function recibirConfirmacion(
-  datos
-) {
-
-
-  rsvpConfirmar.disabled =
-    false;
-
-
-  if (
-    !datos ||
-    !datos.ok
-  ) {
-
-
-    rsvpMensaje.textContent =
-      datos &&
-      datos.mensaje
-        ? datos.mensaje
-        : "No pudimos guardar tu respuesta.";
-
-
-    return;
-
-  }
-
-
-  invitadoActual.estado =
-    datos.estado;
-
-
-  invitadoActual.asisten =
-    datos.asisten;
-
-
-  invitadoActual.acompanantes =
-    datos.acompanantes ||
-    "";
-
-
-  rsvpMensaje.textContent =
-    "";
-
-
-  mostrarRespuestaGuardada();
-
-}
-
-
-/* =====================================================
-   RESPUESTA GUARDADA
-===================================================== */
-
-function mostrarRespuestaGuardada() {
-
-
-  document
-    .getElementById(
-      "rsvpPanel"
-    )
-    .style.display =
-    "none";
-
-
-  const resultado =
-    document.getElementById(
-      "rsvpResultado"
-    );
-
-
-  resultado.style.display =
-    "block";
-
-
-  const titulo =
-    document.getElementById(
-      "rsvpResultadoTitulo"
-    );
-
-
-  const texto =
-    document.getElementById(
-      "rsvpResultadoTexto"
-    );
-
-
-  const icono =
-    document.getElementById(
-      "rsvpResultadoIcono"
-    );
-
-
-  const estado =
-    String(
-      invitadoActual.estado ||
-      ""
-    )
-    .toUpperCase();
-
-
-  if (
-    estado ===
-    "CONFIRMADO"
-  ) {
-
-
-    icono.textContent =
-      "✓";
-
-
-    titulo.textContent =
-      "¡Gracias, " +
-      invitadoActual.invitado +
-      "!";
-
-
-    const cantidad =
-      Number(
-        invitadoActual.asisten
-      );
-
-
-    if (
-      cantidad ===
-      1
-    ) {
-
-      texto.textContent =
-        "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
-
-    } else {
-
-      texto.textContent =
-        "Hemos recibido tu confirmación para " +
-        cantidad +
-        " personas. Nos emociona compartir este día con ustedes.";
-
-    }
-
-
-  } else {
-
-
-    icono.textContent =
-      "♡";
-
-
-    titulo.textContent =
-      "Gracias por avisarnos";
-
-
-    texto.textContent =
-      "Hemos registrado que no podrás acompañarnos. Gracias por formar parte de nuestra historia.";
-
-
-  }
-
-}
-
-
-/* =====================================================
-   MODIFICAR RSVP
-===================================================== */
-
-document
-  .getElementById(
-    "rsvpModificar"
-  )
-  .addEventListener(
-    "click",
-    function () {
-
-
-      mostrarFormularioRSVP();
-
-
-    }
-  );
-
-
-/* =====================================================
-   MODAL BANCOS
-===================================================== */
-
-const modalBancos =
-  document.getElementById(
-    "modalBancos"
-  );
-
-
-const pinInput =
-  document.getElementById(
-    "pinBancos"
-  );
-
-
-const pinError =
-  document.getElementById(
-    "pinError"
-  );
-
-
-const pinContenedor =
-  document.getElementById(
-    "pinContenedor"
-  );
-
-
-const datosBancarios =
-  document.getElementById(
-    "datosBancarios"
-  );
-
-
-document
-  .getElementById(
-    "abrirBancos"
-  )
-  .addEventListener(
-    "click",
-    function () {
-
-
-      modalBancos
-        .classList
-        .add(
-          "activo"
-        );
-
-
-      pinInput.value =
-        "";
-
-
-      pinError.textContent =
-        "";
-
-
-      datosBancarios.style.display =
+    document.getElementById("abrirInvitacion").style.display =
         "none";
+}
 
 
-      pinContenedor.style.display =
-        "block";
-
-
-      setTimeout(
-        function () {
-
-
-          pinInput.focus();
-
-
-        },
-        100
-      );
-
-
-    }
-  );
-
+/* =========================================================
+   ABRIR INVITACIÓN
+========================================================= */
 
 document
-  .getElementById(
-    "cerrarModalBancos"
-  )
-  .addEventListener(
-    "click",
-    cerrarModalBancos
-  );
+.getElementById("abrirInvitacion")
+.addEventListener("click",function(){
 
+    portada.classList.add("saliendo");
 
-modalBancos.addEventListener(
-  "click",
-  function (event) {
+    setTimeout(function(){
 
+        portada.style.display="none";
 
-    if (
-      event.target ===
-      modalBancos
-    ) {
+        versiculo.style.display="flex";
+        contador.style.display="flex";
+        evento.style.display="block";
+        dress.style.display="flex";
+        regalos.style.display="flex";
+        rsvp.style.display="flex";
 
+        setTimeout(function(){
+            versiculo.classList.add("visible");
+        },50);
 
-      cerrarModalBancos();
+        window.scrollTo({
+            top:0,
+            behavior:"auto"
+        });
 
+        iniciarObservadorBotanico();
 
-    }
+    },750);
 
+});
 
-  }
-);
 
-
-function cerrarModalBancos() {
-
-
-  modalBancos
-    .classList
-    .remove(
-      "activo"
-    );
-
-}
-
-
-/* =====================================================
-   PIN BANCOS
-===================================================== */
-
-document
-  .getElementById(
-    "verificarPin"
-  )
-  .addEventListener(
-    "click",
-    verificarPinBancos
-  );
-
-
-pinInput.addEventListener(
-  "keydown",
-  function (event) {
-
-
-    if (
-      event.key ===
-      "Enter"
-    ) {
-
-
-      verificarPinBancos();
-
-
-    }
-
-
-  }
-);
-
-
-function verificarPinBancos() {
-
-
-  const pin =
-    pinInput.value.trim();
-
-
-  if (
-    pin.length !==
-    4
-  ) {
-
-
-    pinError.textContent =
-      "Ingresa el código de 4 dígitos.";
-
-
-    return;
-
-  }
-
-
-  pinError.textContent =
-    "Verificando...";
-
-
-  const script =
-    document.createElement(
-      "script"
-    );
-
-
-  script.src =
-    API_URL +
-    "?accion=bancos" +
-    "&codigo=" +
-    encodeURIComponent(
-      codigo
-    ) +
-    "&pin=" +
-    encodeURIComponent(
-      pin
-    ) +
-    "&callback=recibirBancos" +
-    "&t=" +
-    Date.now();
-
-
-  script.onerror =
-    function () {
-
-
-      pinError.textContent =
-        "No pudimos consultar los datos.";
-
-
-    };
-
-
-  document.body.appendChild(
-    script
-  );
-
-}
-
-
-/* =====================================================
-   BANCOS
-===================================================== */
-
-function recibirBancos(
-  datos
-) {
-
-
-  if (
-    !datos ||
-    !datos.ok
-  ) {
-
-
-    pinError.textContent =
-      "Código incorrecto.";
-
-
-    return;
-
-  }
-
-
-  pinError.textContent =
-    "";
-
-
-  pinContenedor.style.display =
-    "none";
-
-
-  mostrarDatosBancarios(
-    datos.bancos
-  );
-
-}
-
-
-function mostrarDatosBancarios(
-  bancos
-) {
-
-
-  const grid =
-    document.getElementById(
-      "datosBancosGrid"
-    );
-
-
-  grid.innerHTML =
-    "";
-
-
-  bancos.forEach(
-    function (banco) {
-
-
-      const tarjeta =
-        document.createElement(
-          "div"
-        );
-
-
-      tarjeta.className =
-        "banco-datos";
-
-
-      tarjeta.innerHTML = `
-
-        <div class="banco-datos-titulo">
-          ${banco.banco}
-        </div>
-
-        <div class="dato-label">
-          Titular
-        </div>
-
-        <div class="dato-valor">
-          ${banco.titular}
-        </div>
-
-        <div class="dato-label">
-          Tipo de cuenta
-        </div>
-
-        <div class="dato-valor">
-          ${banco.tipoCuenta}
-        </div>
-
-        <div class="dato-label">
-          Número de cuenta
-        </div>
-
-        <div class="dato-valor dato-numero">
-          ${banco.cuenta}
-        </div>
-
-        <button
-          class="copiar-boton"
-          type="button"
-          onclick="copiarTexto('${banco.cuenta}', this)"
-        >
-          COPIAR CUENTA
-        </button>
-
-        <div class="dato-label">
-          Número de cédula
-        </div>
-
-        <div class="dato-valor dato-numero">
-          ${banco.cedula}
-        </div>
-
-        <button
-          class="copiar-boton"
-          type="button"
-          onclick="copiarTexto('${banco.cedula}', this)"
-        >
-          COPIAR CÉDULA
-        </button>
-
-      `;
-
-
-      grid.appendChild(
-        tarjeta
-      );
-
-
-    }
-  );
-
-
-  datosBancarios.style.display =
-    "block";
-
-}
-
-
-/* =====================================================
-   COPIAR
-===================================================== */
-
-function copiarTexto(
-  texto,
-  boton
-) {
-
-
-  navigator.clipboard
-    .writeText(
-      texto
-    )
-    .then(
-      function () {
-
-
-        const original =
-          boton.textContent;
-
-
-        boton.textContent =
-          "COPIADO ✓";
-
-
-        setTimeout(
-          function () {
-
-
-            boton.textContent =
-              original;
-
-
-          },
-          1500
-        );
-
-
-      }
-    );
-
-}
-
-
-/* =====================================================
+/* =========================================================
    CONTADOR
-===================================================== */
+========================================================= */
 
 const fechaBoda =
-  new Date(
-    "2026-11-14T16:30:00-05:00"
-  );
+new Date("2026-11-14T16:30:00-05:00");
 
+function actualizarContador(){
 
-function actualizarContador() {
-
-
-  const ahora =
+    const ahora =
     new Date();
 
+    let diferencia =
+    fechaBoda - ahora;
 
-  let diferencia =
-    fechaBoda.getTime() -
-    ahora.getTime();
+    if(diferencia < 0){
+        diferencia = 0;
+    }
 
-
-  if (
-    diferencia <=
-    0
-  ) {
-
-
-    diferencia =
-      0;
-
-
-  }
-
-
-  const dias =
+    const dias =
     Math.floor(
-      diferencia /
-      86400000
+        diferencia /
+        (1000*60*60*24)
     );
 
-
-  const horas =
+    const horas =
     Math.floor(
-      (
-        diferencia %
-        86400000
-      ) /
-      3600000
+        (diferencia /
+        (1000*60*60)) % 24
     );
 
-
-  const minutos =
+    const minutos =
     Math.floor(
-      (
-        diferencia %
-        3600000
-      ) /
-      60000
+        (diferencia /
+        (1000*60)) % 60
     );
 
-
-  const segundos =
+    const segundos =
     Math.floor(
-      (
-        diferencia %
-        60000
-      ) /
-      1000
+        (diferencia / 1000) % 60
     );
 
+    document.getElementById("dias").textContent =
+        String(dias).padStart(2,"0");
 
-  document
-    .getElementById(
-      "dias"
-    )
-    .textContent =
-    String(dias)
-      .padStart(
-        2,
-        "0"
-      );
+    document.getElementById("horas").textContent =
+        String(horas).padStart(2,"0");
 
+    document.getElementById("minutos").textContent =
+        String(minutos).padStart(2,"0");
 
-  document
-    .getElementById(
-      "horas"
-    )
-    .textContent =
-    String(horas)
-      .padStart(
-        2,
-        "0"
-      );
-
-
-  document
-    .getElementById(
-      "minutos"
-    )
-    .textContent =
-    String(minutos)
-      .padStart(
-        2,
-        "0"
-      );
-
-
-  document
-    .getElementById(
-      "segundos"
-    )
-    .textContent =
-    String(segundos)
-      .padStart(
-        2,
-        "0"
-      );
-
-
+    document.getElementById("segundos").textContent =
+        String(segundos).padStart(2,"0");
 }
-
 
 actualizarContador();
 
-
 setInterval(
-  actualizarContador,
-  1000
+    actualizarContador,
+    1000
 );
 
 
-/* =====================================================
-   INICIO
-===================================================== */
+/* =========================================================
+   BOTÁNICA AL HACER SCROLL
+========================================================= */
 
-cargarInvitado();
+function iniciarObservadorBotanico(){
 
+    const secciones = [
+        contador,
+        dress,
+        regalos,
+        rsvp
+    ];
+
+    const observador =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                    .classList
+                    .add("seccion-en-vista");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.30
+        }
+    );
+
+    secciones.forEach(function(seccion){
+        observador.observe(seccion);
+    });
+}
+
+
+/* =========================================================
+   TRANSFERENCIAS
+========================================================= */
+
+const modal =
+document.getElementById("modalTransferencia");
+
+document
+.getElementById("abrirTransferencia")
+.addEventListener("click",function(){
+
+    modal.style.display="flex";
+
+});
+
+document
+.getElementById("cerrarTransferencia")
+.addEventListener("click",function(){
+
+    modal.style.display="none";
+
+});
+
+modal.addEventListener("click",function(e){
+
+    if(e.target === modal){
+        modal.style.display="none";
+    }
+
+});
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+function prepararCantidad(cupos){
+
+    const select =
+    document.getElementById("cantidadAsisten");
+
+    select.innerHTML="";
+
+    for(let i=1;i<=cupos;i++){
+
+        const opcion =
+        document.createElement("option");
+
+        opcion.value=i;
+        opcion.textContent=i;
+
+        select.appendChild(opcion);
+    }
+
+    generarAcompanantes(1);
+}
+
+
+document
+.getElementById("btnSi")
+.addEventListener("click",function(){
+
+    respuestaAsistencia="SI";
+
+    document
+    .getElementById("btnSi")
+    .classList.add("activo");
+
+    document
+    .getElementById("btnNo")
+    .classList.remove("activo");
+
+    document
+    .getElementById("formAsistencia")
+    .style.display="block";
+
+    generarAcompanantes(
+        Number(
+            document
+            .getElementById("cantidadAsisten")
+            .value
+        )
+    );
+
+});
+
+
+document
+.getElementById("btnNo")
+.addEventListener("click",function(){
+
+    respuestaAsistencia="NO";
+
+    document
+    .getElementById("btnNo")
+    .classList.add("activo");
+
+    document
+    .getElementById("btnSi")
+    .classList.remove("activo");
+
+    document
+    .getElementById("formAsistencia")
+    .style.display="none";
+
+    guardarRespuesta(
+        0,
+        []
+    );
+
+});
+
+
+document
+.getElementById("cantidadAsisten")
+.addEventListener("change",function(){
+
+    generarAcompanantes(
+        Number(this.value)
+    );
+
+});
+
+
+function generarAcompanantes(cantidad){
+
+    const contenedor =
+    document.getElementById("acompaniantesInputs");
+
+    contenedor.innerHTML="";
+
+    /*
+       El invitado principal ya está registrado.
+       Solo pedimos los nombres adicionales.
+    */
+
+    const adicionales =
+    Math.max(0,cantidad-1);
+
+    for(let i=1;i<=adicionales;i++){
+
+        const input =
+        document.createElement("input");
+
+        input.type="text";
+
+        input.className=
+        "input-acompanante";
+
+        input.placeholder=
+        adicionales === 1
+        ? "Nombre de tu acompañante"
+        : "Nombre del acompañante " + i;
+
+        input.dataset.acompanante="true";
+
+        contenedor.appendChild(input);
+    }
+}
+
+
+document
+.getElementById("guardarAsistencia")
+.addEventListener("click",function(){
+
+    if(!invitadoActual){
+        return;
+    }
+
+    const cantidad =
+    Number(
+        document
+        .getElementById("cantidadAsisten")
+        .value
+    );
+
+    const inputs =
+    document.querySelectorAll(
+        "[data-acompanante='true']"
+    );
+
+    const acompanantes=[];
+
+    let faltanNombres=false;
+
+    inputs.forEach(function(input){
+
+        const nombre =
+        input.value.trim();
+
+        if(!nombre){
+            faltanNombres=true;
+        }
+
+        acompanantes.push(nombre);
+
+    });
+
+    if(faltanNombres){
+
+        document
+        .getElementById("mensajeRsvp")
+        .textContent =
+        "Por favor, escribe el nombre de cada acompañante.";
+
+        return;
+    }
+
+    guardarRespuesta(
+        cantidad,
+        acompanantes
+    );
+
+});
+
+
+/* =========================================================
+   GUARDAR RSVP
+========================================================= */
+
+function guardarRespuesta(
+    cantidad,
+    acompanantes
+){
+
+    if(!invitadoActual){
+        return;
+    }
+
+    const callback =
+        "respuestaRSVP_" +
+        Date.now();
+
+    window[callback] =
+    function(respuesta){
+
+        document
+        .getElementById("mensajeRsvp")
+        .textContent =
+        respuesta && respuesta.ok
+        ? (
+            respuestaAsistencia === "NO"
+            ? "Gracias por hacérnoslo saber. ♡"
+            : "¡Gracias! Tu asistencia ha sido confirmada. ♡"
+        )
+        : "No pudimos guardar tu respuesta. Intenta nuevamente.";
+
+        delete window[callback];
+    };
+
+    const script =
+    document.createElement("script");
+
+    script.src =
+        API_URL +
+        "?accion=confirmar" +
+        "&codigo=" +
+        encodeURIComponent(
+            invitadoActual.codigo
+        ) +
+        "&estado=" +
+        encodeURIComponent(
+            respuestaAsistencia
+        ) +
+        "&asisten=" +
+        encodeURIComponent(cantidad) +
+        "&acompanantes=" +
+        encodeURIComponent(
+            acompanantes.join(" | ")
+        ) +
+        "&callback=" +
+        callback +
+        "&t=" +
+        Date.now();
+
+    script.onerror =
+    function(){
+
+        document
+        .getElementById("mensajeRsvp")
+        .textContent =
+        "No pudimos guardar tu respuesta. Intenta nuevamente.";
+
+    };
+
+    document.body.appendChild(script);
+}
 
 </script>
 
 </body>
-
 </html>
