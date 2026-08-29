@@ -1,2 +1,2 @@
-# invitaci-n-boda
+# invitacion-boda
 Invitación digital de nuestra boda
