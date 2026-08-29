@@ -180,19 +180,15 @@
 
     .floral svg {
       width: 100%;
-
       height: 100%;
-
       overflow: visible;
     }
 
     .floral-arriba-derecha {
       width: 300px;
-
       height: 520px;
 
       top: -40px;
-
       right: -25px;
 
       animation:
@@ -202,11 +198,9 @@
 
     .floral-abajo-izquierda {
       width: 280px;
-
       height: 500px;
 
       bottom: -50px;
-
       left: -35px;
 
       animation:
@@ -459,7 +453,6 @@
       display: none;
 
       align-items: center;
-
       justify-content: center;
 
       position: relative;
@@ -555,7 +548,6 @@
 
     .ramita-central svg {
       width: 100%;
-
       height: auto;
     }
 
@@ -596,7 +588,6 @@
 
     .linea-fecha {
       width: 90px;
-
       height: 1px;
 
       margin: 32px auto;
@@ -656,7 +647,6 @@
       display: none;
 
       align-items: center;
-
       justify-content: center;
 
       position: relative;
@@ -809,7 +799,6 @@
 
     .contador-separador {
       width: 120px;
-
       height: 1px;
 
       margin:
@@ -827,7 +816,6 @@
       position: absolute;
 
       left: 50%;
-
       top: 50%;
 
       transform:
@@ -890,7 +878,6 @@
       position: absolute;
 
       top: 0;
-
       bottom: 0;
 
       width: 31%;
@@ -914,7 +901,6 @@
       left: 0;
 
       width: 100%;
-
       height: 118%;
 
       object-fit: cover;
@@ -1019,7 +1005,6 @@
       flex-direction: column;
 
       justify-content: center;
-
       align-items: center;
 
       text-align: center;
@@ -1030,13 +1015,11 @@
 
     .evento-logo-marco {
       width: 105px;
-
       height: 105px;
 
       display: flex;
 
       justify-content: center;
-
       align-items: center;
 
       margin-bottom: 25px;
@@ -1061,7 +1044,6 @@
 
     .evento-logo {
       width: 66px;
-
       height: 66px;
 
       object-fit: contain;
@@ -1113,7 +1095,6 @@
 
     .evento-linea {
       width: 90px;
-
       height: 1px;
 
       margin:
@@ -1210,6 +1191,19 @@
       box-shadow:
         0 14px 30px
         rgba(115, 57, 37, 0.18);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .evento-boton:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 18px 35px
+        rgba(115, 57, 37, 0.27);
     }
 
     .evento-nota {
@@ -1233,12 +1227,12 @@
     ===================================================== */
 
     .dress-seccion {
+      height: 100vh;
       min-height: 100vh;
 
       display: none;
 
       align-items: center;
-
       justify-content: center;
 
       position: relative;
@@ -1246,89 +1240,89 @@
       overflow: hidden;
 
       padding:
-        90px 30px;
+        42px 30px;
 
       text-align: center;
 
       background:
         radial-gradient(
           circle at top right,
-          rgba(188, 102, 69, 0.13),
-          transparent 30%
+          rgba(255, 245, 239, 0.16),
+          transparent 32%
         ),
         radial-gradient(
           circle at bottom left,
-          rgba(188, 102, 69, 0.11),
+          rgba(95, 38, 24, 0.10),
           transparent 32%
         ),
-        #f7f1eb;
+        linear-gradient(
+          135deg,
+          #d7a38c 0%,
+          #c9896f 42%,
+          #b97358 100%
+        );
     }
-
 
     .dress-contenido {
       width: 100%;
 
-      max-width: 950px;
+      max-width: 930px;
 
       position: relative;
 
       z-index: 5;
     }
 
-
     .dress-etiqueta {
       font-family: Arial, sans-serif;
 
-      font-size: 10px;
+      font-size: 9px;
 
-      letter-spacing: 6px;
+      letter-spacing: 5px;
 
       text-transform: uppercase;
 
-      color: #b17256;
+      color:
+        rgba(255,255,255,0.78);
 
-      margin-bottom: 22px;
+      margin-bottom: 12px;
     }
-
 
     .dress-titulo {
       margin: 0;
 
       font-size:
-        clamp(50px, 7vw, 82px);
+        clamp(46px, 6vw, 70px);
 
       font-weight: 400;
 
-      color: #84462f;
+      color: #fff8f4;
     }
 
-
     .dress-formal {
-      margin-top: 13px;
+      margin-top: 8px;
 
       font-size:
-        clamp(20px, 2.2vw, 28px);
+        clamp(18px, 2vw, 24px);
 
       font-style: italic;
 
-      color: #a0634c;
+      color: #fbe9df;
     }
 
-
     .dress-linea {
-      width: 110px;
+      width: 100px;
 
       height: 1px;
 
       margin:
-        35px auto 50px;
+        22px auto 30px;
 
       position: relative;
 
       background:
-        rgba(163, 84, 55, 0.38);
+        rgba(255,255,255,0.45);
     }
-
 
     .dress-linea::after {
       content: "♥";
@@ -1336,22 +1330,20 @@
       position: absolute;
 
       left: 50%;
-
       top: 50%;
 
       transform:
         translate(-50%, -50%);
 
       padding:
-        0 13px;
+        0 12px;
 
-      background: #f7f1eb;
+      background: #c9896f;
 
-      color: #b86140;
+      color: #fff4ee;
 
-      font-size: 10px;
+      font-size: 9px;
     }
-
 
     .dress-opciones {
       display: grid;
@@ -1359,53 +1351,49 @@
       grid-template-columns:
         repeat(2, 1fr);
 
-      max-width: 740px;
+      max-width: 700px;
 
       margin: auto;
 
-      gap: 70px;
+      gap: 60px;
     }
-
 
     .dress-item {
       position: relative;
     }
-
 
     .dress-item:first-child::after {
       content: "";
 
       position: absolute;
 
-      top: 5%;
+      top: 6%;
 
-      right: -35px;
+      right: -30px;
 
       width: 1px;
 
-      height: 90%;
+      height: 88%;
 
       background:
         linear-gradient(
           to bottom,
           transparent,
-          rgba(163, 84, 55, 0.25),
+          rgba(255,255,255,0.35),
           transparent
         );
     }
 
-
     .dress-icono {
-      width: 135px;
+      width: 108px;
 
-      height: 160px;
+      height: 125px;
 
       margin:
-        0 auto 25px;
+        0 auto 16px;
 
-      color: #985039;
+      color: #fff4ee;
     }
-
 
     .dress-icono svg {
       width: 100%;
@@ -1413,49 +1401,7 @@
       height: 100%;
     }
 
-
     .dress-genero {
-      font-family: Arial, sans-serif;
-
-      font-size: 10px;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      color: #ad7259;
-    }
-
-
-    .dress-descripcion {
-      margin-top: 11px;
-
-      font-size:
-        clamp(22px, 2.5vw, 30px);
-
-      font-style: italic;
-
-      color: #644237;
-    }
-
-
-    /* COLORES RESERVADOS */
-
-    .reservados {
-      margin:
-        65px auto 0;
-
-      max-width: 700px;
-
-      padding-top: 40px;
-
-      border-top:
-        1px solid
-        rgba(164, 91, 62, 0.16);
-    }
-
-
-    .reservados-titulo {
       font-family: Arial, sans-serif;
 
       font-size: 9px;
@@ -1464,79 +1410,110 @@
 
       text-transform: uppercase;
 
-      color: #b2765c;
-
-      margin-bottom: 22px;
+      color:
+        rgba(255,255,255,0.78);
     }
 
+    .dress-descripcion {
+      margin-top: 8px;
+
+      font-size:
+        clamp(20px, 2.1vw, 27px);
+
+      font-style: italic;
+
+      color: #fffaf6;
+    }
+
+
+    /* COLORES RESERVADOS */
+
+    .reservados {
+      margin:
+        32px auto 0;
+
+      max-width: 660px;
+
+      padding-top: 24px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.28);
+    }
+
+    .reservados-titulo {
+      font-family: Arial, sans-serif;
+
+      font-size: 8px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color:
+        rgba(255,255,255,0.78);
+
+      margin-bottom: 15px;
+    }
 
     .paleta-reservada {
       display: flex;
 
       justify-content: center;
-
       align-items: center;
 
-      gap: 18px;
+      gap: 15px;
 
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
-
     .color-reservado {
-      width: 52px;
+      width: 44px;
 
-      height: 52px;
+      height: 44px;
 
       border-radius: 50%;
 
       border:
         1px solid
-        rgba(128, 74, 55, 0.25);
+        rgba(255,255,255,0.65);
 
       box-shadow:
-        0 7px 18px
-        rgba(105, 62, 47, 0.10);
-
-      position: relative;
+        0 6px 15px
+        rgba(80,40,26,0.14);
     }
-
 
     .color-blanco {
       background: #ffffff;
     }
 
-
     .color-marfil {
-      background: #f4eedf;
+      background: #f3ebdb;
     }
-
 
     .color-beige {
-      background: #dfcbb2;
+      background: #d9c1a3;
     }
 
-
     .reservados-texto {
-      max-width: 580px;
+      max-width: 600px;
 
       margin: auto;
 
       font-size:
-        clamp(18px, 2vw, 24px);
+        clamp(16px, 1.7vw, 21px);
 
-      line-height: 1.55;
+      line-height: 1.45;
 
       font-style: italic;
 
-      color: #68493d;
+      color: #fff9f5;
     }
 
-
     .reservados-texto strong {
-      color: #934e37;
+      color: #ffffff;
 
-      font-weight: 400;
+      font-weight: 600;
     }
 
 
@@ -1545,17 +1522,16 @@
     .dress-floral {
       position: absolute;
 
-      width: 260px;
+      width: 220px;
 
-      height: 450px;
+      height: 380px;
 
-      color: #b96847;
+      color: #fff2ea;
 
-      opacity: 0.22;
+      opacity: 0.15;
 
       pointer-events: none;
     }
-
 
     .dress-floral svg {
       width: 100%;
@@ -1563,21 +1539,19 @@
       height: 100%;
     }
 
-
     .dress-floral-izquierda {
-      left: -80px;
+      left: -85px;
 
-      bottom: -80px;
+      bottom: -95px;
 
       transform:
         rotate(-10deg);
     }
 
-
     .dress-floral-derecha {
-      right: -80px;
+      right: -85px;
 
-      top: -80px;
+      top: -95px;
 
       transform:
         rotate(170deg);
@@ -1606,7 +1580,6 @@
 
     }
 
-
     @keyframes moverRamaDerecha {
 
       from {
@@ -1622,7 +1595,6 @@
       }
 
     }
-
 
     @keyframes moverRamaIzquierda {
 
@@ -1640,7 +1612,6 @@
 
     }
 
-
     @keyframes flotarFlecha {
 
       0%,
@@ -1656,7 +1627,6 @@
 
     }
 
-
     @keyframes fotoBaja {
 
       from {
@@ -1670,7 +1640,6 @@
       }
 
     }
-
 
     @keyframes fotoSube {
 
@@ -1698,32 +1667,26 @@
           45px 22px 55px;
       }
 
-
       .sobrelinea {
         font-size: 10px;
 
         letter-spacing: 4px;
       }
 
-
       .nombres {
         letter-spacing: -1px;
       }
-
 
       .linea-izquierda {
         left: 4%;
       }
 
-
       .linea-derecha {
         right: 4%;
       }
 
-
       .floral-arriba-derecha {
         width: 175px;
-
         height: 330px;
 
         right: -55px;
@@ -1733,10 +1696,8 @@
         opacity: 0.55;
       }
 
-
       .floral-abajo-izquierda {
         width: 175px;
-
         height: 330px;
 
         left: -55px;
@@ -1746,13 +1707,11 @@
         opacity: 0.55;
       }
 
-
       .boton {
         width: 100%;
 
         max-width: 310px;
       }
-
 
       .segunda-seccion {
         padding:
@@ -1762,22 +1721,18 @@
           48% center;
       }
 
-
       .versiculo {
         font-size: 29px;
       }
-
 
       .fecha-boda {
         letter-spacing: 5px;
       }
 
-
       .tercera-seccion {
         padding:
           70px 20px;
       }
-
 
       .contador {
         grid-template-columns:
@@ -1794,11 +1749,9 @@
         margin-top: 55px;
       }
 
-
       .contador-item:nth-child(2)::after {
         display: none;
       }
-
 
       .contador-numero {
         font-size: 52px;
@@ -1811,7 +1764,6 @@
         min-height: auto;
       }
 
-
       .evento-centro {
         width: 100%;
 
@@ -1821,13 +1773,11 @@
           65px 28px 55px;
       }
 
-
       .evento-logo-marco {
         width: 90px;
 
         height: 90px;
       }
-
 
       .evento-logo {
         width: 55px;
@@ -1835,34 +1785,27 @@
         height: 55px;
       }
 
-
       .evento-titulo {
         font-size: 42px;
       }
 
-
       .evento-foto {
         position: relative;
 
-        display: inline-block;
+        display: block;
 
-        width: 50%;
+        width: 100%;
 
         height: 42vh;
-
-        vertical-align: top;
       }
-
 
       .evento-foto-izquierda {
         left: auto;
       }
 
-
       .evento-foto-derecha {
         right: auto;
       }
-
 
       .evento-foto img {
         width: 100%;
@@ -1870,66 +1813,91 @@
         height: 118%;
       }
 
+      .evento-foto-izquierda::after,
+      .evento-foto-derecha::after {
+        background:
+          linear-gradient(
+            to bottom,
+            #f7f1eb 0%,
+            transparent 22%
+          );
+      }
+
 
       /* DRESS CODE */
 
       .dress-seccion {
-        padding:
-          75px 24px;
-      }
+        height: auto;
 
+        min-height: 100vh;
+
+        padding:
+          58px 24px;
+      }
 
       .dress-titulo {
-        font-size: 52px;
+        font-size: 48px;
       }
 
+      .dress-formal {
+        font-size: 20px;
+      }
+
+      .dress-linea {
+        margin:
+          20px auto 30px;
+      }
 
       .dress-opciones {
         grid-template-columns: 1fr;
 
-        gap: 55px;
+        gap: 35px;
       }
-
 
       .dress-item:first-child::after {
         display: none;
       }
 
-
       .dress-item:first-child {
-        padding-bottom: 50px;
+        padding-bottom: 35px;
 
         border-bottom:
           1px solid
-          rgba(164, 91, 62, 0.16);
+          rgba(255,255,255,0.25);
       }
-
 
       .dress-icono {
-        width: 115px;
+        width: 95px;
 
-        height: 140px;
+        height: 110px;
       }
 
+      .dress-descripcion {
+        font-size: 23px;
+      }
 
       .reservados {
-        margin-top: 55px;
-      }
+        margin-top: 35px;
 
+        padding-top: 25px;
+      }
 
       .color-reservado {
-        width: 47px;
+        width: 43px;
 
-        height: 47px;
+        height: 43px;
       }
 
+      .reservados-texto {
+        font-size: 17px;
+      }
 
       .dress-floral {
-        width: 170px;
+        width: 160px;
 
-        height: 300px;
+        height: 280px;
 
-        opacity: 0.15;
+        opacity: 0.10;
       }
 
     }
@@ -1958,6 +1926,7 @@
 
   <!-- =====================================================
        PASO 1
+       PORTADA
   ====================================================== -->
 
   <section
@@ -2030,28 +1999,6 @@
 
         </g>
 
-        <g
-          fill="currentColor"
-          opacity="0.45">
-
-          <ellipse
-            cx="215"
-            cy="58"
-            rx="11"
-            ry="28"
-            transform="rotate(38 215 58)"
-          />
-
-          <ellipse
-            cx="112"
-            cy="100"
-            rx="12"
-            ry="30"
-            transform="rotate(-42 112 100)"
-          />
-
-        </g>
-
       </svg>
 
     </div>
@@ -2080,37 +2027,6 @@
             145 95,
             195 0
             "
-          />
-
-          <path
-            d="
-            M60 350
-            C35 330,
-            18 305,
-            8 275
-            "
-          />
-
-        </g>
-
-        <g
-          fill="currentColor"
-          opacity="0.45">
-
-          <ellipse
-            cx="30"
-            cy="318"
-            rx="11"
-            ry="29"
-            transform="rotate(-40 30 318)"
-          />
-
-          <ellipse
-            cx="130"
-            cy="265"
-            rx="11"
-            ry="28"
-            transform="rotate(40 130 265)"
           />
 
         </g>
@@ -2200,8 +2116,7 @@
 
         <br>
 
-        Revisa que hayas abierto
-        el enlace correcto.
+        Revisa que hayas abierto el enlace correcto.
 
       </div>
 
@@ -2214,6 +2129,7 @@
 
   <!-- =====================================================
        PASO 2
+       VERSÍCULO
   ====================================================== -->
 
   <section
@@ -2316,6 +2232,7 @@
 
   <!-- =====================================================
        PASO 3
+       CONTADOR
   ====================================================== -->
 
   <section
@@ -2455,6 +2372,7 @@
 
   <!-- =====================================================
        PASO 4
+       LUGAR
   ====================================================== -->
 
   <section
@@ -2592,8 +2510,6 @@
     id="dressSeccion">
 
 
-    <!-- RAMA IZQUIERDA -->
-
     <div
       class="
         dress-floral
@@ -2641,34 +2557,10 @@
 
         </g>
 
-        <g
-          fill="currentColor"
-          opacity="0.48">
-
-          <ellipse
-            cx="52"
-            cy="235"
-            rx="11"
-            ry="28"
-            transform="rotate(-40 52 235)"
-          />
-
-          <ellipse
-            cx="158"
-            cy="152"
-            rx="11"
-            ry="28"
-            transform="rotate(42 158 152)"
-          />
-
-        </g>
-
       </svg>
 
     </div>
 
-
-    <!-- RAMA DERECHA -->
 
     <div
       class="
@@ -2713,28 +2605,6 @@
             168 145,
             182 115
             "
-          />
-
-        </g>
-
-        <g
-          fill="currentColor"
-          opacity="0.48">
-
-          <ellipse
-            cx="52"
-            cy="235"
-            rx="11"
-            ry="28"
-            transform="rotate(-40 52 235)"
-          />
-
-          <ellipse
-            cx="158"
-            cy="152"
-            rx="11"
-            ry="28"
-            transform="rotate(42 158 152)"
           />
 
         </g>
@@ -3083,11 +2953,13 @@
 
         <div class="reservados-texto">
 
-          Nos encantaría que el
+          Con cariño, les pedimos reservar el
+
           <strong>
-            blanco, beige y sus variantes
+            blanco, el beige y sus tonalidades
           </strong>
-          queden reservados para los novios.
+
+          exclusivamente para los novios.
 
         </div>
 
@@ -3267,7 +3139,6 @@
        ABRIR INVITACIÓN
     ===================================================== */
 
-
     document
       .getElementById(
         "abrirInvitacion"
@@ -3356,7 +3227,7 @@
 
               window.scrollTo({
                 top: 0,
-                behavior: "instant"
+                behavior: "auto"
               });
 
 
@@ -3372,7 +3243,6 @@
     /* =====================================================
        CUENTA REGRESIVA
     ===================================================== */
-
 
     const fechaBoda =
       new Date(
