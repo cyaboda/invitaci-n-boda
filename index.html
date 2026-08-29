@@ -2,10 +2,15 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
   <title>Carolina & Alexander</title>
+
 
   <style>
 
@@ -13,110 +18,171 @@
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
+
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       background: #f7f1eb;
+
       color: #4b342a;
+
       overflow-x: hidden;
+
     }
 
-    /* =========================================
+
+    /* =====================================================
        PORTADA
-    ========================================= */
+    ===================================================== */
+
 
     .portada {
+
       min-height: 100vh;
+
       position: relative;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       padding: 50px 22px;
 
       text-align: center;
+
       overflow: hidden;
 
+
       background:
+
         radial-gradient(
           circle at top right,
           rgba(190, 102, 67, 0.13),
           transparent 30%
         ),
+
         radial-gradient(
           circle at bottom left,
           rgba(190, 102, 67, 0.12),
           transparent 32%
         ),
+
         #f7f1eb;
+
 
       transition:
         opacity 0.8s ease,
         transform 0.8s ease;
+
     }
+
 
     .portada.saliendo {
+
       opacity: 0;
+
       transform: scale(1.02);
+
     }
 
-    /* =========================================
+
+
+    /* =====================================================
        MANCHAS
-    ========================================= */
+    ===================================================== */
+
 
     .mancha {
+
       position: absolute;
+
       border-radius: 50%;
+
       pointer-events: none;
+
       z-index: 0;
+
     }
 
+
     .mancha-arriba {
+
       width: 420px;
+
       height: 420px;
+
       top: -220px;
+
       right: -180px;
 
+
       background:
+
         radial-gradient(
           circle,
           rgba(190, 102, 67, 0.13),
           rgba(190, 102, 67, 0.04) 60%,
           transparent 72%
         );
+
     }
 
+
     .mancha-abajo {
+
       width: 470px;
+
       height: 470px;
+
       bottom: -260px;
+
       left: -210px;
 
+
       background:
+
         radial-gradient(
           circle,
           rgba(167, 83, 52, 0.14),
           rgba(190, 102, 67, 0.04) 60%,
           transparent 72%
         );
+
     }
 
-    /* =========================================
+
+
+    /* =====================================================
        LÍNEAS
-    ========================================= */
+    ===================================================== */
+
 
     .linea-vertical {
+
       position: absolute;
+
       top: 5%;
+
       bottom: 5%;
+
       width: 1px;
 
+
       background:
+
         linear-gradient(
           to bottom,
           transparent,
@@ -124,387 +190,669 @@
           transparent
         );
 
+
       z-index: 1;
+
     }
+
 
     .linea-izquierda {
       left: 7%;
     }
 
+
     .linea-derecha {
       right: 7%;
     }
 
-    /* =========================================
+
+
+    /* =====================================================
        RAMAS PORTADA
-    ========================================= */
+    ===================================================== */
+
 
     .floral {
+
       position: absolute;
+
       color: #ad5939;
+
       pointer-events: none;
+
       z-index: 1;
+
       opacity: 0.72;
+
     }
+
 
     .floral svg {
+
       width: 100%;
+
       height: 100%;
+
       overflow: visible;
+
     }
 
+
     .floral-arriba-derecha {
+
       width: 300px;
+
       height: 520px;
+
       top: -40px;
+
       right: -25px;
+
 
       animation:
         moverRamaDerecha
         8s ease-in-out infinite alternate;
+
     }
 
+
     .floral-abajo-izquierda {
+
       width: 280px;
+
       height: 500px;
+
       bottom: -50px;
+
       left: -35px;
+
 
       animation:
         moverRamaIzquierda
         9s ease-in-out infinite alternate;
+
     }
 
-    /* =========================================
+
+
+    /* =====================================================
        CONTENIDO PORTADA
-    ========================================= */
+    ===================================================== */
+
 
     .contenido {
+
       width: 100%;
+
       max-width: 760px;
+
       position: relative;
+
       z-index: 5;
-      animation: aparecer 1.2s ease forwards;
+
+
+      animation:
+        aparecer
+        1.2s ease forwards;
+
     }
+
 
     .sobrelinea {
+
       font-family: Arial, sans-serif;
+
       font-size: 12px;
+
       letter-spacing: 6px;
+
       text-transform: uppercase;
+
       color: #a45c3f;
+
       margin-bottom: 28px;
+
     }
+
 
     .nombres {
+
       margin: 0;
-      font-size: clamp(52px, 8vw, 92px);
+
+      font-size:
+        clamp(
+          52px,
+          8vw,
+          92px
+        );
+
       font-weight: 400;
+
       line-height: 0.95;
+
       letter-spacing: -2px;
+
       color: #85452f;
+
     }
+
 
     .ampersand {
+
       display: block;
+
       font-size: 0.53em;
+
       font-style: italic;
+
       margin: 13px 0 11px;
+
       color: #bc6947;
+
     }
 
-    /* =========================================
+
+
+    /* =====================================================
        SEPARADOR
-    ========================================= */
+    ===================================================== */
+
 
     .separador {
+
       width: 120px;
+
       height: 1px;
+
       margin: 37px auto;
+
       position: relative;
-      background: rgba(166, 86, 55, 0.48);
-    }
-
-    .separador::after {
-      content: "♥";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: #f7f1eb;
-      padding: 0 13px;
-      color: #b75f3d;
-      font-size: 11px;
-    }
-
-    /* =========================================
-       INVITADO
-    ========================================= */
-
-    .texto-invitacion {
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #a77b68;
-      margin-bottom: 15px;
-    }
-
-    #nombreInvitado {
-      font-size: clamp(31px, 5vw, 46px);
-      line-height: 1.15;
-      color: #4f3429;
-      margin: 0;
-    }
-
-    #cupos {
-      margin-top: 17px;
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #6d554a;
-    }
-
-    #cargando {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      color: #8a6a5d;
-      margin-top: 28px;
-    }
-
-    #contenidoInvitado {
-      display: none;
-    }
-
-    #error {
-      display: none;
-      font-family: Arial, sans-serif;
-      max-width: 420px;
-      margin: 30px auto 0;
-      line-height: 1.7;
-      color: #7b5140;
-    }
-
-    /* =========================================
-       BOTÓN
-    ========================================= */
-
-    .boton {
-      margin-top: 34px;
-      min-width: 235px;
-      padding: 17px 31px;
-
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 999px;
 
       background:
+        rgba(166, 86, 55, 0.48);
+
+    }
+
+
+    .separador::after {
+
+      content: "♥";
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
+      background: #f7f1eb;
+
+      padding: 0 13px;
+
+      color: #b75f3d;
+
+      font-size: 11px;
+
+    }
+
+
+
+    /* =====================================================
+       INVITADO
+    ===================================================== */
+
+
+    .texto-invitacion {
+
+      font-family: Arial, sans-serif;
+
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #a77b68;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    #nombreInvitado {
+
+      font-size:
+        clamp(
+          31px,
+          5vw,
+          46px
+        );
+
+      line-height: 1.15;
+
+      color: #4f3429;
+
+      margin: 0;
+
+    }
+
+
+    #cupos {
+
+      margin-top: 17px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 15px;
+
+      line-height: 1.6;
+
+      color: #6d554a;
+
+    }
+
+
+    #cargando {
+
+      font-family: Arial, sans-serif;
+
+      font-size: 14px;
+
+      color: #8a6a5d;
+
+      margin-top: 28px;
+
+    }
+
+
+    #contenidoInvitado {
+
+      display: none;
+
+    }
+
+
+    #error {
+
+      display: none;
+
+      font-family: Arial, sans-serif;
+
+      max-width: 420px;
+
+      margin: 30px auto 0;
+
+      line-height: 1.7;
+
+      color: #7b5140;
+
+    }
+
+
+
+    /* =====================================================
+       BOTÓN GENERAL
+    ===================================================== */
+
+
+    .boton {
+
+      margin-top: 34px;
+
+      min-width: 235px;
+
+      padding: 17px 31px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+      border-radius: 999px;
+
+
+      background:
+
         linear-gradient(
           135deg,
           #c16a46,
           #a54e31
         );
 
+
       color: white;
 
       font-family: Arial, sans-serif;
+
       font-size: 12px;
+
       letter-spacing: 2.4px;
 
       cursor: pointer;
 
+
       box-shadow:
+
         0 15px 35px
         rgba(117, 62, 42, 0.20);
+
 
       transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
+
     }
+
 
     .boton:hover {
-      transform: translateY(-3px);
+
+      transform:
+        translateY(-3px);
+
 
       box-shadow:
+
         0 19px 38px
         rgba(117, 62, 42, 0.27);
+
     }
+
 
     .detalle-inferior {
+
       margin-top: 38px;
+
       font-family: Arial, sans-serif;
+
       font-size: 10px;
+
       letter-spacing: 4px;
+
       color: #b07a66;
+
       text-transform: uppercase;
+
     }
 
-    /* =========================================
+
+
+    /* =====================================================
        PASO 2
-    ========================================= */
+       FOTO + VERSÍCULO
+    ===================================================== */
+
 
     .segunda-seccion {
+
       min-height: 100vh;
 
       display: none;
+
       align-items: center;
+
       justify-content: center;
 
       position: relative;
+
       text-align: center;
 
       padding: 80px 25px;
 
       overflow: hidden;
 
+
       background-image:
+
         linear-gradient(
           rgba(132, 54, 31, 0.60),
           rgba(95, 38, 24, 0.70)
         ),
+
         url("foto-carolina-alexanderv2.jpeg");
 
+
       background-size: cover;
-      background-position: center 42%;
+
+      background-position:
+        center 42%;
+
       background-repeat: no-repeat;
 
+
       opacity: 0;
-      transform: translateY(30px);
+
+      transform:
+        translateY(30px);
+
 
       transition:
         opacity 1s ease,
         transform 1s ease;
+
     }
 
+
     .segunda-seccion::before {
+
       content: "";
+
       position: absolute;
+
       inset: 0;
 
+
       background:
+
         radial-gradient(
           circle at center,
           transparent 30%,
           rgba(58, 22, 14, 0.14) 100%
         );
 
+
       z-index: 1;
+
     }
+
 
     .segunda-seccion.visible {
+
       opacity: 1;
-      transform: translateY(0);
+
+      transform:
+        translateY(0);
+
     }
+
 
     .segunda-contenido {
+
       width: 100%;
+
       max-width: 760px;
+
       position: relative;
+
       z-index: 5;
+
     }
+
 
     .segunda-nombres {
+
       font-family: Arial, sans-serif;
+
       text-transform: uppercase;
+
       font-size: 11px;
+
       letter-spacing: 5px;
+
       color: #f4d8c8;
+
       margin-bottom: 38px;
+
     }
+
 
     .ramita-central {
+
       width: 100px;
-      margin: 0 auto 38px;
+
+      margin:
+        0 auto 38px;
+
       color: #f1c5ab;
+
       opacity: 0.9;
+
     }
+
 
     .ramita-central svg {
+
       width: 100%;
+
       height: auto;
+
     }
 
+
     .versiculo {
+
       max-width: 680px;
+
       margin: 0 auto;
 
-      font-size: clamp(30px, 5vw, 50px);
+      font-size:
+        clamp(
+          30px,
+          5vw,
+          50px
+        );
 
       font-weight: 400;
+
       line-height: 1.35;
 
       color: #fff8f1;
 
       font-style: italic;
 
+
       text-shadow:
+
         0 2px 18px
         rgba(40, 15, 8, 0.25);
+
     }
 
+
     .referencia {
+
       margin-top: 24px;
 
       font-family: Arial, sans-serif;
+
       font-size: 11px;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
 
       color: #f0cbb7;
+
     }
 
+
     .linea-fecha {
+
       width: 90px;
+
       height: 1px;
 
       margin: 32px auto;
 
+
       background:
         rgba(255, 237, 225, 0.55);
+
     }
+
 
     .fecha-boda {
+
       margin-top: 0;
-      font-size: clamp(30px, 5vw, 46px);
+
+      font-size:
+        clamp(
+          30px,
+          5vw,
+          46px
+        );
+
       letter-spacing: 8px;
+
       color: #fff7ef;
 
+
       text-shadow:
+
         0 2px 15px
         rgba(40, 15, 8, 0.22);
+
     }
 
+
     .desliza {
+
       margin-top: 48px;
 
       font-family: Arial, sans-serif;
+
       font-size: 9px;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
 
       color: #efd0bd;
+
     }
 
+
     .flecha {
+
       margin-top: 14px;
+
       font-size: 24px;
+
       color: #fff0e5;
+
 
       animation:
         flotarFlecha
         1.8s ease-in-out infinite;
+
     }
 
-    /* =========================================
-       PASO 3 - CUENTA REGRESIVA
-       OCULTA AL INICIO
-    ========================================= */
+
+
+    /* =====================================================
+       PASO 3
+       CUENTA REGRESIVA
+    ===================================================== */
+
 
     .tercera-seccion {
+
       min-height: 100vh;
 
       display: none;
 
       align-items: center;
+
       justify-content: center;
 
       position: relative;
@@ -515,113 +863,176 @@
 
       overflow: hidden;
 
+
       background:
+
         radial-gradient(
           circle at top left,
           rgba(190, 102, 67, 0.12),
           transparent 32%
         ),
+
         radial-gradient(
           circle at bottom right,
           rgba(190, 102, 67, 0.10),
           transparent 30%
         ),
+
         #f7f1eb;
+
     }
 
+
     .tercera-contenido {
+
       width: 100%;
+
       max-width: 900px;
 
       position: relative;
+
       z-index: 5;
+
     }
+
 
     .tercera-etiqueta {
+
       font-family: Arial, sans-serif;
+
       font-size: 11px;
+
       letter-spacing: 5px;
+
       text-transform: uppercase;
+
       color: #a66043;
+
       margin-bottom: 30px;
+
     }
 
+
     .tercera-titulo {
+
       margin: 0;
 
-      font-size: clamp(48px, 8vw, 86px);
+      font-size:
+        clamp(
+          48px,
+          8vw,
+          86px
+        );
 
       font-weight: 400;
 
       line-height: 1;
 
       color: #87472f;
+
     }
 
+
     .tercera-subtitulo {
+
       margin-top: 18px;
 
       font-family: Arial, sans-serif;
+
       font-size: 11px;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
+
       color: #ae7963;
+
     }
 
+
     .contador {
+
       width: 100%;
 
-      margin: 70px auto 0;
+      margin:
+        70px auto 0;
 
       display: grid;
 
       grid-template-columns:
-        repeat(4, minmax(100px, 1fr));
+        repeat(
+          4,
+          minmax(100px, 1fr)
+        );
 
       gap: 25px;
 
       position: relative;
+
     }
+
 
     .contador-item {
+
       position: relative;
-      padding: 10px 10px 20px;
+
+      padding:
+        10px
+        10px
+        20px;
+
     }
 
+
     .contador-item:not(:last-child)::after {
+
       content: "";
 
       position: absolute;
 
       right: -13px;
+
       top: 15%;
 
       height: 70%;
 
       width: 1px;
 
+
       background:
+
         linear-gradient(
           to bottom,
           transparent,
           rgba(157, 81, 53, 0.28),
           transparent
         );
+
     }
 
+
     .contador-numero {
+
       display: block;
 
-      font-size: clamp(42px, 7vw, 78px);
+      font-size:
+        clamp(
+          42px,
+          7vw,
+          78px
+        );
 
       line-height: 1;
 
       color: #8d4931;
 
       font-weight: 400;
+
     }
 
+
     .contador-label {
+
       display: block;
 
       margin-top: 17px;
@@ -635,50 +1046,73 @@
       text-transform: uppercase;
 
       color: #a77c6a;
+
     }
 
+
     .contador-separador {
+
       width: 120px;
+
       height: 1px;
 
-      margin: 60px auto 0;
+      margin:
+        60px auto 0;
 
       position: relative;
 
+
       background:
         rgba(159, 82, 55, 0.35);
+
     }
 
+
     .contador-separador::after {
+
       content: "♥";
 
       position: absolute;
 
       left: 50%;
+
       top: 50%;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(-50%, -50%);
 
-      padding: 0 14px;
+      padding:
+        0 14px;
 
       background: #f7f1eb;
 
       color: #b86140;
 
       font-size: 11px;
+
     }
 
+
     .gran-dia {
+
       margin-top: 36px;
 
-      font-size: clamp(27px, 4vw, 42px);
+      font-size:
+        clamp(
+          27px,
+          4vw,
+          42px
+        );
 
       font-style: italic;
 
       color: #634033;
+
     }
 
+
     .fecha-pequena {
+
       margin-top: 15px;
 
       font-family: Arial, sans-serif;
@@ -690,241 +1124,981 @@
       text-transform: uppercase;
 
       color: #a7725c;
+
     }
 
-    .floral-contador {
+
+
+    /* =====================================================
+       PASO 4
+       LUGAR DEL EVENTO
+    ===================================================== */
+
+
+    .evento-seccion {
+
+      min-height: 100vh;
+
+      display: none;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background: #f7f1eb;
+
+    }
+
+
+
+    /* FOTO IZQUIERDA */
+
+
+    .evento-foto {
+
       position: absolute;
 
-      width: 230px;
-      height: 400px;
+      top: 0;
 
-      color: #b76544;
+      bottom: 0;
 
-      opacity: 0.28;
+      width: 31%;
+
+      overflow: hidden;
+
+      z-index: 1;
+
+    }
+
+
+    .evento-foto-izquierda {
+
+      left: 0;
+
+    }
+
+
+    .evento-foto-derecha {
+
+      right: 0;
+
+    }
+
+
+    .evento-foto img {
+
+      position: absolute;
+
+      width: 100%;
+
+      height: 118%;
+
+      object-fit: cover;
+
+      left: 0;
+
+    }
+
+
+    .evento-foto-izquierda img {
+
+      top: -18%;
+
+
+      animation:
+        fotoBaja
+        18s ease-in-out
+        infinite alternate;
+
+    }
+
+
+    .evento-foto-derecha img {
+
+      bottom: -18%;
+
+
+      animation:
+        fotoSube
+        18s ease-in-out
+        infinite alternate;
+
+    }
+
+
+
+    /* FUNDIDO HACIA EL CENTRO */
+
+
+    .evento-foto-izquierda::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+
+      background:
+
+        linear-gradient(
+          to right,
+          rgba(247, 241, 235, 0) 58%,
+          #f7f1eb 100%
+        );
+
+    }
+
+
+    .evento-foto-derecha::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+
+      background:
+
+        linear-gradient(
+          to left,
+          rgba(247, 241, 235, 0) 58%,
+          #f7f1eb 100%
+        );
+
+    }
+
+
+
+    /* CAPA TERRACOTA MUY SUAVE */
+
+
+    .evento-foto::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 2;
+
+
+      background:
+        rgba(160, 79, 49, 0.13);
 
       pointer-events: none;
 
-      z-index: 1;
     }
 
-    .floral-contador svg {
-      width: 100%;
-      height: 100%;
+
+
+    /* CENTRO */
+
+
+    .evento-centro {
+
+      min-height: 100vh;
+
+      width: 44%;
+
+      max-width: 650px;
+
+      margin: auto;
+
+      position: relative;
+
+      z-index: 5;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+
+      padding:
+        70px 30px;
+
     }
 
-    .floral-contador-izquierda {
-      left: -80px;
-      top: 10%;
-      transform: rotate(-12deg);
+
+
+    /* LOGO */
+
+
+    .evento-logo {
+
+      width: 105px;
+
+      max-height: 105px;
+
+      object-fit: contain;
+
+      margin-bottom: 25px;
+
+      opacity: 0.92;
+
     }
 
-    .floral-contador-derecha {
-      right: -80px;
-      bottom: 5%;
-      transform: rotate(168deg);
+
+
+    .evento-etiqueta {
+
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+
+      color: #ad7157;
+
+      margin-bottom: 25px;
+
     }
 
-    /* =========================================
+
+
+    .evento-titulo {
+
+      margin: 0;
+
+      font-size:
+        clamp(
+          42px,
+          5vw,
+          68px
+        );
+
+      line-height: 1.05;
+
+      font-weight: 400;
+
+      color: #82452f;
+
+    }
+
+
+
+    .evento-subtitulo {
+
+      margin-top: 13px;
+
+      font-size:
+        clamp(
+          20px,
+          2vw,
+          28px
+        );
+
+      font-style: italic;
+
+      color: #9b634c;
+
+    }
+
+
+
+    .evento-linea {
+
+      width: 90px;
+
+      height: 1px;
+
+      margin:
+        30px auto;
+
+
+      background:
+        rgba(162, 84, 56, 0.38);
+
+    }
+
+
+
+    .evento-tipo {
+
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #b06f53;
+
+      margin-bottom: 20px;
+
+    }
+
+
+
+    .evento-hora {
+
+      font-size:
+        clamp(
+          36px,
+          4vw,
+          52px
+        );
+
+      color: #87472f;
+
+      margin-bottom: 8px;
+
+    }
+
+
+
+    .evento-hora-label {
+
+      font-family: Arial, sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #b1826c;
+
+    }
+
+
+
+    .evento-direccion {
+
+      margin-top: 27px;
+
+      max-width: 420px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+
+      color: #76584b;
+
+    }
+
+
+
+    .evento-boton {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      margin-top: 28px;
+
+      padding:
+        15px 29px;
+
+      border-radius: 999px;
+
+      text-decoration: none;
+
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #bb6543,
+          #99472f
+        );
+
+
+      color: white;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 2.4px;
+
+      text-transform: uppercase;
+
+
+      box-shadow:
+
+        0 14px 30px
+        rgba(115, 57, 37, 0.18);
+
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    }
+
+
+    .evento-boton:hover {
+
+      transform:
+        translateY(-3px);
+
+
+      box-shadow:
+
+        0 18px 35px
+        rgba(115, 57, 37, 0.27);
+
+    }
+
+
+
+    .evento-boton-icono {
+
+      font-size: 16px;
+
+      line-height: 1;
+
+    }
+
+
+
+    .evento-nota {
+
+      margin-top: 27px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: #b98d78;
+
+    }
+
+
+
+    /* =====================================================
        ANIMACIONES
-    ========================================= */
+    ===================================================== */
+
 
     @keyframes aparecer {
 
       from {
+
         opacity: 0;
-        transform: translateY(18px);
+
+        transform:
+          translateY(18px);
+
       }
 
+
       to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
+
       }
 
     }
+
+
 
     @keyframes moverRamaDerecha {
 
       from {
+
         transform:
           rotate(2deg)
           translateY(0);
+
       }
 
+
       to {
+
         transform:
           rotate(4deg)
           translateY(6px);
+
       }
 
     }
+
+
 
     @keyframes moverRamaIzquierda {
 
       from {
+
         transform:
           rotate(-3deg)
           translateY(0);
+
       }
 
+
       to {
+
         transform:
           rotate(-1deg)
           translateY(-5px);
+
       }
 
     }
+
+
 
     @keyframes flotarFlecha {
 
       0%,
       100% {
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
+
       }
 
+
       50% {
-        transform: translateY(8px);
+
+        transform:
+          translateY(8px);
+
       }
 
     }
 
-    /* =========================================
-       CELULARES
-    ========================================= */
 
-    @media (max-width: 600px) {
+
+    /* FOTO IZQUIERDA BAJA */
+
+
+    @keyframes fotoBaja {
+
+      from {
+
+        transform:
+          translateY(0);
+
+      }
+
+
+      to {
+
+        transform:
+          translateY(15%);
+
+      }
+
+    }
+
+
+
+    /* FOTO DERECHA SUBE */
+
+
+    @keyframes fotoSube {
+
+      from {
+
+        transform:
+          translateY(0);
+
+      }
+
+
+      to {
+
+        transform:
+          translateY(-15%);
+
+      }
+
+    }
+
+
+
+    /* =====================================================
+       CELULAR
+    ===================================================== */
+
+
+    @media (max-width: 700px) {
+
 
       .portada {
+
         padding:
           45px
           22px
           55px;
+
       }
+
 
       .sobrelinea {
+
         font-size: 10px;
+
         letter-spacing: 4px;
+
       }
+
 
       .nombres {
+
         letter-spacing: -1px;
+
       }
+
 
       .linea-izquierda {
+
         left: 4%;
+
       }
+
 
       .linea-derecha {
+
         right: 4%;
+
       }
+
 
       .floral-arriba-derecha {
+
         width: 175px;
+
         height: 330px;
+
         right: -55px;
+
         top: -25px;
+
         opacity: 0.55;
+
       }
+
 
       .floral-abajo-izquierda {
+
         width: 175px;
+
         height: 330px;
+
         left: -55px;
+
         bottom: -40px;
+
         opacity: 0.55;
+
       }
+
 
       .boton {
+
         width: 100%;
+
         max-width: 310px;
+
       }
+
+
+
+      /* PASO 2 */
+
 
       .segunda-seccion {
-        padding: 65px 28px;
-        background-position: 48% center;
+
+        padding:
+          65px 28px;
+
+        background-position:
+          48% center;
+
       }
+
 
       .versiculo {
+
         font-size: 29px;
+
       }
+
 
       .fecha-boda {
+
         letter-spacing: 5px;
+
       }
+
+
+
+      /* CONTADOR */
+
 
       .tercera-seccion {
-        padding: 70px 20px;
+
+        padding:
+          70px 20px;
+
       }
 
-      .contador {
-        grid-template-columns:
-          repeat(2, minmax(110px, 1fr));
 
-        gap: 30px 10px;
+      .contador {
+
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(110px, 1fr)
+          );
+
+        gap:
+          30px 10px;
 
         max-width: 360px;
 
         margin-top: 55px;
+
       }
+
 
       .contador-item:nth-child(2)::after {
+
         display: none;
+
       }
+
 
       .contador-item:not(:last-child)::after {
+
         right: -5px;
+
       }
+
 
       .contador-numero {
+
         font-size: 52px;
+
       }
 
-      .floral-contador {
-        width: 150px;
-        height: 280px;
-        opacity: 0.18;
+
+
+      /* EVENTO EN CELULAR */
+
+
+      .evento-seccion {
+
+        min-height: auto;
+
+        padding-bottom: 0;
+
       }
 
-      .floral-contador-izquierda {
-        left: -65px;
+
+      .evento-centro {
+
+        width: 100%;
+
+        min-height: 82vh;
+
+        padding:
+          70px
+          30px
+          60px;
+
       }
 
-      .floral-contador-derecha {
-        right: -65px;
+
+      .evento-logo {
+
+        width: 90px;
+
+      }
+
+
+      .evento-titulo {
+
+        font-size: 43px;
+
+      }
+
+
+
+      /*
+       * Las fotografías dejan de ser
+       * columnas demasiado estrechas.
+       */
+
+
+      .evento-foto {
+
+        position: relative;
+
+        width: 50%;
+
+        height: 42vh;
+
+        display: inline-block;
+
+        vertical-align: top;
+
+      }
+
+
+      .evento-foto-izquierda {
+
+        left: auto;
+
+      }
+
+
+      .evento-foto-derecha {
+
+        right: auto;
+
+      }
+
+
+      .evento-foto img {
+
+        width: 100%;
+
+        height: 118%;
+
+      }
+
+
+      .evento-foto-izquierda::after {
+
+        background:
+
+          linear-gradient(
+            to bottom,
+            #f7f1eb 0%,
+            transparent 18%
+          );
+
+      }
+
+
+      .evento-foto-derecha::after {
+
+        background:
+
+          linear-gradient(
+            to bottom,
+            #f7f1eb 0%,
+            transparent 18%
+          );
+
       }
 
     }
+
+
+
+    /* =====================================================
+       REDUCIR MOVIMIENTO SI EL DISPOSITIVO LO SOLICITA
+    ===================================================== */
+
+
+    @media
+    (prefers-reduced-motion: reduce) {
+
+
+      * {
+
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        scroll-behavior:
+          auto !important;
+
+      }
+
+    }
+
 
   </style>
 
 </head>
 
 
+
 <body>
 
 
-  <!-- =========================================
+  <!-- =====================================================
+       PASO 1
        PORTADA
-  ========================================== -->
-
-  <section class="portada" id="portada">
-
-    <div class="mancha mancha-arriba"></div>
-    <div class="mancha mancha-abajo"></div>
-
-    <div class="linea-vertical linea-izquierda"></div>
-    <div class="linea-vertical linea-derecha"></div>
+  ====================================================== -->
 
 
-    <div class="floral floral-arriba-derecha">
+  <section
+    class="portada"
+    id="portada">
 
-      <svg viewBox="0 0 240 450"
-           xmlns="http://www.w3.org/2000/svg">
+
+    <div
+      class="mancha mancha-arriba">
+    </div>
+
+
+    <div
+      class="mancha mancha-abajo">
+    </div>
+
+
+    <div
+      class="linea-vertical linea-izquierda">
+    </div>
+
+
+    <div
+      class="linea-vertical linea-derecha">
+    </div>
+
+
+
+    <!-- RAMA SUPERIOR -->
+
+
+    <div
+      class="floral floral-arriba-derecha">
+
+
+      <svg
+        viewBox="0 0 240 450"
+        xmlns="http://www.w3.org/2000/svg">
+
 
         <g
           fill="none"
           stroke="currentColor"
           stroke-width="1.6"
           stroke-linecap="round">
+
 
           <path
             d="
@@ -938,6 +2112,7 @@
             "
           />
 
+
           <path
             d="
             M183 100
@@ -946,6 +2121,7 @@
             230 30
             "
           />
+
 
           <path
             d="
@@ -956,6 +2132,7 @@
             "
           />
 
+
           <path
             d="
             M157 195
@@ -964,6 +2141,7 @@
             230 120
             "
           />
+
 
           <path
             d="
@@ -974,9 +2152,14 @@
             "
           />
 
+
         </g>
 
-        <g fill="currentColor" opacity="0.45">
+
+        <g
+          fill="currentColor"
+          opacity="0.45">
+
 
           <ellipse
             cx="215"
@@ -986,6 +2169,7 @@
             transform="rotate(38 215 58)"
           />
 
+
           <ellipse
             cx="112"
             cy="100"
@@ -993,6 +2177,7 @@
             ry="30"
             transform="rotate(-42 112 100)"
           />
+
 
           <ellipse
             cx="205"
@@ -1002,6 +2187,7 @@
             transform="rotate(42 205 153)"
           />
 
+
           <ellipse
             cx="86"
             cy="215"
@@ -1010,23 +2196,35 @@
             transform="rotate(-43 86 215)"
           />
 
+
         </g>
 
+
       </svg>
+
 
     </div>
 
 
-    <div class="floral floral-abajo-izquierda">
 
-      <svg viewBox="0 0 240 450"
-           xmlns="http://www.w3.org/2000/svg">
+    <!-- RAMA INFERIOR -->
+
+
+    <div
+      class="floral floral-abajo-izquierda">
+
+
+      <svg
+        viewBox="0 0 240 450"
+        xmlns="http://www.w3.org/2000/svg">
+
 
         <g
           fill="none"
           stroke="currentColor"
           stroke-width="1.6"
           stroke-linecap="round">
+
 
           <path
             d="
@@ -1040,6 +2238,7 @@
             "
           />
 
+
           <path
             d="
             M60 350
@@ -1048,6 +2247,7 @@
             8 275
             "
           />
+
 
           <path
             d="
@@ -1058,6 +2258,7 @@
             "
           />
 
+
           <path
             d="
             M91 245
@@ -1067,9 +2268,14 @@
             "
           />
 
+
         </g>
 
-        <g fill="currentColor" opacity="0.45">
+
+        <g
+          fill="currentColor"
+          opacity="0.45">
+
 
           <ellipse
             cx="30"
@@ -1079,6 +2285,7 @@
             transform="rotate(-40 30 318)"
           />
 
+
           <ellipse
             cx="130"
             cy="265"
@@ -1086,6 +2293,7 @@
             ry="28"
             transform="rotate(40 130 265)"
           />
+
 
           <ellipse
             cx="52"
@@ -1095,46 +2303,75 @@
             transform="rotate(-40 52 205)"
           />
 
+
         </g>
 
+
       </svg>
+
 
     </div>
 
 
+
+    <!-- CONTENIDO PORTADA -->
+
+
     <div class="contenido">
 
+
       <div class="sobrelinea">
+
         Nos casamos
+
       </div>
+
 
       <h1 class="nombres">
 
         Carolina
 
+
         <span class="ampersand">
+
           &
+
         </span>
+
 
         Alexander
 
       </h1>
 
+
       <div class="separador"></div>
 
+
       <div id="cargando">
+
         Preparando tu invitación...
+
       </div>
+
+
 
       <div id="contenidoInvitado">
 
+
         <div class="texto-invitacion">
+
           Invitación especial para
+
         </div>
 
-        <div id="nombreInvitado"></div>
 
-        <div id="cupos"></div>
+        <div id="nombreInvitado">
+        </div>
+
+
+        <div id="cupos">
+        </div>
+
 
         <button
           class="boton"
@@ -1145,11 +2382,17 @@
 
         </button>
 
+
         <div class="detalle-inferior">
+
           Nuestra historia comienza aquí
+
         </div>
 
+
       </div>
+
+
 
       <div id="error">
 
@@ -1157,40 +2400,55 @@
 
         <br>
 
-        Revisa que hayas abierto el enlace correcto.
+        Revisa que hayas abierto
+        el enlace correcto.
 
       </div>
 
+
     </div>
+
 
   </section>
 
 
-  <!-- =========================================
+
+  <!-- =====================================================
        PASO 2
-  ========================================== -->
+       FOTO Y VERSÍCULO
+  ====================================================== -->
+
 
   <section
     class="segunda-seccion"
     id="segundaSeccion">
 
+
     <div class="segunda-contenido">
 
+
       <div class="segunda-nombres">
+
         Carolina & Alexander
+
       </div>
 
+
+
       <div class="ramita-central">
+
 
         <svg
           viewBox="0 0 100 70"
           xmlns="http://www.w3.org/2000/svg">
+
 
           <g
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
             stroke-linecap="round">
+
 
             <path
               d="
@@ -1201,6 +2459,7 @@
               "
             />
 
+
             <path
               d="
               M46 42
@@ -1209,6 +2468,7 @@
               15 15
               "
             />
+
 
             <path
               d="
@@ -1219,9 +2479,14 @@
               "
             />
 
+
           </g>
 
-          <g fill="currentColor" opacity="0.55">
+
+          <g
+            fill="currentColor"
+            opacity="0.55">
+
 
             <ellipse
               cx="25"
@@ -1231,6 +2496,7 @@
               transform="rotate(-45 25 27)"
             />
 
+
             <ellipse
               cx="67"
               cy="18"
@@ -1239,11 +2505,16 @@
               transform="rotate(45 67 18)"
             />
 
+
           </g>
+
 
         </svg>
 
+
       </div>
+
+
 
       <blockquote class="versiculo">
 
@@ -1253,270 +2524,380 @@
 
       </blockquote>
 
+
+
       <div class="referencia">
+
         Colosenses 3:14
+
       </div>
 
-      <div class="linea-fecha"></div>
+
+
+      <div class="linea-fecha">
+      </div>
+
+
 
       <div class="fecha-boda">
+
         14 · 11 · 2026
+
       </div>
+
+
 
       <div class="desliza">
+
         Desliza para continuar
+
       </div>
+
+
 
       <div class="flecha">
+
         ↓
+
       </div>
 
+
     </div>
+
 
   </section>
 
 
-  <!-- =========================================
+
+  <!-- =====================================================
        PASO 3
-  ========================================== -->
+       CUENTA REGRESIVA
+  ====================================================== -->
+
 
   <section
     class="tercera-seccion"
     id="cuentaRegresiva">
 
 
-    <div class="floral-contador floral-contador-izquierda">
-
-      <svg
-        viewBox="0 0 220 400"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6">
-
-          <path
-            d="
-            M40 390
-            C65 320,
-            90 240,
-            120 165
-            C140 110,
-            165 60,
-            195 15
-            "
-          />
-
-          <path d="M85 275 C55 255 35 230 20 200"/>
-          <path d="M108 210 C140 190 160 160 175 130"/>
-          <path d="M135 145 C105 130 85 105 70 75"/>
-
-        </g>
-
-        <g
-          fill="currentColor"
-          opacity="0.45">
-
-          <ellipse
-            cx="50"
-            cy="240"
-            rx="11"
-            ry="28"
-            transform="rotate(-40 50 240)"
-          />
-
-          <ellipse
-            cx="155"
-            cy="165"
-            rx="11"
-            ry="28"
-            transform="rotate(42 155 165)"
-          />
-
-          <ellipse
-            cx="95"
-            cy="110"
-            rx="10"
-            ry="26"
-            transform="rotate(-40 95 110)"
-          />
-
-        </g>
-
-      </svg>
-
-    </div>
-
-
-    <div class="floral-contador floral-contador-derecha">
-
-      <svg
-        viewBox="0 0 220 400"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6">
-
-          <path
-            d="
-            M40 390
-            C65 320,
-            90 240,
-            120 165
-            C140 110,
-            165 60,
-            195 15
-            "
-          />
-
-          <path d="M85 275 C55 255 35 230 20 200"/>
-          <path d="M108 210 C140 190 160 160 175 130"/>
-          <path d="M135 145 C105 130 85 105 70 75"/>
-
-        </g>
-
-        <g
-          fill="currentColor"
-          opacity="0.45">
-
-          <ellipse
-            cx="50"
-            cy="240"
-            rx="11"
-            ry="28"
-            transform="rotate(-40 50 240)"
-          />
-
-          <ellipse
-            cx="155"
-            cy="165"
-            rx="11"
-            ry="28"
-            transform="rotate(42 155 165)"
-          />
-
-          <ellipse
-            cx="95"
-            cy="110"
-            rx="10"
-            ry="26"
-            transform="rotate(-40 95 110)"
-          />
-
-        </g>
-
-      </svg>
-
-    </div>
-
-
     <div class="tercera-contenido">
 
+
       <div class="tercera-etiqueta">
+
         La espera casi termina
+
       </div>
+
 
       <h2 class="tercera-titulo">
+
         Faltan
+
       </h2>
 
+
       <div class="tercera-subtitulo">
+
         para celebrar nuestro amor
+
       </div>
+
 
 
       <div class="contador">
 
+
         <div class="contador-item">
+
 
           <span
             class="contador-numero"
             id="dias">
+
             00
+
           </span>
 
+
           <span class="contador-label">
+
             Días
+
           </span>
+
 
         </div>
 
 
+
         <div class="contador-item">
+
 
           <span
             class="contador-numero"
             id="horas">
+
             00
+
           </span>
 
+
           <span class="contador-label">
+
             Horas
+
           </span>
+
 
         </div>
 
 
+
         <div class="contador-item">
+
 
           <span
             class="contador-numero"
             id="minutos">
+
             00
+
           </span>
+
 
           <span class="contador-label">
+
             Minutos
+
           </span>
 
+
         </div>
+
 
 
         <div class="contador-item">
 
+
           <span
             class="contador-numero"
             id="segundos">
+
             00
+
           </span>
+
 
           <span class="contador-label">
+
             Segundos
+
           </span>
 
+
         </div>
+
 
       </div>
 
 
-      <div class="contador-separador"></div>
+
+      <div class="contador-separador">
+      </div>
 
 
       <div class="gran-dia">
+
         para nuestro gran día
+
       </div>
 
 
       <div class="fecha-pequena">
+
         14 de noviembre de 2026
+
       </div>
 
+
     </div>
+
 
   </section>
 
 
-  <!-- =========================================
+
+  <!-- =====================================================
+       PASO 4
+       CEREMONIA Y RECEPCIÓN
+  ====================================================== -->
+
+
+  <section
+    class="evento-seccion"
+    id="eventoSeccion">
+
+
+    <!-- F1 IZQUIERDA -->
+
+
+    <div
+      class="
+        evento-foto
+        evento-foto-izquierda
+      ">
+
+
+      <img
+        src="F1.jpeg"
+        alt="Karla Ramírez Event Studio">
+
+
+    </div>
+
+
+
+    <!-- F2 DERECHA -->
+
+
+    <div
+      class="
+        evento-foto
+        evento-foto-derecha
+      ">
+
+
+      <img
+        src="F2.jpeg"
+        alt="La Solé">
+
+
+    </div>
+
+
+
+    <!-- CENTRO -->
+
+
+    <div class="evento-centro">
+
+
+      <img
+        src="LOGO.png"
+        class="evento-logo"
+        alt="Karla Ramírez Event Studio">
+
+
+      <div class="evento-etiqueta">
+
+        Aquí celebraremos nuestro sí
+
+      </div>
+
+
+
+      <h2 class="evento-titulo">
+
+        Karla Ramírez
+
+      </h2>
+
+
+      <div class="evento-subtitulo">
+
+        Event Studio · La Solé
+
+      </div>
+
+
+
+      <div class="evento-linea">
+      </div>
+
+
+
+      <div class="evento-tipo">
+
+        Ceremonia & Recepción
+
+      </div>
+
+
+
+      <div class="evento-hora">
+
+        16:30
+
+      </div>
+
+
+      <div class="evento-hora-label">
+
+        Hora de la ceremonia
+
+      </div>
+
+
+
+      <div class="evento-direccion">
+
+        Av. Gral. Rumiñahui S/N
+
+        <br>
+
+        171103 Quito
+
+      </div>
+
+
+
+      <a
+        class="evento-boton"
+        href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
+        target="_blank"
+        rel="noopener noreferrer">
+
+
+        <span class="evento-boton-icono">
+
+          ◇
+
+        </span>
+
+
+        Cómo llegar
+
+
+      </a>
+
+
+
+      <div class="evento-nota">
+
+        14 · 11 · 2026
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =====================================================
        JAVASCRIPT
-  ========================================== -->
+  ====================================================== -->
+
 
   <script>
 
+
     const API_URL =
       "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
+
 
 
     const parametros =
@@ -1525,23 +2906,38 @@
       );
 
 
+
     const codigo =
       parametros.get("i");
 
 
+
+    /* =====================================================
+       CARGAR INVITADO
+    ===================================================== */
+
+
     function cargarInvitado() {
+
 
       if (!codigo) {
 
+
         mostrarError();
 
+
         return;
+
 
       }
 
 
+
       const script =
-        document.createElement("script");
+        document.createElement(
+          "script"
+        );
+
 
 
       script.src =
@@ -1553,155 +2949,267 @@
         Date.now();
 
 
-      script.onerror = function () {
 
-        mostrarError();
-
-      };
+      script.onerror =
+        function () {
 
 
-      document.body.appendChild(script);
+          mostrarError();
+
+
+        };
+
+
+
+      document.body
+        .appendChild(script);
+
 
     }
 
 
+
+    /* =====================================================
+       RECIBIR INVITADO
+    ===================================================== */
+
+
     function recibirInvitado(datos) {
+
 
       if (!datos || !datos.ok) {
 
+
         mostrarError();
 
+
         return;
+
 
       }
 
 
+
       document
-        .getElementById("nombreInvitado")
+        .getElementById(
+          "nombreInvitado"
+        )
         .textContent =
         datos.invitado;
+
 
 
       let mensajeCupos;
 
 
-      if (Number(datos.cupos) === 1) {
+
+      if (
+        Number(datos.cupos) === 1
+      ) {
+
 
         mensajeCupos =
           "Hemos reservado 1 lugar para ti";
 
+
       }
 
+
       else {
+
 
         mensajeCupos =
           "Hemos reservado " +
           datos.cupos +
           " lugares para ti";
 
+
       }
 
 
+
       document
-        .getElementById("cupos")
+        .getElementById(
+          "cupos"
+        )
         .textContent =
         mensajeCupos;
 
 
+
       document
-        .getElementById("cargando")
+        .getElementById(
+          "cargando"
+        )
         .style.display =
         "none";
 
 
+
       document
-        .getElementById("contenidoInvitado")
+        .getElementById(
+          "contenidoInvitado"
+        )
         .style.display =
         "block";
 
+
     }
+
+
+
+    /* =====================================================
+       ERROR
+    ===================================================== */
 
 
     function mostrarError() {
 
+
       document
-        .getElementById("cargando")
+        .getElementById(
+          "cargando"
+        )
         .style.display =
         "none";
 
 
+
       document
-        .getElementById("contenidoInvitado")
+        .getElementById(
+          "contenidoInvitado"
+        )
         .style.display =
         "none";
 
 
+
       document
-        .getElementById("error")
+        .getElementById(
+          "error"
+        )
         .style.display =
         "block";
+
 
     }
 
 
-    /* =========================================
+
+    /* =====================================================
        ABRIR INVITACIÓN
-    ========================================= */
+    ===================================================== */
+
 
     document
-      .getElementById("abrirInvitacion")
+      .getElementById(
+        "abrirInvitacion"
+      )
       .addEventListener(
         "click",
         function () {
 
 
+
           const portada =
-            document.getElementById("portada");
+            document
+              .getElementById(
+                "portada"
+              );
+
 
 
           const segunda =
-            document.getElementById("segundaSeccion");
+            document
+              .getElementById(
+                "segundaSeccion"
+              );
+
 
 
           const tercera =
-            document.getElementById("cuentaRegresiva");
+            document
+              .getElementById(
+                "cuentaRegresiva"
+              );
 
 
-          portada.classList.add("saliendo");
+
+          const evento =
+            document
+              .getElementById(
+                "eventoSeccion"
+              );
+
+
+
+          portada
+            .classList
+            .add(
+              "saliendo"
+            );
+
 
 
           setTimeout(
             function () {
 
 
-              portada.style.display =
+
+              portada
+                .style
+                .display =
                 "none";
 
 
-              segunda.style.display =
+
+              segunda
+                .style
+                .display =
                 "flex";
 
 
-              tercera.style.display =
+
+              tercera
+                .style
+                .display =
                 "flex";
+
+
+
+              evento
+                .style
+                .display =
+                "block";
+
 
 
               setTimeout(
                 function () {
 
-                  segunda.classList.add(
-                    "visible"
-                  );
+
+                  segunda
+                    .classList
+                    .add(
+                      "visible"
+                    );
+
 
                 },
                 50
               );
 
 
+
               window.scrollTo({
+
                 top: 0,
-                behavior: "instant"
+
+                behavior:
+                  "instant"
+
               });
+
 
 
             },
@@ -1709,18 +3217,23 @@
           );
 
 
+
         }
       );
 
 
-    /* =========================================
+
+    /* =====================================================
        CUENTA REGRESIVA
-    ========================================= */
+       14 NOV 2026
+    ===================================================== */
+
 
     const fechaBoda =
       new Date(
-        "2026-11-14T00:00:00-05:00"
+        "2026-11-14T16:30:00-05:00"
       );
+
 
 
     function actualizarContador() {
@@ -1730,114 +3243,209 @@
         new Date();
 
 
+
       let diferencia =
         fechaBoda.getTime() -
         ahora.getTime();
 
 
-      if (diferencia <= 0) {
+
+      if (
+        diferencia <= 0
+      ) {
+
 
         document
           .getElementById("dias")
           .textContent =
           "00";
 
+
         document
           .getElementById("horas")
           .textContent =
           "00";
+
 
         document
           .getElementById("minutos")
           .textContent =
           "00";
 
+
         document
           .getElementById("segundos")
           .textContent =
           "00";
 
+
         return;
+
 
       }
 
 
+
       const dias =
         Math.floor(
+
           diferencia /
-          (1000 * 60 * 60 * 24)
+
+          (
+            1000 *
+            60 *
+            60 *
+            24
+          )
+
         );
 
 
+
       diferencia %=
-        (1000 * 60 * 60 * 24);
+
+        (
+          1000 *
+          60 *
+          60 *
+          24
+        );
+
 
 
       const horas =
         Math.floor(
+
           diferencia /
-          (1000 * 60 * 60)
+
+          (
+            1000 *
+            60 *
+            60
+          )
+
         );
 
 
+
       diferencia %=
-        (1000 * 60 * 60);
+
+        (
+          1000 *
+          60 *
+          60
+        );
+
 
 
       const minutos =
         Math.floor(
+
           diferencia /
-          (1000 * 60)
+
+          (
+            1000 *
+            60
+          )
+
         );
 
 
+
       diferencia %=
-        (1000 * 60);
+
+        (
+          1000 *
+          60
+        );
+
 
 
       const segundos =
         Math.floor(
+
           diferencia /
           1000
+
         );
 
 
-      document
-        .getElementById("dias")
-        .textContent =
-        String(dias).padStart(2, "0");
-
 
       document
-        .getElementById("horas")
+        .getElementById(
+          "dias"
+        )
         .textContent =
-        String(horas).padStart(2, "0");
 
+        String(dias)
+          .padStart(
+            2,
+            "0"
+          );
 
-      document
-        .getElementById("minutos")
-        .textContent =
-        String(minutos).padStart(2, "0");
 
 
       document
-        .getElementById("segundos")
+        .getElementById(
+          "horas"
+        )
         .textContent =
-        String(segundos).padStart(2, "0");
+
+        String(horas)
+          .padStart(
+            2,
+            "0"
+          );
+
+
+
+      document
+        .getElementById(
+          "minutos"
+        )
+        .textContent =
+
+        String(minutos)
+          .padStart(
+            2,
+            "0"
+          );
+
+
+
+      document
+        .getElementById(
+          "segundos"
+        )
+        .textContent =
+
+        String(segundos)
+          .padStart(
+            2,
+            "0"
+          );
+
 
     }
+
 
 
     actualizarContador();
 
 
+
     setInterval(
+
       actualizarContador,
+
       1000
+
     );
 
 
+
     cargarInvitado();
+
 
   </script>
 
