@@ -1,74 +1,219 @@
-function doGet(e) {
+<!DOCTYPE html>
+<html lang="es">
 
-  const hoja = SpreadsheetApp
-    .openById("18zoF8EdXaks3xihF2RnE-6g-h6L68s_681n_UfmLky4")
-    .getSheetByName("INVITADOS");
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  let resultado;
+  <title>Nuestra Boda | C & A</title>
 
-  if (!hoja) {
-
-    resultado = {
-      ok: false,
-      mensaje: "No se encontró la hoja INVITADOS."
-    };
-
-  } else {
-
-    const codigo = e.parameter.codigo;
-
-    if (!codigo) {
-
-      resultado = {
-        ok: false,
-        mensaje: "No se recibió ningún código."
-      };
-
-    } else {
-
-      const datos = hoja.getDataRange().getValues();
-
-      resultado = {
-        ok: false,
-        mensaje: "Invitación no encontrada."
-      };
-
-      for (let i = 1; i < datos.length; i++) {
-
-        if (
-          String(datos[i][0]).trim().toUpperCase() ===
-          String(codigo).trim().toUpperCase()
-        ) {
-
-          resultado = {
-            ok: true,
-            codigo: datos[i][0],
-            invitado: datos[i][1],
-            cupos: datos[i][2],
-            estado: datos[i][3] || "PENDIENTE",
-            asisten: datos[i][4] || "",
-            fechaRespuesta: datos[i][5] || ""
-          };
-
-          break;
-        }
-      }
+  <style>
+    * {
+      box-sizing: border-box;
     }
-  }
 
-  const callback = e.parameter.callback;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4efe9;
+      color: #46372f;
+    }
 
-  if (callback) {
+    .portada {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+    }
 
-    return ContentService
-      .createTextOutput(
-        callback + "(" + JSON.stringify(resultado) + ");"
-      )
-      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    .subtitulo {
+      font-size: 13px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
 
-  }
+    h1 {
+      font-size: 52px;
+      font-weight: 400;
+      margin: 0 0 40px;
+    }
 
-  return ContentService
-    .createTextOutput(JSON.stringify(resultado))
-    .setMimeType(ContentService.MimeType.JSON);
-}
+    .texto-invitacion {
+      font-size: 13px;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+
+    #nombreInvitado {
+      font-size: 30px;
+      margin: 10px 0;
+    }
+
+    #cupos {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    #cargando {
+      font-size: 16px;
+    }
+
+    #contenidoInvitado {
+      display: none;
+    }
+
+    #error {
+      display: none;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    .boton {
+      margin-top: 35px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      background: #6f5143;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="portada">
+
+    <div class="subtitulo">
+      NOS CASAMOS
+    </div>
+
+    <h1>C & A</h1>
+
+    <div id="cargando">
+      Preparando tu invitación...
+    </div>
+
+    <div id="contenidoInvitado">
+
+      <div class="texto-invitacion">
+        INVITACIÓN ESPECIAL PARA
+      </div>
+
+      <div id="nombreInvitado"></div>
+
+      <div id="cupos"></div>
+
+      <button class="boton" type="button">
+        ABRIR INVITACIÓN
+      </button>
+
+    </div>
+
+    <div id="error">
+      No pudimos encontrar esta invitación.<br>
+      Revisa que hayas abierto el enlace correcto.
+    </div>
+
+  </section>
+
+
+  <script>
+
+    const API_URL =
+      "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
+
+    const parametros =
+      new URLSearchParams(window.location.search);
+
+    const codigo =
+      parametros.get("i");
+
+
+    function cargarInvitado() {
+
+      if (!codigo) {
+        mostrarError();
+        return;
+      }
+
+      const script =
+        document.createElement("script");
+
+      script.src =
+        API_URL +
+        "?codigo=" +
+        encodeURIComponent(codigo) +
+        "&callback=recibirInvitado" +
+        "&t=" +
+        Date.now();
+
+      script.onerror = function () {
+        mostrarError();
+      };
+
+      document.body.appendChild(script);
+    }
+
+
+    function recibirInvitado(datos) {
+
+      if (!datos || !datos.ok) {
+        mostrarError();
+        return;
+      }
+
+      document.getElementById("nombreInvitado").textContent =
+        datos.invitado;
+
+      let mensajeCupos;
+
+      if (Number(datos.cupos) === 1) {
+
+        mensajeCupos =
+          "Hemos reservado 1 lugar para ti";
+
+      } else {
+
+        mensajeCupos =
+          "Hemos reservado " +
+          datos.cupos +
+          " lugares para ti";
+      }
+
+      document.getElementById("cupos").textContent =
+        mensajeCupos;
+
+      document.getElementById("cargando").style.display =
+        "none";
+
+      document.getElementById("contenidoInvitado").style.display =
+        "block";
+    }
+
+
+    function mostrarError() {
+
+      document.getElementById("cargando").style.display =
+        "none";
+
+      document.getElementById("contenidoInvitado").style.display =
+        "none";
+
+      document.getElementById("error").style.display =
+        "block";
+    }
+
+
+    cargarInvitado();
+
+  </script>
+
+</body>
+
+</html>
