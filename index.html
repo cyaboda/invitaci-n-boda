@@ -136,7 +136,7 @@
     }
 
     /* =========================================
-       RAMAS
+       RAMAS PORTADA
     ========================================= */
 
     .floral {
@@ -339,7 +339,8 @@
     }
 
     /* =========================================
-       PASO 2 CON FOTO
+       PASO 2
+       FOTO + CAPA TERRACOTA
     ========================================= */
 
     .segunda-seccion {
@@ -361,7 +362,7 @@
           rgba(132, 54, 31, 0.60),
           rgba(95, 38, 24, 0.70)
         ),
-        url("foto-carolina-alexander.jpg.jpeg");
+        url("foto-carolina-alexanderv2.jpeg");
 
       background-size: cover;
       background-position: center 42%;
@@ -377,6 +378,7 @@
 
     .segunda-seccion::before {
       content: "";
+
       position: absolute;
       inset: 0;
 
@@ -398,16 +400,23 @@
     .segunda-contenido {
       width: 100%;
       max-width: 760px;
+
       position: relative;
+
       z-index: 5;
     }
 
     .segunda-nombres {
       font-family: Arial, sans-serif;
+
       text-transform: uppercase;
+
       font-size: 11px;
+
       letter-spacing: 5px;
+
       color: #f4d8c8;
+
       margin-bottom: 38px;
     }
 
@@ -417,8 +426,11 @@
 
     .ramita-central {
       width: 100px;
+
       margin: 0 auto 38px;
+
       color: #f1c5ab;
+
       opacity: 0.9;
     }
 
@@ -433,11 +445,13 @@
 
     .versiculo {
       max-width: 680px;
+
       margin: 0 auto;
 
       font-size: clamp(30px, 5vw, 50px);
 
       font-weight: 400;
+
       line-height: 1.35;
 
       color: #fff8f1;
@@ -453,8 +467,11 @@
       margin-top: 24px;
 
       font-family: Arial, sans-serif;
+
       font-size: 11px;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
 
       color: #f0cbb7;
@@ -466,6 +483,7 @@
 
     .linea-fecha {
       width: 90px;
+
       height: 1px;
 
       margin: 32px auto;
@@ -496,8 +514,11 @@
       margin-top: 48px;
 
       font-family: Arial, sans-serif;
+
       font-size: 9px;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
 
       color: #efd0bd;
@@ -505,7 +526,9 @@
 
     .flecha {
       margin-top: 14px;
+
       font-size: 24px;
+
       color: #fff0e5;
 
       animation:
@@ -518,6 +541,7 @@
     ========================================= */
 
     @keyframes aparecer {
+
       from {
         opacity: 0;
         transform: translateY(18px);
@@ -527,9 +551,11 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
     @keyframes moverRamaDerecha {
+
       from {
         transform:
           rotate(2deg)
@@ -541,9 +567,11 @@
           rotate(4deg)
           translateY(6px);
       }
+
     }
 
     @keyframes moverRamaIzquierda {
+
       from {
         transform:
           rotate(-3deg)
@@ -555,9 +583,11 @@
           rotate(-1deg)
           translateY(-5px);
       }
+
     }
 
     @keyframes flotarFlecha {
+
       0%,
       100% {
         transform: translateY(0);
@@ -566,6 +596,7 @@
       50% {
         transform: translateY(8px);
       }
+
     }
 
     /* =========================================
@@ -601,16 +632,20 @@
       .floral-arriba-derecha {
         width: 175px;
         height: 330px;
+
         right: -55px;
         top: -25px;
+
         opacity: 0.55;
       }
 
       .floral-abajo-izquierda {
         width: 175px;
         height: 330px;
+
         left: -55px;
         bottom: -40px;
+
         opacity: 0.55;
       }
 
@@ -621,6 +656,7 @@
 
       .segunda-seccion {
         padding: 65px 28px;
+
         background-position: 48% center;
       }
 
@@ -648,10 +684,14 @@
 
   <section class="portada" id="portada">
 
+
     <div class="mancha mancha-arriba"></div>
+
     <div class="mancha mancha-abajo"></div>
 
+
     <div class="linea-vertical linea-izquierda"></div>
+
     <div class="linea-vertical linea-derecha"></div>
 
 
@@ -718,6 +758,7 @@
           />
 
         </g>
+
 
         <g
           fill="currentColor"
@@ -817,6 +858,7 @@
 
         </g>
 
+
         <g
           fill="currentColor"
           opacity="0.45">
@@ -856,37 +898,54 @@
 
     <div class="contenido">
 
+
       <div class="sobrelinea">
+
         Nos casamos
+
       </div>
+
 
       <h1 class="nombres">
 
         Carolina
 
         <span class="ampersand">
+
           &
+
         </span>
 
         Alexander
 
       </h1>
 
+
       <div class="separador"></div>
 
+
       <div id="cargando">
+
         Preparando tu invitación...
+
       </div>
+
 
       <div id="contenidoInvitado">
 
+
         <div class="texto-invitacion">
+
           Invitación especial para
+
         </div>
+
 
         <div id="nombreInvitado"></div>
 
+
         <div id="cupos"></div>
+
 
         <button
           class="boton"
@@ -897,11 +956,16 @@
 
         </button>
 
+
         <div class="detalle-inferior">
+
           Nuestra historia comienza aquí
+
         </div>
 
+
       </div>
+
 
       <div id="error">
 
@@ -909,14 +973,16 @@
 
         <br>
 
-        Revisa que hayas abierto
-        el enlace correcto.
+        Revisa que hayas abierto el enlace correcto.
 
       </div>
 
+
     </div>
 
+
   </section>
+
 
 
   <!-- =========================================
@@ -927,11 +993,16 @@
     class="segunda-seccion"
     id="segundaSeccion">
 
+
     <div class="segunda-contenido">
 
+
       <div class="segunda-nombres">
+
         Carolina & Alexander
+
       </div>
+
 
       <div class="ramita-central">
 
@@ -974,6 +1045,7 @@
 
           </g>
 
+
           <g
             fill="currentColor"
             opacity="0.55">
@@ -1000,6 +1072,7 @@
 
       </div>
 
+
       <blockquote class="versiculo">
 
         “Y sobre todas estas cosas,
@@ -1008,13 +1081,16 @@
 
       </blockquote>
 
+
       <div class="referencia">
 
         Colosenses 3:14
 
       </div>
 
+
       <div class="linea-fecha"></div>
+
 
       <div class="fecha-boda">
 
@@ -1022,11 +1098,13 @@
 
       </div>
 
+
       <div class="desliza">
 
         Desliza para continuar
 
       </div>
+
 
       <div class="flecha">
 
@@ -1034,9 +1112,12 @@
 
       </div>
 
+
     </div>
 
+
   </section>
+
 
 
   <!-- =========================================
@@ -1061,6 +1142,7 @@
 
     function cargarInvitado() {
 
+
       if (!codigo) {
 
         mostrarError();
@@ -1069,8 +1151,10 @@
 
       }
 
+
       const script =
         document.createElement("script");
+
 
       script.src =
         API_URL +
@@ -1080,18 +1164,22 @@
         "&t=" +
         Date.now();
 
+
       script.onerror = function () {
 
         mostrarError();
 
       };
 
+
       document.body.appendChild(script);
 
     }
 
 
+
     function recibirInvitado(datos) {
+
 
       if (!datos || !datos.ok) {
 
@@ -1101,12 +1189,15 @@
 
       }
 
+
       document
         .getElementById("nombreInvitado")
         .textContent =
         datos.invitado;
 
+
       let mensajeCupos;
+
 
       if (Number(datos.cupos) === 1) {
 
@@ -1124,15 +1215,18 @@
 
       }
 
+
       document
         .getElementById("cupos")
         .textContent =
         mensajeCupos;
 
+
       document
         .getElementById("cargando")
         .style.display =
         "none";
+
 
       document
         .getElementById("contenidoInvitado")
@@ -1142,17 +1236,21 @@
     }
 
 
+
     function mostrarError() {
+
 
       document
         .getElementById("cargando")
         .style.display =
         "none";
 
+
       document
         .getElementById("contenidoInvitado")
         .style.display =
         "none";
+
 
       document
         .getElementById("error")
@@ -1162,9 +1260,10 @@
     }
 
 
-    /* ======================================
+
+    /* =========================================
        ABRIR INVITACIÓN
-    ====================================== */
+    ========================================= */
 
     document
       .getElementById("abrirInvitacion")
@@ -1172,22 +1271,29 @@
         "click",
         function () {
 
+
           const portada =
             document.getElementById("portada");
+
 
           const segunda =
             document.getElementById("segundaSeccion");
 
+
           portada.classList.add("saliendo");
+
 
           setTimeout(
             function () {
 
+
               portada.style.display =
                 "none";
 
+
               segunda.style.display =
                 "flex";
+
 
               setTimeout(
                 function () {
@@ -1200,14 +1306,17 @@
                 50
               );
 
+
               window.scrollTo({
                 top: 0,
                 behavior: "instant"
               });
 
+
             },
             750
           );
+
 
         }
       );
@@ -1216,6 +1325,7 @@
     cargarInvitado();
 
   </script>
+
 
 </body>
 
