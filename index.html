@@ -9,10 +9,6 @@
 
   <style>
 
-    /* =========================================
-       CONFIGURACIÓN GENERAL
-    ========================================= */
-
     * {
       box-sizing: border-box;
     }
@@ -61,11 +57,21 @@
         ),
 
         #f7f1eb;
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+
+    .portada.saliendo {
+      opacity: 0;
+      transform: scale(1.02);
     }
 
 
     /* =========================================
-       MANCHAS SUAVES TERRACOTA
+       MANCHAS TERRACOTA
     ========================================= */
 
     .mancha {
@@ -109,7 +115,7 @@
 
 
     /* =========================================
-       LÍNEAS LATERALES
+       LÍNEAS
     ========================================= */
 
     .linea-vertical {
@@ -141,7 +147,7 @@
 
 
     /* =========================================
-       DECORACIÓN BOTÁNICA
+       FLORES / RAMAS
     ========================================= */
 
     .floral {
@@ -162,9 +168,6 @@
       overflow: visible;
     }
 
-
-    /* RAMA SUPERIOR DERECHA */
-
     .floral-arriba-derecha {
       width: 300px;
       height: 520px;
@@ -172,11 +175,10 @@
       top: -40px;
       right: -25px;
 
-      transform: rotate(2deg);
+      animation:
+        moverRamaDerecha
+        8s ease-in-out infinite alternate;
     }
-
-
-    /* RAMA INFERIOR IZQUIERDA */
 
     .floral-abajo-izquierda {
       width: 280px;
@@ -185,12 +187,14 @@
       bottom: -50px;
       left: -35px;
 
-      transform: rotate(-3deg);
+      animation:
+        moverRamaIzquierda
+        9s ease-in-out infinite alternate;
     }
 
 
     /* =========================================
-       CONTENIDO CENTRAL
+       CONTENIDO PORTADA
     ========================================= */
 
     .contenido {
@@ -203,9 +207,6 @@
 
       animation: aparecer 1.2s ease forwards;
     }
-
-
-    /* NOS CASAMOS */
 
     .sobrelinea {
       font-family: Arial, sans-serif;
@@ -220,11 +221,6 @@
 
       margin-bottom: 28px;
     }
-
-
-    /* =========================================
-       NOMBRES
-    ========================================= */
 
     .nombres {
       margin: 0;
@@ -330,10 +326,6 @@
     }
 
 
-    /* =========================================
-       CARGANDO
-    ========================================= */
-
     #cargando {
       font-family: Arial, sans-serif;
 
@@ -347,11 +339,6 @@
     #contenidoInvitado {
       display: none;
     }
-
-
-    /* =========================================
-       ERROR
-    ========================================= */
 
     #error {
       display: none;
@@ -417,15 +404,6 @@
         rgba(117, 62, 42, 0.27);
     }
 
-    .boton:active {
-      transform: translateY(0);
-    }
-
-
-    /* =========================================
-       TEXTO INFERIOR
-    ========================================= */
-
     .detalle-inferior {
       margin-top: 38px;
 
@@ -438,6 +416,169 @@
       color: #b07a66;
 
       text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       PASO 2
+    ========================================= */
+
+    .segunda-seccion {
+      min-height: 100vh;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      text-align: center;
+
+      padding: 70px 25px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at center top,
+          rgba(194, 110, 75, 0.10),
+          transparent 35%
+        ),
+        #f7f1eb;
+
+      opacity: 0;
+      transform: translateY(30px);
+
+      transition:
+        opacity 1s ease,
+        transform 1s ease;
+    }
+
+
+    .segunda-seccion.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    .segunda-contenido {
+      width: 100%;
+      max-width: 760px;
+
+      position: relative;
+
+      z-index: 5;
+    }
+
+
+    .segunda-nombres {
+      font-family: Arial, sans-serif;
+
+      text-transform: uppercase;
+
+      font-size: 11px;
+
+      letter-spacing: 5px;
+
+      color: #a45c3f;
+
+      margin-bottom: 42px;
+    }
+
+
+    .versiculo {
+      max-width: 680px;
+
+      margin: 0 auto;
+
+      font-size: clamp(30px, 5vw, 52px);
+
+      font-weight: 400;
+
+      line-height: 1.35;
+
+      color: #674235;
+
+      font-style: italic;
+    }
+
+
+    .referencia {
+      margin-top: 24px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #a46a52;
+    }
+
+
+    .fecha-boda {
+      margin-top: 60px;
+
+      font-size: clamp(30px, 5vw, 46px);
+
+      letter-spacing: 8px;
+
+      color: #8e4932;
+    }
+
+
+    .linea-fecha {
+      width: 90px;
+      height: 1px;
+
+      margin: 28px auto;
+
+      background:
+        rgba(159, 82, 55, 0.38);
+    }
+
+
+    .desliza {
+      margin-top: 45px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #b18775;
+    }
+
+
+    .flecha {
+      margin-top: 14px;
+
+      font-size: 24px;
+
+      color: #b46040;
+
+      animation: flotarFlecha 1.8s ease-in-out infinite;
+    }
+
+
+    /* DECORACIÓN PASO 2 */
+
+    .ramita-central {
+      width: 90px;
+      margin: 0 auto 42px;
+      color: #b45f3d;
+      opacity: 0.65;
+    }
+
+    .ramita-central svg {
+      width: 100%;
+      height: auto;
     }
 
 
@@ -460,20 +601,6 @@
     }
 
 
-    /* Movimiento muy sutil de las ramas */
-
-    .floral-arriba-derecha {
-      animation:
-        moverRamaDerecha
-        8s ease-in-out infinite alternate;
-    }
-
-    .floral-abajo-izquierda {
-      animation:
-        moverRamaIzquierda
-        9s ease-in-out infinite alternate;
-    }
-
     @keyframes moverRamaDerecha {
 
       from {
@@ -490,6 +617,7 @@
 
     }
 
+
     @keyframes moverRamaIzquierda {
 
       from {
@@ -502,6 +630,20 @@
         transform:
           rotate(-1deg)
           translateY(-5px);
+      }
+
+    }
+
+
+    @keyframes flotarFlecha {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
       }
 
     }
@@ -522,10 +664,7 @@
 
       .sobrelinea {
         font-size: 10px;
-
         letter-spacing: 4px;
-
-        margin-bottom: 25px;
       }
 
       .nombres {
@@ -562,14 +701,19 @@
 
       .boton {
         width: 100%;
-
         max-width: 310px;
       }
 
-      .detalle-inferior {
-        font-size: 9px;
+      .segunda-seccion {
+        padding: 70px 28px;
+      }
 
-        letter-spacing: 3px;
+      .versiculo {
+        font-size: 30px;
+      }
+
+      .fecha-boda {
+        letter-spacing: 5px;
       }
 
     }
@@ -582,34 +726,27 @@
 <body>
 
 
-  <section class="portada">
+  <!-- =========================================
+       PORTADA
+  ========================================== -->
 
+  <section class="portada" id="portada">
 
-    <!-- MANCHAS TERRACOTA -->
 
     <div class="mancha mancha-arriba"></div>
-
     <div class="mancha mancha-abajo"></div>
 
 
-    <!-- LÍNEAS DECORATIVAS -->
-
     <div class="linea-vertical linea-izquierda"></div>
-
     <div class="linea-vertical linea-derecha"></div>
 
 
-    <!-- =====================================
-         RAMA SUPERIOR DERECHA
-    ====================================== -->
+    <!-- RAMA SUPERIOR DERECHA -->
 
     <div class="floral floral-arriba-derecha">
 
-      <svg
-        viewBox="0 0 240 450"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <!-- RAMA PRINCIPAL -->
+      <svg viewBox="0 0 240 450"
+           xmlns="http://www.w3.org/2000/svg">
 
         <g
           fill="none"
@@ -686,8 +823,6 @@
         </g>
 
 
-        <!-- HOJAS -->
-
         <g
           fill="currentColor"
           opacity="0.45">
@@ -742,38 +877,17 @@
 
         </g>
 
-
-        <!-- PEQUEÑOS PUNTOS -->
-
-        <g
-          fill="currentColor"
-          opacity="0.45">
-
-          <circle cx="186" cy="70" r="3"/>
-          <circle cx="198" cy="82" r="2"/>
-          <circle cx="175" cy="92" r="2"/>
-
-          <circle cx="130" cy="230" r="3"/>
-          <circle cx="120" cy="242" r="2"/>
-
-        </g>
-
       </svg>
 
     </div>
 
 
-    <!-- =====================================
-         RAMA INFERIOR IZQUIERDA
-    ====================================== -->
+    <!-- RAMA INFERIOR IZQUIERDA -->
 
     <div class="floral floral-abajo-izquierda">
 
-      <svg
-        viewBox="0 0 240 450"
-        xmlns="http://www.w3.org/2000/svg">
-
-        <!-- RAMA -->
+      <svg viewBox="0 0 240 450"
+           xmlns="http://www.w3.org/2000/svg">
 
         <g
           fill="none"
@@ -829,19 +943,8 @@
             "
           />
 
-          <path
-            d="
-            M145 115
-            C120 95,
-            100 70,
-            85 40
-            "
-          />
-
         </g>
 
-
-        <!-- HOJAS -->
 
         <g
           fill="currentColor"
@@ -879,31 +982,6 @@
             transform="rotate(40 165 145)"
           />
 
-          <ellipse
-            cx="105"
-            cy="80"
-            rx="11"
-            ry="27"
-            transform="rotate(-40 105 80)"
-          />
-
-        </g>
-
-
-        <!-- FLORECITAS -->
-
-        <g
-          fill="currentColor"
-          opacity="0.58">
-
-          <circle cx="45" cy="360" r="4"/>
-          <circle cx="34" cy="350" r="3"/>
-          <circle cx="54" cy="344" r="3"/>
-
-          <circle cx="80" cy="285" r="3"/>
-          <circle cx="68" cy="278" r="2"/>
-          <circle cx="91" cy="273" r="2"/>
-
         </g>
 
       </svg>
@@ -911,9 +989,7 @@
     </div>
 
 
-    <!-- =====================================
-         CONTENIDO
-    ====================================== -->
+    <!-- CONTENIDO -->
 
     <div class="contenido">
 
@@ -939,16 +1015,10 @@
       <div class="separador"></div>
 
 
-      <!-- CARGANDO DATOS -->
-
       <div id="cargando">
-
         Preparando tu invitación...
-
       </div>
 
-
-      <!-- DATOS PERSONALIZADOS -->
 
       <div id="contenidoInvitado">
 
@@ -986,8 +1056,6 @@
       </div>
 
 
-      <!-- ERROR -->
-
       <div id="error">
 
         No pudimos encontrar esta invitación.
@@ -1004,6 +1072,140 @@
 
 
   </section>
+
+
+
+  <!-- =========================================
+       PASO 2
+  ========================================== -->
+
+  <section
+    class="segunda-seccion"
+    id="segundaSeccion">
+
+
+    <div class="segunda-contenido">
+
+
+      <div class="segunda-nombres">
+        Carolina & Alexander
+      </div>
+
+
+      <div class="ramita-central">
+
+        <svg
+          viewBox="0 0 100 70"
+          xmlns="http://www.w3.org/2000/svg">
+
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round">
+
+            <path
+              d="
+              M50 65
+              C46 48,
+              43 34,
+              45 10
+              "
+            />
+
+            <path
+              d="
+              M46 42
+              C30 35,
+              20 25,
+              15 15
+              "
+            />
+
+            <path
+              d="
+              M45 30
+              C60 25,
+              72 16,
+              80 6
+              "
+            />
+
+          </g>
+
+
+          <g
+            fill="currentColor"
+            opacity="0.45">
+
+            <ellipse
+              cx="25"
+              cy="27"
+              rx="5"
+              ry="12"
+              transform="rotate(-45 25 27)"
+            />
+
+            <ellipse
+              cx="67"
+              cy="18"
+              rx="5"
+              ry="12"
+              transform="rotate(45 67 18)"
+            />
+
+          </g>
+
+        </svg>
+
+      </div>
+
+
+      <blockquote class="versiculo">
+
+        “Y sobre todas estas cosas,
+        vestíos de amor,
+        que es el vínculo perfecto.”
+
+      </blockquote>
+
+
+      <div class="referencia">
+
+        Colosenses 3:14
+
+      </div>
+
+
+      <div class="linea-fecha"></div>
+
+
+      <div class="fecha-boda">
+
+        14 · 11 · 2026
+
+      </div>
+
+
+      <div class="desliza">
+
+        Desliza para continuar
+
+      </div>
+
+
+      <div class="flecha">
+
+        ↓
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
 
 
   <!-- =========================================
@@ -1025,10 +1227,6 @@
     const codigo =
       parametros.get("i");
 
-
-    /* ======================================
-       CARGAR INVITADO
-    ====================================== */
 
     function cargarInvitado() {
 
@@ -1066,9 +1264,6 @@
     }
 
 
-    /* ======================================
-       RECIBIR DATOS
-    ====================================== */
 
     function recibirInvitado(datos) {
 
@@ -1128,9 +1323,6 @@
     }
 
 
-    /* ======================================
-       ERROR
-    ====================================== */
 
     function mostrarError() {
 
@@ -1155,8 +1347,9 @@
     }
 
 
+
     /* ======================================
-       BOTÓN
+       ABRIR INVITACIÓN
     ====================================== */
 
     document
@@ -1165,15 +1358,56 @@
         "click",
         function () {
 
-          alert(
-            "Aquí comenzará la invitación 💍"
+
+          const portada =
+            document.getElementById("portada");
+
+
+          const segunda =
+            document.getElementById("segundaSeccion");
+
+
+          portada.classList.add("saliendo");
+
+
+          setTimeout(
+            function () {
+
+
+              portada.style.display =
+                "none";
+
+
+              segunda.style.display =
+                "flex";
+
+
+              setTimeout(
+                function () {
+
+                  segunda.classList.add(
+                    "visible"
+                  );
+
+                },
+                50
+              );
+
+
+              window.scrollTo({
+                top: 0,
+                behavior: "instant"
+              });
+
+
+            },
+            750
           );
+
 
         }
       );
 
-
-    /* INICIAR */
 
     cargarInvitado();
 
