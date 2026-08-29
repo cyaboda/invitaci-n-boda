@@ -7,7 +7,8 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Carolina & Alexander</title>
 
@@ -78,8 +79,7 @@
     .portada.saliendo {
       opacity: 0;
 
-      transform:
-        scale(1.02);
+      transform: scale(1.02);
     }
 
 
@@ -181,6 +181,7 @@
     .floral svg {
       width: 100%;
       height: 100%;
+
       overflow: visible;
     }
 
@@ -275,7 +276,6 @@
 
     .separador {
       width: 120px;
-
       height: 1px;
 
       margin: 37px auto;
@@ -376,7 +376,7 @@
 
 
     /* =====================================================
-       BOTÓN
+       BOTÓN GENERAL
     ===================================================== */
 
     .boton {
@@ -419,8 +419,7 @@
     }
 
     .boton:hover {
-      transform:
-        translateY(-3px);
+      transform: translateY(-3px);
 
       box-shadow:
         0 19px 38px
@@ -507,8 +506,7 @@
     .segunda-seccion.visible {
       opacity: 1;
 
-      transform:
-        translateY(0);
+      transform: translateY(0);
     }
 
     .segunda-contenido {
@@ -1198,8 +1196,7 @@
     }
 
     .evento-boton:hover {
-      transform:
-        translateY(-3px);
+      transform: translateY(-3px);
 
       box-shadow:
         0 18px 35px
@@ -1425,9 +1422,6 @@
       color: #fffaf6;
     }
 
-
-    /* COLORES RESERVADOS */
-
     .reservados {
       margin:
         32px auto 0;
@@ -1469,7 +1463,6 @@
 
     .color-reservado {
       width: 44px;
-
       height: 44px;
 
       border-radius: 50%;
@@ -1516,14 +1509,10 @@
       font-weight: 600;
     }
 
-
-    /* DECORACIÓN DRESS CODE */
-
     .dress-floral {
       position: absolute;
 
       width: 220px;
-
       height: 380px;
 
       color: #fff2ea;
@@ -1535,7 +1524,6 @@
 
     .dress-floral svg {
       width: 100%;
-
       height: 100%;
     }
 
@@ -1555,6 +1543,637 @@
 
       transform:
         rotate(170deg);
+    }
+
+
+    /* =====================================================
+       PASO 6
+       REGALOS
+    ===================================================== */
+
+    .regalos-seccion {
+      min-height: 100vh;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding:
+        80px 30px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(255, 226, 210, 0.10),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at bottom left,
+          rgba(255, 223, 205, 0.08),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #733829 0%,
+          #8d4632 38%,
+          #6b3026 100%
+        );
+
+      color: white;
+    }
+
+    .regalos-seccion::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          115deg,
+          rgba(255,255,255,0.025),
+          transparent 35%,
+          rgba(42,11,7,0.09)
+        );
+
+      pointer-events: none;
+    }
+
+    .regalos-contenido {
+      width: 100%;
+
+      max-width: 1020px;
+
+      position: relative;
+
+      z-index: 5;
+    }
+
+    .regalos-icono {
+      width: 66px;
+      height: 66px;
+
+      margin:
+        0 auto 20px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.30);
+
+      border-radius: 50%;
+
+      font-size: 28px;
+
+      background:
+        rgba(255,255,255,0.06);
+
+      backdrop-filter: blur(6px);
+    }
+
+    .regalos-etiqueta {
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+
+      color: #eec4ae;
+
+      margin-bottom: 12px;
+    }
+
+    .regalos-titulo {
+      margin: 0;
+
+      font-size:
+        clamp(52px, 7vw, 82px);
+
+      font-weight: 400;
+
+      line-height: 1;
+
+      color: #fff7f1;
+    }
+
+    .regalos-texto {
+      max-width: 620px;
+
+      margin:
+        22px auto 0;
+
+      font-size:
+        clamp(18px, 2vw, 24px);
+
+      line-height: 1.55;
+
+      font-style: italic;
+
+      color: #f6ddd0;
+    }
+
+    .regalos-linea {
+      width: 110px;
+      height: 1px;
+
+      margin:
+        34px auto 40px;
+
+      background:
+        rgba(255,255,255,0.35);
+    }
+
+    .bancos-preview {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 24px;
+
+      max-width: 800px;
+
+      margin: auto;
+    }
+
+    .banco-preview {
+      min-height: 210px;
+
+      padding:
+        34px 28px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+      border-radius: 26px;
+
+      background:
+        rgba(255,255,255,0.07);
+
+      box-shadow:
+        0 22px 50px
+        rgba(37, 10, 7, 0.16);
+
+      backdrop-filter:
+        blur(8px);
+    }
+
+    .banco-icono {
+      width: 45px;
+      height: 45px;
+
+      margin:
+        0 auto 18px;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.28);
+
+      font-size: 19px;
+
+      color: #fff4ec;
+    }
+
+    .banco-preview-nombre {
+      font-size: 27px;
+
+      color: #fff8f3;
+    }
+
+    .banco-preview-titular {
+      margin-top: 12px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+
+      color: #e9cbbb;
+    }
+
+    .regalos-boton {
+      margin-top: 38px;
+
+      padding:
+        17px 32px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.28);
+
+      border-radius: 999px;
+
+      background: #f6e2d6;
+
+      color: #733829;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 2.5px;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 18px 40px
+        rgba(35, 7, 4, 0.18);
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .regalos-boton:hover {
+      transform:
+        translateY(-3px);
+
+      background: white;
+    }
+
+    .regalos-nota {
+      margin-top: 26px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color:
+        rgba(255,235,225,0.62);
+    }
+
+
+    /* =====================================================
+       MODAL DATOS BANCARIOS
+    ===================================================== */
+
+    .modal-bancos {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 9999;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 25px;
+
+      background:
+        rgba(41, 14, 10, 0.75);
+
+      backdrop-filter:
+        blur(8px);
+    }
+
+    .modal-bancos.activo {
+      display: flex;
+    }
+
+    .modal-caja {
+      width: 100%;
+
+      max-width: 720px;
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      position: relative;
+
+      padding:
+        44px 40px;
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fbf5f0,
+          #f1e3da
+        );
+
+      color: #54352b;
+
+      box-shadow:
+        0 30px 90px
+        rgba(29, 7, 4, 0.38);
+
+      text-align: center;
+    }
+
+    .modal-cerrar {
+      position: absolute;
+
+      right: 20px;
+      top: 18px;
+
+      width: 38px;
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        rgba(116, 57, 41, 0.08);
+
+      color: #7c432f;
+
+      font-size: 22px;
+
+      cursor: pointer;
+    }
+
+    .modal-icono {
+      width: 56px;
+      height: 56px;
+
+      margin:
+        0 auto 18px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: #8b4632;
+
+      color: white;
+
+      font-size: 22px;
+    }
+
+    .modal-titulo {
+      margin: 0;
+
+      font-size:
+        clamp(31px, 4vw, 43px);
+
+      font-weight: 400;
+
+      color: #70402f;
+    }
+
+    .modal-texto {
+      max-width: 500px;
+
+      margin:
+        14px auto 0;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+
+      color: #82675b;
+    }
+
+    .pin-contenedor {
+      max-width: 320px;
+
+      margin:
+        28px auto 0;
+    }
+
+    .pin-input {
+      width: 100%;
+
+      padding:
+        16px 20px;
+
+      border:
+        1px solid
+        rgba(126,67,46,0.24);
+
+      border-radius: 999px;
+
+      outline: none;
+
+      text-align: center;
+
+      font-size: 24px;
+
+      letter-spacing: 12px;
+
+      color: #6c3b2c;
+
+      background:
+        rgba(255,255,255,0.72);
+
+      transition:
+        border 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .pin-input:focus {
+      border-color: #a2583c;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(162,88,60,0.08);
+    }
+
+    .pin-boton {
+      width: 100%;
+
+      margin-top: 14px;
+
+      padding:
+        15px 20px;
+
+      border: none;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #9a5037,
+          #713425
+        );
+
+      color: white;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+    }
+
+    .pin-error {
+      min-height: 20px;
+
+      margin-top: 13px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 12px;
+
+      color: #ad3e33;
+    }
+
+
+    /* =====================================================
+       RESULTADOS BANCARIOS
+    ===================================================== */
+
+    #datosBancarios {
+      display: none;
+
+      margin-top: 30px;
+    }
+
+    .datos-bancos-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 18px;
+    }
+
+    .banco-datos {
+      padding:
+        26px 22px;
+
+      border-radius: 22px;
+
+      background:
+        rgba(255,255,255,0.70);
+
+      border:
+        1px solid
+        rgba(133,74,52,0.13);
+
+      text-align: left;
+    }
+
+    .banco-datos-titulo {
+      font-size: 25px;
+
+      color: #743e2d;
+
+      margin-bottom: 18px;
+    }
+
+    .dato-label {
+      margin-top: 14px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 8px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: #a07968;
+    }
+
+    .dato-valor {
+      margin-top: 5px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 14px;
+
+      line-height: 1.5;
+
+      color: #50382e;
+
+      word-break: break-word;
+    }
+
+    .dato-numero {
+      font-size: 19px;
+
+      letter-spacing: 1px;
+
+      color: #703d2d;
+    }
+
+    .copiar-boton {
+      margin-top: 9px;
+
+      padding:
+        8px 12px;
+
+      border:
+        1px solid
+        rgba(119,63,45,0.18);
+
+      border-radius: 999px;
+
+      background: transparent;
+
+      color: #80513f;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+    }
+
+    .copiar-boton:hover {
+      background:
+        rgba(126,65,45,0.07);
+    }
+
+    .datos-seguridad {
+      margin-top: 22px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      line-height: 1.7;
+
+      color: #97796c;
     }
 
 
@@ -1839,15 +2458,6 @@
         font-size: 48px;
       }
 
-      .dress-formal {
-        font-size: 20px;
-      }
-
-      .dress-linea {
-        margin:
-          20px auto 30px;
-      }
-
       .dress-opciones {
         grid-template-columns: 1fr;
 
@@ -1872,32 +2482,50 @@
         height: 110px;
       }
 
-      .dress-descripcion {
-        font-size: 23px;
+
+      /* REGALOS */
+
+      .regalos-seccion {
+        min-height: 100vh;
+
+        padding:
+          65px 22px;
       }
 
-      .reservados {
-        margin-top: 35px;
-
-        padding-top: 25px;
+      .regalos-titulo {
+        font-size: 54px;
       }
 
-      .color-reservado {
-        width: 43px;
-
-        height: 43px;
+      .regalos-texto {
+        font-size: 19px;
       }
 
-      .reservados-texto {
-        font-size: 17px;
+      .bancos-preview {
+        grid-template-columns: 1fr;
+
+        max-width: 420px;
       }
 
-      .dress-floral {
-        width: 160px;
+      .banco-preview {
+        min-height: auto;
 
-        height: 280px;
+        padding:
+          28px 22px;
+      }
 
-        opacity: 0.10;
+      .modal-caja {
+        padding:
+          42px 22px 30px;
+      }
+
+      .datos-bancos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pin-input {
+        font-size: 20px;
+
+        letter-spacing: 10px;
       }
 
     }
@@ -1931,41 +2559,49 @@
 
   <section
     class="portada"
-    id="portada">
+    id="portada"
+  >
 
 
     <div
-      class="mancha mancha-arriba">
+      class="mancha mancha-arriba"
+    >
     </div>
 
 
     <div
-      class="mancha mancha-abajo">
+      class="mancha mancha-abajo"
+    >
     </div>
 
 
     <div
-      class="linea-vertical linea-izquierda">
+      class="linea-vertical linea-izquierda"
+    >
     </div>
 
 
     <div
-      class="linea-vertical linea-derecha">
+      class="linea-vertical linea-derecha"
+    >
     </div>
 
 
     <div
-      class="floral floral-arriba-derecha">
+      class="floral floral-arriba-derecha"
+    >
 
       <svg
         viewBox="0 0 240 450"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
 
         <g
           fill="none"
           stroke="currentColor"
           stroke-width="1.6"
-          stroke-linecap="round">
+          stroke-linecap="round"
+        >
 
           <path
             d="
@@ -2005,17 +2641,20 @@
 
 
     <div
-      class="floral floral-abajo-izquierda">
+      class="floral floral-abajo-izquierda"
+    >
 
       <svg
         viewBox="0 0 240 450"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
 
         <g
           fill="none"
           stroke="currentColor"
           stroke-width="1.6"
-          stroke-linecap="round">
+          stroke-linecap="round"
+        >
 
           <path
             d="
@@ -2093,7 +2732,8 @@
         <button
           class="boton"
           id="abrirInvitacion"
-          type="button">
+          type="button"
+        >
 
           ABRIR INVITACIÓN
 
@@ -2134,7 +2774,8 @@
 
   <section
     class="segunda-seccion"
-    id="segundaSeccion">
+    id="segundaSeccion"
+  >
 
 
     <div class="segunda-contenido">
@@ -2151,12 +2792,14 @@
 
         <svg
           viewBox="0 0 100 70"
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg"
+        >
 
           <g
             fill="none"
             stroke="currentColor"
-            stroke-width="1.5">
+            stroke-width="1.5"
+          >
 
             <path
               d="
@@ -2237,7 +2880,8 @@
 
   <section
     class="tercera-seccion"
-    id="cuentaRegresiva">
+    id="cuentaRegresiva"
+  >
 
 
     <div class="tercera-contenido">
@@ -2271,16 +2915,13 @@
 
           <span
             class="contador-numero"
-            id="dias">
-
+            id="dias"
+          >
             00
-
           </span>
 
           <span class="contador-label">
-
             Días
-
           </span>
 
         </div>
@@ -2290,16 +2931,13 @@
 
           <span
             class="contador-numero"
-            id="horas">
-
+            id="horas"
+          >
             00
-
           </span>
 
           <span class="contador-label">
-
             Horas
-
           </span>
 
         </div>
@@ -2309,16 +2947,13 @@
 
           <span
             class="contador-numero"
-            id="minutos">
-
+            id="minutos"
+          >
             00
-
           </span>
 
           <span class="contador-label">
-
             Minutos
-
           </span>
 
         </div>
@@ -2328,16 +2963,13 @@
 
           <span
             class="contador-numero"
-            id="segundos">
-
+            id="segundos"
+          >
             00
-
           </span>
 
           <span class="contador-label">
-
             Segundos
-
           </span>
 
         </div>
@@ -2377,18 +3009,21 @@
 
   <section
     class="evento-seccion"
-    id="eventoSeccion">
+    id="eventoSeccion"
+  >
 
 
     <div
       class="
         evento-foto
         evento-foto-izquierda
-      ">
+      "
+    >
 
       <img
         src="F1.jpeg"
-        alt="">
+        alt=""
+      >
 
     </div>
 
@@ -2397,11 +3032,13 @@
       class="
         evento-foto
         evento-foto-derecha
-      ">
+      "
+    >
 
       <img
         src="F2.jpeg"
-        alt="">
+        alt=""
+      >
 
     </div>
 
@@ -2414,7 +3051,8 @@
         <img
           src="LOGO.png"
           class="evento-logo"
-          alt="Karla Ramírez Event Studio">
+          alt="Karla Ramírez Event Studio"
+        >
 
       </div>
 
@@ -2480,7 +3118,8 @@
         class="evento-boton"
         href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
 
         ◇ &nbsp; CÓMO LLEGAR
 
@@ -2507,23 +3146,27 @@
 
   <section
     class="dress-seccion"
-    id="dressSeccion">
+    id="dressSeccion"
+  >
 
 
     <div
       class="
         dress-floral
         dress-floral-izquierda
-      ">
+      "
+    >
 
       <svg
         viewBox="0 0 220 400"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
 
         <g
           fill="none"
           stroke="currentColor"
-          stroke-width="1.6">
+          stroke-width="1.6"
+        >
 
           <path
             d="
@@ -2534,24 +3177,6 @@
             C140 105,
             165 55,
             195 10
-            "
-          />
-
-          <path
-            d="
-            M82 270
-            C55 250,
-            35 225,
-            20 195
-            "
-          />
-
-          <path
-            d="
-            M115 195
-            C145 175,
-            168 145,
-            182 115
             "
           />
 
@@ -2566,16 +3191,19 @@
       class="
         dress-floral
         dress-floral-derecha
-      ">
+      "
+    >
 
       <svg
         viewBox="0 0 220 400"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
 
         <g
           fill="none"
           stroke="currentColor"
-          stroke-width="1.6">
+          stroke-width="1.6"
+        >
 
           <path
             d="
@@ -2586,24 +3214,6 @@
             C140 105,
             165 55,
             195 10
-            "
-          />
-
-          <path
-            d="
-            M82 270
-            C55 250,
-            35 225,
-            20 195
-            "
-          />
-
-          <path
-            d="
-            M115 195
-            C145 175,
-            168 145,
-            182 115
             "
           />
 
@@ -2645,8 +3255,6 @@
       <div class="dress-opciones">
 
 
-        <!-- CABALLEROS -->
-
         <div class="dress-item">
 
 
@@ -2654,16 +3262,16 @@
 
             <svg
               viewBox="0 0 120 150"
-              xmlns="http://www.w3.org/2000/svg">
-
+              xmlns="http://www.w3.org/2000/svg"
+            >
 
               <g
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round">
-
+                stroke-linejoin="round"
+              >
 
                 <path
                   d="
@@ -2673,7 +3281,6 @@
                   "
                 />
 
-
                 <path
                   d="
                   M42 15
@@ -2681,7 +3288,6 @@
                   L15 135
                   "
                 />
-
 
                 <path
                   d="
@@ -2691,34 +3297,6 @@
                   "
                 />
 
-
-                <path
-                  d="
-                  M25 31
-                  L46 50
-                  L60 35
-                  L74 50
-                  L95 31
-                  "
-                />
-
-
-                <path
-                  d="
-                  M46 50
-                  L52 135
-                  "
-                />
-
-
-                <path
-                  d="
-                  M74 50
-                  L68 135
-                  "
-                />
-
-
                 <path
                   d="
                   M15 135
@@ -2726,42 +3304,7 @@
                   "
                 />
 
-
-                <path
-                  d="
-                  M55 29
-                  L60 42
-                  L65 29
-                  "
-                />
-
-
-                <circle
-                  cx="60"
-                  cy="65"
-                  r="2.2"
-                  fill="currentColor"
-                />
-
-
-                <circle
-                  cx="60"
-                  cy="80"
-                  r="2.2"
-                  fill="currentColor"
-                />
-
-
-                <circle
-                  cx="60"
-                  cy="95"
-                  r="2.2"
-                  fill="currentColor"
-                />
-
-
               </g>
-
 
             </svg>
 
@@ -2785,8 +3328,6 @@
         </div>
 
 
-        <!-- DAMAS -->
-
         <div class="dress-item">
 
 
@@ -2794,16 +3335,16 @@
 
             <svg
               viewBox="0 0 120 150"
-              xmlns="http://www.w3.org/2000/svg">
-
+              xmlns="http://www.w3.org/2000/svg"
+            >
 
               <g
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round">
-
+                stroke-linejoin="round"
+              >
 
                 <path
                   d="
@@ -2817,27 +3358,6 @@
                   "
                 />
 
-
-                <path
-                  d="
-                  M46 12
-                  C42 30,
-                  40 45,
-                  43 60
-                  "
-                />
-
-
-                <path
-                  d="
-                  M74 12
-                  C78 30,
-                  80 45,
-                  77 60
-                  "
-                />
-
-
                 <path
                   d="
                   M43 60
@@ -2846,7 +3366,6 @@
                   15 137
                   "
                 />
-
 
                 <path
                   d="
@@ -2857,7 +3376,6 @@
                   "
                 />
 
-
                 <path
                   d="
                   M15 137
@@ -2867,19 +3385,7 @@
                   "
                 />
 
-
-                <path
-                  d="
-                  M43 60
-                  C52 64,
-                  68 64,
-                  77 60
-                  "
-                />
-
-
               </g>
-
 
             </svg>
 
@@ -2906,8 +3412,6 @@
       </div>
 
 
-      <!-- COLORES RESERVADOS -->
-
       <div class="reservados">
 
 
@@ -2926,7 +3430,7 @@
               color-reservado
               color-blanco
             "
-            title="Blanco">
+          >
           </div>
 
 
@@ -2935,7 +3439,7 @@
               color-reservado
               color-marfil
             "
-            title="Marfil">
+          >
           </div>
 
 
@@ -2944,7 +3448,7 @@
               color-reservado
               color-beige
             "
-            title="Beige">
+          >
           </div>
 
 
@@ -2956,7 +3460,9 @@
           Con cariño, les pedimos reservar el
 
           <strong>
+
             blanco, el beige y sus tonalidades
+
           </strong>
 
           exclusivamente para los novios.
@@ -2971,6 +3477,245 @@
 
 
   </section>
+
+
+  <!-- =====================================================
+       PASO 6
+       REGALOS
+  ====================================================== -->
+
+  <section
+    class="regalos-seccion"
+    id="regalosSeccion"
+  >
+
+
+    <div class="regalos-contenido">
+
+
+      <div class="regalos-icono">
+
+        ♡
+
+      </div>
+
+
+      <div class="regalos-etiqueta">
+
+        Un detalle para nosotros
+
+      </div>
+
+
+      <h2 class="regalos-titulo">
+
+        Regalos
+
+      </h2>
+
+
+      <div class="regalos-texto">
+
+        Si deseas regalarnos algo más
+        que tu hermosa presencia,
+        hemos preparado estas opciones para ti.
+
+      </div>
+
+
+      <div class="regalos-linea">
+      </div>
+
+
+      <div class="bancos-preview">
+
+
+        <div class="banco-preview">
+
+          <div class="banco-icono">
+
+            ◇
+
+          </div>
+
+          <div class="banco-preview-nombre">
+
+            Banco Pichincha
+
+          </div>
+
+          <div class="banco-preview-titular">
+
+            Carolina Pricila
+            González Almeida
+
+          </div>
+
+        </div>
+
+
+        <div class="banco-preview">
+
+          <div class="banco-icono">
+
+            ◇
+
+          </div>
+
+          <div class="banco-preview-nombre">
+
+            Banco Guayaquil
+
+          </div>
+
+          <div class="banco-preview-titular">
+
+            Darling Alexander
+            Mendoza Pérez
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <button
+        class="regalos-boton"
+        type="button"
+        id="abrirBancos"
+      >
+
+        VER DATOS PARA TRANSFERENCIA
+
+      </button>
+
+
+      <div class="regalos-nota">
+
+        Gracias por acompañarnos
+        en este nuevo capítulo
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       MODAL BANCARIO
+  ====================================================== -->
+
+  <div
+    class="modal-bancos"
+    id="modalBancos"
+  >
+
+
+    <div class="modal-caja">
+
+
+      <button
+        class="modal-cerrar"
+        id="cerrarModalBancos"
+        type="button"
+      >
+
+        ×
+
+      </button>
+
+
+      <div class="modal-icono">
+
+        🔒
+
+      </div>
+
+
+      <h3 class="modal-titulo">
+
+        Datos para transferencia
+
+      </h3>
+
+
+      <div class="modal-texto">
+
+        Por seguridad, ingresa el código
+        proporcionado por los novios
+        para consultar los datos bancarios.
+
+      </div>
+
+
+      <div
+        class="pin-contenedor"
+        id="pinContenedor"
+      >
+
+
+        <input
+          type="password"
+          class="pin-input"
+          id="pinBancos"
+          inputmode="numeric"
+          maxlength="4"
+          autocomplete="off"
+          placeholder="••••"
+        >
+
+
+        <button
+          class="pin-boton"
+          id="verificarPin"
+          type="button"
+        >
+
+          VER DATOS
+
+        </button>
+
+
+        <div
+          class="pin-error"
+          id="pinError"
+        >
+        </div>
+
+
+      </div>
+
+
+      <div id="datosBancarios">
+
+
+        <div
+          class="datos-bancos-grid"
+          id="datosBancosGrid"
+        >
+        </div>
+
+
+        <div class="datos-seguridad">
+
+          Estos datos se muestran únicamente
+          dentro de una invitación válida.
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
 
 
   <!-- =====================================================
@@ -2994,6 +3739,10 @@
       parametros.get("i");
 
 
+    /* =====================================================
+       CARGAR INVITADO
+    ===================================================== */
+
     function cargarInvitado() {
 
 
@@ -3014,7 +3763,8 @@
 
       script.src =
         API_URL +
-        "?codigo=" +
+        "?accion=invitado" +
+        "&codigo=" +
         encodeURIComponent(codigo) +
         "&callback=recibirInvitado" +
         "&t=" +
@@ -3178,6 +3928,12 @@
             );
 
 
+          const regalos =
+            document.getElementById(
+              "regalosSeccion"
+            );
+
+
           portada
             .classList
             .add(
@@ -3206,6 +3962,10 @@
 
 
               dress.style.display =
+                "flex";
+
+
+              regalos.style.display =
                 "flex";
 
 
@@ -3241,6 +4001,424 @@
 
 
     /* =====================================================
+       MODAL BANCARIO
+    ===================================================== */
+
+    const modalBancos =
+      document.getElementById(
+        "modalBancos"
+      );
+
+
+    const pinInput =
+      document.getElementById(
+        "pinBancos"
+      );
+
+
+    const pinError =
+      document.getElementById(
+        "pinError"
+      );
+
+
+    const pinContenedor =
+      document.getElementById(
+        "pinContenedor"
+      );
+
+
+    const datosBancarios =
+      document.getElementById(
+        "datosBancarios"
+      );
+
+
+    document
+      .getElementById(
+        "abrirBancos"
+      )
+      .addEventListener(
+        "click",
+        function () {
+
+
+          modalBancos
+            .classList
+            .add(
+              "activo"
+            );
+
+
+          pinError.textContent =
+            "";
+
+
+          pinInput.value =
+            "";
+
+
+          setTimeout(
+            function () {
+
+              pinInput.focus();
+
+            },
+            150
+          );
+
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        "cerrarModalBancos"
+      )
+      .addEventListener(
+        "click",
+        cerrarModalBancos
+      );
+
+
+    modalBancos
+      .addEventListener(
+        "click",
+        function (event) {
+
+
+          if (
+            event.target ===
+            modalBancos
+          ) {
+
+            cerrarModalBancos();
+
+          }
+
+
+        }
+      );
+
+
+    function cerrarModalBancos() {
+
+
+      modalBancos
+        .classList
+        .remove(
+          "activo"
+        );
+
+
+      pinInput.value =
+        "";
+
+
+      pinError.textContent =
+        "";
+
+
+      datosBancarios.style.display =
+        "none";
+
+
+      pinContenedor.style.display =
+        "block";
+
+
+    }
+
+
+    document
+      .getElementById(
+        "verificarPin"
+      )
+      .addEventListener(
+        "click",
+        verificarPinBancos
+      );
+
+
+    pinInput
+      .addEventListener(
+        "keydown",
+        function (event) {
+
+
+          if (
+            event.key === "Enter"
+          ) {
+
+            verificarPinBancos();
+
+          }
+
+
+        }
+      );
+
+
+    function verificarPinBancos() {
+
+
+      const pin =
+        pinInput.value.trim();
+
+
+      if (
+        pin.length !== 4
+      ) {
+
+        pinError.textContent =
+          "Ingresa el código de 4 dígitos.";
+
+        return;
+
+      }
+
+
+      pinError.textContent =
+        "Verificando...";
+
+
+      const script =
+        document.createElement(
+          "script"
+        );
+
+
+      script.src =
+        API_URL +
+        "?accion=bancos" +
+        "&codigo=" +
+        encodeURIComponent(codigo) +
+        "&pin=" +
+        encodeURIComponent(pin) +
+        "&callback=recibirBancos" +
+        "&t=" +
+        Date.now();
+
+
+      script.onerror =
+        function () {
+
+
+          pinError.textContent =
+            "No pudimos consultar los datos. Intenta nuevamente.";
+
+
+        };
+
+
+      document.body
+        .appendChild(script);
+
+
+    }
+
+
+    function recibirBancos(datos) {
+
+
+      if (
+        !datos ||
+        !datos.ok
+      ) {
+
+
+        if (
+          datos &&
+          datos.codigoError ===
+          "PIN_INCORRECTO"
+        ) {
+
+          pinError.textContent =
+            "Código incorrecto.";
+
+        }
+
+        else {
+
+          pinError.textContent =
+            "No pudimos mostrar los datos.";
+
+        }
+
+
+        return;
+
+      }
+
+
+      pinError.textContent =
+        "";
+
+
+      pinContenedor.style.display =
+        "none";
+
+
+      mostrarDatosBancarios(
+        datos.bancos
+      );
+
+
+    }
+
+
+    function mostrarDatosBancarios(bancos) {
+
+
+      const grid =
+        document.getElementById(
+          "datosBancosGrid"
+        );
+
+
+      grid.innerHTML =
+        "";
+
+
+      bancos.forEach(
+        function (banco) {
+
+
+          const tarjeta =
+            document.createElement(
+              "div"
+            );
+
+
+          tarjeta.className =
+            "banco-datos";
+
+
+          tarjeta.innerHTML = `
+
+            <div class="banco-datos-titulo">
+              ${banco.banco}
+            </div>
+
+            <div class="dato-label">
+              Titular
+            </div>
+
+            <div class="dato-valor">
+              ${banco.titular}
+            </div>
+
+            <div class="dato-label">
+              Tipo de cuenta
+            </div>
+
+            <div class="dato-valor">
+              ${banco.tipoCuenta}
+            </div>
+
+            <div class="dato-label">
+              Número de cuenta
+            </div>
+
+            <div class="dato-valor dato-numero">
+              ${banco.cuenta}
+            </div>
+
+            <button
+              class="copiar-boton"
+              type="button"
+              onclick="copiarTexto('${banco.cuenta}', this)"
+            >
+              COPIAR CUENTA
+            </button>
+
+            <div class="dato-label">
+              Número de cédula
+            </div>
+
+            <div class="dato-valor dato-numero">
+              ${banco.cedula}
+            </div>
+
+            <button
+              class="copiar-boton"
+              type="button"
+              onclick="copiarTexto('${banco.cedula}', this)"
+            >
+              COPIAR CÉDULA
+            </button>
+
+          `;
+
+
+          grid.appendChild(
+            tarjeta
+          );
+
+
+        }
+      );
+
+
+      datosBancarios.style.display =
+        "block";
+
+
+    }
+
+
+    function copiarTexto(
+      texto,
+      boton
+    ) {
+
+
+      navigator.clipboard
+        .writeText(texto)
+        .then(
+          function () {
+
+
+            const textoOriginal =
+              boton.textContent;
+
+
+            boton.textContent =
+              "COPIADO ✓";
+
+
+            setTimeout(
+              function () {
+
+
+                boton.textContent =
+                  textoOriginal;
+
+
+              },
+              1600
+            );
+
+
+          }
+        )
+        .catch(
+          function () {
+
+
+            boton.textContent =
+              "COPIA MANUAL";
+
+
+          }
+        );
+
+
+    }
+
+
+    /* =====================================================
        CUENTA REGRESIVA
     ===================================================== */
 
@@ -3262,7 +4440,9 @@
         ahora.getTime();
 
 
-      if (diferencia <= 0) {
+      if (
+        diferencia <= 0
+      ) {
 
         diferencia = 0;
 
