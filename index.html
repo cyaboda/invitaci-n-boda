@@ -340,7 +340,6 @@
 
     /* =========================================
        PASO 2
-       FOTO + CAPA TERRACOTA
     ========================================= */
 
     .segunda-seccion {
@@ -378,7 +377,6 @@
 
     .segunda-seccion::before {
       content: "";
-
       position: absolute;
       inset: 0;
 
@@ -400,37 +398,23 @@
     .segunda-contenido {
       width: 100%;
       max-width: 760px;
-
       position: relative;
-
       z-index: 5;
     }
 
     .segunda-nombres {
       font-family: Arial, sans-serif;
-
       text-transform: uppercase;
-
       font-size: 11px;
-
       letter-spacing: 5px;
-
       color: #f4d8c8;
-
       margin-bottom: 38px;
     }
 
-    /* =========================================
-       RAMITA PASO 2
-    ========================================= */
-
     .ramita-central {
       width: 100px;
-
       margin: 0 auto 38px;
-
       color: #f1c5ab;
-
       opacity: 0.9;
     }
 
@@ -439,19 +423,13 @@
       height: auto;
     }
 
-    /* =========================================
-       VERSÍCULO
-    ========================================= */
-
     .versiculo {
       max-width: 680px;
-
       margin: 0 auto;
 
       font-size: clamp(30px, 5vw, 50px);
 
       font-weight: 400;
-
       line-height: 1.35;
 
       color: #fff8f1;
@@ -467,23 +445,15 @@
       margin-top: 24px;
 
       font-family: Arial, sans-serif;
-
       font-size: 11px;
-
       letter-spacing: 4px;
-
       text-transform: uppercase;
 
       color: #f0cbb7;
     }
 
-    /* =========================================
-       FECHA
-    ========================================= */
-
     .linea-fecha {
       width: 90px;
-
       height: 1px;
 
       margin: 32px auto;
@@ -494,11 +464,8 @@
 
     .fecha-boda {
       margin-top: 0;
-
       font-size: clamp(30px, 5vw, 46px);
-
       letter-spacing: 8px;
-
       color: #fff7ef;
 
       text-shadow:
@@ -506,19 +473,12 @@
         rgba(40, 15, 8, 0.22);
     }
 
-    /* =========================================
-       DESLIZA
-    ========================================= */
-
     .desliza {
       margin-top: 48px;
 
       font-family: Arial, sans-serif;
-
       font-size: 9px;
-
       letter-spacing: 4px;
-
       text-transform: uppercase;
 
       color: #efd0bd;
@@ -526,14 +486,240 @@
 
     .flecha {
       margin-top: 14px;
-
       font-size: 24px;
-
       color: #fff0e5;
 
       animation:
         flotarFlecha
         1.8s ease-in-out infinite;
+    }
+
+    /* =========================================
+       PASO 3 - CUENTA REGRESIVA
+    ========================================= */
+
+    .tercera-seccion {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      padding: 80px 25px;
+
+      text-align: center;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(190, 102, 67, 0.12),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(190, 102, 67, 0.10),
+          transparent 30%
+        ),
+        #f7f1eb;
+    }
+
+    .tercera-contenido {
+      width: 100%;
+      max-width: 900px;
+
+      position: relative;
+      z-index: 5;
+    }
+
+    .tercera-etiqueta {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #a66043;
+      margin-bottom: 30px;
+    }
+
+    .tercera-titulo {
+      margin: 0;
+
+      font-size: clamp(48px, 8vw, 86px);
+
+      font-weight: 400;
+
+      line-height: 1;
+
+      color: #87472f;
+    }
+
+    .tercera-subtitulo {
+      margin-top: 18px;
+
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #ae7963;
+    }
+
+    .contador {
+      width: 100%;
+
+      margin: 70px auto 0;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(100px, 1fr));
+
+      gap: 25px;
+
+      position: relative;
+    }
+
+    .contador-item {
+      position: relative;
+      padding: 10px 10px 20px;
+    }
+
+    .contador-item:not(:last-child)::after {
+      content: "";
+
+      position: absolute;
+
+      right: -13px;
+      top: 15%;
+
+      height: 70%;
+
+      width: 1px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(157, 81, 53, 0.28),
+          transparent
+        );
+    }
+
+    .contador-numero {
+      display: block;
+
+      font-size: clamp(42px, 7vw, 78px);
+
+      line-height: 1;
+
+      color: #8d4931;
+
+      font-weight: 400;
+    }
+
+    .contador-label {
+      display: block;
+
+      margin-top: 17px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: #a77c6a;
+    }
+
+    .contador-separador {
+      width: 120px;
+      height: 1px;
+
+      margin: 60px auto 0;
+
+      position: relative;
+
+      background:
+        rgba(159, 82, 55, 0.35);
+    }
+
+    .contador-separador::after {
+      content: "♥";
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      padding: 0 14px;
+
+      background: #f7f1eb;
+
+      color: #b86140;
+
+      font-size: 11px;
+    }
+
+    .gran-dia {
+      margin-top: 36px;
+
+      font-size: clamp(27px, 4vw, 42px);
+
+      font-style: italic;
+
+      color: #634033;
+    }
+
+    .fecha-pequena {
+      margin-top: 15px;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #a7725c;
+    }
+
+    .floral-contador {
+      position: absolute;
+
+      width: 230px;
+      height: 400px;
+
+      color: #b76544;
+
+      opacity: 0.28;
+
+      pointer-events: none;
+
+      z-index: 1;
+    }
+
+    .floral-contador svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .floral-contador-izquierda {
+      left: -80px;
+      top: 10%;
+      transform: rotate(-12deg);
+    }
+
+    .floral-contador-derecha {
+      right: -80px;
+      bottom: 5%;
+      transform: rotate(168deg);
     }
 
     /* =========================================
@@ -632,20 +818,16 @@
       .floral-arriba-derecha {
         width: 175px;
         height: 330px;
-
         right: -55px;
         top: -25px;
-
         opacity: 0.55;
       }
 
       .floral-abajo-izquierda {
         width: 175px;
         height: 330px;
-
         left: -55px;
         bottom: -40px;
-
         opacity: 0.55;
       }
 
@@ -656,7 +838,6 @@
 
       .segunda-seccion {
         padding: 65px 28px;
-
         background-position: 48% center;
       }
 
@@ -666,6 +847,47 @@
 
       .fecha-boda {
         letter-spacing: 5px;
+      }
+
+      .tercera-seccion {
+        padding: 70px 20px;
+      }
+
+      .contador {
+        grid-template-columns:
+          repeat(2, minmax(110px, 1fr));
+
+        gap: 30px 10px;
+
+        max-width: 360px;
+
+        margin-top: 55px;
+      }
+
+      .contador-item:nth-child(2)::after {
+        display: none;
+      }
+
+      .contador-item:not(:last-child)::after {
+        right: -5px;
+      }
+
+      .contador-numero {
+        font-size: 52px;
+      }
+
+      .floral-contador {
+        width: 150px;
+        height: 280px;
+        opacity: 0.18;
+      }
+
+      .floral-contador-izquierda {
+        left: -65px;
+      }
+
+      .floral-contador-derecha {
+        right: -65px;
       }
 
     }
@@ -684,24 +906,16 @@
 
   <section class="portada" id="portada">
 
-
     <div class="mancha mancha-arriba"></div>
-
     <div class="mancha mancha-abajo"></div>
 
-
     <div class="linea-vertical linea-izquierda"></div>
-
     <div class="linea-vertical linea-derecha"></div>
-
-
-    <!-- RAMA ARRIBA DERECHA -->
 
     <div class="floral floral-arriba-derecha">
 
-      <svg
-        viewBox="0 0 240 450"
-        xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 240 450"
+           xmlns="http://www.w3.org/2000/svg">
 
         <g
           fill="none"
@@ -759,10 +973,7 @@
 
         </g>
 
-
-        <g
-          fill="currentColor"
-          opacity="0.45">
+        <g fill="currentColor" opacity="0.45">
 
           <ellipse
             cx="215"
@@ -803,13 +1014,10 @@
     </div>
 
 
-    <!-- RAMA ABAJO IZQUIERDA -->
-
     <div class="floral floral-abajo-izquierda">
 
-      <svg
-        viewBox="0 0 240 450"
-        xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 240 450"
+           xmlns="http://www.w3.org/2000/svg">
 
         <g
           fill="none"
@@ -858,10 +1066,7 @@
 
         </g>
 
-
-        <g
-          fill="currentColor"
-          opacity="0.45">
+        <g fill="currentColor" opacity="0.45">
 
           <ellipse
             cx="30"
@@ -894,58 +1099,39 @@
     </div>
 
 
-    <!-- CONTENIDO -->
-
     <div class="contenido">
 
-
       <div class="sobrelinea">
-
         Nos casamos
-
       </div>
-
 
       <h1 class="nombres">
 
         Carolina
 
         <span class="ampersand">
-
           &
-
         </span>
 
         Alexander
 
       </h1>
 
-
       <div class="separador"></div>
 
-
       <div id="cargando">
-
         Preparando tu invitación...
-
       </div>
-
 
       <div id="contenidoInvitado">
 
-
         <div class="texto-invitacion">
-
           Invitación especial para
-
         </div>
-
 
         <div id="nombreInvitado"></div>
 
-
         <div id="cupos"></div>
-
 
         <button
           class="boton"
@@ -956,16 +1142,11 @@
 
         </button>
 
-
         <div class="detalle-inferior">
-
           Nuestra historia comienza aquí
-
         </div>
 
-
       </div>
-
 
       <div id="error">
 
@@ -977,12 +1158,9 @@
 
       </div>
 
-
     </div>
 
-
   </section>
-
 
 
   <!-- =========================================
@@ -993,16 +1171,11 @@
     class="segunda-seccion"
     id="segundaSeccion">
 
-
     <div class="segunda-contenido">
 
-
       <div class="segunda-nombres">
-
         Carolina & Alexander
-
       </div>
-
 
       <div class="ramita-central">
 
@@ -1045,10 +1218,7 @@
 
           </g>
 
-
-          <g
-            fill="currentColor"
-            opacity="0.55">
+          <g fill="currentColor" opacity="0.55">
 
             <ellipse
               cx="25"
@@ -1072,7 +1242,6 @@
 
       </div>
 
-
       <blockquote class="versiculo">
 
         “Y sobre todas estas cosas,
@@ -1081,43 +1250,260 @@
 
       </blockquote>
 
-
       <div class="referencia">
-
         Colosenses 3:14
-
       </div>
-
 
       <div class="linea-fecha"></div>
 
-
       <div class="fecha-boda">
-
         14 · 11 · 2026
-
       </div>
-
 
       <div class="desliza">
-
         Desliza para continuar
-
       </div>
-
 
       <div class="flecha">
-
         ↓
-
       </div>
 
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       PASO 3
+  ========================================== -->
+
+  <section
+    class="tercera-seccion"
+    id="cuentaRegresiva">
+
+
+    <div class="floral-contador floral-contador-izquierda">
+
+      <svg
+        viewBox="0 0 220 400"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6">
+
+          <path
+            d="
+            M40 390
+            C65 320,
+            90 240,
+            120 165
+            C140 110,
+            165 60,
+            195 15
+            "
+          />
+
+          <path d="M85 275 C55 255 35 230 20 200"/>
+          <path d="M108 210 C140 190 160 160 175 130"/>
+          <path d="M135 145 C105 130 85 105 70 75"/>
+
+        </g>
+
+        <g
+          fill="currentColor"
+          opacity="0.45">
+
+          <ellipse
+            cx="50"
+            cy="240"
+            rx="11"
+            ry="28"
+            transform="rotate(-40 50 240)"
+          />
+
+          <ellipse
+            cx="155"
+            cy="165"
+            rx="11"
+            ry="28"
+            transform="rotate(42 155 165)"
+          />
+
+          <ellipse
+            cx="95"
+            cy="110"
+            rx="10"
+            ry="26"
+            transform="rotate(-40 95 110)"
+          />
+
+        </g>
+
+      </svg>
 
     </div>
 
 
-  </section>
+    <div class="floral-contador floral-contador-derecha">
 
+      <svg
+        viewBox="0 0 220 400"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6">
+
+          <path
+            d="
+            M40 390
+            C65 320,
+            90 240,
+            120 165
+            C140 110,
+            165 60,
+            195 15
+            "
+          />
+
+          <path d="M85 275 C55 255 35 230 20 200"/>
+          <path d="M108 210 C140 190 160 160 175 130"/>
+          <path d="M135 145 C105 130 85 105 70 75"/>
+
+        </g>
+
+        <g
+          fill="currentColor"
+          opacity="0.45">
+
+          <ellipse
+            cx="50"
+            cy="240"
+            rx="11"
+            ry="28"
+            transform="rotate(-40 50 240)"
+          />
+
+          <ellipse
+            cx="155"
+            cy="165"
+            rx="11"
+            ry="28"
+            transform="rotate(42 155 165)"
+          />
+
+          <ellipse
+            cx="95"
+            cy="110"
+            rx="10"
+            ry="26"
+            transform="rotate(-40 95 110)"
+          />
+
+        </g>
+
+      </svg>
+
+    </div>
+
+
+    <div class="tercera-contenido">
+
+      <div class="tercera-etiqueta">
+        La espera casi termina
+      </div>
+
+      <h2 class="tercera-titulo">
+        Faltan
+      </h2>
+
+      <div class="tercera-subtitulo">
+        para celebrar nuestro amor
+      </div>
+
+
+      <div class="contador">
+
+        <div class="contador-item">
+
+          <span
+            class="contador-numero"
+            id="dias">
+            00
+          </span>
+
+          <span class="contador-label">
+            Días
+          </span>
+
+        </div>
+
+
+        <div class="contador-item">
+
+          <span
+            class="contador-numero"
+            id="horas">
+            00
+          </span>
+
+          <span class="contador-label">
+            Horas
+          </span>
+
+        </div>
+
+
+        <div class="contador-item">
+
+          <span
+            class="contador-numero"
+            id="minutos">
+            00
+          </span>
+
+          <span class="contador-label">
+            Minutos
+          </span>
+
+        </div>
+
+
+        <div class="contador-item">
+
+          <span
+            class="contador-numero"
+            id="segundos">
+            00
+          </span>
+
+          <span class="contador-label">
+            Segundos
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="contador-separador"></div>
+
+
+      <div class="gran-dia">
+        para nuestro gran día
+      </div>
+
+
+      <div class="fecha-pequena">
+        14 de noviembre de 2026
+      </div>
+
+    </div>
+
+  </section>
 
 
   <!-- =========================================
@@ -1141,7 +1527,6 @@
 
 
     function cargarInvitado() {
-
 
       if (!codigo) {
 
@@ -1177,9 +1562,7 @@
     }
 
 
-
     function recibirInvitado(datos) {
-
 
       if (!datos || !datos.ok) {
 
@@ -1236,9 +1619,7 @@
     }
 
 
-
     function mostrarError() {
-
 
       document
         .getElementById("cargando")
@@ -1258,7 +1639,6 @@
         "block";
 
     }
-
 
 
     /* =========================================
@@ -1320,6 +1700,130 @@
 
         }
       );
+
+
+    /* =========================================
+       CUENTA REGRESIVA
+    ========================================= */
+
+    const fechaBoda =
+      new Date(
+        "2026-11-14T00:00:00-05:00"
+      );
+
+
+    function actualizarContador() {
+
+
+      const ahora =
+        new Date();
+
+
+      let diferencia =
+        fechaBoda.getTime() -
+        ahora.getTime();
+
+
+      if (diferencia <= 0) {
+
+        document
+          .getElementById("dias")
+          .textContent =
+          "00";
+
+        document
+          .getElementById("horas")
+          .textContent =
+          "00";
+
+        document
+          .getElementById("minutos")
+          .textContent =
+          "00";
+
+        document
+          .getElementById("segundos")
+          .textContent =
+          "00";
+
+        return;
+
+      }
+
+
+      const dias =
+        Math.floor(
+          diferencia /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      diferencia %=
+        (1000 * 60 * 60 * 24);
+
+
+      const horas =
+        Math.floor(
+          diferencia /
+          (1000 * 60 * 60)
+        );
+
+
+      diferencia %=
+        (1000 * 60 * 60);
+
+
+      const minutos =
+        Math.floor(
+          diferencia /
+          (1000 * 60)
+        );
+
+
+      diferencia %=
+        (1000 * 60);
+
+
+      const segundos =
+        Math.floor(
+          diferencia /
+          1000
+        );
+
+
+      document
+        .getElementById("dias")
+        .textContent =
+        String(dias).padStart(2, "0");
+
+
+      document
+        .getElementById("horas")
+        .textContent =
+        String(horas).padStart(2, "0");
+
+
+      document
+        .getElementById("minutos")
+        .textContent =
+        String(minutos).padStart(2, "0");
+
+
+      document
+        .getElementById("segundos")
+        .textContent =
+        String(segundos).padStart(2, "0");
+
+    }
+
+
+    actualizarContador();
+
+
+    setInterval(
+      actualizarContador,
+      1000
+    );
 
 
     cargarInvitado();
