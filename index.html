@@ -139,7 +139,7 @@ select {
 
 
 /* =====================================================
-   LÍNEAS
+   LÍNEAS VERTICALES
 ===================================================== */
 
 .linea-vertical {
@@ -171,48 +171,197 @@ select {
 
 
 /* =====================================================
-   RAMAS PORTADA
+   RAMAS ANIMADAS PORTADA
 ===================================================== */
 
 .floral {
   position: absolute;
 
-  color: #ad5939;
-
   pointer-events: none;
 
-  z-index: 1;
+  z-index: 2;
 
-  opacity: 0.72;
+  color: #b85f3d;
 }
 
 .floral svg {
   width: 100%;
   height: 100%;
+
+  overflow: visible;
 }
+
+
+/* TALLO PRINCIPAL */
+
+.floral .tallo {
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  stroke-dasharray: 900;
+
+  stroke-dashoffset: 900;
+
+  animation:
+    crecerTallo 3.2s
+    cubic-bezier(.45,.05,.22,.97)
+    forwards;
+}
+
+
+/* RAMAS SECUNDARIAS */
+
+.floral .rama {
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.45;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  stroke-dasharray: 240;
+
+  stroke-dashoffset: 240;
+
+  animation:
+    crecerRama 1.5s ease forwards;
+}
+
+.floral .rama-1 {
+  animation-delay: 0.9s;
+}
+
+.floral .rama-2 {
+  animation-delay: 1.25s;
+}
+
+.floral .rama-3 {
+  animation-delay: 1.55s;
+}
+
+.floral .rama-4 {
+  animation-delay: 1.85s;
+}
+
+.floral .rama-5 {
+  animation-delay: 2.1s;
+}
+
+.floral .rama-6 {
+  animation-delay: 2.35s;
+}
+
+
+/* HOJAS */
+
+.floral .hoja {
+  fill: currentColor;
+
+  opacity: 0;
+
+  transform-box: fill-box;
+
+  transform-origin: center;
+
+  animation:
+    aparecerHoja 0.75s
+    cubic-bezier(.2,.8,.2,1)
+    forwards;
+}
+
+
+/* RETARDOS PARA QUE "NAZCAN" */
+
+.floral .hoja-1 {
+  animation-delay: 1.15s;
+}
+
+.floral .hoja-2 {
+  animation-delay: 1.4s;
+}
+
+.floral .hoja-3 {
+  animation-delay: 1.65s;
+}
+
+.floral .hoja-4 {
+  animation-delay: 1.9s;
+}
+
+.floral .hoja-5 {
+  animation-delay: 2.15s;
+}
+
+.floral .hoja-6 {
+  animation-delay: 2.4s;
+}
+
+.floral .hoja-7 {
+  animation-delay: 2.65s;
+}
+
+.floral .hoja-8 {
+  animation-delay: 2.9s;
+}
+
+.floral .hoja-9 {
+  animation-delay: 3.1s;
+}
+
+.floral .hoja-10 {
+  animation-delay: 3.3s;
+}
+
+
+/* LADO DERECHO */
 
 .floral-arriba-derecha {
-  width: 300px;
-  height: 520px;
+  width: 290px;
+  height: 610px;
 
-  top: -40px;
-  right: -25px;
+  top: -55px;
+  right: -38px;
+
+  transform-origin:
+    bottom right;
 
   animation:
-    moverRamaDerecha
-    8s ease-in-out infinite alternate;
+    respirarDerecha
+    6.8s
+    ease-in-out
+    3.4s
+    infinite alternate;
 }
 
-.floral-abajo-izquierda {
-  width: 280px;
-  height: 500px;
 
-  bottom: -50px;
-  left: -35px;
+/* LADO IZQUIERDO */
+
+.floral-abajo-izquierda {
+  width: 285px;
+  height: 610px;
+
+  bottom: -70px;
+  left: -40px;
+
+  transform-origin:
+    bottom left;
 
   animation:
-    moverRamaIzquierda
-    9s ease-in-out infinite alternate;
+    respirarIzquierda
+    7.4s
+    ease-in-out
+    3.4s
+    infinite alternate;
 }
 
 
@@ -1797,9 +1946,6 @@ select {
     rgba(255,255,255,0.28);
 }
 
-
-/* TARJETA PRINCIPAL */
-
 .rsvp-panel {
   width: 100%;
 
@@ -1854,9 +2000,6 @@ select {
 
   color: #d9baad;
 }
-
-
-/* SÍ / NO */
 
 .rsvp-pregunta {
   margin-top: 17px;
@@ -1921,9 +2064,6 @@ select {
   border-color: #f2d7ca;
 }
 
-
-/* BLOQUE SÍ */
-
 .rsvp-detalles {
   display: none;
 
@@ -1970,8 +2110,7 @@ select {
 
   border-radius: 50%;
 
-  background:
-    transparent;
+  background: transparent;
 
   color: #f8e8e1;
 
@@ -1989,9 +2128,6 @@ select {
 
   border-color: #efd0c1;
 }
-
-
-/* ACOMPAÑANTES */
 
 .acompanantes-contenedor {
   display: grid;
@@ -2044,9 +2180,6 @@ select {
     rgba(255,255,255,0.11);
 }
 
-
-/* MENSAJE */
-
 .rsvp-mensaje {
   min-height: 18px;
 
@@ -2085,28 +2218,7 @@ select {
   text-transform: uppercase;
 
   cursor: pointer;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
 }
-
-.rsvp-confirmar:hover {
-  transform: translateY(-2px);
-
-  background: white;
-}
-
-.rsvp-confirmar:disabled {
-  opacity: 0.55;
-
-  cursor: wait;
-
-  transform: none;
-}
-
-
-/* RESPUESTA GUARDADA */
 
 .rsvp-resultado {
   display: none;
@@ -2508,81 +2620,179 @@ select {
 
   from {
     opacity: 0;
-    transform: translateY(18px);
+
+    transform:
+      translateY(18px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
   }
 
 }
 
-@keyframes moverRamaDerecha {
+
+/* TALLITO CRECE */
+
+@keyframes crecerTallo {
 
   from {
+    stroke-dashoffset: 900;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+
+}
+
+
+/* RAMITAS CRECEN */
+
+@keyframes crecerRama {
+
+  from {
+    stroke-dashoffset: 240;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+
+}
+
+
+/* HOJITAS APARECEN */
+
+@keyframes aparecerHoja {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(0.12)
+      rotate(-12deg);
+  }
+
+  65% {
+    opacity: 0.9;
+
+    transform:
+      scale(1.08)
+      rotate(2deg);
+  }
+
+  100% {
+    opacity: 0.84;
+
+    transform:
+      scale(1)
+      rotate(0deg);
+  }
+
+}
+
+
+/* MOVIMIENTO SUAVE DERECHO */
+
+@keyframes respirarDerecha {
+
+  0% {
+    transform:
+      rotate(0deg)
+      translateY(0)
+      translateX(0);
+  }
+
+  50% {
+    transform:
+      rotate(1.2deg)
+      translateY(3px)
+      translateX(-1px);
+  }
+
+  100% {
     transform:
       rotate(2deg)
-      translateY(0);
-  }
-
-  to {
-    transform:
-      rotate(4deg)
-      translateY(6px);
+      translateY(6px)
+      translateX(-3px);
   }
 
 }
 
-@keyframes moverRamaIzquierda {
 
-  from {
+/* MOVIMIENTO SUAVE IZQUIERDO */
+
+@keyframes respirarIzquierda {
+
+  0% {
     transform:
-      rotate(-3deg)
-      translateY(0);
+      rotate(0deg)
+      translateY(0)
+      translateX(0);
   }
 
-  to {
+  50% {
     transform:
       rotate(-1deg)
-      translateY(-5px);
+      translateY(-2px)
+      translateX(1px);
+  }
+
+  100% {
+    transform:
+      rotate(-1.8deg)
+      translateY(-5px)
+      translateX(2px);
   }
 
 }
+
 
 @keyframes flotarFlecha {
 
   0%,
   100% {
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 
   50% {
-    transform: translateY(8px);
+    transform:
+      translateY(8px);
   }
 
 }
+
 
 @keyframes fotoBaja {
 
   from {
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 
   to {
-    transform: translateY(15%);
+    transform:
+      translateY(15%);
   }
 
 }
 
+
 @keyframes fotoSube {
 
   from {
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 
   to {
-    transform: translateY(-15%);
+    transform:
+      translateY(-15%);
   }
 
 }
@@ -2602,6 +2812,30 @@ select {
   .nombres {
     letter-spacing: -1px;
   }
+
+
+  /* RAMAS MÓVIL */
+
+  .floral-arriba-derecha {
+    width: 180px;
+    height: 390px;
+
+    top: -30px;
+    right: -75px;
+
+    opacity: 0.72;
+  }
+
+  .floral-abajo-izquierda {
+    width: 180px;
+    height: 390px;
+
+    bottom: -35px;
+    left: -75px;
+
+    opacity: 0.72;
+  }
+
 
   .segunda-seccion {
     padding:
@@ -2756,7 +2990,7 @@ select {
 
 
 /* =====================================================
-   REDUCIR MOVIMIENTO
+   ACCESIBILIDAD
 ===================================================== */
 
 @media
@@ -2798,53 +3032,384 @@ select {
   <div class="linea-vertical linea-derecha"></div>
 
 
-  <div class="floral floral-arriba-derecha">
+  <!-- ===================================================
+       RAMA DERECHA
+  ==================================================== -->
+
+  <div
+    class="floral floral-arriba-derecha"
+  >
 
     <svg
-      viewBox="0 0 240 450"
+      viewBox="0 0 280 620"
       xmlns="http://www.w3.org/2000/svg"
     >
 
+      <!-- TALLO PRINCIPAL -->
+
       <path
+        class="tallo"
         d="
-        M210 0
-        C195 70,
-        175 130,
-        162 195
-        C145 275,
-        105 350,
-        55 450
+        M262 0
+        C245 70,
+        232 130,
+        217 185
+        C197 260,
+        174 322,
+        143 392
+        C115 455,
+        84 525,
+        44 620
         "
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.6"
       />
+
+
+      <!-- RAMITAS -->
+
+      <path
+        class="rama rama-1"
+        d="
+        M231 132
+        C205 118,
+        186 97,
+        172 73
+        "
+      />
+
+      <path
+        class="rama rama-2"
+        d="
+        M214 198
+        C240 178,
+        254 154,
+        262 126
+        "
+      />
+
+      <path
+        class="rama rama-3"
+        d="
+        M190 282
+        C160 260,
+        139 236,
+        124 205
+        "
+      />
+
+      <path
+        class="rama rama-4"
+        d="
+        M163 348
+        C193 332,
+        216 306,
+        228 275
+        "
+      />
+
+      <path
+        class="rama rama-5"
+        d="
+        M124 438
+        C94 418,
+        74 394,
+        58 365
+        "
+      />
+
+      <path
+        class="rama rama-6"
+        d="
+        M86 522
+        C111 509,
+        130 489,
+        145 462
+        "
+      />
+
+
+      <!-- HOJAS -->
+
+      <ellipse
+        class="hoja hoja-1"
+        cx="182"
+        cy="88"
+        rx="9"
+        ry="21"
+        transform="rotate(-42 182 88)"
+      />
+
+      <ellipse
+        class="hoja hoja-2"
+        cx="216"
+        cy="122"
+        rx="10"
+        ry="23"
+        transform="rotate(32 216 122)"
+      />
+
+      <ellipse
+        class="hoja hoja-3"
+        cx="248"
+        cy="160"
+        rx="9"
+        ry="20"
+        transform="rotate(38 248 160)"
+      />
+
+      <ellipse
+        class="hoja hoja-4"
+        cx="145"
+        cy="246"
+        rx="11"
+        ry="25"
+        transform="rotate(-48 145 246)"
+      />
+
+      <ellipse
+        class="hoja hoja-5"
+        cx="213"
+        cy="305"
+        rx="11"
+        ry="24"
+        transform="rotate(40 213 305)"
+      />
+
+      <ellipse
+        class="hoja hoja-6"
+        cx="178"
+        cy="343"
+        rx="9"
+        ry="21"
+        transform="rotate(32 178 343)"
+      />
+
+      <ellipse
+        class="hoja hoja-7"
+        cx="79"
+        cy="397"
+        rx="11"
+        ry="25"
+        transform="rotate(-48 79 397)"
+      />
+
+      <ellipse
+        class="hoja hoja-8"
+        cx="126"
+        cy="447"
+        rx="10"
+        ry="23"
+        transform="rotate(-35 126 447)"
+      />
+
+      <ellipse
+        class="hoja hoja-9"
+        cx="128"
+        cy="488"
+        rx="10"
+        ry="22"
+        transform="rotate(40 128 488)"
+      />
+
+      <ellipse
+        class="hoja hoja-10"
+        cx="68"
+        cy="548"
+        rx="9"
+        ry="21"
+        transform="rotate(-38 68 548)"
+      />
+
 
     </svg>
 
   </div>
 
 
-  <div class="floral floral-abajo-izquierda">
+  <!-- ===================================================
+       RAMA IZQUIERDA
+  ==================================================== -->
+
+  <div
+    class="floral floral-abajo-izquierda"
+  >
 
     <svg
-      viewBox="0 0 240 450"
+      viewBox="0 0 280 620"
       xmlns="http://www.w3.org/2000/svg"
     >
 
+      <!-- TALLO PRINCIPAL -->
+
       <path
+        class="tallo"
         d="
-        M25 450
-        C45 380,
-        68 320,
-        85 250
-        C105 175,
-        145 95,
-        195 0
+        M18 620
+        C40 545,
+        58 485,
+        75 430
+        C97 360,
+        120 300,
+        145 240
+        C170 178,
+        197 110,
+        235 0
         "
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.6"
+      />
+
+
+      <!-- RAMITAS -->
+
+      <path
+        class="rama rama-1"
+        d="
+        M58 487
+        C30 470,
+        16 447,
+        8 420
+        "
+      />
+
+      <path
+        class="rama rama-2"
+        d="
+        M79 419
+        C108 402,
+        127 378,
+        140 349
+        "
+      />
+
+      <path
+        class="rama rama-3"
+        d="
+        M111 328
+        C79 306,
+        58 281,
+        45 250
+        "
+      />
+
+      <path
+        class="rama rama-4"
+        d="
+        M145 241
+        C174 224,
+        193 201,
+        206 172
+        "
+      />
+
+      <path
+        class="rama rama-5"
+        d="
+        M179 155
+        C150 134,
+        132 111,
+        120 83
+        "
+      />
+
+      <path
+        class="rama rama-6"
+        d="
+        M205 82
+        C226 67,
+        240 48,
+        250 26
+        "
+      />
+
+
+      <!-- HOJAS -->
+
+      <ellipse
+        class="hoja hoja-1"
+        cx="23"
+        cy="438"
+        rx="10"
+        ry="23"
+        transform="rotate(-38 23 438)"
+      />
+
+      <ellipse
+        class="hoja hoja-2"
+        cx="98"
+        cy="396"
+        rx="11"
+        ry="24"
+        transform="rotate(40 98 396)"
+      />
+
+      <ellipse
+        class="hoja hoja-3"
+        cx="124"
+        cy="362"
+        rx="9"
+        ry="20"
+        transform="rotate(36 124 362)"
+      />
+
+      <ellipse
+        class="hoja hoja-4"
+        cx="65"
+        cy="283"
+        rx="11"
+        ry="25"
+        transform="rotate(-46 65 283)"
+      />
+
+      <ellipse
+        class="hoja hoja-5"
+        cx="180"
+        cy="210"
+        rx="10"
+        ry="23"
+        transform="rotate(38 180 210)"
+      />
+
+      <ellipse
+        class="hoja hoja-6"
+        cx="154"
+        cy="153"
+        rx="10"
+        ry="22"
+        transform="rotate(-42 154 153)"
+      />
+
+      <ellipse
+        class="hoja hoja-7"
+        cx="130"
+        cy="110"
+        rx="9"
+        ry="21"
+        transform="rotate(-42 130 110)"
+      />
+
+      <ellipse
+        class="hoja hoja-8"
+        cx="221"
+        cy="63"
+        rx="10"
+        ry="23"
+        transform="rotate(37 221 63)"
+      />
+
+      <ellipse
+        class="hoja hoja-9"
+        cx="244"
+        cy="38"
+        rx="8"
+        ry="18"
+        transform="rotate(31 244 38)"
+      />
+
+      <ellipse
+        class="hoja hoja-10"
+        cx="44"
+        cy="522"
+        rx="10"
+        ry="22"
+        transform="rotate(-35 44 522)"
       />
 
     </svg>
@@ -3471,26 +4036,11 @@ select {
 
       <div class="paleta-reservada">
 
-        <div
-          class="
-            color-reservado
-            color-blanco
-          "
-        ></div>
+        <div class="color-reservado color-blanco"></div>
 
-        <div
-          class="
-            color-reservado
-            color-marfil
-          "
-        ></div>
+        <div class="color-reservado color-marfil"></div>
 
-        <div
-          class="
-            color-reservado
-            color-beige
-          "
-        ></div>
+        <div class="color-reservado color-beige"></div>
 
       </div>
 
@@ -3500,9 +4050,7 @@ select {
         Con cariño, les pedimos reservar el
 
         <strong>
-
           blanco, el beige y sus tonalidades
-
         </strong>
 
         exclusivamente para los novios.
@@ -3531,9 +4079,7 @@ select {
 
 
     <div class="regalos-icono">
-
       ♡
-
     </div>
 
 
@@ -3569,9 +4115,7 @@ select {
       <div class="banco-preview">
 
         <div class="banco-icono">
-
           ◇
-
         </div>
 
         <div class="banco-preview-nombre">
@@ -3592,9 +4136,7 @@ select {
       <div class="banco-preview">
 
         <div class="banco-icono">
-
           ◇
-
         </div>
 
         <div class="banco-preview-nombre">
@@ -3651,9 +4193,7 @@ select {
 
 
     <div class="rsvp-icono">
-
       ♡
-
     </div>
 
 
@@ -3681,8 +4221,6 @@ select {
     <div class="rsvp-linea"></div>
 
 
-    <!-- FORMULARIO -->
-
     <div
       class="rsvp-panel"
       id="rsvpPanel"
@@ -3699,15 +4237,13 @@ select {
       <div
         class="rsvp-invitado"
         id="rsvpNombre"
-      >
-      </div>
+      ></div>
 
 
       <div
         class="rsvp-cupos"
         id="rsvpCupos"
-      >
-      </div>
+      ></div>
 
 
       <div class="rsvp-pregunta">
@@ -3761,15 +4297,13 @@ select {
         <div
           class="asistentes-selector"
           id="asistentesSelector"
-        >
-        </div>
+        ></div>
 
 
         <div
           class="acompanantes-contenedor"
           id="acompanantesContenedor"
-        >
-        </div>
+        ></div>
 
 
       </div>
@@ -3778,8 +4312,7 @@ select {
       <div
         class="rsvp-mensaje"
         id="rsvpMensaje"
-      >
-      </div>
+      ></div>
 
 
       <button
@@ -3796,8 +4329,6 @@ select {
     </div>
 
 
-    <!-- RESPUESTA GUARDADA -->
-
     <div
       class="rsvp-resultado"
       id="rsvpResultado"
@@ -3808,24 +4339,20 @@ select {
         class="rsvp-resultado-icono"
         id="rsvpResultadoIcono"
       >
-
         ♡
-
       </div>
 
 
       <div
         class="rsvp-resultado-titulo"
         id="rsvpResultadoTitulo"
-      >
-      </div>
+      ></div>
 
 
       <div
         class="rsvp-resultado-texto"
         id="rsvpResultadoTexto"
-      >
-      </div>
+      ></div>
 
 
       <button
@@ -3864,16 +4391,12 @@ select {
       id="cerrarModalBancos"
       type="button"
     >
-
       ×
-
     </button>
 
 
     <div class="modal-icono">
-
       🔒
-
     </div>
 
 
@@ -3924,8 +4447,7 @@ select {
       <div
         class="pin-error"
         id="pinError"
-      >
-      </div>
+      ></div>
 
 
     </div>
@@ -3937,8 +4459,7 @@ select {
       <div
         class="datos-bancos-grid"
         id="datosBancosGrid"
-      >
-      </div>
+      ></div>
 
 
     </div>
@@ -3948,10 +4469,6 @@ select {
 
 </div>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
 
 <script>
 
@@ -4242,10 +4759,6 @@ const rsvpMensaje =
   document.getElementById("rsvpMensaje");
 
 
-/* =====================================================
-   PREPARAR RSVP
-===================================================== */
-
 function prepararRSVP() {
 
   if (!invitadoActual) {
@@ -4276,10 +4789,6 @@ function prepararRSVP() {
 
 }
 
-
-/* =====================================================
-   MOSTRAR FORMULARIO
-===================================================== */
 
 function mostrarFormularioRSVP() {
 
@@ -4332,10 +4841,6 @@ function mostrarFormularioRSVP() {
 }
 
 
-/* =====================================================
-   SÍ ASISTE
-===================================================== */
-
 rsvpSi.addEventListener(
   "click",
   function () {
@@ -4371,10 +4876,6 @@ rsvpSi.addEventListener(
 );
 
 
-/* =====================================================
-   NO ASISTE
-===================================================== */
-
 rsvpNo.addEventListener(
   "click",
   function () {
@@ -4406,10 +4907,6 @@ rsvpNo.addEventListener(
   }
 );
 
-
-/* =====================================================
-   CREAR SELECTOR DE ASISTENTES
-===================================================== */
 
 function crearSelectorAsistentes() {
 
@@ -4490,10 +4987,6 @@ function crearSelectorAsistentes() {
 }
 
 
-/* =====================================================
-   CAMPOS ACOMPAÑANTES
-===================================================== */
-
 function crearCamposAcompanantes() {
 
   const contenedor =
@@ -4547,10 +5040,6 @@ function crearCamposAcompanantes() {
 
 }
 
-
-/* =====================================================
-   CONFIRMAR RSVP
-===================================================== */
 
 rsvpConfirmar.addEventListener(
   "click",
@@ -4704,10 +5193,6 @@ function guardarRSVP() {
 }
 
 
-/* =====================================================
-   RESPUESTA DEL SERVIDOR
-===================================================== */
-
 function recibirConfirmacion(datos) {
 
   rsvpConfirmar.disabled =
@@ -4750,10 +5235,6 @@ function recibirConfirmacion(datos) {
 
 }
 
-
-/* =====================================================
-   MOSTRAR RESPUESTA GUARDADA
-===================================================== */
 
 function mostrarRespuestaGuardada() {
 
@@ -4849,10 +5330,6 @@ function mostrarRespuestaGuardada() {
 
 }
 
-
-/* =====================================================
-   MODIFICAR RSVP
-===================================================== */
 
 document
   .getElementById("rsvpModificar")
@@ -5060,10 +5537,6 @@ function verificarPinBancos() {
 }
 
 
-/* =====================================================
-   RECIBIR BANCOS
-===================================================== */
-
 function recibirBancos(datos) {
 
   if (
@@ -5093,10 +5566,6 @@ function recibirBancos(datos) {
 
 }
 
-
-/* =====================================================
-   MOSTRAR BANCOS
-===================================================== */
 
 function mostrarDatosBancarios(bancos) {
 
@@ -5194,10 +5663,6 @@ function mostrarDatosBancarios(bancos) {
 
 }
 
-
-/* =====================================================
-   COPIAR
-===================================================== */
 
 function copiarTexto(
   texto,
