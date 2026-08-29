@@ -11,21 +11,17 @@
 
   <title>Carolina & Alexander</title>
 
-
   <style>
 
     * {
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
-
       margin: 0;
 
       font-family:
@@ -34,11 +30,9 @@
         serif;
 
       background: #f7f1eb;
-
       color: #4b342a;
 
       overflow-x: hidden;
-
     }
 
 
@@ -46,143 +40,101 @@
        PORTADA
     ===================================================== */
 
-
     .portada {
-
       min-height: 100vh;
 
       position: relative;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       padding: 50px 22px;
 
       text-align: center;
-
       overflow: hidden;
 
-
       background:
-
         radial-gradient(
           circle at top right,
           rgba(190, 102, 67, 0.13),
           transparent 30%
         ),
-
         radial-gradient(
           circle at bottom left,
           rgba(190, 102, 67, 0.12),
           transparent 32%
         ),
-
         #f7f1eb;
-
 
       transition:
         opacity 0.8s ease,
         transform 0.8s ease;
-
     }
-
 
     .portada.saliendo {
-
       opacity: 0;
-
       transform: scale(1.02);
-
     }
-
 
 
     /* =====================================================
        MANCHAS
     ===================================================== */
 
-
     .mancha {
-
       position: absolute;
-
       border-radius: 50%;
-
       pointer-events: none;
-
       z-index: 0;
-
     }
 
-
     .mancha-arriba {
-
       width: 420px;
-
       height: 420px;
 
       top: -220px;
-
       right: -180px;
 
-
       background:
-
         radial-gradient(
           circle,
           rgba(190, 102, 67, 0.13),
           rgba(190, 102, 67, 0.04) 60%,
           transparent 72%
         );
-
     }
 
-
     .mancha-abajo {
-
       width: 470px;
-
       height: 470px;
 
       bottom: -260px;
-
       left: -210px;
 
-
       background:
-
         radial-gradient(
           circle,
           rgba(167, 83, 52, 0.14),
           rgba(190, 102, 67, 0.04) 60%,
           transparent 72%
         );
-
     }
-
 
 
     /* =====================================================
        LÍNEAS
     ===================================================== */
 
-
     .linea-vertical {
-
       position: absolute;
 
       top: 5%;
-
       bottom: 5%;
 
       width: 1px;
 
-
       background:
-
         linear-gradient(
           to bottom,
           transparent,
@@ -190,30 +142,23 @@
           transparent
         );
 
-
       z-index: 1;
-
     }
-
 
     .linea-izquierda {
       left: 7%;
     }
-
 
     .linea-derecha {
       right: 7%;
     }
 
 
-
     /* =====================================================
        RAMAS PORTADA
     ===================================================== */
 
-
     .floral {
-
       position: absolute;
 
       color: #ad5939;
@@ -223,83 +168,57 @@
       z-index: 1;
 
       opacity: 0.72;
-
     }
-
 
     .floral svg {
-
       width: 100%;
-
       height: 100%;
-
       overflow: visible;
-
     }
 
-
     .floral-arriba-derecha {
-
       width: 300px;
-
       height: 520px;
 
       top: -40px;
-
       right: -25px;
-
 
       animation:
         moverRamaDerecha
         8s ease-in-out infinite alternate;
-
     }
 
-
     .floral-abajo-izquierda {
-
       width: 280px;
-
       height: 500px;
 
       bottom: -50px;
-
       left: -35px;
-
 
       animation:
         moverRamaIzquierda
         9s ease-in-out infinite alternate;
-
     }
-
 
 
     /* =====================================================
        CONTENIDO PORTADA
     ===================================================== */
 
-
     .contenido {
-
       width: 100%;
-
       max-width: 760px;
 
       position: relative;
 
       z-index: 5;
 
-
       animation:
         aparecer
         1.2s ease forwards;
-
     }
 
-
     .sobrelinea {
-
       font-family: Arial, sans-serif;
 
       font-size: 12px;
@@ -311,20 +230,13 @@
       color: #a45c3f;
 
       margin-bottom: 28px;
-
     }
 
-
     .nombres {
-
       margin: 0;
 
       font-size:
-        clamp(
-          52px,
-          8vw,
-          92px
-        );
+        clamp(52px, 8vw, 92px);
 
       font-weight: 400;
 
@@ -333,12 +245,9 @@
       letter-spacing: -2px;
 
       color: #85452f;
-
     }
 
-
     .ampersand {
-
       display: block;
 
       font-size: 0.53em;
@@ -348,20 +257,15 @@
       margin: 13px 0 11px;
 
       color: #bc6947;
-
     }
-
 
 
     /* =====================================================
        SEPARADOR
     ===================================================== */
 
-
     .separador {
-
       width: 120px;
-
       height: 1px;
 
       margin: 37px auto;
@@ -370,18 +274,14 @@
 
       background:
         rgba(166, 86, 55, 0.48);
-
     }
 
-
     .separador::after {
-
       content: "♥";
 
       position: absolute;
 
       left: 50%;
-
       top: 50%;
 
       transform:
@@ -394,18 +294,14 @@
       color: #b75f3d;
 
       font-size: 11px;
-
     }
-
 
 
     /* =====================================================
        INVITADO
     ===================================================== */
 
-
     .texto-invitacion {
-
       font-family: Arial, sans-serif;
 
       font-size: 11px;
@@ -417,30 +313,18 @@
       color: #a77b68;
 
       margin-bottom: 15px;
-
     }
 
-
     #nombreInvitado {
-
       font-size:
-        clamp(
-          31px,
-          5vw,
-          46px
-        );
+        clamp(31px, 5vw, 46px);
 
       line-height: 1.15;
 
       color: #4f3429;
-
-      margin: 0;
-
     }
 
-
     #cupos {
-
       margin-top: 17px;
 
       font-family: Arial, sans-serif;
@@ -450,12 +334,9 @@
       line-height: 1.6;
 
       color: #6d554a;
-
     }
 
-
     #cargando {
-
       font-family: Arial, sans-serif;
 
       font-size: 14px;
@@ -463,19 +344,13 @@
       color: #8a6a5d;
 
       margin-top: 28px;
-
     }
-
 
     #contenidoInvitado {
-
       display: none;
-
     }
 
-
     #error {
-
       display: none;
 
       font-family: Arial, sans-serif;
@@ -487,18 +362,14 @@
       line-height: 1.7;
 
       color: #7b5140;
-
     }
 
 
-
     /* =====================================================
-       BOTÓN GENERAL
+       BOTÓN
     ===================================================== */
 
-
     .boton {
-
       margin-top: 34px;
 
       min-width: 235px;
@@ -511,15 +382,12 @@
 
       border-radius: 999px;
 
-
       background:
-
         linear-gradient(
           135deg,
           #c16a46,
           #a54e31
         );
-
 
       color: white;
 
@@ -531,36 +399,25 @@
 
       cursor: pointer;
 
-
       box-shadow:
-
         0 15px 35px
         rgba(117, 62, 42, 0.20);
-
 
       transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-
     }
 
-
     .boton:hover {
-
       transform:
         translateY(-3px);
 
-
       box-shadow:
-
         0 19px 38px
         rgba(117, 62, 42, 0.27);
-
     }
 
-
     .detalle-inferior {
-
       margin-top: 38px;
 
       font-family: Arial, sans-serif;
@@ -572,9 +429,7 @@
       color: #b07a66;
 
       text-transform: uppercase;
-
     }
-
 
 
     /* =====================================================
@@ -582,15 +437,12 @@
        FOTO + VERSÍCULO
     ===================================================== */
 
-
     .segunda-seccion {
-
       min-height: 100vh;
 
       display: none;
 
       align-items: center;
-
       justify-content: center;
 
       position: relative;
@@ -601,16 +453,12 @@
 
       overflow: hidden;
 
-
       background-image:
-
         linear-gradient(
           rgba(132, 54, 31, 0.60),
           rgba(95, 38, 24, 0.70)
         ),
-
         url("foto-carolina-alexanderv2.jpeg");
-
 
       background-size: cover;
 
@@ -619,55 +467,41 @@
 
       background-repeat: no-repeat;
 
-
       opacity: 0;
 
       transform:
         translateY(30px);
 
-
       transition:
         opacity 1s ease,
         transform 1s ease;
-
     }
 
-
     .segunda-seccion::before {
-
       content: "";
 
       position: absolute;
 
       inset: 0;
 
-
       background:
-
         radial-gradient(
           circle at center,
           transparent 30%,
           rgba(58, 22, 14, 0.14) 100%
         );
 
-
       z-index: 1;
-
     }
 
-
     .segunda-seccion.visible {
-
       opacity: 1;
 
       transform:
         translateY(0);
-
     }
 
-
     .segunda-contenido {
-
       width: 100%;
 
       max-width: 760px;
@@ -675,12 +509,9 @@
       position: relative;
 
       z-index: 5;
-
     }
 
-
     .segunda-nombres {
-
       font-family: Arial, sans-serif;
 
       text-transform: uppercase;
@@ -692,12 +523,9 @@
       color: #f4d8c8;
 
       margin-bottom: 38px;
-
     }
 
-
     .ramita-central {
-
       width: 100px;
 
       margin:
@@ -706,31 +534,20 @@
       color: #f1c5ab;
 
       opacity: 0.9;
-
     }
-
 
     .ramita-central svg {
-
       width: 100%;
-
       height: auto;
-
     }
 
-
     .versiculo {
-
       max-width: 680px;
 
       margin: 0 auto;
 
       font-size:
-        clamp(
-          30px,
-          5vw,
-          50px
-        );
+        clamp(30px, 5vw, 50px);
 
       font-weight: 400;
 
@@ -740,17 +557,12 @@
 
       font-style: italic;
 
-
       text-shadow:
-
         0 2px 18px
         rgba(40, 15, 8, 0.25);
-
     }
 
-
     .referencia {
-
       margin-top: 24px;
 
       font-family: Arial, sans-serif;
@@ -762,51 +574,32 @@
       text-transform: uppercase;
 
       color: #f0cbb7;
-
     }
 
-
     .linea-fecha {
-
       width: 90px;
-
       height: 1px;
 
       margin: 32px auto;
 
-
       background:
         rgba(255, 237, 225, 0.55);
-
     }
 
-
     .fecha-boda {
-
-      margin-top: 0;
-
       font-size:
-        clamp(
-          30px,
-          5vw,
-          46px
-        );
+        clamp(30px, 5vw, 46px);
 
       letter-spacing: 8px;
 
       color: #fff7ef;
 
-
       text-shadow:
-
         0 2px 15px
         rgba(40, 15, 8, 0.22);
-
     }
 
-
     .desliza {
-
       margin-top: 48px;
 
       font-family: Arial, sans-serif;
@@ -818,25 +611,19 @@
       text-transform: uppercase;
 
       color: #efd0bd;
-
     }
 
-
     .flecha {
-
       margin-top: 14px;
 
       font-size: 24px;
 
       color: #fff0e5;
 
-
       animation:
         flotarFlecha
         1.8s ease-in-out infinite;
-
     }
-
 
 
     /* =====================================================
@@ -844,15 +631,12 @@
        CUENTA REGRESIVA
     ===================================================== */
 
-
     .tercera-seccion {
-
       min-height: 100vh;
 
       display: none;
 
       align-items: center;
-
       justify-content: center;
 
       position: relative;
@@ -863,28 +647,21 @@
 
       overflow: hidden;
 
-
       background:
-
         radial-gradient(
           circle at top left,
           rgba(190, 102, 67, 0.12),
           transparent 32%
         ),
-
         radial-gradient(
           circle at bottom right,
           rgba(190, 102, 67, 0.10),
           transparent 30%
         ),
-
         #f7f1eb;
-
     }
 
-
     .tercera-contenido {
-
       width: 100%;
 
       max-width: 900px;
@@ -892,12 +669,9 @@
       position: relative;
 
       z-index: 5;
-
     }
 
-
     .tercera-etiqueta {
-
       font-family: Arial, sans-serif;
 
       font-size: 11px;
@@ -909,32 +683,22 @@
       color: #a66043;
 
       margin-bottom: 30px;
-
     }
 
-
     .tercera-titulo {
-
       margin: 0;
 
       font-size:
-        clamp(
-          48px,
-          8vw,
-          86px
-        );
+        clamp(48px, 8vw, 86px);
 
       font-weight: 400;
 
       line-height: 1;
 
       color: #87472f;
-
     }
 
-
     .tercera-subtitulo {
-
       margin-top: 18px;
 
       font-family: Arial, sans-serif;
@@ -946,12 +710,9 @@
       text-transform: uppercase;
 
       color: #ae7963;
-
     }
 
-
     .contador {
-
       width: 100%;
 
       margin:
@@ -966,26 +727,18 @@
         );
 
       gap: 25px;
-
-      position: relative;
-
     }
 
-
     .contador-item {
-
       position: relative;
 
       padding:
         10px
         10px
         20px;
-
     }
 
-
     .contador-item:not(:last-child)::after {
-
       content: "";
 
       position: absolute;
@@ -998,41 +751,27 @@
 
       width: 1px;
 
-
       background:
-
         linear-gradient(
           to bottom,
           transparent,
           rgba(157, 81, 53, 0.28),
           transparent
         );
-
     }
 
-
     .contador-numero {
-
       display: block;
 
       font-size:
-        clamp(
-          42px,
-          7vw,
-          78px
-        );
+        clamp(42px, 7vw, 78px);
 
       line-height: 1;
 
       color: #8d4931;
-
-      font-weight: 400;
-
     }
 
-
     .contador-label {
-
       display: block;
 
       margin-top: 17px;
@@ -1046,14 +785,10 @@
       text-transform: uppercase;
 
       color: #a77c6a;
-
     }
 
-
     .contador-separador {
-
       width: 120px;
-
       height: 1px;
 
       margin:
@@ -1061,21 +796,16 @@
 
       position: relative;
 
-
       background:
         rgba(159, 82, 55, 0.35);
-
     }
 
-
     .contador-separador::after {
-
       content: "♥";
 
       position: absolute;
 
       left: 50%;
-
       top: 50%;
 
       transform:
@@ -1089,30 +819,20 @@
       color: #b86140;
 
       font-size: 11px;
-
     }
 
-
     .gran-dia {
-
       margin-top: 36px;
 
       font-size:
-        clamp(
-          27px,
-          4vw,
-          42px
-        );
+        clamp(27px, 4vw, 42px);
 
       font-style: italic;
 
       color: #634033;
-
     }
 
-
     .fecha-pequena {
-
       margin-top: 15px;
 
       font-family: Arial, sans-serif;
@@ -1124,9 +844,7 @@
       text-transform: uppercase;
 
       color: #a7725c;
-
     }
-
 
 
     /* =====================================================
@@ -1134,9 +852,7 @@
        LUGAR DEL EVENTO
     ===================================================== */
 
-
     .evento-seccion {
-
       min-height: 100vh;
 
       display: none;
@@ -1146,20 +862,17 @@
       overflow: hidden;
 
       background: #f7f1eb;
-
     }
 
 
-
-    /* FOTO IZQUIERDA */
-
+    /* =====================================================
+       FOTOS LATERALES
+    ===================================================== */
 
     .evento-foto {
-
       position: absolute;
 
       top: 0;
-
       bottom: 0;
 
       width: 31%;
@@ -1167,138 +880,130 @@
       overflow: hidden;
 
       z-index: 1;
-
     }
 
-
     .evento-foto-izquierda {
+      left: 0;
+    }
+
+    .evento-foto-derecha {
+      right: 0;
+    }
+
+    .evento-foto img {
+      position: absolute;
 
       left: 0;
 
-    }
-
-
-    .evento-foto-derecha {
-
-      right: 0;
-
-    }
-
-
-    .evento-foto img {
-
-      position: absolute;
-
       width: 100%;
-
       height: 118%;
 
       object-fit: cover;
 
-      left: 0;
-
+      filter:
+        saturate(0.92)
+        contrast(0.96)
+        brightness(0.95);
     }
 
 
+    /* =====================================================
+       FILTRO TERRACOTA
+       MISMA IDENTIDAD DEL VERSÍCULO
+    ===================================================== */
+
+    .evento-foto::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 3;
+
+      background:
+        linear-gradient(
+          rgba(132, 54, 31, 0.52),
+          rgba(95, 38, 24, 0.62)
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       FUNDIDO HACIA EL CENTRO
+    ===================================================== */
+
+    .evento-foto-izquierda::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 4;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent 48%,
+          rgba(247, 241, 235, 0.40) 72%,
+          #f7f1eb 100%
+        );
+
+      pointer-events: none;
+    }
+
+    .evento-foto-derecha::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 4;
+
+      background:
+        linear-gradient(
+          to left,
+          transparent 48%,
+          rgba(247, 241, 235, 0.40) 72%,
+          #f7f1eb 100%
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       MOVIMIENTO DE FOTOS
+    ===================================================== */
+
     .evento-foto-izquierda img {
-
       top: -18%;
-
 
       animation:
         fotoBaja
         18s ease-in-out
         infinite alternate;
-
     }
 
-
     .evento-foto-derecha img {
-
       bottom: -18%;
-
 
       animation:
         fotoSube
         18s ease-in-out
         infinite alternate;
-
     }
 
 
-
-    /* FUNDIDO HACIA EL CENTRO */
-
-
-    .evento-foto-izquierda::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-
-      background:
-
-        linear-gradient(
-          to right,
-          rgba(247, 241, 235, 0) 58%,
-          #f7f1eb 100%
-        );
-
-    }
-
-
-    .evento-foto-derecha::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-
-      background:
-
-        linear-gradient(
-          to left,
-          rgba(247, 241, 235, 0) 58%,
-          #f7f1eb 100%
-        );
-
-    }
-
-
-
-    /* CAPA TERRACOTA MUY SUAVE */
-
-
-    .evento-foto::before {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 2;
-
-
-      background:
-        rgba(160, 79, 49, 0.13);
-
-      pointer-events: none;
-
-    }
-
-
-
-    /* CENTRO */
-
+    /* =====================================================
+       CENTRO
+    ===================================================== */
 
     .evento-centro {
-
       min-height: 100vh;
 
       width: 44%;
@@ -1309,46 +1014,74 @@
 
       position: relative;
 
-      z-index: 5;
+      z-index: 6;
 
       display: flex;
 
       flex-direction: column;
 
       justify-content: center;
-
       align-items: center;
 
       text-align: center;
 
       padding:
-        70px 30px;
-
+        55px 30px;
     }
 
 
+    /* =====================================================
+       LOGO
+    ===================================================== */
 
-    /* LOGO */
-
-
-    .evento-logo {
-
+    .evento-logo-marco {
       width: 105px;
+      height: 105px;
 
-      max-height: 105px;
+      display: flex;
 
-      object-fit: contain;
+      justify-content: center;
+      align-items: center;
 
       margin-bottom: 25px;
 
-      opacity: 0.92;
+      border-radius: 50%;
 
+      background:
+        linear-gradient(
+          145deg,
+          #b96140,
+          #88412e
+        );
+
+      box-shadow:
+        0 12px 32px
+        rgba(112, 56, 37, 0.20);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.28);
+    }
+
+    .evento-logo {
+      width: 66px;
+      height: 66px;
+
+      object-fit: contain;
+
+      filter:
+        brightness(0)
+        invert(1);
+
+      opacity: 0.96;
     }
 
 
+    /* =====================================================
+       TEXTO EVENTO
+    ===================================================== */
 
     .evento-etiqueta {
-
       font-family: Arial, sans-serif;
 
       font-size: 10px;
@@ -1360,70 +1093,44 @@
       color: #ad7157;
 
       margin-bottom: 25px;
-
     }
 
-
-
     .evento-titulo {
-
       margin: 0;
 
       font-size:
-        clamp(
-          42px,
-          5vw,
-          68px
-        );
+        clamp(42px, 5vw, 68px);
 
       line-height: 1.05;
 
       font-weight: 400;
 
       color: #82452f;
-
     }
 
-
-
     .evento-subtitulo {
-
       margin-top: 13px;
 
       font-size:
-        clamp(
-          20px,
-          2vw,
-          28px
-        );
+        clamp(20px, 2vw, 28px);
 
       font-style: italic;
 
       color: #9b634c;
-
     }
 
-
-
     .evento-linea {
-
       width: 90px;
-
       height: 1px;
 
       margin:
         30px auto;
 
-
       background:
         rgba(162, 84, 56, 0.38);
-
     }
 
-
-
     .evento-tipo {
-
       font-family: Arial, sans-serif;
 
       font-size: 10px;
@@ -1435,30 +1142,18 @@
       color: #b06f53;
 
       margin-bottom: 20px;
-
     }
 
-
-
     .evento-hora {
-
       font-size:
-        clamp(
-          36px,
-          4vw,
-          52px
-        );
+        clamp(36px, 4vw, 52px);
 
       color: #87472f;
 
       margin-bottom: 8px;
-
     }
 
-
-
     .evento-hora-label {
-
       font-family: Arial, sans-serif;
 
       font-size: 9px;
@@ -1468,13 +1163,9 @@
       text-transform: uppercase;
 
       color: #b1826c;
-
     }
 
-
-
     .evento-direccion {
-
       margin-top: 27px;
 
       max-width: 420px;
@@ -1486,17 +1177,12 @@
       line-height: 1.8;
 
       color: #76584b;
-
     }
 
-
-
     .evento-boton {
-
       display: inline-flex;
 
       align-items: center;
-
       justify-content: center;
 
       gap: 10px;
@@ -1510,15 +1196,12 @@
 
       text-decoration: none;
 
-
       background:
-
         linear-gradient(
           135deg,
           #bb6543,
           #99472f
         );
-
 
       color: white;
 
@@ -1530,47 +1213,29 @@
 
       text-transform: uppercase;
 
-
       box-shadow:
-
         0 14px 30px
         rgba(115, 57, 37, 0.18);
-
 
       transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-
     }
 
-
     .evento-boton:hover {
-
       transform:
         translateY(-3px);
 
-
       box-shadow:
-
         0 18px 35px
         rgba(115, 57, 37, 0.27);
-
     }
-
-
 
     .evento-boton-icono {
-
-      font-size: 16px;
-
-      line-height: 1;
-
+      font-size: 15px;
     }
 
-
-
     .evento-nota {
-
       margin-top: 27px;
 
       font-family: Arial, sans-serif;
@@ -1582,287 +1247,181 @@
       text-transform: uppercase;
 
       color: #b98d78;
-
     }
-
 
 
     /* =====================================================
        ANIMACIONES
     ===================================================== */
 
-
     @keyframes aparecer {
 
       from {
-
         opacity: 0;
 
         transform:
           translateY(18px);
-
       }
 
-
       to {
-
         opacity: 1;
 
         transform:
           translateY(0);
-
       }
 
     }
-
-
 
     @keyframes moverRamaDerecha {
 
       from {
-
         transform:
           rotate(2deg)
           translateY(0);
-
       }
 
-
       to {
-
         transform:
           rotate(4deg)
           translateY(6px);
-
       }
 
     }
-
-
 
     @keyframes moverRamaIzquierda {
 
       from {
-
         transform:
           rotate(-3deg)
           translateY(0);
-
       }
 
-
       to {
-
         transform:
           rotate(-1deg)
           translateY(-5px);
-
       }
 
     }
-
-
 
     @keyframes flotarFlecha {
 
       0%,
       100% {
-
         transform:
           translateY(0);
-
       }
 
-
       50% {
-
         transform:
           translateY(8px);
-
       }
 
     }
-
-
-
-    /* FOTO IZQUIERDA BAJA */
-
 
     @keyframes fotoBaja {
 
       from {
-
         transform:
           translateY(0);
-
       }
 
-
       to {
-
         transform:
           translateY(15%);
-
       }
 
     }
-
-
-
-    /* FOTO DERECHA SUBE */
-
 
     @keyframes fotoSube {
 
       from {
-
         transform:
           translateY(0);
-
       }
 
-
       to {
-
         transform:
           translateY(-15%);
-
       }
 
     }
-
 
 
     /* =====================================================
        CELULAR
     ===================================================== */
 
-
     @media (max-width: 700px) {
 
-
       .portada {
-
         padding:
-          45px
-          22px
-          55px;
-
+          45px 22px 55px;
       }
-
 
       .sobrelinea {
-
         font-size: 10px;
-
         letter-spacing: 4px;
-
       }
-
 
       .nombres {
-
         letter-spacing: -1px;
-
       }
-
 
       .linea-izquierda {
-
         left: 4%;
-
       }
-
 
       .linea-derecha {
-
         right: 4%;
-
       }
 
-
       .floral-arriba-derecha {
-
         width: 175px;
-
         height: 330px;
 
         right: -55px;
-
         top: -25px;
 
         opacity: 0.55;
-
       }
 
-
       .floral-abajo-izquierda {
-
         width: 175px;
-
         height: 330px;
 
         left: -55px;
-
         bottom: -40px;
 
         opacity: 0.55;
-
       }
-
 
       .boton {
-
         width: 100%;
-
         max-width: 310px;
-
       }
 
-
-
-      /* PASO 2 */
-
-
       .segunda-seccion {
-
-        padding:
-          65px 28px;
+        padding: 65px 28px;
 
         background-position:
           48% center;
-
       }
-
 
       .versiculo {
-
         font-size: 29px;
-
       }
-
 
       .fecha-boda {
-
         letter-spacing: 5px;
-
       }
-
-
-
-      /* CONTADOR */
-
 
       .tercera-seccion {
-
         padding:
           70px 20px;
-
       }
 
-
       .contador {
-
         grid-template-columns:
           repeat(
             2,
@@ -1875,185 +1434,119 @@
         max-width: 360px;
 
         margin-top: 55px;
+      }
 
+      .contador-item:nth-child(2)::after {
+        display: none;
+      }
+
+      .contador-numero {
+        font-size: 52px;
       }
 
 
-      .contador-item:nth-child(2)::after {
+      /* EVENTO */
+
+      .evento-seccion {
+        min-height: auto;
 
         display: none;
 
-      }
-
-
-      .contador-item:not(:last-child)::after {
-
-        right: -5px;
-
-      }
-
-
-      .contador-numero {
-
-        font-size: 52px;
-
-      }
-
-
-
-      /* EVENTO EN CELULAR */
-
-
-      .evento-seccion {
-
-        min-height: auto;
-
         padding-bottom: 0;
-
       }
-
 
       .evento-centro {
-
         width: 100%;
 
         min-height: 82vh;
 
         padding:
-          70px
-          30px
-          60px;
-
+          65px 28px 55px;
       }
 
+      .evento-logo-marco {
+        width: 90px;
+        height: 90px;
+      }
 
       .evento-logo {
-
-        width: 90px;
-
+        width: 55px;
+        height: 55px;
       }
-
 
       .evento-titulo {
-
-        font-size: 43px;
-
+        font-size: 42px;
       }
 
-
-
-      /*
-       * Las fotografías dejan de ser
-       * columnas demasiado estrechas.
-       */
-
-
       .evento-foto {
-
         position: relative;
-
-        width: 50%;
-
-        height: 42vh;
 
         display: inline-block;
 
+        width: 50%;
+        height: 42vh;
+
         vertical-align: top;
-
       }
-
 
       .evento-foto-izquierda {
-
         left: auto;
-
       }
-
 
       .evento-foto-derecha {
-
         right: auto;
-
       }
-
 
       .evento-foto img {
-
         width: 100%;
-
         height: 118%;
-
       }
 
-
-      .evento-foto-izquierda::after {
-
+      .evento-foto::before {
         background:
-
           linear-gradient(
-            to bottom,
-            #f7f1eb 0%,
-            transparent 18%
+            rgba(132, 54, 31, 0.48),
+            rgba(95, 38, 24, 0.58)
           );
-
       }
 
-
+      .evento-foto-izquierda::after,
       .evento-foto-derecha::after {
-
         background:
-
           linear-gradient(
             to bottom,
             #f7f1eb 0%,
-            transparent 18%
+            transparent 20%
           );
-
       }
 
     }
-
-
-
-    /* =====================================================
-       REDUCIR MOVIMIENTO SI EL DISPOSITIVO LO SOLICITA
-    ===================================================== */
 
 
     @media
     (prefers-reduced-motion: reduce) {
 
-
       * {
-
         animation-duration:
           0.01ms !important;
 
         animation-iteration-count:
           1 !important;
-
-        scroll-behavior:
-          auto !important;
-
       }
 
     }
-
 
   </style>
 
 </head>
 
 
-
 <body>
 
 
   <!-- =====================================================
-       PASO 1
        PORTADA
   ====================================================== -->
-
 
   <section
     class="portada"
@@ -2078,10 +1571,6 @@
     <div
       class="linea-vertical linea-derecha">
     </div>
-
-
-
-    <!-- RAMA SUPERIOR -->
 
 
     <div
@@ -2133,26 +1622,6 @@
           />
 
 
-          <path
-            d="
-            M157 195
-            C190 176,
-            215 150,
-            230 120
-            "
-          />
-
-
-          <path
-            d="
-            M140 255
-            C108 235,
-            82 205,
-            62 170
-            "
-          />
-
-
         </g>
 
 
@@ -2179,24 +1648,6 @@
           />
 
 
-          <ellipse
-            cx="205"
-            cy="153"
-            rx="12"
-            ry="30"
-            transform="rotate(42 205 153)"
-          />
-
-
-          <ellipse
-            cx="86"
-            cy="215"
-            rx="12"
-            ry="29"
-            transform="rotate(-43 86 215)"
-          />
-
-
         </g>
 
 
@@ -2204,10 +1655,6 @@
 
 
     </div>
-
-
-
-    <!-- RAMA INFERIOR -->
 
 
     <div
@@ -2249,26 +1696,6 @@
           />
 
 
-          <path
-            d="
-            M76 300
-            C108 285,
-            135 260,
-            155 230
-            "
-          />
-
-
-          <path
-            d="
-            M91 245
-            C62 225,
-            40 200,
-            25 170
-            "
-          />
-
-
         </g>
 
 
@@ -2295,15 +1722,6 @@
           />
 
 
-          <ellipse
-            cx="52"
-            cy="205"
-            rx="11"
-            ry="28"
-            transform="rotate(-40 52 205)"
-          />
-
-
         </g>
 
 
@@ -2311,10 +1729,6 @@
 
 
     </div>
-
-
-
-    <!-- CONTENIDO PORTADA -->
 
 
     <div class="contenido">
@@ -2344,7 +1758,8 @@
       </h1>
 
 
-      <div class="separador"></div>
+      <div class="separador">
+      </div>
 
 
       <div id="cargando">
@@ -2352,7 +1767,6 @@
         Preparando tu invitación...
 
       </div>
-
 
 
       <div id="contenidoInvitado">
@@ -2393,7 +1807,6 @@
       </div>
 
 
-
       <div id="error">
 
         No pudimos encontrar esta invitación.
@@ -2412,12 +1825,9 @@
   </section>
 
 
-
   <!-- =====================================================
        PASO 2
-       FOTO Y VERSÍCULO
   ====================================================== -->
-
 
   <section
     class="segunda-seccion"
@@ -2434,7 +1844,6 @@
       </div>
 
 
-
       <div class="ramita-central">
 
 
@@ -2446,8 +1855,7 @@
           <g
             fill="none"
             stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round">
+            stroke-width="1.5">
 
 
             <path
@@ -2470,42 +1878,6 @@
             />
 
 
-            <path
-              d="
-              M45 30
-              C60 25,
-              72 16,
-              80 6
-              "
-            />
-
-
-          </g>
-
-
-          <g
-            fill="currentColor"
-            opacity="0.55">
-
-
-            <ellipse
-              cx="25"
-              cy="27"
-              rx="5"
-              ry="12"
-              transform="rotate(-45 25 27)"
-            />
-
-
-            <ellipse
-              cx="67"
-              cy="18"
-              rx="5"
-              ry="12"
-              transform="rotate(45 67 18)"
-            />
-
-
           </g>
 
 
@@ -2513,7 +1885,6 @@
 
 
       </div>
-
 
 
       <blockquote class="versiculo">
@@ -2525,7 +1896,6 @@
       </blockquote>
 
 
-
       <div class="referencia">
 
         Colosenses 3:14
@@ -2533,10 +1903,8 @@
       </div>
 
 
-
       <div class="linea-fecha">
       </div>
-
 
 
       <div class="fecha-boda">
@@ -2546,13 +1914,11 @@
       </div>
 
 
-
       <div class="desliza">
 
         Desliza para continuar
 
       </div>
-
 
 
       <div class="flecha">
@@ -2568,12 +1934,9 @@
   </section>
 
 
-
   <!-- =====================================================
        PASO 3
-       CUENTA REGRESIVA
   ====================================================== -->
-
 
   <section
     class="tercera-seccion"
@@ -2604,12 +1967,10 @@
       </div>
 
 
-
       <div class="contador">
 
 
         <div class="contador-item">
-
 
           <span
             class="contador-numero"
@@ -2619,20 +1980,16 @@
 
           </span>
 
-
           <span class="contador-label">
 
             Días
 
           </span>
 
-
         </div>
 
 
-
         <div class="contador-item">
-
 
           <span
             class="contador-numero"
@@ -2642,20 +1999,16 @@
 
           </span>
 
-
           <span class="contador-label">
 
             Horas
 
           </span>
 
-
         </div>
 
 
-
         <div class="contador-item">
-
 
           <span
             class="contador-numero"
@@ -2665,20 +2018,16 @@
 
           </span>
 
-
           <span class="contador-label">
 
             Minutos
 
           </span>
 
-
         </div>
 
 
-
         <div class="contador-item">
-
 
           <span
             class="contador-numero"
@@ -2688,19 +2037,16 @@
 
           </span>
 
-
           <span class="contador-label">
 
             Segundos
 
           </span>
 
-
         </div>
 
 
       </div>
-
 
 
       <div class="contador-separador">
@@ -2727,19 +2073,14 @@
   </section>
 
 
-
   <!-- =====================================================
        PASO 4
-       CEREMONIA Y RECEPCIÓN
+       EVENTO
   ====================================================== -->
-
 
   <section
     class="evento-seccion"
     id="eventoSeccion">
-
-
-    <!-- F1 IZQUIERDA -->
 
 
     <div
@@ -2751,14 +2092,10 @@
 
       <img
         src="F1.jpeg"
-        alt="Karla Ramírez Event Studio">
+        alt="">
 
 
     </div>
-
-
-
-    <!-- F2 DERECHA -->
 
 
     <div
@@ -2770,23 +2107,25 @@
 
       <img
         src="F2.jpeg"
-        alt="La Solé">
+        alt="">
 
 
     </div>
 
 
-
-    <!-- CENTRO -->
-
-
     <div class="evento-centro">
 
 
-      <img
-        src="LOGO.png"
-        class="evento-logo"
-        alt="Karla Ramírez Event Studio">
+      <div class="evento-logo-marco">
+
+
+        <img
+          src="LOGO.png"
+          class="evento-logo"
+          alt="Karla Ramírez Event Studio">
+
+
+      </div>
 
 
       <div class="evento-etiqueta">
@@ -2794,7 +2133,6 @@
         Aquí celebraremos nuestro sí
 
       </div>
-
 
 
       <h2 class="evento-titulo">
@@ -2811,10 +2149,8 @@
       </div>
 
 
-
       <div class="evento-linea">
       </div>
-
 
 
       <div class="evento-tipo">
@@ -2822,7 +2158,6 @@
         Ceremonia & Recepción
 
       </div>
-
 
 
       <div class="evento-hora">
@@ -2839,7 +2174,6 @@
       </div>
 
 
-
       <div class="evento-direccion">
 
         Av. Gral. Rumiñahui S/N
@@ -2849,7 +2183,6 @@
         171103 Quito
 
       </div>
-
 
 
       <a
@@ -2872,7 +2205,6 @@
       </a>
 
 
-
       <div class="evento-nota">
 
         14 · 11 · 2026
@@ -2886,18 +2218,11 @@
   </section>
 
 
-
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
-
-
   <script>
 
 
     const API_URL =
       "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
-
 
 
     const parametros =
@@ -2906,15 +2231,8 @@
       );
 
 
-
     const codigo =
       parametros.get("i");
-
-
-
-    /* =====================================================
-       CARGAR INVITADO
-    ===================================================== */
 
 
     function cargarInvitado() {
@@ -2922,22 +2240,17 @@
 
       if (!codigo) {
 
-
         mostrarError();
-
 
         return;
 
-
       }
-
 
 
       const script =
         document.createElement(
           "script"
         );
-
 
 
       script.src =
@@ -2949,16 +2262,12 @@
         Date.now();
 
 
-
       script.onerror =
         function () {
 
-
           mostrarError();
 
-
         };
-
 
 
       document.body
@@ -2968,26 +2277,16 @@
     }
 
 
-
-    /* =====================================================
-       RECIBIR INVITADO
-    ===================================================== */
-
-
     function recibirInvitado(datos) {
 
 
       if (!datos || !datos.ok) {
 
-
         mostrarError();
-
 
         return;
 
-
       }
-
 
 
       document
@@ -2998,34 +2297,26 @@
         datos.invitado;
 
 
-
       let mensajeCupos;
-
 
 
       if (
         Number(datos.cupos) === 1
       ) {
 
-
         mensajeCupos =
           "Hemos reservado 1 lugar para ti";
 
-
       }
 
-
       else {
-
 
         mensajeCupos =
           "Hemos reservado " +
           datos.cupos +
           " lugares para ti";
 
-
       }
-
 
 
       document
@@ -3036,14 +2327,12 @@
         mensajeCupos;
 
 
-
       document
         .getElementById(
           "cargando"
         )
         .style.display =
         "none";
-
 
 
       document
@@ -3055,12 +2344,6 @@
 
 
     }
-
-
-
-    /* =====================================================
-       ERROR
-    ===================================================== */
 
 
     function mostrarError() {
@@ -3074,14 +2357,12 @@
         "none";
 
 
-
       document
         .getElementById(
           "contenidoInvitado"
         )
         .style.display =
         "none";
-
 
 
       document
@@ -3095,12 +2376,6 @@
     }
 
 
-
-    /* =====================================================
-       ABRIR INVITACIÓN
-    ===================================================== */
-
-
     document
       .getElementById(
         "abrirInvitacion"
@@ -3110,13 +2385,11 @@
         function () {
 
 
-
           const portada =
             document
               .getElementById(
                 "portada"
               );
-
 
 
           const segunda =
@@ -3126,13 +2399,11 @@
               );
 
 
-
           const tercera =
             document
               .getElementById(
                 "cuentaRegresiva"
               );
-
 
 
           const evento =
@@ -3142,7 +2413,6 @@
               );
 
 
-
           portada
             .classList
             .add(
@@ -3150,10 +2420,8 @@
             );
 
 
-
           setTimeout(
             function () {
-
 
 
               portada
@@ -3162,12 +2430,10 @@
                 "none";
 
 
-
               segunda
                 .style
                 .display =
                 "flex";
-
 
 
               tercera
@@ -3176,12 +2442,10 @@
                 "flex";
 
 
-
               evento
                 .style
                 .display =
                 "block";
-
 
 
               setTimeout(
@@ -3200,16 +2464,10 @@
               );
 
 
-
               window.scrollTo({
-
                 top: 0,
-
-                behavior:
-                  "instant"
-
+                behavior: "instant"
               });
-
 
 
             },
@@ -3217,23 +2475,14 @@
           );
 
 
-
         }
       );
-
-
-
-    /* =====================================================
-       CUENTA REGRESIVA
-       14 NOV 2026
-    ===================================================== */
 
 
     const fechaBoda =
       new Date(
         "2026-11-14T16:30:00-05:00"
       );
-
 
 
     function actualizarContador() {
@@ -3243,205 +2492,93 @@
         new Date();
 
 
-
       let diferencia =
         fechaBoda.getTime() -
         ahora.getTime();
 
 
+      if (diferencia <= 0) {
 
-      if (
-        diferencia <= 0
-      ) {
-
-
-        document
-          .getElementById("dias")
-          .textContent =
-          "00";
-
-
-        document
-          .getElementById("horas")
-          .textContent =
-          "00";
-
-
-        document
-          .getElementById("minutos")
-          .textContent =
-          "00";
-
-
-        document
-          .getElementById("segundos")
-          .textContent =
-          "00";
-
-
-        return;
-
+        diferencia = 0;
 
       }
 
 
-
       const dias =
         Math.floor(
-
           diferencia /
-
-          (
-            1000 *
-            60 *
-            60 *
-            24
-          )
-
+          86400000
         );
-
-
-
-      diferencia %=
-
-        (
-          1000 *
-          60 *
-          60 *
-          24
-        );
-
 
 
       const horas =
         Math.floor(
-
-          diferencia /
-
           (
-            1000 *
-            60 *
-            60
-          )
-
+            diferencia %
+            86400000
+          ) /
+          3600000
         );
-
-
-
-      diferencia %=
-
-        (
-          1000 *
-          60 *
-          60
-        );
-
 
 
       const minutos =
         Math.floor(
-
-          diferencia /
-
           (
-            1000 *
-            60
-          )
-
+            diferencia %
+            3600000
+          ) /
+          60000
         );
-
-
-
-      diferencia %=
-
-        (
-          1000 *
-          60
-        );
-
 
 
       const segundos =
         Math.floor(
-
-          diferencia /
+          (
+            diferencia %
+            60000
+          ) /
           1000
-
         );
 
 
-
       document
-        .getElementById(
-          "dias"
-        )
+        .getElementById("dias")
         .textContent =
-
         String(dias)
-          .padStart(
-            2,
-            "0"
-          );
-
+          .padStart(2, "0");
 
 
       document
-        .getElementById(
-          "horas"
-        )
+        .getElementById("horas")
         .textContent =
-
         String(horas)
-          .padStart(
-            2,
-            "0"
-          );
-
+          .padStart(2, "0");
 
 
       document
-        .getElementById(
-          "minutos"
-        )
+        .getElementById("minutos")
         .textContent =
-
         String(minutos)
-          .padStart(
-            2,
-            "0"
-          );
-
+          .padStart(2, "0");
 
 
       document
-        .getElementById(
-          "segundos"
-        )
+        .getElementById("segundos")
         .textContent =
-
         String(segundos)
-          .padStart(
-            2,
-            "0"
-          );
+          .padStart(2, "0");
 
 
     }
 
 
-
     actualizarContador();
 
 
-
     setInterval(
-
       actualizarContador,
-
       1000
-
     );
-
 
 
     cargarInvitado();
