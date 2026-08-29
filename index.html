@@ -49,20 +49,17 @@
           rgba(190, 102, 67, 0.13),
           transparent 30%
         ),
-
         radial-gradient(
           circle at bottom left,
           rgba(190, 102, 67, 0.12),
           transparent 32%
         ),
-
         #f7f1eb;
 
       transition:
         opacity 0.8s ease,
         transform 0.8s ease;
     }
-
 
     .portada.saliendo {
       opacity: 0;
@@ -71,7 +68,7 @@
 
 
     /* =========================================
-       MANCHAS TERRACOTA
+       MANCHAS
     ========================================= */
 
     .mancha {
@@ -84,7 +81,6 @@
     .mancha-arriba {
       width: 420px;
       height: 420px;
-
       top: -220px;
       right: -180px;
 
@@ -100,7 +96,6 @@
     .mancha-abajo {
       width: 470px;
       height: 470px;
-
       bottom: -260px;
       left: -210px;
 
@@ -120,10 +115,8 @@
 
     .linea-vertical {
       position: absolute;
-
       top: 5%;
       bottom: 5%;
-
       width: 1px;
 
       background:
@@ -147,18 +140,14 @@
 
 
     /* =========================================
-       FLORES / RAMAS
+       RAMAS
     ========================================= */
 
     .floral {
       position: absolute;
-
       color: #ad5939;
-
       pointer-events: none;
-
       z-index: 1;
-
       opacity: 0.72;
     }
 
@@ -171,7 +160,6 @@
     .floral-arriba-derecha {
       width: 300px;
       height: 520px;
-
       top: -40px;
       right: -25px;
 
@@ -183,7 +171,6 @@
     .floral-abajo-izquierda {
       width: 280px;
       height: 500px;
-
       bottom: -50px;
       left: -35px;
 
@@ -200,51 +187,34 @@
     .contenido {
       width: 100%;
       max-width: 760px;
-
       position: relative;
-
       z-index: 5;
-
       animation: aparecer 1.2s ease forwards;
     }
 
     .sobrelinea {
       font-family: Arial, sans-serif;
-
       font-size: 12px;
-
       letter-spacing: 6px;
-
       text-transform: uppercase;
-
       color: #a45c3f;
-
       margin-bottom: 28px;
     }
 
     .nombres {
       margin: 0;
-
       font-size: clamp(52px, 8vw, 92px);
-
       font-weight: 400;
-
       line-height: 0.95;
-
       letter-spacing: -2px;
-
       color: #85452f;
     }
 
     .ampersand {
       display: block;
-
       font-size: 0.53em;
-
       font-style: italic;
-
       margin: 13px 0 11px;
-
       color: #bc6947;
     }
 
@@ -256,31 +226,20 @@
     .separador {
       width: 120px;
       height: 1px;
-
       margin: 37px auto;
-
       position: relative;
-
-      background:
-        rgba(166, 86, 55, 0.48);
+      background: rgba(166, 86, 55, 0.48);
     }
 
     .separador::after {
       content: "♥";
-
       position: absolute;
-
       left: 50%;
       top: 50%;
-
       transform: translate(-50%, -50%);
-
       background: #f7f1eb;
-
       padding: 0 13px;
-
       color: #b75f3d;
-
       font-size: 11px;
     }
 
@@ -291,48 +250,32 @@
 
     .texto-invitacion {
       font-family: Arial, sans-serif;
-
       font-size: 11px;
-
       letter-spacing: 4px;
-
       text-transform: uppercase;
-
       color: #a77b68;
-
       margin-bottom: 15px;
     }
 
     #nombreInvitado {
       font-size: clamp(31px, 5vw, 46px);
-
       line-height: 1.15;
-
       color: #4f3429;
-
       margin: 0;
     }
 
     #cupos {
       margin-top: 17px;
-
       font-family: Arial, sans-serif;
-
       font-size: 15px;
-
       line-height: 1.6;
-
       color: #6d554a;
     }
 
-
     #cargando {
       font-family: Arial, sans-serif;
-
       font-size: 14px;
-
       color: #8a6a5d;
-
       margin-top: 28px;
     }
 
@@ -342,15 +285,10 @@
 
     #error {
       display: none;
-
       font-family: Arial, sans-serif;
-
       max-width: 420px;
-
       margin: 30px auto 0;
-
       line-height: 1.7;
-
       color: #7b5140;
     }
 
@@ -361,13 +299,10 @@
 
     .boton {
       margin-top: 34px;
-
       min-width: 235px;
-
       padding: 17px 31px;
 
       border: 1px solid rgba(255, 255, 255, 0.25);
-
       border-radius: 999px;
 
       background:
@@ -380,9 +315,7 @@
       color: white;
 
       font-family: Arial, sans-serif;
-
       font-size: 12px;
-
       letter-spacing: 2.4px;
 
       cursor: pointer;
@@ -406,28 +339,22 @@
 
     .detalle-inferior {
       margin-top: 38px;
-
       font-family: Arial, sans-serif;
-
       font-size: 10px;
-
       letter-spacing: 4px;
-
       color: #b07a66;
-
       text-transform: uppercase;
     }
 
 
     /* =========================================
-       PASO 2
+       PASO 2 CON FOTO
     ========================================= */
 
     .segunda-seccion {
       min-height: 100vh;
 
       display: none;
-
       align-items: center;
       justify-content: center;
 
@@ -435,17 +362,20 @@
 
       text-align: center;
 
-      padding: 70px 25px;
+      padding: 80px 25px;
 
       overflow: hidden;
 
-      background:
-        radial-gradient(
-          circle at center top,
-          rgba(194, 110, 75, 0.10),
-          transparent 35%
+      background-image:
+        linear-gradient(
+          rgba(132, 54, 31, 0.73),
+          rgba(95, 38, 24, 0.82)
         ),
-        #f7f1eb;
+        url("foto-carolina-alexander.jpg.jpeg");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
       opacity: 0;
       transform: translateY(30px);
@@ -455,54 +385,82 @@
         transform 1s ease;
     }
 
+    .segunda-seccion::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at center,
+          transparent 30%,
+          rgba(58, 22, 14, 0.20) 100%
+        );
+
+      z-index: 1;
+    }
 
     .segunda-seccion.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-
     .segunda-contenido {
       width: 100%;
       max-width: 760px;
-
       position: relative;
-
       z-index: 5;
     }
 
-
     .segunda-nombres {
       font-family: Arial, sans-serif;
-
       text-transform: uppercase;
-
       font-size: 11px;
-
       letter-spacing: 5px;
-
-      color: #a45c3f;
-
-      margin-bottom: 42px;
+      color: #f4d8c8;
+      margin-bottom: 38px;
     }
 
+
+    /* =========================================
+       RAMITA PASO 2
+    ========================================= */
+
+    .ramita-central {
+      width: 100px;
+      margin: 0 auto 38px;
+      color: #f1c5ab;
+      opacity: 0.9;
+    }
+
+    .ramita-central svg {
+      width: 100%;
+      height: auto;
+    }
+
+
+    /* =========================================
+       VERSÍCULO
+    ========================================= */
 
     .versiculo {
       max-width: 680px;
-
       margin: 0 auto;
 
-      font-size: clamp(30px, 5vw, 52px);
+      font-size: clamp(30px, 5vw, 50px);
 
       font-weight: 400;
-
       line-height: 1.35;
 
-      color: #674235;
+      color: #fff8f1;
 
       font-style: italic;
-    }
 
+      text-shadow:
+        0 2px 18px
+        rgba(40, 15, 8, 0.25);
+    }
 
     .referencia {
       margin-top: 24px;
@@ -515,34 +473,45 @@
 
       text-transform: uppercase;
 
-      color: #a46a52;
+      color: #f0cbb7;
     }
 
 
-    .fecha-boda {
-      margin-top: 60px;
-
-      font-size: clamp(30px, 5vw, 46px);
-
-      letter-spacing: 8px;
-
-      color: #8e4932;
-    }
-
+    /* =========================================
+       FECHA
+    ========================================= */
 
     .linea-fecha {
       width: 90px;
       height: 1px;
 
-      margin: 28px auto;
+      margin: 32px auto;
 
       background:
-        rgba(159, 82, 55, 0.38);
+        rgba(255, 237, 225, 0.55);
+    }
+
+    .fecha-boda {
+      margin-top: 0;
+
+      font-size: clamp(30px, 5vw, 46px);
+
+      letter-spacing: 8px;
+
+      color: #fff7ef;
+
+      text-shadow:
+        0 2px 15px
+        rgba(40, 15, 8, 0.22);
     }
 
 
+    /* =========================================
+       DESLIZA
+    ========================================= */
+
     .desliza {
-      margin-top: 45px;
+      margin-top: 48px;
 
       font-family: Arial, sans-serif;
 
@@ -552,33 +521,17 @@
 
       text-transform: uppercase;
 
-      color: #b18775;
+      color: #efd0bd;
     }
-
 
     .flecha {
       margin-top: 14px;
-
       font-size: 24px;
+      color: #fff0e5;
 
-      color: #b46040;
-
-      animation: flotarFlecha 1.8s ease-in-out infinite;
-    }
-
-
-    /* DECORACIÓN PASO 2 */
-
-    .ramita-central {
-      width: 90px;
-      margin: 0 auto 42px;
-      color: #b45f3d;
-      opacity: 0.65;
-    }
-
-    .ramita-central svg {
-      width: 100%;
-      height: auto;
+      animation:
+        flotarFlecha
+        1.8s ease-in-out infinite;
     }
 
 
@@ -587,7 +540,6 @@
     ========================================= */
 
     @keyframes aparecer {
-
       from {
         opacity: 0;
         transform: translateY(18px);
@@ -597,12 +549,9 @@
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
-
     @keyframes moverRamaDerecha {
-
       from {
         transform:
           rotate(2deg)
@@ -614,12 +563,9 @@
           rotate(4deg)
           translateY(6px);
       }
-
     }
 
-
     @keyframes moverRamaIzquierda {
-
       from {
         transform:
           rotate(-3deg)
@@ -631,12 +577,9 @@
           rotate(-1deg)
           translateY(-5px);
       }
-
     }
 
-
     @keyframes flotarFlecha {
-
       0%,
       100% {
         transform: translateY(0);
@@ -645,7 +588,6 @@
       50% {
         transform: translateY(8px);
       }
-
     }
 
 
@@ -682,20 +624,16 @@
       .floral-arriba-derecha {
         width: 175px;
         height: 330px;
-
         right: -55px;
         top: -25px;
-
         opacity: 0.55;
       }
 
       .floral-abajo-izquierda {
         width: 175px;
         height: 330px;
-
         left: -55px;
         bottom: -40px;
-
         opacity: 0.55;
       }
 
@@ -705,11 +643,13 @@
       }
 
       .segunda-seccion {
-        padding: 70px 28px;
+        padding: 65px 28px;
+
+        background-position: 48% center;
       }
 
       .versiculo {
-        font-size: 30px;
+        font-size: 29px;
       }
 
       .fecha-boda {
@@ -741,12 +681,13 @@
     <div class="linea-vertical linea-derecha"></div>
 
 
-    <!-- RAMA SUPERIOR DERECHA -->
+    <!-- RAMA ARRIBA DERECHA -->
 
     <div class="floral floral-arriba-derecha">
 
-      <svg viewBox="0 0 240 450"
-           xmlns="http://www.w3.org/2000/svg">
+      <svg
+        viewBox="0 0 240 450"
+        xmlns="http://www.w3.org/2000/svg">
 
         <g
           fill="none"
@@ -802,24 +743,6 @@
             "
           />
 
-          <path
-            d="
-            M115 320
-            C145 305,
-            175 275,
-            195 240
-            "
-          />
-
-          <path
-            d="
-            M88 380
-            C62 360,
-            40 330,
-            25 295
-            "
-          />
-
         </g>
 
 
@@ -859,22 +782,6 @@
             transform="rotate(-43 86 215)"
           />
 
-          <ellipse
-            cx="170"
-            cy="282"
-            rx="11"
-            ry="28"
-            transform="rotate(42 170 282)"
-          />
-
-          <ellipse
-            cx="48"
-            cy="342"
-            rx="10"
-            ry="27"
-            transform="rotate(-40 48 342)"
-          />
-
         </g>
 
       </svg>
@@ -882,12 +789,13 @@
     </div>
 
 
-    <!-- RAMA INFERIOR IZQUIERDA -->
+    <!-- RAMA ABAJO IZQUIERDA -->
 
     <div class="floral floral-abajo-izquierda">
 
-      <svg viewBox="0 0 240 450"
-           xmlns="http://www.w3.org/2000/svg">
+      <svg
+        viewBox="0 0 240 450"
+        xmlns="http://www.w3.org/2000/svg">
 
         <g
           fill="none"
@@ -934,15 +842,6 @@
             "
           />
 
-          <path
-            d="
-            M112 185
-            C145 165,
-            170 138,
-            190 105
-            "
-          />
-
         </g>
 
 
@@ -972,14 +871,6 @@
             rx="11"
             ry="28"
             transform="rotate(-40 52 205)"
-          />
-
-          <ellipse
-            cx="165"
-            cy="145"
-            rx="12"
-            ry="29"
-            transform="rotate(40 165 145)"
           />
 
         </g>
@@ -1024,9 +915,7 @@
 
 
         <div class="texto-invitacion">
-
           Invitación especial para
-
         </div>
 
 
@@ -1088,7 +977,9 @@
 
 
       <div class="segunda-nombres">
+
         Carolina & Alexander
+
       </div>
 
 
@@ -1136,7 +1027,7 @@
 
           <g
             fill="currentColor"
-            opacity="0.45">
+            opacity="0.55">
 
             <ellipse
               cx="25"
