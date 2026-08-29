@@ -506,7 +506,8 @@
     .segunda-seccion.visible {
       opacity: 1;
 
-      transform: translateY(0);
+      transform:
+        translateY(0);
     }
 
     .segunda-contenido {
@@ -1309,7 +1310,6 @@
 
     .dress-linea {
       width: 100px;
-
       height: 1px;
 
       margin:
@@ -1463,6 +1463,7 @@
 
     .color-reservado {
       width: 44px;
+
       height: 44px;
 
       border-radius: 50%;
@@ -1552,6 +1553,7 @@
     ===================================================== */
 
     .regalos-seccion {
+      height: 100vh;
       min-height: 100vh;
 
       display: none;
@@ -1564,7 +1566,7 @@
       overflow: hidden;
 
       padding:
-        80px 30px;
+        36px 30px;
 
       text-align: center;
 
@@ -1618,11 +1620,11 @@
     }
 
     .regalos-icono {
-      width: 66px;
-      height: 66px;
+      width: 54px;
+      height: 54px;
 
       margin:
-        0 auto 20px;
+        0 auto 14px;
 
       display: flex;
 
@@ -1635,7 +1637,7 @@
 
       border-radius: 50%;
 
-      font-size: 28px;
+      font-size: 24px;
 
       background:
         rgba(255,255,255,0.06);
@@ -1646,7 +1648,7 @@
     .regalos-etiqueta {
       font-family: Arial, sans-serif;
 
-      font-size: 10px;
+      font-size: 9px;
 
       letter-spacing: 5px;
 
@@ -1654,18 +1656,18 @@
 
       color: #eec4ae;
 
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .regalos-titulo {
       margin: 0;
 
       font-size:
-        clamp(52px, 7vw, 82px);
+        clamp(48px, 6vw, 72px);
 
       font-weight: 400;
 
-      line-height: 1;
+      line-height: 0.95;
 
       color: #fff7f1;
     }
@@ -1674,12 +1676,12 @@
       max-width: 620px;
 
       margin:
-        22px auto 0;
+        16px auto 0;
 
       font-size:
-        clamp(18px, 2vw, 24px);
+        clamp(17px, 1.8vw, 22px);
 
-      line-height: 1.55;
+      line-height: 1.45;
 
       font-style: italic;
 
@@ -1687,11 +1689,11 @@
     }
 
     .regalos-linea {
-      width: 110px;
+      width: 100px;
       height: 1px;
 
       margin:
-        34px auto 40px;
+        22px auto 24px;
 
       background:
         rgba(255,255,255,0.35);
@@ -1703,7 +1705,7 @@
       grid-template-columns:
         repeat(2, 1fr);
 
-      gap: 24px;
+      gap: 22px;
 
       max-width: 800px;
 
@@ -1711,34 +1713,34 @@
     }
 
     .banco-preview {
-      min-height: 210px;
+      min-height: 175px;
 
       padding:
-        34px 28px;
+        24px 24px;
 
       border:
         1px solid
         rgba(255,255,255,0.18);
 
-      border-radius: 26px;
+      border-radius: 24px;
 
       background:
         rgba(255,255,255,0.07);
 
       box-shadow:
-        0 22px 50px
-        rgba(37, 10, 7, 0.16);
+        0 18px 42px
+        rgba(37, 10, 7, 0.15);
 
       backdrop-filter:
         blur(8px);
     }
 
     .banco-icono {
-      width: 45px;
-      height: 45px;
+      width: 42px;
+      height: 42px;
 
       margin:
-        0 auto 18px;
+        0 auto 13px;
 
       border-radius: 50%;
 
@@ -1751,34 +1753,34 @@
         1px solid
         rgba(255,255,255,0.28);
 
-      font-size: 19px;
+      font-size: 17px;
 
       color: #fff4ec;
     }
 
     .banco-preview-nombre {
-      font-size: 27px;
+      font-size: 24px;
 
       color: #fff8f3;
     }
 
     .banco-preview-titular {
-      margin-top: 12px;
+      margin-top: 8px;
 
       font-family: Arial, sans-serif;
 
-      font-size: 12px;
+      font-size: 11px;
 
-      line-height: 1.7;
+      line-height: 1.5;
 
       color: #e9cbbb;
     }
 
     .regalos-boton {
-      margin-top: 38px;
+      margin-top: 26px;
 
       padding:
-        17px 32px;
+        15px 30px;
 
       border:
         1px solid
@@ -1792,7 +1794,7 @@
 
       font-family: Arial, sans-serif;
 
-      font-size: 10px;
+      font-size: 9px;
 
       letter-spacing: 2.5px;
 
@@ -1801,8 +1803,8 @@
       cursor: pointer;
 
       box-shadow:
-        0 18px 40px
-        rgba(35, 7, 4, 0.18);
+        0 16px 35px
+        rgba(35, 7, 4, 0.16);
 
       transition:
         transform 0.3s ease,
@@ -1817,11 +1819,11 @@
     }
 
     .regalos-nota {
-      margin-top: 26px;
+      margin-top: 18px;
 
       font-family: Arial, sans-serif;
 
-      font-size: 9px;
+      font-size: 8px;
 
       letter-spacing: 3px;
 
@@ -2054,7 +2056,7 @@
 
 
     /* =====================================================
-       RESULTADOS BANCARIOS
+       DATOS BANCARIOS
     ===================================================== */
 
     #datosBancarios {
@@ -2486,18 +2488,20 @@
       /* REGALOS */
 
       .regalos-seccion {
+        height: auto;
+
         min-height: 100vh;
 
         padding:
-          65px 22px;
+          60px 22px;
       }
 
       .regalos-titulo {
-        font-size: 54px;
+        font-size: 52px;
       }
 
       .regalos-texto {
-        font-size: 19px;
+        font-size: 18px;
       }
 
       .bancos-preview {
@@ -2510,7 +2514,7 @@
         min-height: auto;
 
         padding:
-          28px 22px;
+          26px 22px;
       }
 
       .modal-caja {
@@ -2553,7 +2557,6 @@
 
 
   <!-- =====================================================
-       PASO 1
        PORTADA
   ====================================================== -->
 
@@ -2562,29 +2565,13 @@
     id="portada"
   >
 
+    <div class="mancha mancha-arriba"></div>
 
-    <div
-      class="mancha mancha-arriba"
-    >
-    </div>
+    <div class="mancha mancha-abajo"></div>
 
+    <div class="linea-vertical linea-izquierda"></div>
 
-    <div
-      class="mancha mancha-abajo"
-    >
-    </div>
-
-
-    <div
-      class="linea-vertical linea-izquierda"
-    >
-    </div>
-
-
-    <div
-      class="linea-vertical linea-derecha"
-    >
-    </div>
+    <div class="linea-vertical linea-derecha"></div>
 
 
     <div
@@ -2612,24 +2599,6 @@
             C145 275,
             105 350,
             55 450
-            "
-          />
-
-          <path
-            d="
-            M183 100
-            C205 82,
-            220 58,
-            230 30
-            "
-          />
-
-          <path
-            d="
-            M170 145
-            C140 125,
-            112 100,
-            90 65
             "
           />
 
@@ -2690,9 +2659,7 @@
         Carolina
 
         <span class="ampersand">
-
           &
-
         </span>
 
         Alexander
@@ -2700,8 +2667,7 @@
       </h1>
 
 
-      <div class="separador">
-      </div>
+      <div class="separador"></div>
 
 
       <div id="cargando">
@@ -2721,12 +2687,10 @@
         </div>
 
 
-        <div id="nombreInvitado">
-        </div>
+        <div id="nombreInvitado"></div>
 
 
-        <div id="cupos">
-        </div>
+        <div id="cupos"></div>
 
 
         <button
@@ -2763,12 +2727,10 @@
 
     </div>
 
-
   </section>
 
 
   <!-- =====================================================
-       PASO 2
        VERSÍCULO
   ====================================================== -->
 
@@ -2776,7 +2738,6 @@
     class="segunda-seccion"
     id="segundaSeccion"
   >
-
 
     <div class="segunda-contenido">
 
@@ -2842,8 +2803,7 @@
       </div>
 
 
-      <div class="linea-fecha">
-      </div>
+      <div class="linea-fecha"></div>
 
 
       <div class="fecha-boda">
@@ -2869,12 +2829,10 @@
 
     </div>
 
-
   </section>
 
 
   <!-- =====================================================
-       PASO 3
        CONTADOR
   ====================================================== -->
 
@@ -2882,7 +2840,6 @@
     class="tercera-seccion"
     id="cuentaRegresiva"
   >
-
 
     <div class="tercera-contenido">
 
@@ -2978,8 +2935,7 @@
       </div>
 
 
-      <div class="contador-separador">
-      </div>
+      <div class="contador-separador"></div>
 
 
       <div class="gran-dia">
@@ -2998,12 +2954,10 @@
 
     </div>
 
-
   </section>
 
 
   <!-- =====================================================
-       PASO 4
        LUGAR
   ====================================================== -->
 
@@ -3078,8 +3032,7 @@
       </div>
 
 
-      <div class="evento-linea">
-      </div>
+      <div class="evento-linea"></div>
 
 
       <div class="evento-tipo">
@@ -3140,7 +3093,6 @@
 
 
   <!-- =====================================================
-       PASO 5
        DRESS CODE
   ====================================================== -->
 
@@ -3148,80 +3100,6 @@
     class="dress-seccion"
     id="dressSeccion"
   >
-
-
-    <div
-      class="
-        dress-floral
-        dress-floral-izquierda
-      "
-    >
-
-      <svg
-        viewBox="0 0 220 400"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-        >
-
-          <path
-            d="
-            M35 390
-            C60 315,
-            85 245,
-            115 165
-            C140 105,
-            165 55,
-            195 10
-            "
-          />
-
-        </g>
-
-      </svg>
-
-    </div>
-
-
-    <div
-      class="
-        dress-floral
-        dress-floral-derecha
-      "
-    >
-
-      <svg
-        viewBox="0 0 220 400"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-        >
-
-          <path
-            d="
-            M35 390
-            C60 315,
-            85 245,
-            115 165
-            C140 105,
-            165 55,
-            195 10
-            "
-          />
-
-        </g>
-
-      </svg>
-
-    </div>
 
 
     <div class="dress-contenido">
@@ -3248,8 +3126,7 @@
       </div>
 
 
-      <div class="dress-linea">
-      </div>
+      <div class="dress-linea"></div>
 
 
       <div class="dress-opciones">
@@ -3430,8 +3307,7 @@
               color-reservado
               color-blanco
             "
-          >
-          </div>
+          ></div>
 
 
           <div
@@ -3439,8 +3315,7 @@
               color-reservado
               color-marfil
             "
-          >
-          </div>
+          ></div>
 
 
           <div
@@ -3448,8 +3323,7 @@
               color-reservado
               color-beige
             "
-          >
-          </div>
+          ></div>
 
 
         </div>
@@ -3480,7 +3354,6 @@
 
 
   <!-- =====================================================
-       PASO 6
        REGALOS
   ====================================================== -->
 
@@ -3494,9 +3367,7 @@
 
 
       <div class="regalos-icono">
-
         ♡
-
       </div>
 
 
@@ -3523,8 +3394,7 @@
       </div>
 
 
-      <div class="regalos-linea">
-      </div>
+      <div class="regalos-linea"></div>
 
 
       <div class="bancos-preview">
@@ -3532,11 +3402,13 @@
 
         <div class="banco-preview">
 
+
           <div class="banco-icono">
 
             ◇
 
           </div>
+
 
           <div class="banco-preview-nombre">
 
@@ -3544,17 +3416,19 @@
 
           </div>
 
+
           <div class="banco-preview-titular">
 
-            Carolina Pricila
-            González Almeida
+            Carolina Pricila González Almeida
 
           </div>
+
 
         </div>
 
 
         <div class="banco-preview">
+
 
           <div class="banco-icono">
 
@@ -3562,18 +3436,20 @@
 
           </div>
 
+
           <div class="banco-preview-nombre">
 
             Banco Guayaquil
 
           </div>
 
+
           <div class="banco-preview-titular">
 
-            Darling Alexander
-            Mendoza Pérez
+            Darling Alexander Mendoza Pérez
 
           </div>
+
 
         </div>
 
@@ -3594,8 +3470,7 @@
 
       <div class="regalos-nota">
 
-        Gracias por acompañarnos
-        en este nuevo capítulo
+        Gracias por acompañarnos en este nuevo capítulo
 
       </div>
 
@@ -3607,7 +3482,7 @@
 
 
   <!-- =====================================================
-       MODAL BANCARIO
+       MODAL BANCOS
   ====================================================== -->
 
   <div
@@ -3684,8 +3559,7 @@
         <div
           class="pin-error"
           id="pinError"
-        >
-        </div>
+        ></div>
 
 
       </div>
@@ -3697,8 +3571,7 @@
         <div
           class="datos-bancos-grid"
           id="datosBancosGrid"
-        >
-        </div>
+        ></div>
 
 
         <div class="datos-seguridad">
