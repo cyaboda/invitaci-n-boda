@@ -7,22 +7,29 @@
 
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1.0"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<title>Carolina & Alexander</title>
+<meta
+  name="theme-color"
+  content="#f7f1eb"
+>
+
+<title>Carolina & Alexander | 14.11.2026</title>
 
 <style>
 
-/* =====================================================
+/* =========================================================
    BASE
-===================================================== */
+========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
 html {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
 }
 
@@ -48,12 +55,15 @@ select {
 }
 
 
-/* =====================================================
+/* =========================================================
    PORTADA
-===================================================== */
+========================================================= */
 
 .portada {
+  width: 100%;
+
   min-height: 100vh;
+  min-height: 100svh;
 
   position: relative;
 
@@ -61,7 +71,8 @@ select {
   align-items: center;
   justify-content: center;
 
-  padding: 50px 22px;
+  padding:
+    45px 24px;
 
   text-align: center;
 
@@ -70,19 +81,19 @@ select {
   background:
     radial-gradient(
       circle at top right,
-      rgba(190, 102, 67, 0.13),
+      rgba(190,102,67,.13),
       transparent 30%
     ),
     radial-gradient(
       circle at bottom left,
-      rgba(190, 102, 67, 0.12),
+      rgba(190,102,67,.12),
       transparent 32%
     ),
     #f7f1eb;
 
   transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    opacity .8s ease,
+    transform .8s ease;
 }
 
 .portada.saliendo {
@@ -91,9 +102,9 @@ select {
 }
 
 
-/* =====================================================
-   MANCHAS
-===================================================== */
+/* =========================================================
+   FONDO PORTADA
+========================================================= */
 
 .mancha {
   position: absolute;
@@ -115,8 +126,8 @@ select {
   background:
     radial-gradient(
       circle,
-      rgba(190, 102, 67, 0.13),
-      rgba(190, 102, 67, 0.04) 60%,
+      rgba(190,102,67,.13),
+      rgba(190,102,67,.04) 60%,
       transparent 72%
     );
 }
@@ -131,16 +142,11 @@ select {
   background:
     radial-gradient(
       circle,
-      rgba(167, 83, 52, 0.14),
-      rgba(190, 102, 67, 0.04) 60%,
+      rgba(167,83,52,.14),
+      rgba(190,102,67,.04) 60%,
       transparent 72%
     );
 }
-
-
-/* =====================================================
-   LÍNEAS
-===================================================== */
 
 .linea-vertical {
   position: absolute;
@@ -154,7 +160,7 @@ select {
     linear-gradient(
       to bottom,
       transparent,
-      rgba(155, 82, 53, 0.22),
+      rgba(155,82,53,.18),
       transparent
     );
 
@@ -170,9 +176,9 @@ select {
 }
 
 
-/* =====================================================
+/* =========================================================
    RAMAS PORTADA
-===================================================== */
+========================================================= */
 
 .floral {
   position: absolute;
@@ -228,9 +234,9 @@ select {
 }
 
 .floral .rama-1 { animation-delay: .9s; }
-.floral .rama-2 { animation-delay: 1.25s; }
-.floral .rama-3 { animation-delay: 1.55s; }
-.floral .rama-4 { animation-delay: 1.85s; }
+.floral .rama-2 { animation-delay: 1.2s; }
+.floral .rama-3 { animation-delay: 1.5s; }
+.floral .rama-4 { animation-delay: 1.8s; }
 .floral .rama-5 { animation-delay: 2.1s; }
 .floral .rama-6 { animation-delay: 2.35s; }
 
@@ -243,9 +249,7 @@ select {
   transform-origin: center;
 
   animation:
-    aparecerHoja .75s
-    cubic-bezier(.2,.8,.2,1)
-    forwards;
+    aparecerHoja .75s ease forwards;
 }
 
 .floral .hoja-1 { animation-delay: 1.15s; }
@@ -269,10 +273,8 @@ select {
   transform-origin: bottom right;
 
   animation:
-    respirarDerecha
-    6.8s
-    ease-in-out
-    3.4s
+    respirarDerecha 7s
+    ease-in-out 3.5s
     infinite alternate;
 }
 
@@ -286,183 +288,15 @@ select {
   transform-origin: bottom left;
 
   animation:
-    respirarIzquierda
-    7.4s
-    ease-in-out
-    3.4s
+    respirarIzquierda 7.5s
+    ease-in-out 3.5s
     infinite alternate;
 }
 
 
-/* =====================================================
-   BOTÁNICA CONTROLADA POR SCROLL
-===================================================== */
-
-.scroll-botanical {
-  position: absolute;
-
-  pointer-events: none;
-
-  z-index: 2;
-
-  opacity: .9;
-}
-
-.scroll-botanical svg {
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
-}
-
-.scroll-botanical .scroll-tallo,
-.scroll-botanical .scroll-rama {
-  fill: none;
-
-  stroke: currentColor;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.scroll-botanical .scroll-tallo {
-  stroke-width: 1.6;
-}
-
-.scroll-botanical .scroll-rama {
-  stroke-width: 1.25;
-}
-
-.scroll-botanical .scroll-hoja {
-  fill: currentColor;
-
-  opacity: 0;
-
-  transform-box: fill-box;
-  transform-origin: center;
-
-  transform: scale(.05);
-}
-
-.scroll-botanical.terminada {
-  animation:
-    respirarScroll
-    7s ease-in-out
-    infinite alternate;
-}
-
-
-/* CONTADOR */
-
-.botanica-contador-izq {
-  width: 255px;
-  height: 520px;
-
-  left: -55px;
-  bottom: -75px;
-
-  color: rgba(164,81,52,.55);
-
-  transform-origin: bottom left;
-}
-
-.botanica-contador-der {
-  width: 230px;
-  height: 470px;
-
-  right: -48px;
-  top: -70px;
-
-  color: rgba(174,93,62,.46);
-
-  transform-origin: top right;
-}
-
-
-/* DRESS */
-
-.botanica-dress-izq {
-  width: 235px;
-  height: 490px;
-
-  left: -55px;
-  bottom: -70px;
-
-  color: rgba(255,241,232,.30);
-
-  transform-origin: bottom left;
-}
-
-.botanica-dress-der {
-  width: 230px;
-  height: 470px;
-
-  right: -55px;
-  top: -65px;
-
-  color: rgba(255,245,238,.24);
-
-  transform-origin: top right;
-}
-
-
-/* REGALOS */
-
-.botanica-regalos-izq {
-  width: 250px;
-  height: 530px;
-
-  left: -55px;
-  bottom: -80px;
-
-  color: rgba(245,211,193,.25);
-
-  transform-origin: bottom left;
-}
-
-.botanica-regalos-der {
-  width: 245px;
-  height: 500px;
-
-  right: -60px;
-  top: -80px;
-
-  color: rgba(248,224,211,.20);
-
-  transform-origin: top right;
-}
-
-
-/* RSVP */
-
-.botanica-rsvp-izq {
-  width: 245px;
-  height: 520px;
-
-  left: -60px;
-  bottom: -85px;
-
-  color: rgba(240,207,193,.20);
-
-  transform-origin: bottom left;
-}
-
-.botanica-rsvp-der {
-  width: 230px;
-  height: 490px;
-
-  right: -55px;
-  top: -75px;
-
-  color: rgba(245,218,205,.18);
-
-  transform-origin: top right;
-}
-
-
-/* =====================================================
+/* =========================================================
    PORTADA CONTENIDO
-===================================================== */
+========================================================= */
 
 .contenido {
   width: 100%;
@@ -474,12 +308,11 @@ select {
   z-index: 5;
 
   animation:
-    aparecer
-    1.2s ease forwards;
+    aparecer 1.1s ease forwards;
 }
 
 .sobrelinea {
-  font-family: Arial, sans-serif;
+  font-family: Arial,sans-serif;
 
   font-size: 12px;
 
@@ -514,7 +347,8 @@ select {
 
   font-style: italic;
 
-  margin: 13px 0 11px;
+  margin:
+    13px 0 11px;
 
   color: #bc6947;
 }
@@ -523,7 +357,8 @@ select {
   width: 120px;
   height: 1px;
 
-  margin: 37px auto;
+  margin:
+    37px auto;
 
   position: relative;
 
@@ -542,9 +377,10 @@ select {
   transform:
     translate(-50%,-50%);
 
-  background: #f7f1eb;
+  padding:
+    0 13px;
 
-  padding: 0 13px;
+  background: #f7f1eb;
 
   color: #b75f3d;
 
@@ -603,15 +439,18 @@ select {
 #error {
   display: none;
 
+  max-width: 500px;
+
+  margin:
+    25px auto 0;
+
   font-family: Arial,sans-serif;
 
-  max-width: 420px;
-
-  margin: 30px auto 0;
+  font-size: 16px;
 
   line-height: 1.7;
 
-  color: #7b5140;
+  color: #765347;
 }
 
 .boton {
@@ -619,7 +458,8 @@ select {
 
   min-width: 235px;
 
-  padding: 17px 31px;
+  padding:
+    17px 31px;
 
   border:
     1px solid
@@ -647,18 +487,6 @@ select {
   box-shadow:
     0 15px 35px
     rgba(117,62,42,.20);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.boton:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 19px 38px
-    rgba(117,62,42,.27);
 }
 
 .detalle-inferior {
@@ -676,12 +504,13 @@ select {
 }
 
 
-/* =====================================================
+/* =========================================================
    VERSÍCULO
-===================================================== */
+========================================================= */
 
 .segunda-seccion {
   min-height: 100vh;
+  min-height: 100svh;
 
   display: none;
 
@@ -692,7 +521,8 @@ select {
 
   text-align: center;
 
-  padding: 80px 25px;
+  padding:
+    70px 25px;
 
   overflow: hidden;
 
@@ -708,8 +538,6 @@ select {
   background-position:
     center 42%;
 
-  background-repeat: no-repeat;
-
   opacity: 0;
 
   transform:
@@ -723,8 +551,7 @@ select {
 .segunda-seccion.visible {
   opacity: 1;
 
-  transform:
-    translateY(0);
+  transform: translateY(0);
 }
 
 .segunda-contenido {
@@ -740,26 +567,23 @@ select {
 .segunda-nombres {
   font-family: Arial,sans-serif;
 
-  text-transform: uppercase;
-
   font-size: 11px;
 
   letter-spacing: 5px;
 
+  text-transform: uppercase;
+
   color: #f4d8c8;
 
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
-
-/* RAMITA DEL VERSÍCULO */
-
 .ramita-central {
-  width: 110px;
-  height: 82px;
+  width: 105px;
+  height: 78px;
 
   margin:
-    0 auto 32px;
+    0 auto 28px;
 
   color: #f1c5ab;
 }
@@ -767,39 +591,17 @@ select {
 .ramita-central svg {
   width: 100%;
   height: 100%;
-
-  overflow: visible;
 }
 
-.ramita-central .rc-tallo,
-.ramita-central .rc-rama {
-  fill: none;
-
-  stroke: currentColor;
-
+.ramita-central path {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.ramita-central .rc-tallo {
-  stroke-width: 1.7;
-}
-
-.ramita-central .rc-rama {
-  stroke-width: 1.5;
-}
-
-.ramita-central .rc-hoja {
-  fill: currentColor;
-
-  opacity: .78;
-}
-
-
 .versiculo {
   max-width: 680px;
 
-  margin: 0 auto;
+  margin: auto;
 
   font-size:
     clamp(30px,5vw,50px);
@@ -808,13 +610,9 @@ select {
 
   line-height: 1.35;
 
-  color: #fff8f1;
-
   font-style: italic;
 
-  text-shadow:
-    0 2px 18px
-    rgba(40,15,8,.25);
+  color: #fff8f1;
 }
 
 .referencia {
@@ -835,7 +633,8 @@ select {
   width: 90px;
   height: 1px;
 
-  margin: 32px auto;
+  margin:
+    32px auto;
 
   background:
     rgba(255,237,225,.55);
@@ -851,7 +650,7 @@ select {
 }
 
 .desliza {
-  margin-top: 48px;
+  margin-top: 45px;
 
   font-family: Arial,sans-serif;
 
@@ -865,24 +664,94 @@ select {
 }
 
 .flecha {
-  margin-top: 14px;
+  margin-top: 12px;
 
   font-size: 24px;
 
   color: #fff0e5;
 
   animation:
-    flotarFlecha
-    1.8s ease-in-out infinite;
+    flotarFlecha 1.8s
+    ease-in-out infinite;
 }
 
 
-/* =====================================================
+/* =========================================================
+   BOTÁNICA DE SCROLL
+========================================================= */
+
+.scroll-botanical {
+  position: absolute;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.scroll-botanical svg {
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.scroll-botanical .scroll-tallo,
+.scroll-botanical .scroll-rama {
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scroll-botanical .scroll-tallo {
+  stroke-width: 1.6;
+}
+
+.scroll-botanical .scroll-rama {
+  stroke-width: 1.25;
+}
+
+.scroll-botanical .scroll-hoja {
+  fill: currentColor;
+
+  opacity: 0;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  transform: scale(.05);
+}
+
+.botanica-izq {
+  width: 245px;
+  height: 520px;
+
+  left: -55px;
+  bottom: -80px;
+
+  transform-origin: bottom left;
+}
+
+.botanica-der {
+  width: 235px;
+  height: 500px;
+
+  right: -55px;
+  top: -75px;
+
+  transform-origin: top right;
+}
+
+
+/* =========================================================
    CONTADOR
-===================================================== */
+========================================================= */
 
 .tercera-seccion {
   min-height: 100vh;
+  min-height: 100svh;
 
   display: none;
 
@@ -891,7 +760,8 @@ select {
 
   position: relative;
 
-  padding: 80px 25px;
+  padding:
+    70px 25px;
 
   text-align: center;
 
@@ -909,6 +779,11 @@ select {
       transparent 30%
     ),
     #f7f1eb;
+}
+
+.tercera-seccion .scroll-botanical {
+  color:
+    rgba(164,81,52,.46);
 }
 
 .tercera-contenido {
@@ -943,8 +818,6 @@ select {
 
   font-weight: 400;
 
-  line-height: 1;
-
   color: #87472f;
 }
 
@@ -971,7 +844,7 @@ select {
   display: grid;
 
   grid-template-columns:
-    repeat(4,minmax(100px,1fr));
+    repeat(4,1fr);
 
   gap: 25px;
 }
@@ -989,20 +862,13 @@ select {
   position: absolute;
 
   right: -13px;
-
   top: 15%;
 
+  width: 1px;
   height: 70%;
 
-  width: 1px;
-
   background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgba(157,81,53,.28),
-      transparent
-    );
+    rgba(157,81,53,.18);
 }
 
 .contador-numero {
@@ -1010,8 +876,6 @@ select {
 
   font-size:
     clamp(42px,7vw,78px);
-
-  line-height: 1;
 
   color: #8d4931;
 }
@@ -1069,9 +933,9 @@ select {
 }
 
 
-/* =====================================================
+/* =========================================================
    EVENTO
-===================================================== */
+========================================================= */
 
 .evento-seccion {
   min-height: 100vh;
@@ -1107,19 +971,10 @@ select {
 }
 
 .evento-foto img {
-  position: absolute;
-
-  left: 0;
-
   width: 100%;
   height: 118%;
 
   object-fit: cover;
-
-  filter:
-    saturate(.92)
-    contrast(.96)
-    brightness(.95);
 }
 
 .evento-foto::before {
@@ -1138,24 +993,7 @@ select {
     );
 }
 
-.evento-foto-izquierda::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 4;
-
-  background:
-    linear-gradient(
-      to right,
-      transparent 48%,
-      rgba(247,241,235,.40) 72%,
-      #f7f1eb 100%
-    );
-}
-
+.evento-foto-izquierda::after,
 .evento-foto-derecha::after {
   content: "";
 
@@ -1164,30 +1002,24 @@ select {
   inset: 0;
 
   z-index: 4;
+}
 
+.evento-foto-izquierda::after {
   background:
     linear-gradient(
-      to left,
-      transparent 48%,
-      rgba(247,241,235,.40) 72%,
+      to right,
+      transparent 45%,
       #f7f1eb 100%
     );
 }
 
-.evento-foto-izquierda img {
-  top: -18%;
-
-  animation:
-    fotoBaja
-    18s ease-in-out infinite alternate;
-}
-
-.evento-foto-derecha img {
-  bottom: -18%;
-
-  animation:
-    fotoSube
-    18s ease-in-out infinite alternate;
+.evento-foto-derecha::after {
+  background:
+    linear-gradient(
+      to left,
+      transparent 45%,
+      #f7f1eb 100%
+    );
 }
 
 .evento-centro {
@@ -1204,16 +1036,15 @@ select {
   z-index: 6;
 
   display: flex;
-
   flex-direction: column;
 
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   text-align: center;
 
   padding:
-    55px 30px;
+    50px 30px;
 }
 
 .evento-logo-marco {
@@ -1222,10 +1053,10 @@ select {
 
   display: flex;
 
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 
   border-radius: 50%;
 
@@ -1259,7 +1090,7 @@ select {
 
   color: #ad7157;
 
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 .evento-titulo {
@@ -1268,15 +1099,13 @@ select {
   font-size:
     clamp(42px,5vw,68px);
 
-  line-height: 1.05;
-
   font-weight: 400;
 
   color: #82452f;
 }
 
 .evento-subtitulo {
-  margin-top: 13px;
+  margin-top: 12px;
 
   font-size:
     clamp(20px,2vw,28px);
@@ -1291,7 +1120,7 @@ select {
   height: 1px;
 
   margin:
-    30px auto;
+    28px auto;
 
   background:
     rgba(162,84,56,.38);
@@ -1307,17 +1136,15 @@ select {
   text-transform: uppercase;
 
   color: #b06f53;
-
-  margin-bottom: 20px;
 }
 
 .evento-hora {
+  margin-top: 18px;
+
   font-size:
     clamp(36px,4vw,52px);
 
   color: #87472f;
-
-  margin-bottom: 8px;
 }
 
 .evento-hora-label {
@@ -1327,13 +1154,11 @@ select {
 
   letter-spacing: 4px;
 
-  text-transform: uppercase;
-
   color: #b1826c;
 }
 
 .evento-direccion {
-  margin-top: 27px;
+  margin-top: 25px;
 
   font-family: Arial,sans-serif;
 
@@ -1350,7 +1175,7 @@ select {
   align-items: center;
   justify-content: center;
 
-  margin-top: 28px;
+  margin-top: 26px;
 
   padding:
     15px 29px;
@@ -1373,12 +1198,10 @@ select {
   font-size: 10px;
 
   letter-spacing: 2.4px;
-
-  text-transform: uppercase;
 }
 
 .evento-nota {
-  margin-top: 27px;
+  margin-top: 25px;
 
   font-family: Arial,sans-serif;
 
@@ -1390,13 +1213,13 @@ select {
 }
 
 
-/* =====================================================
+/* =========================================================
    DRESS CODE
-===================================================== */
+========================================================= */
 
 .dress-seccion {
-  height: 100vh;
   min-height: 100vh;
+  min-height: 100svh;
 
   display: none;
 
@@ -1418,17 +1241,17 @@ select {
       rgba(255,245,239,.16),
       transparent 32%
     ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(95,38,24,.10),
-      transparent 32%
-    ),
     linear-gradient(
       135deg,
-      #d7a38c 0%,
-      #c9896f 42%,
-      #b97358 100%
+      #d7a38c,
+      #c9896f 45%,
+      #b97358
     );
+}
+
+.dress-seccion .scroll-botanical {
+  color:
+    rgba(255,245,238,.24);
 }
 
 .dress-contenido {
@@ -1448,16 +1271,13 @@ select {
 
   letter-spacing: 5px;
 
-  text-transform: uppercase;
-
   color:
     rgba(255,255,255,.78);
-
-  margin-bottom: 12px;
 }
 
 .dress-titulo {
-  margin: 0;
+  margin:
+    10px 0 0;
 
   font-size:
     clamp(46px,6vw,70px);
@@ -1511,11 +1331,10 @@ select {
 
   position: absolute;
 
-  top: 6%;
   right: -30px;
+  top: 6%;
 
   width: 1px;
-
   height: 88%;
 
   background:
@@ -1544,8 +1363,6 @@ select {
 
   letter-spacing: 4px;
 
-  text-transform: uppercase;
-
   color:
     rgba(255,255,255,.78);
 }
@@ -1562,10 +1379,10 @@ select {
 }
 
 .reservados {
+  max-width: 660px;
+
   margin:
     32px auto 0;
-
-  max-width: 660px;
 
   padding-top: 24px;
 
@@ -1581,23 +1398,19 @@ select {
 
   letter-spacing: 4px;
 
-  text-transform: uppercase;
-
   color:
     rgba(255,255,255,.78);
-
-  margin-bottom: 15px;
 }
 
 .paleta-reservada {
   display: flex;
 
   justify-content: center;
-  align-items: center;
 
   gap: 15px;
 
-  margin-bottom: 16px;
+  margin:
+    15px 0 16px;
 }
 
 .color-reservado {
@@ -1611,17 +1424,9 @@ select {
     rgba(255,255,255,.65);
 }
 
-.color-blanco {
-  background: #fff;
-}
-
-.color-marfil {
-  background: #f3ebdb;
-}
-
-.color-beige {
-  background: #d9c1a3;
-}
+.color-blanco { background:#fff; }
+.color-marfil { background:#f3ebdb; }
+.color-beige { background:#d9c1a3; }
 
 .reservados-texto {
   max-width: 600px;
@@ -1639,13 +1444,13 @@ select {
 }
 
 
-/* =====================================================
+/* =========================================================
    REGALOS
-===================================================== */
+========================================================= */
 
 .regalos-seccion {
-  height: 100vh;
   min-height: 100vh;
+  min-height: 100svh;
 
   display: none;
 
@@ -1667,19 +1472,19 @@ select {
       rgba(255,225,205,.09),
       transparent 32%
     ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(208,118,82,.12),
-      transparent 35%
-    ),
     linear-gradient(
       145deg,
-      #633026 0%,
+      #633026,
       #79392c 42%,
-      #57261f 100%
+      #57261f
     );
 
   color: white;
+}
+
+.regalos-seccion .scroll-botanical {
+  color:
+    rgba(245,211,193,.22);
 }
 
 .regalos-contenido {
@@ -1692,7 +1497,8 @@ select {
   z-index: 5;
 }
 
-.regalos-icono {
+.regalos-icono,
+.rsvp-icono {
   width: 52px;
   height: 52px;
 
@@ -1709,36 +1515,27 @@ select {
     rgba(255,255,255,.28);
 
   border-radius: 50%;
-
-  font-size: 23px;
-
-  background:
-    rgba(255,255,255,.05);
 }
 
-.regalos-etiqueta {
+.regalos-etiqueta,
+.rsvp-etiqueta {
   font-family: Arial,sans-serif;
 
   font-size: 9px;
 
   letter-spacing: 5px;
 
-  text-transform: uppercase;
-
   color: #eec4ae;
-
-  margin-bottom: 8px;
 }
 
 .regalos-titulo {
-  margin: 0;
+  margin:
+    10px 0 0;
 
   font-size:
     clamp(48px,6vw,72px);
 
   font-weight: 400;
-
-  line-height: .95;
 
   color: #fff7f1;
 }
@@ -1797,10 +1594,6 @@ select {
 
   background:
     rgba(255,255,255,.07);
-
-  box-shadow:
-    0 18px 42px
-    rgba(20,5,4,.14);
 }
 
 .banco-icono {
@@ -1814,14 +1607,12 @@ select {
 
   display: flex;
 
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   border:
     1px solid
     rgba(255,255,255,.28);
-
-  font-size: 17px;
 }
 
 .banco-preview-nombre {
@@ -1837,8 +1628,6 @@ select {
 
   font-size: 11px;
 
-  line-height: 1.5;
-
   color: #e9cbbb;
 }
 
@@ -1848,9 +1637,7 @@ select {
   padding:
     15px 30px;
 
-  border:
-    1px solid
-    rgba(255,255,255,.28);
+  border: none;
 
   border-radius: 999px;
 
@@ -1864,8 +1651,6 @@ select {
 
   letter-spacing: 2.5px;
 
-  text-transform: uppercase;
-
   cursor: pointer;
 }
 
@@ -1878,20 +1663,18 @@ select {
 
   letter-spacing: 3px;
 
-  text-transform: uppercase;
-
   color:
     rgba(255,235,225,.62);
 }
 
 
-/* =====================================================
+/* =========================================================
    RSVP
-===================================================== */
+========================================================= */
 
 .rsvp-seccion {
-  height: 100vh;
   min-height: 100vh;
+  min-height: 100svh;
 
   display: none;
 
@@ -1903,29 +1686,24 @@ select {
   overflow: hidden;
 
   padding:
-    28px 30px;
+    35px 30px;
 
   text-align: center;
 
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(212,139,107,.11),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(255,225,211,.06),
-      transparent 34%
-    ),
     linear-gradient(
       145deg,
-      #4b211d 0%,
+      #4b211d,
       #602921 45%,
-      #3f1917 100%
+      #3f1917
     );
 
   color: #fff9f5;
+}
+
+.rsvp-seccion .scroll-botanical {
+  color:
+    rgba(245,218,205,.18);
 }
 
 .rsvp-contenido {
@@ -1938,66 +1716,23 @@ select {
   z-index: 5;
 }
 
-.rsvp-icono {
-  width: 48px;
-  height: 48px;
-
-  margin:
-    0 auto 11px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  border:
-    1px solid
-    rgba(255,255,255,.28);
-
-  color: #f8d8c8;
-
-  font-size: 21px;
-}
-
-.rsvp-etiqueta {
-  font-family: Arial,sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  color: #dcb29f;
-
-  margin-bottom: 8px;
-}
-
 .rsvp-titulo {
-  margin: 0;
+  margin:
+    10px 0 0;
 
   font-size:
     clamp(45px,5.5vw,68px);
 
   font-weight: 400;
 
-  line-height: 1;
-
   color: #fff8f3;
 }
 
 .rsvp-subtitulo {
-  max-width: 560px;
-
-  margin:
-    12px auto 0;
+  margin-top: 12px;
 
   font-size:
     clamp(16px,1.7vw,20px);
-
-  line-height: 1.45;
 
   font-style: italic;
 
@@ -2015,7 +1750,8 @@ select {
     rgba(255,255,255,.28);
 }
 
-.rsvp-panel {
+.rsvp-panel,
+.rsvp-resultado {
   width: 100%;
 
   max-width: 720px;
@@ -2035,14 +1771,16 @@ select {
     rgba(255,255,255,.055);
 }
 
+.rsvp-resultado {
+  display: none;
+}
+
 .rsvp-invitado-label {
   font-family: Arial,sans-serif;
 
   font-size: 8px;
 
   letter-spacing: 3px;
-
-  text-transform: uppercase;
 
   color: #cea493;
 }
@@ -2070,8 +1808,6 @@ select {
   margin-top: 17px;
 
   font-size: 18px;
-
-  color: #fff3ed;
 }
 
 .rsvp-opciones {
@@ -2107,8 +1843,6 @@ select {
 
   letter-spacing: 1.8px;
 
-  text-transform: uppercase;
-
   cursor: pointer;
 }
 
@@ -2116,8 +1850,6 @@ select {
   background: #f2d7ca;
 
   color: #55261f;
-
-  border-color: #f2d7ca;
 }
 
 .rsvp-detalles {
@@ -2138,8 +1870,6 @@ select {
   font-size: 8px;
 
   letter-spacing: 2.5px;
-
-  text-transform: uppercase;
 
   color: #cba293;
 }
@@ -2168,11 +1898,7 @@ select {
 
   background: transparent;
 
-  color: #f8e8e1;
-
-  font-family: Arial,sans-serif;
-
-  font-size: 12px;
+  color: white;
 
   cursor: pointer;
 }
@@ -2181,8 +1907,6 @@ select {
   background: #efd0c1;
 
   color: #51231d;
-
-  border-color: #efd0c1;
 }
 
 .acompanantes-contenedor {
@@ -2225,7 +1949,7 @@ select {
 
 .acompanante-campo::placeholder {
   color:
-    rgba(255,236,227,.50);
+    rgba(255,236,227,.5);
 }
 
 .rsvp-mensaje {
@@ -2252,8 +1976,7 @@ select {
 
   border-radius: 999px;
 
-  background:
-    #f3ded3;
+  background: #f3ded3;
 
   color: #57251e;
 
@@ -2263,31 +1986,7 @@ select {
 
   letter-spacing: 2px;
 
-  text-transform: uppercase;
-
   cursor: pointer;
-}
-
-.rsvp-resultado {
-  display: none;
-
-  width: 100%;
-
-  max-width: 650px;
-
-  margin: auto;
-
-  padding:
-    29px 30px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.16);
-
-  border-radius: 25px;
-
-  background:
-    rgba(255,255,255,.055);
 }
 
 .rsvp-resultado-icono {
@@ -2305,23 +2004,16 @@ select {
   border-radius: 50%;
 
   background:
-    rgba(255,255,255,.10);
-
-  font-size: 22px;
+    rgba(255,255,255,.1);
 }
 
 .rsvp-resultado-titulo {
   font-size:
     clamp(27px,3vw,37px);
-
-  color: #fff8f3;
 }
 
 .rsvp-resultado-texto {
-  max-width: 500px;
-
-  margin:
-    9px auto 0;
+  margin-top: 9px;
 
   font-family: Arial,sans-serif;
 
@@ -2348,21 +2040,13 @@ select {
 
   color: #f1d9ce;
 
-  font-family: Arial,sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
   cursor: pointer;
 }
 
 
-/* =====================================================
+/* =========================================================
    MODAL BANCOS
-===================================================== */
+========================================================= */
 
 .modal-bancos {
   position: fixed;
@@ -2381,8 +2065,7 @@ select {
   background:
     rgba(35,10,8,.78);
 
-  backdrop-filter:
-    blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .modal-bancos.activo {
@@ -2394,7 +2077,7 @@ select {
 
   max-width: 720px;
 
-  max-height: 90vh;
+  max-height: 90svh;
 
   overflow-y: auto;
 
@@ -2420,8 +2103,8 @@ select {
 .modal-cerrar {
   position: absolute;
 
-  right: 20px;
   top: 18px;
+  right: 20px;
 
   width: 38px;
   height: 38px;
@@ -2435,56 +2118,24 @@ select {
 
   color: #7c432f;
 
-  font-size: 22px;
-
   cursor: pointer;
 }
 
-.modal-icono {
-  width: 56px;
-  height: 56px;
-
-  margin:
-    0 auto 18px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: #8b4632;
-
-  color: white;
-
-  font-size: 22px;
-}
-
 .modal-titulo {
-  margin: 0;
-
   font-size:
     clamp(31px,4vw,43px);
 
   font-weight: 400;
-
-  color: #70402f;
 }
 
 .modal-texto {
-  max-width: 500px;
-
-  margin:
-    14px auto 0;
+  margin-top: 14px;
 
   font-family: Arial,sans-serif;
 
   font-size: 13px;
 
   line-height: 1.7;
-
-  color: #82675b;
 }
 
 .pin-contenedor {
@@ -2506,18 +2157,13 @@ select {
 
   border-radius: 999px;
 
-  outline: none;
-
   text-align: center;
 
   font-size: 24px;
 
   letter-spacing: 12px;
 
-  color: #6c3b2c;
-
-  background:
-    rgba(255,255,255,.72);
+  background: white;
 }
 
 .pin-boton {
@@ -2526,40 +2172,23 @@ select {
   margin-top: 14px;
 
   padding:
-    15px 20px;
+    15px;
 
   border: none;
 
   border-radius: 999px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #9a5037,
-      #713425
-    );
+  background: #713425;
 
   color: white;
-
-  font-family: Arial,sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
 
   cursor: pointer;
 }
 
 .pin-error {
-  min-height: 20px;
-
-  margin-top: 13px;
+  margin-top: 12px;
 
   font-family: Arial,sans-serif;
-
-  font-size: 12px;
 
   color: #ad3e33;
 }
@@ -2581,26 +2210,18 @@ select {
 
 .banco-datos {
   padding:
-    26px 22px;
+    25px 22px;
 
   border-radius: 22px;
 
   background:
-    rgba(255,255,255,.70);
-
-  border:
-    1px solid
-    rgba(133,74,52,.13);
+    rgba(255,255,255,.75);
 
   text-align: left;
 }
 
 .banco-datos-titulo {
-  font-size: 25px;
-
-  color: #743e2d;
-
-  margin-bottom: 18px;
+  font-size: 24px;
 }
 
 .dato-label {
@@ -2612,62 +2233,49 @@ select {
 
   letter-spacing: 2px;
 
-  text-transform: uppercase;
-
   color: #a07968;
 }
 
 .dato-valor {
-  margin-top: 5px;
+  margin-top: 4px;
 
   font-family: Arial,sans-serif;
-
-  font-size: 14px;
-
-  color: #50382e;
 }
 
 .dato-numero {
-  font-size: 19px;
-
-  color: #703d2d;
+  font-size: 18px;
 }
 
 .copiar-boton {
-  margin-top: 9px;
+  margin-top: 8px;
 
   padding:
     8px 12px;
 
   border:
-    1px solid
-    rgba(119,63,45,.18);
+    1px solid #d7b8aa;
 
   border-radius: 999px;
 
   background: transparent;
 
-  color: #80513f;
-
-  font-family: Arial,sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 1.5px;
-
   cursor: pointer;
 }
 
 
-/* =====================================================
-   CONTROL FLOTANTE DE MÚSICA
-===================================================== */
+/* =========================================================
+   MÚSICA
+========================================================= */
 
 .musica-control {
   position: fixed;
 
-  right: 24px;
-  bottom: 24px;
+  right: 22px;
+  bottom:
+    calc(
+      22px +
+      env(safe-area-inset-bottom)
+    );
 
   z-index: 9000;
 
@@ -2681,112 +2289,46 @@ select {
 
   border:
     1px solid
-    rgba(255,255,255,.45);
+    rgba(255,255,255,.42);
 
   border-radius: 50%;
 
   background:
-    rgba(91,39,31,.88);
+    rgba(91,39,31,.90);
 
-  color: #fff5ef;
-
-  box-shadow:
-    0 10px 30px
-    rgba(41,12,8,.25);
-
-  backdrop-filter:
-    blur(10px);
+  color: white;
 
   cursor: pointer;
 
-  transition:
-    transform .3s ease,
-    background .3s ease,
-    opacity .3s ease;
+  box-shadow:
+    0 10px 30px
+    rgba(35,10,8,.25);
 }
 
-.musica-control:hover {
-  transform: scale(1.08);
+.musica-control::before {
+  content: "♪";
 
-  background:
-    rgba(110,48,37,.95);
+  font-size: 25px;
+}
+
+.musica-control.pausada::before {
+  content: "▶";
+
+  font-family: Arial,sans-serif;
+
+  font-size: 13px;
 }
 
 .musica-control.sonando {
   animation:
-    respirarMusica
-    2.4s ease-in-out infinite;
-}
-
-.musica-icono {
-  position: relative;
-
-  width: 22px;
-  height: 22px;
-}
-
-.musica-icono::before {
-  content: "♪";
-
-  position: absolute;
-
-  inset: 0;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  font-family:
-    Georgia,
-    serif;
-
-  font-size: 26px;
-
-  line-height: 1;
-}
-
-.musica-control.pausada
-.musica-icono::before {
-  content: "▶";
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 14px;
-
-  transform:
-    translateX(1px);
-}
-
-@keyframes respirarMusica {
-
-  0%,
-  100% {
-    box-shadow:
-      0 10px 30px
-      rgba(41,12,8,.25);
-
-    transform:
-      scale(1);
-  }
-
-  50% {
-    box-shadow:
-      0 12px 35px
-      rgba(236,190,169,.20);
-
-    transform:
-      scale(1.045);
-  }
-
+    musicaPulso 2.5s
+    ease-in-out infinite;
 }
 
 
-/* =====================================================
+/* =========================================================
    ANIMACIONES
-===================================================== */
+========================================================= */
 
 @keyframes aparecer {
 
@@ -2797,16 +2339,12 @@ select {
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
 }
 
 @keyframes crecerTallo {
-
-  from {
-    stroke-dashoffset: 900;
-  }
 
   to {
     stroke-dashoffset: 0;
@@ -2816,10 +2354,6 @@ select {
 
 @keyframes crecerRama {
 
-  from {
-    stroke-dashoffset: 240;
-  }
-
   to {
     stroke-dashoffset: 0;
   }
@@ -2828,20 +2362,14 @@ select {
 
 @keyframes aparecerHoja {
 
-  0% {
+  from {
     opacity: 0;
-
-    transform:
-      scale(.12)
-      rotate(-12deg);
+    transform: scale(.15);
   }
 
-  100% {
-    opacity: .84;
-
-    transform:
-      scale(1)
-      rotate(0);
+  to {
+    opacity: .82;
+    transform: scale(1);
   }
 
 }
@@ -2849,14 +2377,12 @@ select {
 @keyframes respirarDerecha {
 
   from {
-    transform:
-      rotate(0deg)
-      translateY(0);
+    transform: rotate(0);
   }
 
   to {
     transform:
-      rotate(2deg)
+      rotate(1.5deg)
       translateY(5px);
   }
 
@@ -2865,42 +2391,18 @@ select {
 @keyframes respirarIzquierda {
 
   from {
-    transform:
-      rotate(0deg)
-      translateY(0);
+    transform: rotate(0);
   }
 
   to {
     transform:
-      rotate(-1.8deg)
+      rotate(-1.4deg)
       translateY(-4px);
   }
 
 }
 
-@keyframes respirarScroll {
-
-  from {
-    transform:
-      rotate(-.7deg)
-      translateY(0);
-  }
-
-  to {
-    transform:
-      rotate(.8deg)
-      translateY(4px);
-  }
-
-}
-
 @keyframes flotarFlecha {
-
-  0%,
-  100% {
-    transform:
-      translateY(0);
-  }
 
   50% {
     transform:
@@ -2909,112 +2411,228 @@ select {
 
 }
 
-@keyframes fotoBaja {
+@keyframes musicaPulso {
 
-  from {
-    transform:
-      translateY(0);
-  }
+  50% {
+    transform: scale(1.06);
 
-  to {
-    transform:
-      translateY(15%);
-  }
-
-}
-
-@keyframes fotoSube {
-
-  from {
-    transform:
-      translateY(0);
-  }
-
-  to {
-    transform:
-      translateY(-15%);
+    box-shadow:
+      0 12px 35px
+      rgba(238,200,182,.18);
   }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    MÓVIL
-===================================================== */
+========================================================= */
 
 @media (max-width:700px) {
 
   .portada {
+    height: 100svh;
+    min-height: 100svh;
+
     padding:
-      45px 22px 55px;
+      max(
+        38px,
+        env(safe-area-inset-top)
+      )
+      24px
+      max(
+        34px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+  .contenido {
+    max-width: 420px;
+  }
+
+  .sobrelinea {
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 24px;
   }
 
   .nombres {
+    font-size:
+      clamp(53px,15vw,72px);
+
+    line-height: .93;
+
     letter-spacing: -1px;
   }
 
-  .floral-arriba-derecha {
-    width: 180px;
-    height: 390px;
+  .ampersand {
+    margin:
+      12px 0;
 
-    top: -30px;
-    right: -75px;
+    font-size: .5em;
+  }
+
+  .separador {
+    margin:
+      30px auto 27px;
+  }
+
+  .texto-invitacion {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+  }
+
+  #nombreInvitado {
+    font-size:
+      clamp(27px,8vw,38px);
+  }
+
+  #cupos {
+    font-size: 13px;
+
+    margin-top: 12px;
+  }
+
+  .boton {
+    margin-top: 25px;
+
+    padding:
+      15px 25px;
+  }
+
+  .detalle-inferior {
+    margin-top: 27px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+
+  #error {
+    max-width: 310px;
+
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+
+  /* RAMAS PORTADA MÓVIL */
+
+  .floral-arriba-derecha {
+    width: 150px;
+    height: 355px;
+
+    top: -10px;
+    right: -65px;
+
+    opacity: .72;
   }
 
   .floral-abajo-izquierda {
-    width: 180px;
-    height: 390px;
+    width: 155px;
+    height: 360px;
 
-    bottom: -35px;
-    left: -75px;
+    bottom: -40px;
+    left: -65px;
+
+    opacity: .72;
   }
+
+
+  /* VERSÍCULO */
+
+  .segunda-seccion {
+    min-height: 100svh;
+
+    padding:
+      45px 24px;
+
+    background-position:
+      47% center;
+  }
+
+  .segunda-nombres {
+    margin-bottom: 20px;
+
+    font-size: 9px;
+  }
+
+  .ramita-central {
+    width: 75px;
+    height: 58px;
+
+    margin-bottom: 20px;
+  }
+
+  .versiculo {
+    font-size:
+      clamp(26px,7.6vw,34px);
+
+    line-height: 1.32;
+  }
+
+  .referencia {
+    margin-top: 20px;
+
+    font-size: 8px;
+  }
+
+  .linea-fecha {
+    margin:
+      23px auto;
+  }
+
+  .fecha-boda {
+    font-size: 30px;
+
+    letter-spacing: 6px;
+  }
+
+  .desliza {
+    margin-top: 35px;
+
+    font-size: 7px;
+  }
+
+
+  /* BOTÁNICA */
 
   .scroll-botanical {
     opacity: .55;
   }
 
-  .botanica-contador-izq,
-  .botanica-dress-izq,
-  .botanica-regalos-izq,
-  .botanica-rsvp-izq {
-    width: 155px;
+  .botanica-izq {
+    width: 145px;
     height: 330px;
 
-    left: -72px;
+    left: -70px;
   }
 
-  .botanica-contador-der,
-  .botanica-dress-der,
-  .botanica-regalos-der,
-  .botanica-rsvp-der {
-    width: 145px;
-    height: 315px;
+  .botanica-der {
+    width: 140px;
+    height: 320px;
 
     right: -70px;
   }
 
-  .segunda-seccion {
-    padding:
-      65px 28px;
 
-    background-position:
-      48% center;
-  }
-
-  .versiculo {
-    font-size: 29px;
-  }
-
-  .ramita-central {
-    width: 88px;
-    height: 68px;
-
-    margin-bottom: 27px;
-  }
+  /* CONTADOR */
 
   .tercera-seccion {
+    min-height: 100svh;
+
     padding:
-      70px 20px;
+      55px 20px;
+  }
+
+  .tercera-titulo {
+    font-size: 60px;
   }
 
   .contador {
@@ -3022,99 +2640,119 @@ select {
       repeat(2,1fr);
 
     gap:
-      30px 10px;
+      28px 10px;
 
-    max-width: 360px;
+    max-width: 340px;
 
-    margin-top: 55px;
+    margin-top: 50px;
   }
 
   .contador-item:nth-child(2)::after {
     display: none;
   }
 
+  .contador-numero {
+    font-size: 48px;
+  }
+
+  .contador-separador {
+    margin-top: 42px;
+  }
+
+
+  /* EVENTO */
+
   .evento-seccion {
     min-height: auto;
+  }
+
+  .evento-foto {
+    display: none;
   }
 
   .evento-centro {
     width: 100%;
 
-    min-height: 82vh;
+    min-height: 100svh;
 
     padding:
-      65px 28px 55px;
+      55px 24px;
   }
 
-  .evento-foto {
-    position: relative;
 
-    display: block;
-
-    width: 100%;
-
-    height: 42vh;
-  }
+  /* DRESS */
 
   .dress-seccion {
+    min-height: 100svh;
+
     height: auto;
 
-    min-height: 100vh;
-
     padding:
-      58px 24px;
+      55px 22px;
   }
 
   .dress-opciones {
     grid-template-columns: 1fr;
 
-    gap: 35px;
+    gap: 32px;
   }
 
   .dress-item:first-child::after {
     display: none;
   }
 
-  .regalos-seccion {
-    height: auto;
+  .dress-icono {
+    width: 78px;
+    height: 90px;
+  }
 
-    min-height: 100vh;
+  .reservados {
+    margin-top: 26px;
+  }
+
+
+  /* REGALOS */
+
+  .regalos-seccion {
+    min-height: 100svh;
 
     padding:
-      60px 22px;
+      55px 20px;
   }
 
   .bancos-preview {
     grid-template-columns: 1fr;
 
-    max-width: 420px;
+    max-width: 400px;
   }
 
-  .rsvp-seccion {
-    height: auto;
+  .banco-preview {
+    min-height: auto;
+  }
 
-    min-height: 100vh;
+
+  /* RSVP */
+
+  .rsvp-seccion {
+    min-height: 100svh;
 
     padding:
       55px 20px;
   }
 
   .rsvp-titulo {
-    font-size: 46px;
+    font-size:
+      clamp(40px,12vw,50px);
   }
 
-  .rsvp-panel {
+  .rsvp-panel,
+  .rsvp-resultado {
     padding:
-      24px 18px;
+      22px 18px;
   }
 
   .rsvp-opciones {
     flex-direction: column;
-
-    max-width: 320px;
-
-    margin:
-      14px auto 0;
   }
 
   .rsvp-opcion {
@@ -3125,38 +2763,32 @@ select {
     grid-template-columns: 1fr;
   }
 
+
+  /* MODAL */
+
   .modal-caja {
     padding:
-      42px 22px 30px;
+      42px 20px 30px;
   }
 
   .datos-bancos-grid {
     grid-template-columns: 1fr;
   }
 
-  .musica-control {
-    right: 16px;
-    bottom: 16px;
 
+  /* MÚSICA */
+
+  .musica-control {
     width: 49px;
     height: 49px;
-  }
 
-}
+    right: 15px;
 
-
-/* =====================================================
-   REDUCIR MOVIMIENTO
-===================================================== */
-
-@media (prefers-reduced-motion:reduce) {
-
-  * {
-    animation-duration:
-      .01ms !important;
-
-    animation-iteration-count:
-      1 !important;
+    bottom:
+      calc(
+        15px +
+        env(safe-area-inset-bottom)
+      );
   }
 
 }
@@ -3169,32 +2801,32 @@ select {
 <body>
 
 
-<!-- =====================================================
-     AUDIO
-====================================================== -->
+<!-- =========================================================
+     MÚSICA
+========================================================= -->
 
 <audio
   id="musicaBoda"
-  src="cancion-boda.mp3"
   preload="auto"
   loop
-></audio>
-
+>
+  <source
+    src="cancion-boda.mp3"
+    type="audio/mpeg"
+  >
+</audio>
 
 <button
   class="musica-control"
   id="musicaControl"
   type="button"
   aria-label="Pausar música"
-  title="Pausar música"
->
-  <span class="musica-icono"></span>
-</button>
+></button>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PORTADA
-====================================================== -->
+========================================================= -->
 
 <section
   class="portada"
@@ -3213,16 +2845,10 @@ select {
   <!-- RAMA DERECHA -->
 
   <div
-    class="
-      floral
-      floral-arriba-derecha
-    "
+    class="floral floral-arriba-derecha"
   >
 
-    <svg
-      viewBox="0 0 280 620"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 280 620">
 
       <path
         class="tallo"
@@ -3241,16 +2867,16 @@ select {
       <path class="rama rama-5" d="M124 438 C94 418 74 394 58 365" />
       <path class="rama rama-6" d="M86 522 C111 509 130 489 145 462" />
 
-      <ellipse class="hoja hoja-1" cx="182" cy="88" rx="9" ry="21" transform="rotate(-42 182 88)" />
-      <ellipse class="hoja hoja-2" cx="216" cy="122" rx="10" ry="23" transform="rotate(32 216 122)" />
-      <ellipse class="hoja hoja-3" cx="248" cy="160" rx="9" ry="20" transform="rotate(38 248 160)" />
-      <ellipse class="hoja hoja-4" cx="145" cy="246" rx="11" ry="25" transform="rotate(-48 145 246)" />
-      <ellipse class="hoja hoja-5" cx="213" cy="305" rx="11" ry="24" transform="rotate(40 213 305)" />
-      <ellipse class="hoja hoja-6" cx="178" cy="343" rx="9" ry="21" transform="rotate(32 178 343)" />
-      <ellipse class="hoja hoja-7" cx="79" cy="397" rx="11" ry="25" transform="rotate(-48 79 397)" />
-      <ellipse class="hoja hoja-8" cx="126" cy="447" rx="10" ry="23" transform="rotate(-35 126 447)" />
-      <ellipse class="hoja hoja-9" cx="128" cy="488" rx="10" ry="22" transform="rotate(40 128 488)" />
-      <ellipse class="hoja hoja-10" cx="68" cy="548" rx="9" ry="21" transform="rotate(-38 68 548)" />
+      <ellipse class="hoja hoja-1" cx="182" cy="88" rx="9" ry="21" />
+      <ellipse class="hoja hoja-2" cx="216" cy="122" rx="10" ry="23" />
+      <ellipse class="hoja hoja-3" cx="248" cy="160" rx="9" ry="20" />
+      <ellipse class="hoja hoja-4" cx="145" cy="246" rx="11" ry="25" />
+      <ellipse class="hoja hoja-5" cx="213" cy="305" rx="11" ry="24" />
+      <ellipse class="hoja hoja-6" cx="178" cy="343" rx="9" ry="21" />
+      <ellipse class="hoja hoja-7" cx="79" cy="397" rx="11" ry="25" />
+      <ellipse class="hoja hoja-8" cx="126" cy="447" rx="10" ry="23" />
+      <ellipse class="hoja hoja-9" cx="128" cy="488" rx="10" ry="22" />
+      <ellipse class="hoja hoja-10" cx="68" cy="548" rx="9" ry="21" />
 
     </svg>
 
@@ -3260,16 +2886,10 @@ select {
   <!-- RAMA IZQUIERDA -->
 
   <div
-    class="
-      floral
-      floral-abajo-izquierda
-    "
+    class="floral floral-abajo-izquierda"
   >
 
-    <svg
-      viewBox="0 0 280 620"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 280 620">
 
       <path
         class="tallo"
@@ -3324,6 +2944,7 @@ select {
 
     <div class="separador"></div>
 
+
     <div id="cargando">
       Preparando tu invitación...
     </div>
@@ -3369,9 +2990,9 @@ select {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      VERSÍCULO
-====================================================== -->
+========================================================= -->
 
 <section
   class="segunda-seccion"
@@ -3385,76 +3006,73 @@ select {
     </div>
 
 
-    <!-- RAMITA COMPLETA -->
-
     <div class="ramita-central">
 
-      <svg
-        viewBox="0 0 120 90"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 120 90">
 
         <path
-          class="rc-tallo"
           d="
           M60 84
           C58 69 56 54 57 38
           C58 29 59 21 59 12
           "
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
         />
 
         <path
-          class="rc-rama"
-          d="
-          M57 53
-          C47 49 38 42 30 32
-          "
+          d="M57 53 C47 49 38 42 30 32"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
         />
 
         <path
-          class="rc-rama"
-          d="
-          M58 40
-          C70 36 80 29 90 18
-          "
+          d="M58 40 C70 36 80 29 90 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
         />
 
         <path
-          class="rc-rama"
-          d="
-          M59 28
-          C52 24 47 18 44 12
-          "
+          d="M59 28 C52 24 47 18 44 12"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
         />
 
         <path
-          class="rc-hoja"
           d="
           M32 34
           C22 31 17 23 18 15
-          C27 16 34 23 32 34
-          Z
+          C27 16 34 23 32 34 Z
           "
+          fill="currentColor"
+          stroke="none"
+          opacity=".78"
         />
 
         <path
-          class="rc-hoja"
           d="
           M85 23
           C90 13 99 8 106 11
-          C104 20 97 26 85 23
-          Z
+          C104 20 97 26 85 23 Z
           "
+          fill="currentColor"
+          stroke="none"
+          opacity=".78"
         />
 
         <path
-          class="rc-hoja"
           d="
           M47 17
           C40 14 36 8 38 3
-          C46 4 51 9 47 17
-          Z
+          C46 4 51 9 47 17 Z
           "
+          fill="currentColor"
+          stroke="none"
+          opacity=".72"
         />
 
       </svg>
@@ -3493,25 +3111,17 @@ select {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     BOTÁNICA REUTILIZABLE
      CONTADOR
-====================================================== -->
+========================================================= -->
 
 <section
-  class="
-    tercera-seccion
-    scroll-section
-  "
+  class="tercera-seccion scroll-section"
   id="cuentaRegresiva"
 >
 
-
-  <div
-    class="
-      scroll-botanical
-      botanica-contador-izq
-    "
-  >
+  <div class="scroll-botanical botanica-izq">
 
     <svg viewBox="0 0 260 540">
 
@@ -3531,44 +3141,36 @@ select {
       <path class="scroll-rama" d="M161 159 C187 145 205 123 216 99" />
 
       <ellipse class="scroll-hoja" data-start=".18" cx="28" cy="382" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".28" cx="119" cy="301" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".39" cx="82" cy="213" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".50" cx="195" cy="131" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".62" cx="177" cy="111" rx="8" ry="18" />
-      <ellipse class="scroll-hoja" data-start=".72" cx="218" cy="59" rx="9" ry="20" />
+      <ellipse class="scroll-hoja" data-start=".32" cx="119" cy="301" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".46" cx="82" cy="213" rx="10" ry="23" />
+      <ellipse class="scroll-hoja" data-start=".62" cx="195" cy="131" rx="10" ry="22" />
 
     </svg>
 
   </div>
 
 
-  <div
-    class="
-      scroll-botanical
-      botanica-contador-der
-    "
-  >
+  <div class="scroll-botanical botanica-der">
 
-    <svg viewBox="0 0 250 500">
+    <svg viewBox="0 0 250 520">
 
       <path
         class="scroll-tallo"
         d="
-        M235 0
-        C218 58 200 115 185 169
-        C164 237 139 298 111 357
-        C87 407 61 454 25 500
+        M238 0
+        C220 62 203 118 186 174
+        C164 241 142 306 114 365
+        C88 418 60 469 22 520
         "
       />
 
-      <path class="scroll-rama" d="M202 113 C176 95 160 76 150 53" />
-      <path class="scroll-rama" d="M171 216 C198 199 216 179 228 154" />
-      <path class="scroll-rama" d="M128 324 C103 306 87 286 76 262" />
+      <path class="scroll-rama" d="M204 112 C179 96 160 76 151 52" />
+      <path class="scroll-rama" d="M171 228 C198 210 217 189 228 162" />
+      <path class="scroll-rama" d="M116 364 C90 346 72 324 60 297" />
 
-      <ellipse class="scroll-hoja" data-start=".18" cx="167" cy="82" rx="9" ry="21" />
-      <ellipse class="scroll-hoja" data-start=".34" cx="207" cy="181" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".50" cx="95" cy="290" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".65" cx="73" cy="403" rx="9" ry="21" />
+      <ellipse class="scroll-hoja" data-start=".20" cx="168" cy="80" rx="9" ry="21" />
+      <ellipse class="scroll-hoja" data-start=".40" cx="205" cy="193" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".60" cx="79" cy="329" rx="10" ry="23" />
 
     </svg>
 
@@ -3593,66 +3195,23 @@ select {
     <div class="contador">
 
       <div class="contador-item">
-
-        <span
-          class="contador-numero"
-          id="dias"
-        >
-          00
-        </span>
-
-        <span class="contador-label">
-          Días
-        </span>
-
+        <span class="contador-numero" id="dias">00</span>
+        <span class="contador-label">Días</span>
       </div>
 
-
       <div class="contador-item">
-
-        <span
-          class="contador-numero"
-          id="horas"
-        >
-          00
-        </span>
-
-        <span class="contador-label">
-          Horas
-        </span>
-
+        <span class="contador-numero" id="horas">00</span>
+        <span class="contador-label">Horas</span>
       </div>
 
-
       <div class="contador-item">
-
-        <span
-          class="contador-numero"
-          id="minutos"
-        >
-          00
-        </span>
-
-        <span class="contador-label">
-          Minutos
-        </span>
-
+        <span class="contador-numero" id="minutos">00</span>
+        <span class="contador-label">Minutos</span>
       </div>
 
-
       <div class="contador-item">
-
-        <span
-          class="contador-numero"
-          id="segundos"
-        >
-          00
-        </span>
-
-        <span class="contador-label">
-          Segundos
-        </span>
-
+        <span class="contador-numero" id="segundos">00</span>
+        <span class="contador-label">Segundos</span>
       </div>
 
     </div>
@@ -3673,21 +3232,16 @@ select {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      EVENTO
-====================================================== -->
+========================================================= -->
 
 <section
   class="evento-seccion"
   id="eventoSeccion"
 >
 
-  <div
-    class="
-      evento-foto
-      evento-foto-izquierda
-    "
-  >
+  <div class="evento-foto evento-foto-izquierda">
 
     <img
       src="F1.jpeg"
@@ -3696,13 +3250,7 @@ select {
 
   </div>
 
-
-  <div
-    class="
-      evento-foto
-      evento-foto-derecha
-    "
-  >
+  <div class="evento-foto evento-foto-derecha">
 
     <img
       src="F2.jpeg"
@@ -3747,7 +3295,7 @@ select {
     </div>
 
     <div class="evento-hora-label">
-      Hora de la ceremonia
+      HORA DE LA CEREMONIA
     </div>
 
     <div class="evento-direccion">
@@ -3764,7 +3312,7 @@ select {
       class="evento-boton"
       href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
     >
       ◇ &nbsp; CÓMO LLEGAR
     </a>
@@ -3778,80 +3326,49 @@ select {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      DRESS CODE
-====================================================== -->
+========================================================= -->
 
 <section
-  class="
-    dress-seccion
-    scroll-section
-  "
+  class="dress-seccion scroll-section"
   id="dressSeccion"
 >
 
+  <div class="scroll-botanical botanica-izq">
 
-  <div
-    class="
-      scroll-botanical
-      botanica-dress-izq
-    "
-  >
-
-    <svg viewBox="0 0 250 500">
+    <svg viewBox="0 0 260 540">
 
       <path
         class="scroll-tallo"
-        d="
-        M18 500
-        C38 440 61 382 82 320
-        C105 255 130 197 153 144
-        C177 88 199 45 225 5
-        "
+        d="M20 540 C45 450 65 370 90 290 C120 205 150 120 220 20"
       />
 
-      <path class="scroll-rama" d="M62 382 C35 366 20 345 13 321" />
-      <path class="scroll-rama" d="M99 273 C128 256 148 235 159 207" />
-      <path class="scroll-rama" d="M143 167 C114 149 96 129 83 102" />
+      <path class="scroll-rama" d="M72 355 C45 338 30 312 24 285" />
+      <path class="scroll-rama" d="M125 195 C150 180 170 155 180 125" />
 
-      <ellipse class="scroll-hoja" data-start=".18" cx="28" cy="348" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".31" cx="136" cy="239" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".45" cx="101" cy="132" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".59" cx="181" cy="94" rx="9" ry="20" />
-      <ellipse class="scroll-hoja" data-start=".72" cx="211" cy="40" rx="8" ry="18" />
+      <ellipse class="scroll-hoja" data-start=".23" cx="28" cy="278" rx="10" ry="23" />
+      <ellipse class="scroll-hoja" data-start=".52" cx="182" cy="118" rx="10" ry="22" />
 
     </svg>
 
   </div>
 
 
-  <div
-    class="
-      scroll-botanical
-      botanica-dress-der
-    "
-  >
+  <div class="scroll-botanical botanica-der">
 
-    <svg viewBox="0 0 250 500">
+    <svg viewBox="0 0 250 520">
 
       <path
         class="scroll-tallo"
-        d="
-        M233 0
-        C215 62 198 119 180 174
-        C159 239 138 301 109 361
-        C84 412 58 459 21 500
-        "
+        d="M238 0 C220 80 200 155 170 235 C140 315 100 410 22 520"
       />
 
-      <path class="scroll-rama" d="M201 105 C176 89 158 69 149 46" />
-      <path class="scroll-rama" d="M164 230 C192 213 211 192 223 166" />
-      <path class="scroll-rama" d="M112 358 C87 339 70 316 60 290" />
+      <path class="scroll-rama" d="M190 175 C215 155 225 132 230 105" />
+      <path class="scroll-rama" d="M95 395 C72 375 60 352 55 325" />
 
-      <ellipse class="scroll-hoja" data-start=".18" cx="167" cy="76" rx="9" ry="20" />
-      <ellipse class="scroll-hoja" data-start=".34" cx="202" cy="196" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".51" cx="79" cy="323" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".67" cx="58" cy="415" rx="9" ry="20" />
+      <ellipse class="scroll-hoja" data-start=".3" cx="225" cy="105" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".62" cx="58" cy="320" rx="10" ry="23" />
 
     </svg>
 
@@ -3861,7 +3378,7 @@ select {
   <div class="dress-contenido">
 
     <div class="dress-etiqueta">
-      Código de vestimenta
+      CÓDIGO DE VESTIMENTA
     </div>
 
     <h2 class="dress-titulo">
@@ -3877,7 +3394,6 @@ select {
 
     <div class="dress-opciones">
 
-
       <div class="dress-item">
 
         <div class="dress-icono">
@@ -3888,8 +3404,6 @@ select {
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
             >
 
               <path d="M42 15 L60 30 L78 15" />
@@ -3904,7 +3418,7 @@ select {
         </div>
 
         <div class="dress-genero">
-          Caballeros
+          CABALLEROS
         </div>
 
         <div class="dress-descripcion">
@@ -3924,38 +3438,15 @@ select {
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
             >
 
-              <path
-                d="
-                M46 12
-                C47 25 50 35 60 40
-                C70 35 73 25 74 12
-                "
-              />
+              <path d="M46 12 C47 25 50 35 60 40 C70 35 73 25 74 12" />
 
-              <path
-                d="
-                M43 60
-                C35 83 25 110 15 137
-                "
-              />
+              <path d="M43 60 C35 83 25 110 15 137" />
 
-              <path
-                d="
-                M77 60
-                C85 83 95 110 105 137
-                "
-              />
+              <path d="M77 60 C85 83 95 110 105 137" />
 
-              <path
-                d="
-                M15 137
-                C40 143 80 143 105 137
-                "
-              />
+              <path d="M15 137 C40 143 80 143 105 137" />
 
             </g>
 
@@ -3964,7 +3455,7 @@ select {
         </div>
 
         <div class="dress-genero">
-          Damas
+          DAMAS
         </div>
 
         <div class="dress-descripcion">
@@ -3979,31 +3470,16 @@ select {
     <div class="reservados">
 
       <div class="reservados-titulo">
-        Colores reservados para los novios
+        COLORES RESERVADOS PARA LOS NOVIOS
       </div>
 
       <div class="paleta-reservada">
 
-        <div
-          class="
-            color-reservado
-            color-blanco
-          "
-        ></div>
+        <div class="color-reservado color-blanco"></div>
 
-        <div
-          class="
-            color-reservado
-            color-marfil
-          "
-        ></div>
+        <div class="color-reservado color-marfil"></div>
 
-        <div
-          class="
-            color-reservado
-            color-beige
-          "
-        ></div>
+        <div class="color-reservado color-beige"></div>
 
       </div>
 
@@ -4026,81 +3502,49 @@ select {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      REGALOS
-====================================================== -->
+========================================================= -->
 
 <section
-  class="
-    regalos-seccion
-    scroll-section
-  "
+  class="regalos-seccion scroll-section"
   id="regalosSeccion"
 >
 
-
-  <div
-    class="
-      scroll-botanical
-      botanica-regalos-izq
-    "
-  >
+  <div class="scroll-botanical botanica-izq">
 
     <svg viewBox="0 0 260 540">
 
       <path
         class="scroll-tallo"
-        d="
-        M18 540
-        C38 474 58 420 79 362
-        C101 300 126 240 151 182
-        C176 123 199 70 229 8
-        "
+        d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10"
       />
 
-      <path class="scroll-rama" d="M57 424 C31 406 17 383 10 357" />
-      <path class="scroll-rama" d="M94 325 C121 308 140 285 152 258" />
-      <path class="scroll-rama" d="M128 239 C101 222 81 199 69 171" />
-      <path class="scroll-rama" d="M174 127 C198 113 215 93 225 70" />
+      <path class="scroll-rama" d="M70 360 C44 345 28 320 20 292" />
+      <path class="scroll-rama" d="M145 165 C170 150 190 125 200 98" />
 
-      <ellipse class="scroll-hoja" data-start=".16" cx="28" cy="393" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".29" cx="123" cy="292" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".42" cx="87" cy="202" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".55" cx="199" cy="101" rx="9" ry="21" />
-      <ellipse class="scroll-hoja" data-start=".69" cx="219" cy="50" rx="8" ry="18" />
+      <ellipse class="scroll-hoja" data-start=".22" cx="26" cy="286" rx="10" ry="23" />
+      <ellipse class="scroll-hoja" data-start=".55" cx="202" cy="92" rx="10" ry="22" />
 
     </svg>
 
   </div>
 
 
-  <div
-    class="
-      scroll-botanical
-      botanica-regalos-der
-    "
-  >
+  <div class="scroll-botanical botanica-der">
 
-    <svg viewBox="0 0 255 520">
+    <svg viewBox="0 0 250 520">
 
       <path
         class="scroll-tallo"
-        d="
-        M240 0
-        C219 63 203 119 187 175
-        C165 245 143 307 114 366
-        C89 419 60 469 24 520
-        "
+        d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520"
       />
 
-      <path class="scroll-rama" d="M205 115 C178 97 162 77 152 53" />
-      <path class="scroll-rama" d="M172 229 C199 211 216 190 228 163" />
-      <path class="scroll-rama" d="M116 364 C90 347 73 324 61 297" />
+      <path class="scroll-rama" d="M185 185 C210 167 225 145 230 115" />
+      <path class="scroll-rama" d="M92 405 C68 385 55 360 52 330" />
 
-      <ellipse class="scroll-hoja" data-start=".18" cx="170" cy="82" rx="9" ry="21" />
-      <ellipse class="scroll-hoja" data-start=".34" cx="205" cy="194" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".51" cx="80" cy="329" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".67" cx="59" cy="424" rx="9" ry="21" />
+      <ellipse class="scroll-hoja" data-start=".3" cx="228" cy="110" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".65" cx="55" cy="325" rx="10" ry="23" />
 
     </svg>
 
@@ -4114,7 +3558,7 @@ select {
     </div>
 
     <div class="regalos-etiqueta">
-      Un detalle para nosotros
+      UN DETALLE PARA NOSOTROS
     </div>
 
     <h2 class="regalos-titulo">
@@ -4123,8 +3567,7 @@ select {
 
     <div class="regalos-texto">
 
-      Si deseas regalarnos algo más
-      que tu hermosa presencia,
+      Si deseas regalarnos algo más que tu hermosa presencia,
       hemos preparado estas opciones para ti.
 
     </div>
@@ -4172,14 +3615,14 @@ select {
 
     <button
       class="regalos-boton"
-      type="button"
       id="abrirBancos"
+      type="button"
     >
       VER DATOS PARA TRANSFERENCIA
     </button>
 
     <div class="regalos-nota">
-      Gracias por acompañarnos en este nuevo capítulo
+      GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO
     </div>
 
   </div>
@@ -4187,81 +3630,49 @@ select {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      RSVP
-====================================================== -->
+========================================================= -->
 
 <section
-  class="
-    rsvp-seccion
-    scroll-section
-  "
+  class="rsvp-seccion scroll-section"
   id="rsvpSeccion"
 >
 
+  <div class="scroll-botanical botanica-izq">
 
-  <div
-    class="
-      scroll-botanical
-      botanica-rsvp-izq
-    "
-  >
-
-    <svg viewBox="0 0 255 535">
+    <svg viewBox="0 0 260 540">
 
       <path
         class="scroll-tallo"
-        d="
-        M18 535
-        C38 470 59 414 78 358
-        C102 292 127 235 151 178
-        C176 120 199 66 229 7
-        "
+        d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10"
       />
 
-      <path class="scroll-rama" d="M58 416 C31 399 17 378 10 350" />
-      <path class="scroll-rama" d="M95 320 C123 304 142 282 153 255" />
-      <path class="scroll-rama" d="M130 232 C102 214 83 192 70 164" />
-      <path class="scroll-rama" d="M173 129 C199 114 216 94 226 70" />
+      <path class="scroll-rama" d="M70 360 C44 345 28 320 20 292" />
+      <path class="scroll-rama" d="M145 165 C170 150 190 125 200 98" />
 
-      <ellipse class="scroll-hoja" data-start=".17" cx="28" cy="386" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".31" cx="124" cy="290" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".44" cx="88" cy="196" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".57" cx="198" cy="102" rx="9" ry="21" />
-      <ellipse class="scroll-hoja" data-start=".71" cx="217" cy="51" rx="8" ry="18" />
+      <ellipse class="scroll-hoja" data-start=".22" cx="26" cy="286" rx="10" ry="23" />
+      <ellipse class="scroll-hoja" data-start=".55" cx="202" cy="92" rx="10" ry="22" />
 
     </svg>
 
   </div>
 
 
-  <div
-    class="
-      scroll-botanical
-      botanica-rsvp-der
-    "
-  >
+  <div class="scroll-botanical botanica-der">
 
     <svg viewBox="0 0 250 520">
 
       <path
         class="scroll-tallo"
-        d="
-        M238 0
-        C220 62 203 118 186 174
-        C164 241 142 306 114 365
-        C88 418 60 469 22 520
-        "
+        d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520"
       />
 
-      <path class="scroll-rama" d="M204 112 C179 96 160 76 151 52" />
-      <path class="scroll-rama" d="M171 228 C198 210 217 189 228 162" />
-      <path class="scroll-rama" d="M116 364 C90 346 72 324 60 297" />
+      <path class="scroll-rama" d="M185 185 C210 167 225 145 230 115" />
+      <path class="scroll-rama" d="M92 405 C68 385 55 360 52 330" />
 
-      <ellipse class="scroll-hoja" data-start=".19" cx="168" cy="80" rx="9" ry="21" />
-      <ellipse class="scroll-hoja" data-start=".35" cx="205" cy="193" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".52" cx="79" cy="329" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".68" cx="57" cy="422" rx="9" ry="20" />
+      <ellipse class="scroll-hoja" data-start=".3" cx="228" cy="110" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".65" cx="55" cy="325" rx="10" ry="23" />
 
     </svg>
 
@@ -4275,7 +3686,7 @@ select {
     </div>
 
     <div class="rsvp-etiqueta">
-      Nuestro gran día
+      NUESTRO GRAN DÍA
     </div>
 
     <h2 class="rsvp-titulo">
@@ -4295,7 +3706,7 @@ select {
     >
 
       <div class="rsvp-invitado-label">
-        Invitación para
+        INVITACIÓN PARA
       </div>
 
       <div
@@ -4316,19 +3727,19 @@ select {
       <div class="rsvp-opciones">
 
         <button
-          type="button"
           class="rsvp-opcion"
           id="rsvpSi"
+          type="button"
         >
-          Sí, asistiré
+          SÍ, ASISTIRÉ
         </button>
 
         <button
-          type="button"
           class="rsvp-opcion"
           id="rsvpNo"
+          type="button"
         >
-          No podré asistir
+          NO PODRÉ ASISTIR
         </button>
 
       </div>
@@ -4340,7 +3751,7 @@ select {
       >
 
         <div class="asistentes-label">
-          ¿Cuántas personas asistirán?
+          ¿CUÁNTAS PERSONAS ASISTIRÁN?
         </div>
 
         <div
@@ -4364,8 +3775,8 @@ select {
 
       <button
         class="rsvp-confirmar"
-        type="button"
         id="rsvpConfirmar"
+        type="button"
       >
         CONFIRMAR ASISTENCIA
       </button>
@@ -4410,9 +3821,9 @@ select {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      MODAL BANCOS
-====================================================== -->
+========================================================= -->
 
 <div
   class="modal-bancos"
@@ -4429,19 +3840,14 @@ select {
       ×
     </button>
 
-    <div class="modal-icono">
-      🔒
-    </div>
-
     <h3 class="modal-titulo">
       Datos para transferencia
     </h3>
 
     <div class="modal-texto">
 
-      Por seguridad, ingresa el código
-      proporcionado por los novios
-      para consultar los datos bancarios.
+      Por seguridad, ingresa el código proporcionado
+      por los novios.
 
     </div>
 
@@ -4493,23 +3899,36 @@ select {
 
 <script>
 
-
-/* =====================================================
+/* =========================================================
    CONFIGURACIÓN
-===================================================== */
+========================================================= */
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
+"https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
 
 
 const parametros =
-  new URLSearchParams(
-    window.location.search
-  );
+new URLSearchParams(
+  window.location.search
+);
 
+
+/*
+  IMPORTANTE:
+  Permitimos ambas formas:
+
+  ?i=CYA022
+  ?codigo=CYA022
+*/
 
 const codigo =
-  parametros.get("i");
+String(
+  parametros.get("i") ||
+  parametros.get("codigo") ||
+  ""
+)
+.trim()
+.toUpperCase();
 
 
 let invitadoActual = null;
@@ -4518,110 +3937,99 @@ let respuestaRSVP = "";
 
 let cantidadAsistentes = 1;
 
+let invitadoCargado = false;
 
-/* =====================================================
+
+/* =========================================================
    MÚSICA
-===================================================== */
+========================================================= */
 
 const musicaBoda =
-  document.getElementById(
-    "musicaBoda"
-  );
-
+document.getElementById(
+  "musicaBoda"
+);
 
 const musicaControl =
-  document.getElementById(
-    "musicaControl"
+document.getElementById(
+  "musicaControl"
+);
+
+
+function mostrarMusicaSonando() {
+
+  musicaControl.style.display =
+  "flex";
+
+  musicaControl.classList.remove(
+    "pausada"
   );
 
+  musicaControl.classList.add(
+    "sonando"
+  );
 
-let musicaIniciada =
-  false;
+}
+
+
+function mostrarMusicaPausada() {
+
+  musicaControl.style.display =
+  "flex";
+
+  musicaControl.classList.remove(
+    "sonando"
+  );
+
+  musicaControl.classList.add(
+    "pausada"
+  );
+
+}
 
 
 function iniciarMusica() {
 
-  if (
-    musicaIniciada &&
-    !musicaBoda.paused
-  ) {
-    return;
-  }
-
-
   musicaBoda.volume =
-    .55;
+  .55;
+
+  musicaBoda.loop =
+  true;
 
 
-  const promesa =
-    musicaBoda.play();
+  /*
+    play() se ejecuta directamente
+    desde el clic de ABRIR INVITACIÓN.
+  */
+
+  const intento =
+  musicaBoda.play();
 
 
   if (
-    promesa !== undefined
+    intento &&
+    typeof intento.then === "function"
   ) {
 
-    promesa
-      .then(
-        function () {
+    intento
+    .then(
+      function () {
 
-          musicaIniciada =
-            true;
+        mostrarMusicaSonando();
 
+      }
+    )
+    .catch(
+      function (error) {
 
-          musicaControl.style.display =
-            "flex";
+        console.log(
+          "Audio bloqueado:",
+          error
+        );
 
+        mostrarMusicaPausada();
 
-          musicaControl
-            .classList
-            .add(
-              "sonando"
-            );
-
-
-          musicaControl
-            .classList
-            .remove(
-              "pausada"
-            );
-
-
-          musicaControl.setAttribute(
-            "aria-label",
-            "Pausar música"
-          );
-
-
-          musicaControl.title =
-            "Pausar música";
-
-        }
-      )
-      .catch(
-        function () {
-
-          /*
-             Si un navegador excepcionalmente bloquea
-             el audio, mostramos igualmente el control.
-          */
-
-          musicaControl.style.display =
-            "flex";
-
-
-          musicaControl
-            .classList
-            .add(
-              "pausada"
-            );
-
-
-          musicaControl.title =
-            "Reproducir música";
-
-        }
-      );
+      }
+    );
 
   }
 
@@ -4637,67 +4045,27 @@ musicaControl.addEventListener(
     ) {
 
       musicaBoda
-        .play()
-        .then(
-          function () {
+      .play()
+      .then(
+        function () {
 
-            musicaIniciada =
-              true;
+          mostrarMusicaSonando();
 
+        }
+      )
+      .catch(
+        function () {
 
-            musicaControl
-              .classList
-              .remove(
-                "pausada"
-              );
+          mostrarMusicaPausada();
 
-
-            musicaControl
-              .classList
-              .add(
-                "sonando"
-              );
-
-
-            musicaControl.setAttribute(
-              "aria-label",
-              "Pausar música"
-            );
-
-
-            musicaControl.title =
-              "Pausar música";
-
-          }
-        );
+        }
+      );
 
     } else {
 
       musicaBoda.pause();
 
-
-      musicaControl
-        .classList
-        .add(
-          "pausada"
-        );
-
-
-      musicaControl
-        .classList
-        .remove(
-          "sonando"
-        );
-
-
-      musicaControl.setAttribute(
-        "aria-label",
-        "Reproducir música"
-      );
-
-
-      musicaControl.title =
-        "Reproducir música";
+      mostrarMusicaPausada();
 
     }
 
@@ -4705,408 +4073,357 @@ musicaControl.addEventListener(
 );
 
 
-/* =====================================================
-   BOTÁNICA SCROLL
-===================================================== */
+/* =========================================================
+   CARGA ROBUSTA DEL INVITADO
+========================================================= */
 
-function prepararBotanicasScroll() {
+/*
+  Esta es la parte que corrige el problema móvil.
 
-  const botanicas =
-    document.querySelectorAll(
-      ".scroll-botanical"
-    );
-
-
-  botanicas.forEach(
-    function (botanica) {
-
-      const caminos =
-        botanica.querySelectorAll(
-          ".scroll-tallo, .scroll-rama"
-        );
+  Ya no usamos un único callback fijo.
+  Cada intento crea un callback global único.
+*/
 
 
-      caminos.forEach(
-        function (camino) {
-
-          const longitud =
-            camino.getTotalLength();
-
-
-          camino.dataset.longitud =
-            longitud;
-
-
-          camino.style.strokeDasharray =
-            longitud;
-
-
-          camino.style.strokeDashoffset =
-            longitud;
-
-        }
-      );
-
-
-      const hojas =
-        botanica.querySelectorAll(
-          ".scroll-hoja"
-        );
-
-
-      hojas.forEach(
-        function (hoja) {
-
-          hoja.style.opacity =
-            "0";
-
-
-          hoja.style.transform =
-            "scale(.05)";
-
-        }
-      );
-
-    }
-  );
-
-}
-
-
-function obtenerProgresoSeccion(
-  seccion
+function consultaJSONP(
+  url,
+  callbackNombre,
+  timeoutMs
 ) {
 
-  const rect =
-    seccion.getBoundingClientRect();
+  return new Promise(
+    function (
+      resolve,
+      reject
+    ) {
 
-
-  const viewport =
-    window.innerHeight;
-
-
-  const inicio =
-    viewport * .92;
-
-
-  const final =
-    viewport * .12;
-
-
-  let progreso =
-    (
-      inicio -
-      rect.top
-    ) /
-    (
-      inicio -
-      final
-    );
-
-
-  progreso =
-    Math.max(
-      0,
-      Math.min(
-        1,
-        progreso
-      )
-    );
-
-
-  return progreso;
-
-}
-
-
-function actualizarBotanicasScroll() {
-
-  const secciones =
-    document.querySelectorAll(
-      ".scroll-section"
-    );
-
-
-  secciones.forEach(
-    function (seccion) {
-
-      if (
-        getComputedStyle(seccion)
-          .display === "none"
-      ) {
-        return;
-      }
-
-
-      const progreso =
-        obtenerProgresoSeccion(
-          seccion
-        );
-
-
-      const botanicas =
-        seccion.querySelectorAll(
-          ".scroll-botanical"
-        );
-
-
-      botanicas.forEach(
-        function (botanica) {
-
-          const tallos =
-            botanica.querySelectorAll(
-              ".scroll-tallo"
-            );
-
-
-          tallos.forEach(
-            function (tallo) {
-
-              const longitud =
-                Number(
-                  tallo.dataset.longitud
-                );
-
-
-              tallo.style.strokeDashoffset =
-                longitud *
-                (
-                  1 -
-                  progreso
-                );
-
-            }
-          );
-
-
-          const ramas =
-            botanica.querySelectorAll(
-              ".scroll-rama"
-            );
-
-
-          ramas.forEach(
-            function (
-              rama,
-              indice
-            ) {
-
-              const longitud =
-                Number(
-                  rama.dataset.longitud
-                );
-
-
-              const comienzo =
-                .13 +
-                (
-                  indice *
-                  .10
-                );
-
-
-              const progresoRama =
-                Math.max(
-                  0,
-                  Math.min(
-                    1,
-                    (
-                      progreso -
-                      comienzo
-                    ) /
-                    .36
-                  )
-                );
-
-
-              rama.style.strokeDashoffset =
-                longitud *
-                (
-                  1 -
-                  progresoRama
-                );
-
-            }
-          );
-
-
-          const hojas =
-            botanica.querySelectorAll(
-              ".scroll-hoja"
-            );
-
-
-          hojas.forEach(
-            function (hoja) {
-
-              const inicioHoja =
-                Number(
-                  hoja.dataset.start ||
-                  .3
-                );
-
-
-              const progresoHoja =
-                Math.max(
-                  0,
-                  Math.min(
-                    1,
-                    (
-                      progreso -
-                      inicioHoja
-                    ) /
-                    .16
-                  )
-                );
-
-
-              hoja.style.opacity =
-                progresoHoja *
-                .88;
-
-
-              hoja.style.transform =
-                "scale(" +
-                (
-                  .05 +
-                  progresoHoja * .95
-                ) +
-                ")";
-
-            }
-          );
-
-
-          if (
-            progreso >=
-            .99
-          ) {
-
-            botanica
-              .classList
-              .add(
-                "terminada"
-              );
-
-          } else {
-
-            botanica
-              .classList
-              .remove(
-                "terminada"
-              );
-
-          }
-
-        }
+      const script =
+      document.createElement(
+        "script"
       );
 
-    }
-  );
 
-}
-
-
-let scrollPendiente =
-  false;
+      let terminado =
+      false;
 
 
-window.addEventListener(
-  "scroll",
-  function () {
+      const limpiar =
+      function () {
 
-    if (
-      scrollPendiente
-    ) {
-      return;
-    }
+        if (
+          script.parentNode
+        ) {
+
+          script.parentNode
+          .removeChild(
+            script
+          );
+
+        }
 
 
-    scrollPendiente =
+        try {
+
+          delete window[
+            callbackNombre
+          ];
+
+        } catch (e) {
+
+          window[
+            callbackNombre
+          ] = undefined;
+
+        }
+
+      };
+
+
+      const temporizador =
+      setTimeout(
+        function () {
+
+          if (
+            terminado
+          ) {
+            return;
+          }
+
+          terminado =
+          true;
+
+          limpiar();
+
+          reject(
+            new Error(
+              "Tiempo de espera agotado"
+            )
+          );
+
+        },
+        timeoutMs || 9000
+      );
+
+
+      window[
+        callbackNombre
+      ] =
+      function (
+        datos
+      ) {
+
+        if (
+          terminado
+        ) {
+          return;
+        }
+
+
+        terminado =
+        true;
+
+
+        clearTimeout(
+          temporizador
+        );
+
+
+        limpiar();
+
+
+        resolve(
+          datos
+        );
+
+      };
+
+
+      script.onerror =
+      function () {
+
+        if (
+          terminado
+        ) {
+          return;
+        }
+
+
+        terminado =
+        true;
+
+
+        clearTimeout(
+          temporizador
+        );
+
+
+        limpiar();
+
+
+        reject(
+          new Error(
+            "Error al cargar Apps Script"
+          )
+        );
+
+      };
+
+
+      script.src =
+      url;
+
+
+      script.async =
       true;
 
 
-    requestAnimationFrame(
-      function () {
+      document.body
+      .appendChild(
+        script
+      );
 
-        actualizarBotanicasScroll();
+    }
+  );
 
-        scrollPendiente =
-          false;
-
-      }
-    );
-
-  },
-  {
-    passive: true
-  }
-);
+}
 
 
-window.addEventListener(
-  "resize",
-  actualizarBotanicasScroll
-);
-
-
-/* =====================================================
+/* =========================================================
    CARGAR INVITADO
-===================================================== */
+========================================================= */
 
-function cargarInvitado() {
+async function cargarInvitado() {
 
   if (
     !codigo
   ) {
 
-    mostrarError();
+    mostrarError(
+      "No encontramos un código de invitación en este enlace."
+    );
 
     return;
 
   }
 
 
-  const script =
-    document.createElement(
-      "script"
+  /*
+    INTENTO 1
+
+    Formato nuevo con accion=invitado
+  */
+
+  try {
+
+    const callback1 =
+    "bodaInvitado_" +
+    Date.now() +
+    "_" +
+    Math.floor(
+      Math.random() *
+      100000
     );
 
 
-  script.src =
+    const url1 =
     API_URL +
     "?accion=invitado" +
     "&codigo=" +
     encodeURIComponent(
       codigo
     ) +
-    "&callback=recibirInvitado" +
+    "&callback=" +
+    encodeURIComponent(
+      callback1
+    ) +
     "&t=" +
     Date.now();
 
 
-  script.onerror =
-    function () {
+    const datos1 =
+    await consultaJSONP(
+      url1,
+      callback1,
+      8000
+    );
 
-      mostrarError();
 
-    };
+    if (
+      datos1 &&
+      datos1.ok
+    ) {
+
+      recibirInvitado(
+        datos1
+      );
+
+      return;
+
+    }
+
+  } catch (error) {
+
+    console.log(
+      "Intento 1 falló:",
+      error
+    );
+
+  }
 
 
-  document.body.appendChild(
-    script
-  );
+  /*
+    INTENTO 2
+
+    Compatibilidad con el Apps Script
+    original que recibía solo codigo.
+  */
+
+  try {
+
+    const callback2 =
+    "bodaInvitadoFallback_" +
+    Date.now() +
+    "_" +
+    Math.floor(
+      Math.random() *
+      100000
+    );
+
+
+    const url2 =
+    API_URL +
+    "?codigo=" +
+    encodeURIComponent(
+      codigo
+    ) +
+    "&callback=" +
+    encodeURIComponent(
+      callback2
+    ) +
+    "&t=" +
+    Date.now();
+
+
+    const datos2 =
+    await consultaJSONP(
+      url2,
+      callback2,
+      8000
+    );
+
+
+    if (
+      datos2 &&
+      datos2.ok
+    ) {
+
+      recibirInvitado(
+        datos2
+      );
+
+      return;
+
+    }
+
+
+    mostrarError(
+      datos2 &&
+      datos2.mensaje
+      ? datos2.mensaje
+      : "Invitación no encontrada."
+    );
+
+  } catch (error) {
+
+    console.log(
+      "Intento 2 falló:",
+      error
+    );
+
+
+    mostrarError(
+      "No pudimos cargar tu invitación. Intenta recargar la página."
+    );
+
+  }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    RECIBIR INVITADO
-===================================================== */
+========================================================= */
 
 function recibirInvitado(
   datos
 ) {
+
+  if (
+    invitadoCargado
+  ) {
+    return;
+  }
+
 
   if (
     !datos ||
@@ -5120,78 +4437,82 @@ function recibirInvitado(
   }
 
 
+  invitadoCargado =
+  true;
+
+
   invitadoActual =
-    datos;
+  datos;
 
 
   document
-    .getElementById(
-      "nombreInvitado"
-    )
-    .textContent =
-    datos.invitado;
+  .getElementById(
+    "nombreInvitado"
+  )
+  .textContent =
+  datos.invitado;
 
 
-  let mensajeCupos;
+  const cupos =
+  Number(
+    datos.cupos
+  ) || 1;
 
 
-  if (
-    Number(
-      datos.cupos
-    ) === 1
-  ) {
-
-    mensajeCupos =
-      "Hemos reservado 1 lugar para ti";
-
-  } else {
-
-    mensajeCupos =
-      "Hemos reservado " +
-      datos.cupos +
-      " lugares para ti";
-
-  }
+  const mensajeCupos =
+  cupos === 1
+  ? "Hemos reservado 1 lugar para ti"
+  : "Hemos reservado " +
+    cupos +
+    " lugares para ti";
 
 
   document
-    .getElementById(
-      "cupos"
-    )
-    .textContent =
-    mensajeCupos;
+  .getElementById(
+    "cupos"
+  )
+  .textContent =
+  mensajeCupos;
 
 
   document
-    .getElementById(
-      "rsvpNombre"
-    )
-    .textContent =
-    datos.invitado;
+  .getElementById(
+    "rsvpNombre"
+  )
+  .textContent =
+  datos.invitado;
 
 
   document
-    .getElementById(
-      "rsvpCupos"
-    )
-    .textContent =
-    mensajeCupos;
+  .getElementById(
+    "rsvpCupos"
+  )
+  .textContent =
+  mensajeCupos;
 
 
   document
-    .getElementById(
-      "cargando"
-    )
-    .style.display =
-    "none";
+  .getElementById(
+    "cargando"
+  )
+  .style.display =
+  "none";
 
 
   document
-    .getElementById(
-      "contenidoInvitado"
-    )
-    .style.display =
-    "block";
+  .getElementById(
+    "error"
+  )
+  .style.display =
+  "none";
+
+
+  document
+  .getElementById(
+    "contenidoInvitado"
+  )
+  .style.display =
+  "block";
 
 
   prepararRSVP();
@@ -5199,194 +4520,474 @@ function recibirInvitado(
 }
 
 
-/* =====================================================
+/* =========================================================
    ERROR
-===================================================== */
+========================================================= */
 
-function mostrarError() {
-
-  document
-    .getElementById(
-      "cargando"
-    )
-    .style.display =
-    "none";
-
+function mostrarError(
+  mensaje
+) {
 
   document
-    .getElementById(
-      "contenidoInvitado"
-    )
-    .style.display =
-    "none";
+  .getElementById(
+    "cargando"
+  )
+  .style.display =
+  "none";
 
 
   document
-    .getElementById(
-      "error"
-    )
-    .style.display =
-    "block";
+  .getElementById(
+    "contenidoInvitado"
+  )
+  .style.display =
+  "none";
+
+
+  const error =
+  document.getElementById(
+    "error"
+  );
+
+
+  if (
+    mensaje
+  ) {
+
+    error.innerHTML =
+    mensaje;
+
+  }
+
+
+  error.style.display =
+  "block";
 
 }
 
 
-/* =====================================================
+/* =========================================================
    ABRIR INVITACIÓN
-===================================================== */
+========================================================= */
 
 document
-  .getElementById(
-    "abrirInvitacion"
-  )
-  .addEventListener(
-    "click",
-    function () {
+.getElementById(
+  "abrirInvitacion"
+)
+.addEventListener(
+  "click",
+  function () {
 
-      /*
-         ARRANCAMOS LA MÚSICA AQUÍ.
-         Esto ocurre dentro del clic del usuario,
-         por eso los navegadores permiten el sonido.
-      */
+    /*
+      PRIMERO reproducimos audio.
+      Así Safari/Chrome móvil consideran
+      que sigue siendo parte del clic.
+    */
 
-      iniciarMusica();
+    iniciarMusica();
 
 
-      const portada =
-        document.getElementById(
-          "portada"
+    const portada =
+    document.getElementById(
+      "portada"
+    );
+
+
+    portada.classList.add(
+      "saliendo"
+    );
+
+
+    setTimeout(
+      function () {
+
+        portada.style.display =
+        "none";
+
+
+        document
+        .getElementById(
+          "segundaSeccion"
+        )
+        .style.display =
+        "flex";
+
+
+        document
+        .getElementById(
+          "cuentaRegresiva"
+        )
+        .style.display =
+        "flex";
+
+
+        document
+        .getElementById(
+          "eventoSeccion"
+        )
+        .style.display =
+        "block";
+
+
+        document
+        .getElementById(
+          "dressSeccion"
+        )
+        .style.display =
+        "flex";
+
+
+        document
+        .getElementById(
+          "regalosSeccion"
+        )
+        .style.display =
+        "flex";
+
+
+        document
+        .getElementById(
+          "rsvpSeccion"
+        )
+        .style.display =
+        "flex";
+
+
+        window.scrollTo(
+          0,
+          0
         );
 
 
-      portada
-        .classList
-        .add(
-          "saliendo"
-        );
+        requestAnimationFrame(
+          function () {
 
-
-      setTimeout(
-        function () {
-
-          portada.style.display =
-            "none";
-
-
-          document
+            document
             .getElementById(
               "segundaSeccion"
             )
-            .style.display =
-            "flex";
+            .classList.add(
+              "visible"
+            );
 
 
-          document
-            .getElementById(
-              "cuentaRegresiva"
-            )
-            .style.display =
-            "flex";
+            prepararBotanicasScroll();
+
+            actualizarBotanicasScroll();
+
+          }
+        );
+
+      },
+      700
+    );
+
+  }
+);
 
 
-          document
-            .getElementById(
-              "eventoSeccion"
-            )
-            .style.display =
-            "block";
+/* =========================================================
+   BOTÁNICA POR SCROLL
+========================================================= */
+
+function prepararBotanicasScroll() {
+
+  document
+  .querySelectorAll(
+    ".scroll-botanical"
+  )
+  .forEach(
+    function (
+      botanica
+    ) {
+
+      botanica
+      .querySelectorAll(
+        ".scroll-tallo, .scroll-rama"
+      )
+      .forEach(
+        function (
+          camino
+        ) {
+
+          const longitud =
+          camino.getTotalLength();
 
 
-          document
-            .getElementById(
-              "dressSeccion"
-            )
-            .style.display =
-            "flex";
+          camino.dataset.longitud =
+          longitud;
 
 
-          document
-            .getElementById(
-              "regalosSeccion"
-            )
-            .style.display =
-            "flex";
+          camino.style.strokeDasharray =
+          longitud;
 
 
-          document
-            .getElementById(
-              "rsvpSeccion"
-            )
-            .style.display =
-            "flex";
+          camino.style.strokeDashoffset =
+          longitud;
 
-
-          setTimeout(
-            function () {
-
-              document
-                .getElementById(
-                  "segundaSeccion"
-                )
-                .classList
-                .add(
-                  "visible"
-                );
-
-
-              prepararBotanicasScroll();
-
-              actualizarBotanicasScroll();
-
-            },
-            50
-          );
-
-
-          window.scrollTo({
-            top: 0,
-            behavior: "auto"
-          });
-
-        },
-        750
+        }
       );
 
     }
   );
 
+}
 
-/* =====================================================
+
+function progresoSeccion(
+  seccion
+) {
+
+  const rect =
+  seccion.getBoundingClientRect();
+
+
+  const h =
+  window.innerHeight;
+
+
+  let progreso =
+  (
+    h * .93 -
+    rect.top
+  ) /
+  (
+    h * .82
+  );
+
+
+  progreso =
+  Math.max(
+    0,
+    Math.min(
+      1,
+      progreso
+    )
+  );
+
+
+  return progreso;
+
+}
+
+
+function actualizarBotanicasScroll() {
+
+  document
+  .querySelectorAll(
+    ".scroll-section"
+  )
+  .forEach(
+    function (
+      seccion
+    ) {
+
+      const progreso =
+      progresoSeccion(
+        seccion
+      );
+
+
+      seccion
+      .querySelectorAll(
+        ".scroll-botanical"
+      )
+      .forEach(
+        function (
+          botanica
+        ) {
+
+          botanica
+          .querySelectorAll(
+            ".scroll-tallo"
+          )
+          .forEach(
+            function (
+              tallo
+            ) {
+
+              const longitud =
+              Number(
+                tallo.dataset.longitud
+              );
+
+
+              tallo.style.strokeDashoffset =
+              longitud *
+              (
+                1 -
+                progreso
+              );
+
+            }
+          );
+
+
+          botanica
+          .querySelectorAll(
+            ".scroll-rama"
+          )
+          .forEach(
+            function (
+              rama,
+              indice
+            ) {
+
+              const longitud =
+              Number(
+                rama.dataset.longitud
+              );
+
+
+              const inicio =
+              .15 +
+              indice * .14;
+
+
+              const p =
+              Math.max(
+                0,
+                Math.min(
+                  1,
+                  (
+                    progreso -
+                    inicio
+                  ) /
+                  .32
+                )
+              );
+
+
+              rama.style.strokeDashoffset =
+              longitud *
+              (
+                1 -
+                p
+              );
+
+            }
+          );
+
+
+          botanica
+          .querySelectorAll(
+            ".scroll-hoja"
+          )
+          .forEach(
+            function (
+              hoja
+            ) {
+
+              const inicio =
+              Number(
+                hoja.dataset.start ||
+                .3
+              );
+
+
+              const p =
+              Math.max(
+                0,
+                Math.min(
+                  1,
+                  (
+                    progreso -
+                    inicio
+                  ) /
+                  .18
+                )
+              );
+
+
+              hoja.style.opacity =
+              p * .82;
+
+
+              hoja.style.transform =
+              "scale(" +
+              (
+                .08 +
+                .92 * p
+              ) +
+              ")";
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+}
+
+
+let pendienteScroll =
+false;
+
+
+window.addEventListener(
+  "scroll",
+  function () {
+
+    if (
+      pendienteScroll
+    ) {
+      return;
+    }
+
+
+    pendienteScroll =
+    true;
+
+
+    requestAnimationFrame(
+      function () {
+
+        actualizarBotanicasScroll();
+
+        pendienteScroll =
+        false;
+
+      }
+    );
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+/* =========================================================
    RSVP
-===================================================== */
+========================================================= */
 
 const rsvpSi =
-  document.getElementById(
-    "rsvpSi"
-  );
-
+document.getElementById(
+  "rsvpSi"
+);
 
 const rsvpNo =
-  document.getElementById(
-    "rsvpNo"
-  );
-
+document.getElementById(
+  "rsvpNo"
+);
 
 const rsvpDetalles =
-  document.getElementById(
-    "rsvpDetalles"
-  );
-
+document.getElementById(
+  "rsvpDetalles"
+);
 
 const rsvpConfirmar =
-  document.getElementById(
-    "rsvpConfirmar"
-  );
-
+document.getElementById(
+  "rsvpConfirmar"
+);
 
 const rsvpMensaje =
-  document.getElementById(
-    "rsvpMensaje"
-  );
+document.getElementById(
+  "rsvpMensaje"
+);
 
 
 function prepararRSVP() {
@@ -5399,12 +5000,12 @@ function prepararRSVP() {
 
 
   const estado =
-    String(
-      invitadoActual.estado ||
-      ""
-    )
-    .trim()
-    .toUpperCase();
+  String(
+    invitadoActual.estado ||
+    ""
+  )
+  .trim()
+  .toUpperCase();
 
 
   if (
@@ -5428,61 +5029,49 @@ function prepararRSVP() {
 function mostrarFormularioRSVP() {
 
   document
-    .getElementById(
-      "rsvpPanel"
-    )
-    .style.display =
-    "block";
+  .getElementById(
+    "rsvpPanel"
+  )
+  .style.display =
+  "block";
 
 
   document
-    .getElementById(
-      "rsvpResultado"
-    )
-    .style.display =
-    "none";
+  .getElementById(
+    "rsvpResultado"
+  )
+  .style.display =
+  "none";
 
 
   respuestaRSVP =
-    "";
+  "";
 
 
   cantidadAsistentes =
-    1;
+  1;
 
 
-  rsvpSi
-    .classList
-    .remove(
-      "seleccionado"
-    );
+  rsvpSi.classList.remove(
+    "seleccionado"
+  );
 
 
-  rsvpNo
-    .classList
-    .remove(
-      "seleccionado"
-    );
+  rsvpNo.classList.remove(
+    "seleccionado"
+  );
 
 
   rsvpDetalles.style.display =
-    "none";
+  "none";
 
 
   rsvpConfirmar.style.display =
-    "none";
+  "none";
 
 
   rsvpMensaje.textContent =
-    "";
-
-
-  document
-    .getElementById(
-      "acompanantesContenedor"
-    )
-    .innerHTML =
-    "";
+  "";
 
 }
 
@@ -5492,33 +5081,25 @@ rsvpSi.addEventListener(
   function () {
 
     respuestaRSVP =
-      "SI";
+    "SI";
 
 
-    rsvpSi
-      .classList
-      .add(
-        "seleccionado"
-      );
+    rsvpSi.classList.add(
+      "seleccionado"
+    );
 
 
-    rsvpNo
-      .classList
-      .remove(
-        "seleccionado"
-      );
+    rsvpNo.classList.remove(
+      "seleccionado"
+    );
 
 
     rsvpDetalles.style.display =
-      "block";
+    "block";
 
 
     rsvpConfirmar.style.display =
-      "inline-block";
-
-
-    rsvpMensaje.textContent =
-      "";
+    "inline-block";
 
 
     crearSelectorAsistentes();
@@ -5532,33 +5113,25 @@ rsvpNo.addEventListener(
   function () {
 
     respuestaRSVP =
-      "NO";
+    "NO";
 
 
-    rsvpNo
-      .classList
-      .add(
-        "seleccionado"
-      );
+    rsvpNo.classList.add(
+      "seleccionado"
+    );
 
 
-    rsvpSi
-      .classList
-      .remove(
-        "seleccionado"
-      );
+    rsvpSi.classList.remove(
+      "seleccionado"
+    );
 
 
     rsvpDetalles.style.display =
-      "none";
+    "none";
 
 
     rsvpConfirmar.style.display =
-      "inline-block";
-
-
-    rsvpMensaje.textContent =
-      "";
+    "inline-block";
 
   }
 );
@@ -5567,19 +5140,19 @@ rsvpNo.addEventListener(
 function crearSelectorAsistentes() {
 
   const selector =
-    document.getElementById(
-      "asistentesSelector"
-    );
+  document.getElementById(
+    "asistentesSelector"
+  );
 
 
   selector.innerHTML =
-    "";
+  "";
 
 
   const cupos =
-    Number(
-      invitadoActual.cupos
-    );
+  Number(
+    invitadoActual.cupos
+  ) || 1;
 
 
   for (
@@ -5589,21 +5162,21 @@ function crearSelectorAsistentes() {
   ) {
 
     const boton =
-      document.createElement(
-        "button"
-      );
+    document.createElement(
+      "button"
+    );
 
 
     boton.type =
-      "button";
+    "button";
 
 
     boton.className =
-      "asistente-numero";
+    "asistente-numero";
 
 
     boton.textContent =
-      i;
+    i;
 
 
     if (
@@ -5611,11 +5184,9 @@ function crearSelectorAsistentes() {
       cantidadAsistentes
     ) {
 
-      boton
-        .classList
-        .add(
-          "seleccionado"
-        );
+      boton.classList.add(
+        "seleccionado"
+      );
 
     }
 
@@ -5625,7 +5196,7 @@ function crearSelectorAsistentes() {
       function () {
 
         cantidadAsistentes =
-          i;
+        i;
 
 
         crearSelectorAsistentes();
@@ -5651,18 +5222,21 @@ function crearSelectorAsistentes() {
 function crearCamposAcompanantes() {
 
   const contenedor =
-    document.getElementById(
-      "acompanantesContenedor"
-    );
+  document.getElementById(
+    "acompanantesContenedor"
+  );
 
 
   contenedor.innerHTML =
-    "";
+  "";
 
 
   const cantidad =
+  Math.max(
+    0,
     cantidadAsistentes -
-    1;
+    1
+  );
 
 
   for (
@@ -5672,24 +5246,24 @@ function crearCamposAcompanantes() {
   ) {
 
     const input =
-      document.createElement(
-        "input"
-      );
+    document.createElement(
+      "input"
+    );
 
 
     input.type =
-      "text";
+    "text";
 
 
     input.className =
-      "acompanante-campo";
+    "acompanante-campo";
 
 
     input.placeholder =
-      cantidad === 1
-        ? "Nombre completo de tu acompañante"
-        : "Nombre completo del acompañante " +
-          i;
+    cantidad === 1
+    ? "Nombre completo de tu acompañante"
+    : "Nombre completo del acompañante " +
+      i;
 
 
     contenedor.appendChild(
@@ -5707,14 +5281,14 @@ rsvpConfirmar.addEventListener(
 );
 
 
-function guardarRSVP() {
+async function guardarRSVP() {
 
   if (
     !respuestaRSVP
   ) {
 
     rsvpMensaje.textContent =
-      "Selecciona una respuesta.";
+    "Selecciona una respuesta.";
 
     return;
 
@@ -5722,7 +5296,7 @@ function guardarRSVP() {
 
 
   let acompanantes =
-    [];
+  [];
 
 
   if (
@@ -5731,20 +5305,22 @@ function guardarRSVP() {
   ) {
 
     const campos =
-      document.querySelectorAll(
-        ".acompanante-campo"
-      );
+    document.querySelectorAll(
+      ".acompanante-campo"
+    );
 
 
     let incompleto =
-      false;
+    false;
 
 
     campos.forEach(
-      function (campo) {
+      function (
+        campo
+      ) {
 
         const nombre =
-          campo.value.trim();
+        campo.value.trim();
 
 
         if (
@@ -5752,7 +5328,7 @@ function guardarRSVP() {
         ) {
 
           incompleto =
-            true;
+          true;
 
         } else {
 
@@ -5771,7 +5347,7 @@ function guardarRSVP() {
     ) {
 
       rsvpMensaje.textContent =
-        "Por favor escribe el nombre completo de cada acompañante.";
+      "Escribe el nombre completo de cada acompañante.";
 
       return;
 
@@ -5780,86 +5356,70 @@ function guardarRSVP() {
   }
 
 
-  rsvpMensaje.textContent =
-    "Guardando tu respuesta...";
-
-
   rsvpConfirmar.disabled =
-    true;
+  true;
 
 
-  const script =
-    document.createElement(
-      "script"
-    );
+  rsvpMensaje.textContent =
+  "Guardando tu respuesta...";
+
+
+  const callback =
+  "bodaRSVP_" +
+  Date.now();
 
 
   let url =
-    API_URL +
-    "?accion=confirmar" +
-    "&codigo=" +
-    encodeURIComponent(
-      codigo
-    ) +
-    "&respuesta=" +
-    encodeURIComponent(
-      respuestaRSVP
+  API_URL +
+  "?accion=confirmar" +
+  "&codigo=" +
+  encodeURIComponent(
+    codigo
+  ) +
+  "&respuesta=" +
+  encodeURIComponent(
+    respuestaRSVP
+  ) +
+  "&asisten=" +
+  encodeURIComponent(
+    respuestaRSVP === "SI"
+    ? cantidadAsistentes
+    : 0
+  ) +
+  "&acompanantes=" +
+  encodeURIComponent(
+    acompanantes.join("|")
+  ) +
+  "&callback=" +
+  callback +
+  "&t=" +
+  Date.now();
+
+
+  try {
+
+    const datos =
+    await consultaJSONP(
+      url,
+      callback,
+      10000
     );
 
 
-  if (
-    respuestaRSVP ===
-    "SI"
-  ) {
+    recibirConfirmacion(
+      datos
+    );
 
-    url +=
-      "&asisten=" +
-      encodeURIComponent(
-        cantidadAsistentes
-      );
+  } catch (error) {
+
+    rsvpConfirmar.disabled =
+    false;
 
 
-    url +=
-      "&acompanantes=" +
-      encodeURIComponent(
-        acompanantes.join("|")
-      );
-
-  } else {
-
-    url +=
-      "&asisten=0" +
-      "&acompanantes=";
+    rsvpMensaje.textContent =
+    "No pudimos guardar tu respuesta. Intenta nuevamente.";
 
   }
-
-
-  url +=
-    "&callback=recibirConfirmacion" +
-    "&t=" +
-    Date.now();
-
-
-  script.src =
-    url;
-
-
-  script.onerror =
-    function () {
-
-      rsvpConfirmar.disabled =
-        false;
-
-
-      rsvpMensaje.textContent =
-        "No pudimos guardar tu respuesta. Intenta nuevamente.";
-
-    };
-
-
-  document.body.appendChild(
-    script
-  );
 
 }
 
@@ -5869,7 +5429,7 @@ function recibirConfirmacion(
 ) {
 
   rsvpConfirmar.disabled =
-    false;
+  false;
 
 
   if (
@@ -5878,10 +5438,10 @@ function recibirConfirmacion(
   ) {
 
     rsvpMensaje.textContent =
-      datos &&
-      datos.mensaje
-        ? datos.mensaje
-        : "No pudimos guardar tu respuesta.";
+    datos &&
+    datos.mensaje
+    ? datos.mensaje
+    : "No pudimos guardar tu respuesta.";
 
 
     return;
@@ -5890,20 +5450,16 @@ function recibirConfirmacion(
 
 
   invitadoActual.estado =
-    datos.estado;
+  datos.estado;
 
 
   invitadoActual.asisten =
-    datos.asisten;
+  datos.asisten;
 
 
   invitadoActual.acompanantes =
-    datos.acompanantes ||
-    "";
-
-
-  rsvpMensaje.textContent =
-    "";
+  datos.acompanantes ||
+  "";
 
 
   mostrarRespuestaGuardada();
@@ -5914,47 +5470,29 @@ function recibirConfirmacion(
 function mostrarRespuestaGuardada() {
 
   document
-    .getElementById(
-      "rsvpPanel"
-    )
-    .style.display =
-    "none";
+  .getElementById(
+    "rsvpPanel"
+  )
+  .style.display =
+  "none";
 
 
   const resultado =
-    document.getElementById(
-      "rsvpResultado"
-    );
+  document.getElementById(
+    "rsvpResultado"
+  );
 
 
   resultado.style.display =
-    "block";
-
-
-  const titulo =
-    document.getElementById(
-      "rsvpResultadoTitulo"
-    );
-
-
-  const texto =
-    document.getElementById(
-      "rsvpResultadoTexto"
-    );
-
-
-  const icono =
-    document.getElementById(
-      "rsvpResultadoIcono"
-    );
+  "block";
 
 
   const estado =
-    String(
-      invitadoActual.estado ||
-      ""
-    )
-    .toUpperCase();
+  String(
+    invitadoActual.estado ||
+    ""
+  )
+  .toUpperCase();
 
 
   if (
@@ -5962,51 +5500,55 @@ function mostrarRespuestaGuardada() {
     "CONFIRMADO"
   ) {
 
-    icono.textContent =
-      "✓";
+    document
+    .getElementById(
+      "rsvpResultadoIcono"
+    )
+    .textContent =
+    "✓";
 
 
-    titulo.textContent =
-      "¡Gracias, " +
-      invitadoActual.invitado +
-      "!";
+    document
+    .getElementById(
+      "rsvpResultadoTitulo"
+    )
+    .textContent =
+    "¡Gracias, " +
+    invitadoActual.invitado +
+    "!";
 
 
-    const cantidad =
-      Number(
-        invitadoActual.asisten
-      );
-
-
-    if (
-      cantidad ===
-      1
-    ) {
-
-      texto.textContent =
-        "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
-
-    } else {
-
-      texto.textContent =
-        "Hemos recibido tu confirmación para " +
-        cantidad +
-        " personas. Nos emociona compartir este día con ustedes.";
-
-    }
+    document
+    .getElementById(
+      "rsvpResultadoTexto"
+    )
+    .textContent =
+    "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
 
   } else {
 
-    icono.textContent =
-      "♡";
+    document
+    .getElementById(
+      "rsvpResultadoIcono"
+    )
+    .textContent =
+    "♡";
 
 
-    titulo.textContent =
-      "Gracias por avisarnos";
+    document
+    .getElementById(
+      "rsvpResultadoTitulo"
+    )
+    .textContent =
+    "Gracias por avisarnos";
 
 
-    texto.textContent =
-      "Hemos registrado que no podrás acompañarnos. Gracias por formar parte de nuestra historia.";
+    document
+    .getElementById(
+      "rsvpResultadoTexto"
+    )
+    .textContent =
+    "Hemos registrado que no podrás acompañarnos.";
 
   }
 
@@ -6014,152 +5556,191 @@ function mostrarRespuestaGuardada() {
 
 
 document
-  .getElementById(
-    "rsvpModificar"
-  )
-  .addEventListener(
-    "click",
-    function () {
-
-      mostrarFormularioRSVP();
-
-    }
-  );
+.getElementById(
+  "rsvpModificar"
+)
+.addEventListener(
+  "click",
+  mostrarFormularioRSVP
+);
 
 
-/* =====================================================
-   MODAL BANCOS
-===================================================== */
+/* =========================================================
+   BANCOS
+========================================================= */
 
 const modalBancos =
-  document.getElementById(
-    "modalBancos"
-  );
-
+document.getElementById(
+  "modalBancos"
+);
 
 const pinInput =
-  document.getElementById(
-    "pinBancos"
-  );
-
+document.getElementById(
+  "pinBancos"
+);
 
 const pinError =
-  document.getElementById(
-    "pinError"
-  );
-
-
-const pinContenedor =
-  document.getElementById(
-    "pinContenedor"
-  );
-
-
-const datosBancarios =
-  document.getElementById(
-    "datosBancarios"
-  );
+document.getElementById(
+  "pinError"
+);
 
 
 document
-  .getElementById(
-    "abrirBancos"
-  )
-  .addEventListener(
-    "click",
-    function () {
-
-      modalBancos
-        .classList
-        .add(
-          "activo"
-        );
-
-
-      pinInput.value =
-        "";
-
-
-      pinError.textContent =
-        "";
-
-
-      datosBancarios.style.display =
-        "none";
-
-
-      pinContenedor.style.display =
-        "block";
-
-
-      setTimeout(
-        function () {
-
-          pinInput.focus();
-
-        },
-        100
-      );
-
-    }
-  );
-
-
-document
-  .getElementById(
-    "cerrarModalBancos"
-  )
-  .addEventListener(
-    "click",
-    cerrarModalBancos
-  );
-
-
-modalBancos.addEventListener(
+.getElementById(
+  "abrirBancos"
+)
+.addEventListener(
   "click",
-  function (event) {
+  function () {
 
-    if (
-      event.target ===
-      modalBancos
-    ) {
+    modalBancos.classList.add(
+      "activo"
+    );
 
-      cerrarModalBancos();
 
-    }
+    pinInput.value =
+    "";
+
+
+    pinError.textContent =
+    "";
+
+
+    document
+    .getElementById(
+      "datosBancarios"
+    )
+    .style.display =
+    "none";
+
+
+    document
+    .getElementById(
+      "pinContenedor"
+    )
+    .style.display =
+    "block";
 
   }
 );
 
 
-function cerrarModalBancos() {
+document
+.getElementById(
+  "cerrarModalBancos"
+)
+.addEventListener(
+  "click",
+  function () {
 
-  modalBancos
-    .classList
-    .remove(
+    modalBancos.classList.remove(
       "activo"
     );
+
+  }
+);
+
+
+async function verificarPinBancos() {
+
+  const pin =
+  pinInput.value.trim();
+
+
+  if (
+    pin.length !== 4
+  ) {
+
+    pinError.textContent =
+    "Ingresa el código de 4 dígitos.";
+
+    return;
+
+  }
+
+
+  pinError.textContent =
+  "Verificando...";
+
+
+  const callback =
+  "bodaBanco_" +
+  Date.now();
+
+
+  const url =
+  API_URL +
+  "?accion=bancos" +
+  "&codigo=" +
+  encodeURIComponent(
+    codigo
+  ) +
+  "&pin=" +
+  encodeURIComponent(
+    pin
+  ) +
+  "&callback=" +
+  callback +
+  "&t=" +
+  Date.now();
+
+
+  try {
+
+    const datos =
+    await consultaJSONP(
+      url,
+      callback,
+      10000
+    );
+
+
+    if (
+      !datos ||
+      !datos.ok
+    ) {
+
+      pinError.textContent =
+      "Código incorrecto.";
+
+      return;
+
+    }
+
+
+    pinError.textContent =
+    "";
+
+
+    mostrarDatosBancarios(
+      datos.bancos
+    );
+
+  } catch (error) {
+
+    pinError.textContent =
+    "No pudimos consultar los datos.";
+
+  }
 
 }
 
 
-/* =====================================================
-   PIN BANCOS
-===================================================== */
-
 document
-  .getElementById(
-    "verificarPin"
-  )
-  .addEventListener(
-    "click",
-    verificarPinBancos
-  );
+.getElementById(
+  "verificarPin"
+)
+.addEventListener(
+  "click",
+  verificarPinBancos
+);
 
 
 pinInput.addEventListener(
   "keydown",
-  function (event) {
+  function (
+    event
+  ) {
 
     if (
       event.key ===
@@ -6174,138 +5755,44 @@ pinInput.addEventListener(
 );
 
 
-function verificarPinBancos() {
-
-  const pin =
-    pinInput.value.trim();
-
-
-  if (
-    pin.length !==
-    4
-  ) {
-
-    pinError.textContent =
-      "Ingresa el código de 4 dígitos.";
-
-    return;
-
-  }
-
-
-  pinError.textContent =
-    "Verificando...";
-
-
-  const script =
-    document.createElement(
-      "script"
-    );
-
-
-  script.src =
-    API_URL +
-    "?accion=bancos" +
-    "&codigo=" +
-    encodeURIComponent(
-      codigo
-    ) +
-    "&pin=" +
-    encodeURIComponent(
-      pin
-    ) +
-    "&callback=recibirBancos" +
-    "&t=" +
-    Date.now();
-
-
-  script.onerror =
-    function () {
-
-      pinError.textContent =
-        "No pudimos consultar los datos.";
-
-    };
-
-
-  document.body.appendChild(
-    script
-  );
-
-}
-
-
-/* =====================================================
-   DATOS BANCARIOS
-===================================================== */
-
-function recibirBancos(
-  datos
-) {
-
-  if (
-    !datos ||
-    !datos.ok
-  ) {
-
-    pinError.textContent =
-      "Código incorrecto.";
-
-    return;
-
-  }
-
-
-  pinError.textContent =
-    "";
-
-
-  pinContenedor.style.display =
-    "none";
-
-
-  mostrarDatosBancarios(
-    datos.bancos
-  );
-
-}
-
-
 function mostrarDatosBancarios(
   bancos
 ) {
 
   const grid =
-    document.getElementById(
-      "datosBancosGrid"
-    );
+  document.getElementById(
+    "datosBancosGrid"
+  );
 
 
   grid.innerHTML =
-    "";
+  "";
 
 
   bancos.forEach(
-    function (banco) {
+    function (
+      banco
+    ) {
 
       const tarjeta =
-        document.createElement(
-          "div"
-        );
+      document.createElement(
+        "div"
+      );
 
 
       tarjeta.className =
-        "banco-datos";
+      "banco-datos";
 
 
-      tarjeta.innerHTML = `
+      tarjeta.innerHTML =
+      `
 
         <div class="banco-datos-titulo">
           ${banco.banco}
         </div>
 
         <div class="dato-label">
-          Titular
+          TITULAR
         </div>
 
         <div class="dato-valor">
@@ -6313,7 +5800,7 @@ function mostrarDatosBancarios(
         </div>
 
         <div class="dato-label">
-          Tipo de cuenta
+          TIPO DE CUENTA
         </div>
 
         <div class="dato-valor">
@@ -6321,7 +5808,7 @@ function mostrarDatosBancarios(
         </div>
 
         <div class="dato-label">
-          Número de cuenta
+          NÚMERO DE CUENTA
         </div>
 
         <div class="dato-valor dato-numero">
@@ -6330,14 +5817,13 @@ function mostrarDatosBancarios(
 
         <button
           class="copiar-boton"
-          type="button"
-          onclick="copiarTexto('${banco.cuenta}', this)"
+          onclick="copiarTexto('${banco.cuenta}',this)"
         >
           COPIAR CUENTA
         </button>
 
         <div class="dato-label">
-          Número de cédula
+          NÚMERO DE CÉDULA
         </div>
 
         <div class="dato-valor dato-numero">
@@ -6346,8 +5832,7 @@ function mostrarDatosBancarios(
 
         <button
           class="copiar-boton"
-          type="button"
-          onclick="copiarTexto('${banco.cedula}', this)"
+          onclick="copiarTexto('${banco.cedula}',this)"
         >
           COPIAR CÉDULA
         </button>
@@ -6363,15 +5848,23 @@ function mostrarDatosBancarios(
   );
 
 
-  datosBancarios.style.display =
-    "block";
+  document
+  .getElementById(
+    "pinContenedor"
+  )
+  .style.display =
+  "none";
+
+
+  document
+  .getElementById(
+    "datosBancarios"
+  )
+  .style.display =
+  "block";
 
 }
 
-
-/* =====================================================
-   COPIAR
-===================================================== */
 
 function copiarTexto(
   texto,
@@ -6379,151 +5872,145 @@ function copiarTexto(
 ) {
 
   navigator.clipboard
-    .writeText(
-      texto
-    )
-    .then(
-      function () {
+  .writeText(
+    texto
+  )
+  .then(
+    function () {
 
-        const original =
-          boton.textContent;
-
-
-        boton.textContent =
-          "COPIADO ✓";
+      const original =
+      boton.textContent;
 
 
-        setTimeout(
-          function () {
+      boton.textContent =
+      "COPIADO ✓";
 
-            boton.textContent =
-              original;
 
-          },
-          1500
-        );
+      setTimeout(
+        function () {
 
-      }
-    );
+          boton.textContent =
+          original;
+
+        },
+        1300
+      );
+
+    }
+  );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTADOR
-===================================================== */
+========================================================= */
 
 const fechaBoda =
-  new Date(
-    "2026-11-14T16:30:00-05:00"
-  );
+new Date(
+  "2026-11-14T16:30:00-05:00"
+);
 
 
 function actualizarContador() {
 
-  const ahora =
-    new Date();
-
-
   let diferencia =
-    fechaBoda.getTime() -
-    ahora.getTime();
+  fechaBoda.getTime() -
+  Date.now();
 
 
-  if (
-    diferencia <=
-    0
-  ) {
-
-    diferencia =
-      0;
-
-  }
+  diferencia =
+  Math.max(
+    0,
+    diferencia
+  );
 
 
   const dias =
-    Math.floor(
-      diferencia /
-      86400000
-    );
+  Math.floor(
+    diferencia /
+    86400000
+  );
 
 
   const horas =
-    Math.floor(
-      (
-        diferencia %
-        86400000
-      ) /
-      3600000
-    );
+  Math.floor(
+    diferencia %
+    86400000 /
+    3600000
+  );
 
 
   const minutos =
-    Math.floor(
-      (
-        diferencia %
-        3600000
-      ) /
-      60000
-    );
+  Math.floor(
+    diferencia %
+    3600000 /
+    60000
+  );
 
 
   const segundos =
-    Math.floor(
-      (
-        diferencia %
-        60000
-      ) /
-      1000
-    );
+  Math.floor(
+    diferencia %
+    60000 /
+    1000
+  );
 
 
   document
-    .getElementById(
-      "dias"
-    )
-    .textContent =
-    String(dias)
-      .padStart(
-        2,
-        "0"
-      );
+  .getElementById(
+    "dias"
+  )
+  .textContent =
+  String(
+    dias
+  )
+  .padStart(
+    2,
+    "0"
+  );
 
 
   document
-    .getElementById(
-      "horas"
-    )
-    .textContent =
-    String(horas)
-      .padStart(
-        2,
-        "0"
-      );
+  .getElementById(
+    "horas"
+  )
+  .textContent =
+  String(
+    horas
+  )
+  .padStart(
+    2,
+    "0"
+  );
 
 
   document
-    .getElementById(
-      "minutos"
-    )
-    .textContent =
-    String(minutos)
-      .padStart(
-        2,
-        "0"
-      );
+  .getElementById(
+    "minutos"
+  )
+  .textContent =
+  String(
+    minutos
+  )
+  .padStart(
+    2,
+    "0"
+  );
 
 
   document
-    .getElementById(
-      "segundos"
-    )
-    .textContent =
-    String(segundos)
-      .padStart(
-        2,
-        "0"
-      );
+  .getElementById(
+    "segundos"
+  )
+  .textContent =
+  String(
+    segundos
+  )
+  .padStart(
+    2,
+    "0"
+  );
 
 }
 
@@ -6537,12 +6024,11 @@ setInterval(
 );
 
 
-/* =====================================================
-   INICIO
-===================================================== */
+/* =========================================================
+   INICIAR
+========================================================= */
 
 cargarInvitado();
-
 
 </script>
 
