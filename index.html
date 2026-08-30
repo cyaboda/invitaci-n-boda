@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+index_html = r'''<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -35,16 +37,9 @@ html {
 
 body {
   margin: 0;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  font-family: Georgia, "Times New Roman", serif;
   background: #f7f1eb;
-
   color: #4b342a;
-
   overflow-x: hidden;
 }
 
@@ -54,46 +49,26 @@ select {
   font: inherit;
 }
 
-
 /* =========================================================
    PORTADA
 ========================================================= */
 
 .portada {
   width: 100%;
-
   min-height: 100vh;
   min-height: 100svh;
-
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  padding:
-    45px 24px;
-
+  padding: 45px 24px;
   text-align: center;
-
   overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(190,102,67,.13),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(190,102,67,.12),
-      transparent 32%
-    ),
+    radial-gradient(circle at top right, rgba(190,102,67,.13), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(190,102,67,.12), transparent 32%),
     #f7f1eb;
-
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
+  transition: opacity .8s ease, transform .8s ease;
 }
 
 .portada.saliendo {
@@ -101,80 +76,43 @@ select {
   transform: scale(1.02);
 }
 
-
-/* =========================================================
-   FONDO PORTADA
-========================================================= */
-
 .mancha {
   position: absolute;
-
   border-radius: 50%;
-
   pointer-events: none;
-
   z-index: 0;
 }
 
 .mancha-arriba {
   width: 420px;
   height: 420px;
-
   top: -220px;
   right: -180px;
-
   background:
-    radial-gradient(
-      circle,
-      rgba(190,102,67,.13),
-      rgba(190,102,67,.04) 60%,
-      transparent 72%
-    );
+    radial-gradient(circle, rgba(190,102,67,.13), rgba(190,102,67,.04) 60%, transparent 72%);
 }
 
 .mancha-abajo {
   width: 470px;
   height: 470px;
-
   bottom: -260px;
   left: -210px;
-
   background:
-    radial-gradient(
-      circle,
-      rgba(167,83,52,.14),
-      rgba(190,102,67,.04) 60%,
-      transparent 72%
-    );
+    radial-gradient(circle, rgba(167,83,52,.14), rgba(190,102,67,.04) 60%, transparent 72%);
 }
 
 .linea-vertical {
   position: absolute;
-
   top: 5%;
   bottom: 5%;
-
   width: 1px;
-
   background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgba(155,82,53,.18),
-      transparent
-    );
-
+    linear-gradient(to bottom, transparent, rgba(155,82,53,.18), transparent);
   z-index: 1;
 }
 
-.linea-izquierda {
-  left: 7%;
-}
-
-.linea-derecha {
-  right: 7%;
-}
-
+.linea-izquierda { left: 7%; }
+.linea-derecha { right: 7%; }
 
 /* =========================================================
    RAMAS PORTADA
@@ -182,55 +120,37 @@ select {
 
 .floral {
   position: absolute;
-
   pointer-events: none;
-
   z-index: 2;
-
   color: #b85f3d;
 }
 
 .floral svg {
   width: 100%;
   height: 100%;
-
   overflow: visible;
 }
 
 .floral .tallo {
   fill: none;
-
   stroke: currentColor;
-
   stroke-width: 1.8;
-
   stroke-linecap: round;
   stroke-linejoin: round;
-
   stroke-dasharray: 900;
   stroke-dashoffset: 900;
-
-  animation:
-    crecerTallo 3.2s
-    cubic-bezier(.45,.05,.22,.97)
-    forwards;
+  animation: crecerTallo 3.2s cubic-bezier(.45,.05,.22,.97) forwards;
 }
 
 .floral .rama {
   fill: none;
-
   stroke: currentColor;
-
   stroke-width: 1.45;
-
   stroke-linecap: round;
   stroke-linejoin: round;
-
   stroke-dasharray: 240;
   stroke-dashoffset: 240;
-
-  animation:
-    crecerRama 1.5s ease forwards;
+  animation: crecerRama 1.5s ease forwards;
 }
 
 .floral .rama-1 { animation-delay: .9s; }
@@ -242,14 +162,10 @@ select {
 
 .floral .hoja {
   fill: currentColor;
-
   opacity: 0;
-
   transform-box: fill-box;
   transform-origin: center;
-
-  animation:
-    aparecerHoja .75s ease forwards;
+  animation: aparecerHoja .75s ease forwards;
 }
 
 .floral .hoja-1 { animation-delay: 1.15s; }
@@ -266,33 +182,20 @@ select {
 .floral-arriba-derecha {
   width: 290px;
   height: 610px;
-
   top: -55px;
   right: -38px;
-
   transform-origin: bottom right;
-
-  animation:
-    respirarDerecha 7s
-    ease-in-out 3.5s
-    infinite alternate;
+  animation: respirarDerecha 7s ease-in-out 3.5s infinite alternate;
 }
 
 .floral-abajo-izquierda {
   width: 285px;
   height: 610px;
-
   bottom: -70px;
   left: -40px;
-
   transform-origin: bottom left;
-
-  animation:
-    respirarIzquierda 7.5s
-    ease-in-out 3.5s
-    infinite alternate;
+  animation: respirarIzquierda 7.5s ease-in-out 3.5s infinite alternate;
 }
-
 
 /* =========================================================
    PORTADA CONTENIDO
@@ -300,209 +203,123 @@ select {
 
 .contenido {
   width: 100%;
-
   max-width: 760px;
-
   position: relative;
-
   z-index: 5;
-
-  animation:
-    aparecer 1.1s ease forwards;
+  animation: aparecer 1.1s ease forwards;
 }
 
 .sobrelinea {
   font-family: Arial,sans-serif;
-
   font-size: 12px;
-
   letter-spacing: 6px;
-
   text-transform: uppercase;
-
   color: #a45c3f;
-
   margin-bottom: 28px;
 }
 
 .nombres {
   margin: 0;
-
-  font-size:
-    clamp(52px,8vw,92px);
-
+  font-size: clamp(52px,8vw,92px);
   font-weight: 400;
-
   line-height: .95;
-
   letter-spacing: -2px;
-
   color: #85452f;
 }
 
 .ampersand {
   display: block;
-
   font-size: .53em;
-
   font-style: italic;
-
-  margin:
-    13px 0 11px;
-
+  margin: 13px 0 11px;
   color: #bc6947;
 }
 
 .separador {
   width: 120px;
   height: 1px;
-
-  margin:
-    37px auto;
-
+  margin: 37px auto;
   position: relative;
-
-  background:
-    rgba(166,86,55,.48);
+  background: rgba(166,86,55,.48);
 }
 
 .separador::after {
   content: "♥";
-
   position: absolute;
-
   left: 50%;
   top: 50%;
-
-  transform:
-    translate(-50%,-50%);
-
-  padding:
-    0 13px;
-
+  transform: translate(-50%,-50%);
+  padding: 0 13px;
   background: #f7f1eb;
-
   color: #b75f3d;
-
   font-size: 11px;
 }
 
 .texto-invitacion {
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   letter-spacing: 4px;
-
   text-transform: uppercase;
-
   color: #a77b68;
-
   margin-bottom: 15px;
 }
 
 #nombreInvitado {
-  font-size:
-    clamp(31px,5vw,46px);
-
+  font-size: clamp(31px,5vw,46px);
   line-height: 1.15;
-
   color: #4f3429;
 }
 
 #cupos {
   margin-top: 17px;
-
   font-family: Arial,sans-serif;
-
   font-size: 15px;
-
   line-height: 1.6;
-
   color: #6d554a;
 }
 
 #cargando {
   font-family: Arial,sans-serif;
-
   font-size: 14px;
-
   color: #8a6a5d;
-
   margin-top: 28px;
 }
 
-#contenidoInvitado {
-  display: none;
-}
+#contenidoInvitado { display: none; }
 
 #error {
   display: none;
-
   max-width: 500px;
-
-  margin:
-    25px auto 0;
-
+  margin: 25px auto 0;
   font-family: Arial,sans-serif;
-
   font-size: 16px;
-
   line-height: 1.7;
-
   color: #765347;
 }
 
 .boton {
   margin-top: 34px;
-
   min-width: 235px;
-
-  padding:
-    17px 31px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.25);
-
+  padding: 17px 31px;
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 999px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #c16a46,
-      #a54e31
-    );
-
+  background: linear-gradient(135deg, #c16a46, #a54e31);
   color: white;
-
   font-family: Arial,sans-serif;
-
   font-size: 12px;
-
   letter-spacing: 2.4px;
-
   cursor: pointer;
-
-  box-shadow:
-    0 15px 35px
-    rgba(117,62,42,.20);
+  box-shadow: 0 15px 35px rgba(117,62,42,.20);
 }
 
 .detalle-inferior {
   margin-top: 38px;
-
   font-family: Arial,sans-serif;
-
   font-size: 10px;
-
   letter-spacing: 4px;
-
   color: #b07a66;
-
   text-transform: uppercase;
 }
-
 
 /* =========================================================
    VERSÍCULO
@@ -511,80 +328,48 @@ select {
 .segunda-seccion {
   min-height: 100vh;
   min-height: 100svh;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
   position: relative;
-
   text-align: center;
-
-  padding:
-    70px 25px;
-
+  padding: 70px 25px;
   overflow: hidden;
-
   background-image:
-    linear-gradient(
-      rgba(132,54,31,.60),
-      rgba(95,38,24,.70)
-    ),
+    linear-gradient(rgba(132,54,31,.60), rgba(95,38,24,.70)),
     url("foto-carolina-alexanderv2.jpeg");
-
   background-size: cover;
-
-  background-position:
-    center 42%;
-
+  background-position: center 42%;
   opacity: 0;
-
-  transform:
-    translateY(30px);
-
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .segunda-seccion.visible {
   opacity: 1;
-
   transform: translateY(0);
 }
 
 .segunda-contenido {
   width: 100%;
-
   max-width: 760px;
-
   position: relative;
-
   z-index: 5;
 }
 
 .segunda-nombres {
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   letter-spacing: 5px;
-
   text-transform: uppercase;
-
   color: #f4d8c8;
-
   margin-bottom: 28px;
 }
 
 .ramita-central {
   width: 105px;
   height: 78px;
-
-  margin:
-    0 auto 28px;
-
+  margin: 0 auto 28px;
   color: #f1c5ab;
 }
 
@@ -600,81 +385,51 @@ select {
 
 .versiculo {
   max-width: 680px;
-
   margin: auto;
-
-  font-size:
-    clamp(30px,5vw,50px);
-
+  font-size: clamp(30px,5vw,50px);
   font-weight: 400;
-
   line-height: 1.35;
-
   font-style: italic;
-
   color: #fff8f1;
 }
 
 .referencia {
   margin-top: 24px;
-
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   letter-spacing: 4px;
-
   text-transform: uppercase;
-
   color: #f0cbb7;
 }
 
 .linea-fecha {
   width: 90px;
   height: 1px;
-
-  margin:
-    32px auto;
-
-  background:
-    rgba(255,237,225,.55);
+  margin: 32px auto;
+  background: rgba(255,237,225,.55);
 }
 
 .fecha-boda {
-  font-size:
-    clamp(30px,5vw,46px);
-
+  font-size: clamp(30px,5vw,46px);
   letter-spacing: 8px;
-
   color: #fff7ef;
 }
 
 .desliza {
   margin-top: 45px;
-
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 4px;
-
   text-transform: uppercase;
-
   color: #efd0bd;
 }
 
 .flecha {
   margin-top: 12px;
-
   font-size: 24px;
-
   color: #fff0e5;
-
-  animation:
-    flotarFlecha 1.8s
-    ease-in-out infinite;
+  animation: flotarFlecha 1.8s ease-in-out infinite;
 }
-
 
 /* =========================================================
    BOTÁNICA DE SCROLL
@@ -682,68 +437,50 @@ select {
 
 .scroll-botanical {
   position: absolute;
-
   pointer-events: none;
-
   z-index: 2;
 }
 
 .scroll-botanical svg {
   width: 100%;
   height: 100%;
-
   overflow: visible;
 }
 
 .scroll-botanical .scroll-tallo,
 .scroll-botanical .scroll-rama {
   fill: none;
-
   stroke: currentColor;
-
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.scroll-botanical .scroll-tallo {
-  stroke-width: 1.6;
-}
-
-.scroll-botanical .scroll-rama {
-  stroke-width: 1.25;
-}
+.scroll-botanical .scroll-tallo { stroke-width: 1.6; }
+.scroll-botanical .scroll-rama { stroke-width: 1.25; }
 
 .scroll-botanical .scroll-hoja {
   fill: currentColor;
-
   opacity: 0;
-
   transform-box: fill-box;
   transform-origin: center;
-
   transform: scale(.05);
 }
 
 .botanica-izq {
   width: 245px;
   height: 520px;
-
   left: -55px;
   bottom: -80px;
-
   transform-origin: bottom left;
 }
 
 .botanica-der {
   width: 235px;
   height: 500px;
-
   right: -55px;
   top: -75px;
-
   transform-origin: top right;
 }
-
 
 /* =========================================================
    CONTADOR
@@ -752,186 +489,116 @@ select {
 .tercera-seccion {
   min-height: 100vh;
   min-height: 100svh;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
   position: relative;
-
-  padding:
-    70px 25px;
-
+  padding: 70px 25px;
   text-align: center;
-
   overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(190,102,67,.12),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(190,102,67,.10),
-      transparent 30%
-    ),
+    radial-gradient(circle at top left, rgba(190,102,67,.12), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(190,102,67,.10), transparent 30%),
     #f7f1eb;
 }
 
 .tercera-seccion .scroll-botanical {
-  color:
-    rgba(164,81,52,.46);
+  color: rgba(164,81,52,.46);
 }
 
 .tercera-contenido {
   width: 100%;
-
   max-width: 900px;
-
   position: relative;
-
   z-index: 5;
 }
 
 .tercera-etiqueta {
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   letter-spacing: 5px;
-
   text-transform: uppercase;
-
   color: #a66043;
-
   margin-bottom: 30px;
 }
 
 .tercera-titulo {
   margin: 0;
-
-  font-size:
-    clamp(48px,8vw,86px);
-
+  font-size: clamp(48px,8vw,86px);
   font-weight: 400;
-
   color: #87472f;
 }
 
 .tercera-subtitulo {
   margin-top: 18px;
-
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   letter-spacing: 4px;
-
   text-transform: uppercase;
-
   color: #ae7963;
 }
 
 .contador {
   width: 100%;
-
-  margin:
-    70px auto 0;
-
+  margin: 70px auto 0;
   display: grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns: repeat(4,1fr);
   gap: 25px;
 }
 
 .contador-item {
   position: relative;
-
-  padding:
-    10px 10px 20px;
+  padding: 10px 10px 20px;
 }
 
 .contador-item:not(:last-child)::after {
   content: "";
-
   position: absolute;
-
   right: -13px;
   top: 15%;
-
   width: 1px;
   height: 70%;
-
-  background:
-    rgba(157,81,53,.18);
+  background: rgba(157,81,53,.18);
 }
 
 .contador-numero {
   display: block;
-
-  font-size:
-    clamp(42px,7vw,78px);
-
+  font-size: clamp(42px,7vw,78px);
   color: #8d4931;
 }
 
 .contador-label {
   display: block;
-
   margin-top: 17px;
-
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 3px;
-
   text-transform: uppercase;
-
   color: #a77c6a;
 }
 
 .contador-separador {
   width: 120px;
   height: 1px;
-
-  margin:
-    60px auto 0;
-
-  background:
-    rgba(159,82,55,.35);
+  margin: 60px auto 0;
+  background: rgba(159,82,55,.35);
 }
 
 .gran-dia {
   margin-top: 36px;
-
-  font-size:
-    clamp(27px,4vw,42px);
-
+  font-size: clamp(27px,4vw,42px);
   font-style: italic;
-
   color: #634033;
 }
 
 .fecha-pequena {
   margin-top: 15px;
-
   font-family: Arial,sans-serif;
-
   font-size: 10px;
-
   letter-spacing: 4px;
-
   text-transform: uppercase;
-
   color: #a7725c;
 }
-
 
 /* =========================================================
    EVENTO
@@ -939,236 +606,148 @@ select {
 
 .evento-seccion {
   min-height: 100vh;
-
   display: none;
-
   position: relative;
-
   overflow: hidden;
-
   background: #f7f1eb;
 }
 
 .evento-foto {
   position: absolute;
-
   top: 0;
   bottom: 0;
-
   width: 31%;
-
   overflow: hidden;
-
   z-index: 1;
 }
 
-.evento-foto-izquierda {
-  left: 0;
-}
-
-.evento-foto-derecha {
-  right: 0;
-}
+.evento-foto-izquierda { left: 0; }
+.evento-foto-derecha { right: 0; }
 
 .evento-foto img {
   width: 100%;
   height: 118%;
-
   object-fit: cover;
 }
 
 .evento-foto::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   z-index: 3;
-
   background:
-    linear-gradient(
-      rgba(132,54,31,.52),
-      rgba(95,38,24,.62)
-    );
+    linear-gradient(rgba(132,54,31,.52), rgba(95,38,24,.62));
 }
 
 .evento-foto-izquierda::after,
 .evento-foto-derecha::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   z-index: 4;
 }
 
 .evento-foto-izquierda::after {
   background:
-    linear-gradient(
-      to right,
-      transparent 45%,
-      #f7f1eb 100%
-    );
+    linear-gradient(to right, transparent 45%, #f7f1eb 100%);
 }
 
 .evento-foto-derecha::after {
   background:
-    linear-gradient(
-      to left,
-      transparent 45%,
-      #f7f1eb 100%
-    );
+    linear-gradient(to left, transparent 45%, #f7f1eb 100%);
 }
 
 .evento-centro {
   min-height: 100vh;
-
   width: 44%;
-
   max-width: 650px;
-
   margin: auto;
-
   position: relative;
-
   z-index: 6;
-
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
-  padding:
-    50px 30px;
+  padding: 50px 30px;
 }
 
 .evento-logo-marco {
   width: 105px;
   height: 105px;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   margin-bottom: 24px;
-
   border-radius: 50%;
-
-  background:
-    linear-gradient(
-      145deg,
-      #b96140,
-      #88412e
-    );
+  background: linear-gradient(145deg, #b96140, #88412e);
 }
 
 .evento-logo {
   width: 66px;
   height: 66px;
-
   object-fit: contain;
-
-  filter:
-    brightness(0)
-    invert(1);
+  filter: brightness(0) invert(1);
 }
 
 .evento-etiqueta {
   font-family: Arial,sans-serif;
-
   font-size: 10px;
-
   letter-spacing: 5px;
-
   text-transform: uppercase;
-
   color: #ad7157;
-
   margin-bottom: 22px;
 }
 
 .evento-titulo {
   margin: 0;
-
-  font-size:
-    clamp(42px,5vw,68px);
-
+  font-size: clamp(42px,5vw,68px);
   font-weight: 400;
-
   color: #82452f;
 }
 
 .evento-subtitulo {
   margin-top: 12px;
-
-  font-size:
-    clamp(20px,2vw,28px);
-
+  font-size: clamp(20px,2vw,28px);
   font-style: italic;
-
   color: #9b634c;
 }
 
 .evento-linea {
   width: 90px;
   height: 1px;
-
-  margin:
-    28px auto;
-
-  background:
-    rgba(162,84,56,.38);
+  margin: 28px auto;
+  background: rgba(162,84,56,.38);
 }
 
 .evento-tipo {
   font-family: Arial,sans-serif;
-
   font-size: 10px;
-
   letter-spacing: 4px;
-
   text-transform: uppercase;
-
   color: #b06f53;
 }
 
 .evento-hora {
   margin-top: 18px;
-
-  font-size:
-    clamp(36px,4vw,52px);
-
+  font-size: clamp(36px,4vw,52px);
   color: #87472f;
 }
 
 .evento-hora-label {
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 4px;
-
   color: #b1826c;
 }
 
 .evento-direccion {
   margin-top: 25px;
-
   font-family: Arial,sans-serif;
-
   font-size: 14px;
-
   line-height: 1.8;
-
   color: #76584b;
 }
-
 
 /* =========================================================
    BOTONES EVENTO
@@ -1176,95 +755,55 @@ select {
 
 .evento-botones {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   flex-wrap: wrap;
-
   gap: 10px;
-
   margin-top: 26px;
 }
 
 .evento-boton {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   min-height: 44px;
-
-  padding:
-    15px 27px;
-
-  border:
-    1px solid transparent;
-
+  padding: 15px 27px;
+  border: 1px solid transparent;
   border-radius: 999px;
-
   text-decoration: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      #bb6543,
-      #99472f
-    );
-
+  background: linear-gradient(135deg, #bb6543, #99472f);
   color: white;
-
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 2.2px;
-
   text-transform: uppercase;
-
   cursor: pointer;
-
-  transition:
-    transform .25s ease,
-    background .25s ease,
-    color .25s ease;
+  transition: transform .25s ease, background .25s ease, color .25s ease;
 }
 
 .evento-boton:hover {
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .evento-boton-calendario {
   appearance: none;
-
-  border:
-    1px solid
-    rgba(153,71,47,.42);
-
+  border: 1px solid rgba(153,71,47,.42);
   background: transparent;
-
   color: #99472f;
 }
 
 .evento-boton-calendario:hover {
   background: #99472f;
-
   color: white;
 }
 
 .evento-nota {
   margin-top: 25px;
-
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 3px;
-
   color: #b98d78;
 }
-
 
 /* =========================================================
    DRESS CODE
@@ -1273,134 +812,81 @@ select {
 .dress-seccion {
   min-height: 100vh;
   min-height: 100svh;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
   position: relative;
-
   overflow: hidden;
-
-  padding:
-    42px 30px;
-
+  padding: 42px 30px;
   text-align: center;
-
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(255,245,239,.16),
-      transparent 32%
-    ),
-    linear-gradient(
-      135deg,
-      #d7a38c,
-      #c9896f 45%,
-      #b97358
-    );
+    radial-gradient(circle at top right, rgba(255,245,239,.16), transparent 32%),
+    linear-gradient(135deg, #d7a38c, #c9896f 45%, #b97358);
 }
 
 .dress-seccion .scroll-botanical {
-  color:
-    rgba(255,245,238,.24);
+  color: rgba(255,245,238,.24);
 }
 
 .dress-contenido {
   width: 100%;
-
   max-width: 930px;
-
   position: relative;
-
   z-index: 5;
 }
 
 .dress-etiqueta {
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 5px;
-
-  color:
-    rgba(255,255,255,.78);
+  color: rgba(255,255,255,.78);
 }
 
 .dress-titulo {
-  margin:
-    10px 0 0;
-
-  font-size:
-    clamp(46px,6vw,70px);
-
+  margin: 10px 0 0;
+  font-size: clamp(46px,6vw,70px);
   font-weight: 400;
-
   color: #fff8f4;
 }
 
 .dress-formal {
   margin-top: 8px;
-
-  font-size:
-    clamp(18px,2vw,24px);
-
+  font-size: clamp(18px,2vw,24px);
   font-style: italic;
-
   color: #fbe9df;
 }
 
 .dress-linea {
   width: 100px;
   height: 1px;
-
-  margin:
-    22px auto 30px;
-
-  background:
-    rgba(255,255,255,.45);
+  margin: 22px auto 30px;
+  background: rgba(255,255,255,.45);
 }
 
 .dress-opciones {
   display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns: repeat(2,1fr);
   max-width: 700px;
-
   margin: auto;
-
   gap: 60px;
 }
 
-.dress-item {
-  position: relative;
-}
+.dress-item { position: relative; }
 
 .dress-item:first-child::after {
   content: "";
-
   position: absolute;
-
   right: -30px;
   top: 6%;
-
   width: 1px;
   height: 88%;
-
-  background:
-    rgba(255,255,255,.25);
+  background: rgba(255,255,255,.25);
 }
 
 .dress-icono {
   width: 108px;
   height: 125px;
-
-  margin:
-    0 auto 16px;
-
+  margin: 0 auto 16px;
   color: #fff4ee;
 }
 
@@ -1411,70 +897,44 @@ select {
 
 .dress-genero {
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 4px;
-
-  color:
-    rgba(255,255,255,.78);
+  color: rgba(255,255,255,.78);
 }
 
 .dress-descripcion {
   margin-top: 8px;
-
-  font-size:
-    clamp(20px,2.1vw,27px);
-
+  font-size: clamp(20px,2.1vw,27px);
   font-style: italic;
-
   color: #fffaf6;
 }
 
 .reservados {
   max-width: 660px;
-
-  margin:
-    32px auto 0;
-
+  margin: 32px auto 0;
   padding-top: 24px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.28);
+  border-top: 1px solid rgba(255,255,255,.28);
 }
 
 .reservados-titulo {
   font-family: Arial,sans-serif;
-
   font-size: 8px;
-
   letter-spacing: 4px;
-
-  color:
-    rgba(255,255,255,.78);
+  color: rgba(255,255,255,.78);
 }
 
 .paleta-reservada {
   display: flex;
-
   justify-content: center;
-
   gap: 15px;
-
-  margin:
-    15px 0 16px;
+  margin: 15px 0 16px;
 }
 
 .color-reservado {
   width: 44px;
   height: 44px;
-
   border-radius: 50%;
-
-  border:
-    1px solid
-    rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.65);
 }
 
 .color-blanco { background:#fff; }
@@ -1483,19 +943,12 @@ select {
 
 .reservados-texto {
   max-width: 600px;
-
   margin: auto;
-
-  font-size:
-    clamp(16px,1.7vw,21px);
-
+  font-size: clamp(16px,1.7vw,21px);
   line-height: 1.45;
-
   font-style: italic;
-
   color: #fff9f5;
 }
-
 
 /* =========================================================
    REGALOS
@@ -1504,49 +957,27 @@ select {
 .regalos-seccion {
   min-height: 100vh;
   min-height: 100svh;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
   position: relative;
-
   overflow: hidden;
-
-  padding:
-    32px 30px;
-
+  padding: 32px 30px;
   text-align: center;
-
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(255,225,205,.09),
-      transparent 32%
-    ),
-    linear-gradient(
-      145deg,
-      #633026,
-      #79392c 42%,
-      #57261f
-    );
-
+    radial-gradient(circle at top right, rgba(255,225,205,.09), transparent 32%),
+    linear-gradient(145deg, #633026, #79392c 42%, #57261f);
   color: white;
 }
 
 .regalos-seccion .scroll-botanical {
-  color:
-    rgba(245,211,193,.22);
+  color: rgba(245,211,193,.22);
 }
 
 .regalos-contenido {
   width: 100%;
-
   max-width: 1020px;
-
   position: relative;
-
   z-index: 5;
 }
 
@@ -1554,172 +985,104 @@ select {
 .rsvp-icono {
   width: 52px;
   height: 52px;
-
-  margin:
-    0 auto 12px;
-
+  margin: 0 auto 12px;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.28);
-
+  border: 1px solid rgba(255,255,255,.28);
   border-radius: 50%;
 }
 
 .regalos-etiqueta,
 .rsvp-etiqueta {
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 5px;
-
   color: #eec4ae;
 }
 
 .regalos-titulo {
-  margin:
-    10px 0 0;
-
-  font-size:
-    clamp(48px,6vw,72px);
-
+  margin: 10px 0 0;
+  font-size: clamp(48px,6vw,72px);
   font-weight: 400;
-
   color: #fff7f1;
 }
 
 .regalos-texto {
   max-width: 620px;
-
-  margin:
-    15px auto 0;
-
-  font-size:
-    clamp(17px,1.8vw,22px);
-
+  margin: 15px auto 0;
+  font-size: clamp(17px,1.8vw,22px);
   line-height: 1.45;
-
   font-style: italic;
-
   color: #f6ddd0;
 }
 
 .regalos-linea {
   width: 100px;
   height: 1px;
-
-  margin:
-    21px auto 23px;
-
-  background:
-    rgba(255,255,255,.35);
+  margin: 21px auto 23px;
+  background: rgba(255,255,255,.35);
 }
 
 .bancos-preview {
   display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns: repeat(2,1fr);
   gap: 22px;
-
   max-width: 800px;
-
   margin: auto;
 }
 
 .banco-preview {
   min-height: 170px;
-
-  padding:
-    23px 24px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.18);
-
+  padding: 23px 24px;
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 24px;
-
-  background:
-    rgba(255,255,255,.07);
+  background: rgba(255,255,255,.07);
 }
 
 .banco-icono {
   width: 42px;
   height: 42px;
-
-  margin:
-    0 auto 13px;
-
+  margin: 0 auto 13px;
   border-radius: 50%;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.28);
+  border: 1px solid rgba(255,255,255,.28);
 }
 
 .banco-preview-nombre {
   font-size: 24px;
-
   color: #fff8f3;
 }
 
 .banco-preview-titular {
   margin-top: 8px;
-
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   color: #e9cbbb;
 }
 
 .regalos-boton {
   margin-top: 25px;
-
-  padding:
-    15px 30px;
-
+  padding: 15px 30px;
   border: none;
-
   border-radius: 999px;
-
   background: #f6e2d6;
-
   color: #633026;
-
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 2.5px;
-
   cursor: pointer;
 }
 
 .regalos-nota {
   margin-top: 17px;
-
   font-family: Arial,sans-serif;
-
   font-size: 8px;
-
   letter-spacing: 3px;
-
-  color:
-    rgba(255,235,225,.62);
+  color: rgba(255,235,225,.62);
 }
-
 
 /* =========================================================
    RSVP
@@ -1728,420 +1091,249 @@ select {
 .rsvp-seccion {
   min-height: 100vh;
   min-height: 100svh;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
   position: relative;
-
   overflow: hidden;
-
-  padding:
-    35px 30px;
-
+  padding: 35px 30px;
   text-align: center;
-
   background:
-    linear-gradient(
-      145deg,
-      #4b211d,
-      #602921 45%,
-      #3f1917
-    );
-
+    linear-gradient(145deg, #4b211d, #602921 45%, #3f1917);
   color: #fff9f5;
 }
 
 .rsvp-seccion .scroll-botanical {
-  color:
-    rgba(245,218,205,.18);
+  color: rgba(245,218,205,.18);
 }
 
 .rsvp-contenido {
   width: 100%;
-
   max-width: 900px;
-
   position: relative;
-
   z-index: 5;
 }
 
 .rsvp-titulo {
-  margin:
-    10px 0 0;
-
-  font-size:
-    clamp(45px,5.5vw,68px);
-
+  margin: 10px 0 0;
+  font-size: clamp(45px,5.5vw,68px);
   font-weight: 400;
-
   color: #fff8f3;
 }
 
 .rsvp-subtitulo {
   margin-top: 12px;
-
-  font-size:
-    clamp(16px,1.7vw,20px);
-
+  font-size: clamp(16px,1.7vw,20px);
   font-style: italic;
-
   color: #ebcfc3;
 }
 
 .rsvp-linea {
   width: 90px;
   height: 1px;
-
-  margin:
-    18px auto;
-
-  background:
-    rgba(255,255,255,.28);
+  margin: 18px auto;
+  background: rgba(255,255,255,.28);
 }
 
 .rsvp-panel,
 .rsvp-resultado {
   width: 100%;
-
   max-width: 720px;
-
   margin: auto;
-
-  padding:
-    22px 28px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.16);
-
+  padding: 22px 28px;
+  border: 1px solid rgba(255,255,255,.16);
   border-radius: 25px;
-
-  background:
-    rgba(255,255,255,.055);
+  background: rgba(255,255,255,.055);
 }
 
-.rsvp-resultado {
-  display: none;
-}
+.rsvp-resultado { display: none; }
 
 .rsvp-invitado-label {
   font-family: Arial,sans-serif;
-
   font-size: 8px;
-
   letter-spacing: 3px;
-
   color: #cea493;
 }
 
 .rsvp-invitado {
   margin-top: 5px;
-
-  font-size:
-    clamp(24px,3vw,33px);
-
+  font-size: clamp(24px,3vw,33px);
   color: #fff7f2;
 }
 
 .rsvp-cupos {
   margin-top: 5px;
-
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   color: #d9baad;
 }
 
 .rsvp-pregunta {
   margin-top: 17px;
-
   font-size: 18px;
 }
 
 .rsvp-opciones {
   display: flex;
-
   justify-content: center;
-
   gap: 12px;
-
   margin-top: 13px;
 }
 
 .rsvp-opcion {
   min-width: 170px;
-
-  padding:
-    12px 20px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.22);
-
+  padding: 12px 20px;
+  border: 1px solid rgba(255,255,255,.22);
   border-radius: 999px;
-
-  background:
-    rgba(255,255,255,.05);
-
+  background: rgba(255,255,255,.05);
   color: #f8e7df;
-
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 1.8px;
-
   cursor: pointer;
 }
 
 .rsvp-opcion.seleccionado {
   background: #f2d7ca;
-
   color: #55261f;
 }
 
 .rsvp-detalles {
   display: none;
-
   margin-top: 17px;
-
   padding-top: 16px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255,255,255,.12);
 }
 
 .asistentes-label {
   font-family: Arial,sans-serif;
-
   font-size: 8px;
-
   letter-spacing: 2.5px;
-
   color: #cba293;
 }
 
 .asistentes-selector {
   display: flex;
-
   justify-content: center;
-
   flex-wrap: wrap;
-
   gap: 8px;
-
   margin-top: 10px;
 }
 
 .asistente-numero {
   width: 38px;
   height: 38px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.24);
-
+  border: 1px solid rgba(255,255,255,.24);
   border-radius: 50%;
-
   background: transparent;
-
   color: white;
-
   cursor: pointer;
 }
 
 .asistente-numero.seleccionado {
   background: #efd0c1;
-
   color: #51231d;
 }
 
 .acompanantes-contenedor {
   display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns: repeat(2,1fr);
   gap: 10px;
-
   max-width: 600px;
-
-  margin:
-    13px auto 0;
+  margin: 13px auto 0;
 }
 
 .acompanante-campo {
   width: 100%;
-
-  padding:
-    12px 15px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.18);
-
+  padding: 12px 15px;
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 14px;
-
   outline: none;
-
-  background:
-    rgba(255,255,255,.08);
-
+  background: rgba(255,255,255,.08);
   color: white;
-
   font-family: Arial,sans-serif;
-
   font-size: 12px;
 }
 
 .acompanante-campo::placeholder {
-  color:
-    rgba(255,236,227,.5);
+  color: rgba(255,236,227,.5);
 }
 
 .rsvp-mensaje {
   min-height: 18px;
-
   margin-top: 10px;
-
   font-family: Arial,sans-serif;
-
   font-size: 11px;
-
   color: #ffd7c8;
 }
 
 .rsvp-confirmar {
   display: none;
-
   margin-top: 11px;
-
-  padding:
-    13px 28px;
-
+  padding: 13px 28px;
   border: none;
-
   border-radius: 999px;
-
   background: #f3ded3;
-
   color: #57251e;
-
   font-family: Arial,sans-serif;
-
   font-size: 9px;
-
   letter-spacing: 2px;
-
   cursor: pointer;
 }
 
 .rsvp-resultado-icono {
   width: 53px;
   height: 53px;
-
-  margin:
-    0 auto 12px;
-
+  margin: 0 auto 12px;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.1);
+  background: rgba(255,255,255,.1);
 }
 
 .rsvp-resultado-titulo {
-  font-size:
-    clamp(27px,3vw,37px);
+  font-size: clamp(27px,3vw,37px);
 }
 
 .rsvp-resultado-texto {
   margin-top: 9px;
-
   font-family: Arial,sans-serif;
-
   font-size: 12px;
-
   line-height: 1.65;
-
   color: #ddc0b4;
 }
 
 .rsvp-modificar {
   margin-top: 18px;
-
-  padding:
-    11px 22px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.25);
-
+  padding: 11px 22px;
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 999px;
-
   background: transparent;
-
   color: #f1d9ce;
-
   cursor: pointer;
 }
-
-
-/* BOTÓN CALENDARIO DESPUÉS DEL RSVP */
 
 .rsvp-calendario {
   display: none;
-
-  margin:
-    15px auto 0;
-
-  padding:
-    12px 23px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.28);
-
+  margin: 15px auto 0;
+  padding: 12px 23px;
+  border: 1px solid rgba(255,255,255,.28);
   border-radius: 999px;
-
-  background:
-    #f0d6c9;
-
+  background: #f0d6c9;
   color: #58261f;
-
   font-family: Arial,sans-serif;
-
   font-size: 8px;
-
   letter-spacing: 2px;
-
   text-transform: uppercase;
-
   cursor: pointer;
-
-  transition:
-    transform .25s ease,
-    background .25s ease;
+  transition: transform .25s ease, background .25s ease;
 }
 
 .rsvp-calendario:hover {
-  transform:
-    translateY(-2px);
-
-  background:
-    #f7e7df;
+  transform: translateY(-2px);
+  background: #f7e7df;
 }
-
 
 /* =========================================================
    MODAL BANCOS
@@ -2149,218 +1341,132 @@ select {
 
 .modal-bancos {
   position: fixed;
-
   inset: 0;
-
   z-index: 9999;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
   padding: 25px;
-
-  background:
-    rgba(35,10,8,.78);
-
+  background: rgba(35,10,8,.78);
   backdrop-filter: blur(8px);
 }
 
-.modal-bancos.activo {
-  display: flex;
-}
+.modal-bancos.activo { display: flex; }
 
 .modal-caja {
   width: 100%;
-
   max-width: 720px;
-
   max-height: 90svh;
-
   overflow-y: auto;
-
   position: relative;
-
-  padding:
-    44px 40px;
-
+  padding: 44px 40px;
   border-radius: 28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #fbf5f0,
-      #f1e3da
-    );
-
+  background: linear-gradient(145deg, #fbf5f0, #f1e3da);
   color: #54352b;
-
   text-align: center;
 }
 
 .modal-cerrar {
   position: absolute;
-
   top: 18px;
   right: 20px;
-
   width: 38px;
   height: 38px;
-
   border: none;
-
   border-radius: 50%;
-
-  background:
-    rgba(116,57,41,.08);
-
+  background: rgba(116,57,41,.08);
   color: #7c432f;
-
   cursor: pointer;
 }
 
 .modal-titulo {
-  font-size:
-    clamp(31px,4vw,43px);
-
+  font-size: clamp(31px,4vw,43px);
   font-weight: 400;
 }
 
 .modal-texto {
   margin-top: 14px;
-
   font-family: Arial,sans-serif;
-
   font-size: 13px;
-
   line-height: 1.7;
 }
 
 .pin-contenedor {
   max-width: 320px;
-
-  margin:
-    28px auto 0;
+  margin: 28px auto 0;
 }
 
 .pin-input {
   width: 100%;
-
-  padding:
-    16px 20px;
-
-  border:
-    1px solid
-    rgba(126,67,46,.24);
-
+  padding: 16px 20px;
+  border: 1px solid rgba(126,67,46,.24);
   border-radius: 999px;
-
   text-align: center;
-
   font-size: 24px;
-
   letter-spacing: 12px;
-
   background: white;
 }
 
 .pin-boton {
   width: 100%;
-
   margin-top: 14px;
-
-  padding:
-    15px;
-
+  padding: 15px;
   border: none;
-
   border-radius: 999px;
-
   background: #713425;
-
   color: white;
-
   cursor: pointer;
 }
 
 .pin-error {
   margin-top: 12px;
-
   font-family: Arial,sans-serif;
-
   color: #ad3e33;
 }
 
 #datosBancarios {
   display: none;
-
   margin-top: 30px;
 }
 
 .datos-bancos-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns: repeat(2,1fr);
   gap: 18px;
 }
 
 .banco-datos {
-  padding:
-    25px 22px;
-
+  padding: 25px 22px;
   border-radius: 22px;
-
-  background:
-    rgba(255,255,255,.75);
-
+  background: rgba(255,255,255,.75);
   text-align: left;
 }
 
-.banco-datos-titulo {
-  font-size: 24px;
-}
+.banco-datos-titulo { font-size: 24px; }
 
 .dato-label {
   margin-top: 14px;
-
   font-family: Arial,sans-serif;
-
   font-size: 8px;
-
   letter-spacing: 2px;
-
   color: #a07968;
 }
 
 .dato-valor {
   margin-top: 4px;
-
   font-family: Arial,sans-serif;
 }
 
-.dato-numero {
-  font-size: 18px;
-}
+.dato-numero { font-size: 18px; }
 
 .copiar-boton {
   margin-top: 8px;
-
-  padding:
-    8px 12px;
-
-  border:
-    1px solid #d7b8aa;
-
+  padding: 8px 12px;
+  border: 1px solid #d7b8aa;
   border-radius: 999px;
-
   background: transparent;
-
   cursor: pointer;
 }
-
 
 /* =========================================================
    MÚSICA
@@ -2368,160 +1474,74 @@ select {
 
 .musica-control {
   position: fixed;
-
   right: 22px;
-  bottom:
-    calc(
-      22px +
-      env(safe-area-inset-bottom)
-    );
-
+  bottom: calc(22px + env(safe-area-inset-bottom));
   z-index: 9000;
-
   width: 54px;
   height: 54px;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.42);
-
+  border: 1px solid rgba(255,255,255,.42);
   border-radius: 50%;
-
-  background:
-    rgba(91,39,31,.90);
-
+  background: rgba(91,39,31,.90);
   color: white;
-
   cursor: pointer;
-
-  box-shadow:
-    0 10px 30px
-    rgba(35,10,8,.25);
+  box-shadow: 0 10px 30px rgba(35,10,8,.25);
 }
 
 .musica-control::before {
   content: "♪";
-
   font-size: 25px;
 }
 
 .musica-control.pausada::before {
   content: "▶";
-
   font-family: Arial,sans-serif;
-
   font-size: 13px;
 }
 
 .musica-control.sonando {
-  animation:
-    musicaPulso 2.5s
-    ease-in-out infinite;
+  animation: musicaPulso 2.5s ease-in-out infinite;
 }
-
 
 /* =========================================================
    ANIMACIONES
 ========================================================= */
 
 @keyframes aparecer {
-
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
 }
 
-@keyframes crecerTallo {
-
-  to {
-    stroke-dashoffset: 0;
-  }
-
-}
-
-@keyframes crecerRama {
-
-  to {
-    stroke-dashoffset: 0;
-  }
-
-}
+@keyframes crecerTallo { to { stroke-dashoffset: 0; } }
+@keyframes crecerRama { to { stroke-dashoffset: 0; } }
 
 @keyframes aparecerHoja {
-
-  from {
-    opacity: 0;
-    transform: scale(.15);
-  }
-
-  to {
-    opacity: .82;
-    transform: scale(1);
-  }
-
+  from { opacity: 0; transform: scale(.15); }
+  to { opacity: .82; transform: scale(1); }
 }
 
 @keyframes respirarDerecha {
-
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform:
-      rotate(1.5deg)
-      translateY(5px);
-  }
-
+  from { transform: rotate(0); }
+  to { transform: rotate(1.5deg) translateY(5px); }
 }
 
 @keyframes respirarIzquierda {
-
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform:
-      rotate(-1.4deg)
-      translateY(-4px);
-  }
-
+  from { transform: rotate(0); }
+  to { transform: rotate(-1.4deg) translateY(-4px); }
 }
 
 @keyframes flotarFlecha {
-
-  50% {
-    transform:
-      translateY(8px);
-  }
-
+  50% { transform: translateY(8px); }
 }
 
 @keyframes musicaPulso {
-
   50% {
     transform: scale(1.06);
-
-    box-shadow:
-      0 12px 35px
-      rgba(238,200,182,.18);
+    box-shadow: 0 12px 35px rgba(238,200,182,.18);
   }
-
 }
-
 
 /* =========================================================
    MÓVIL
@@ -2532,480 +1552,281 @@ select {
   .portada {
     height: 100svh;
     min-height: 100svh;
-
     padding:
-      max(
-        38px,
-        env(safe-area-inset-top)
-      )
+      max(38px, env(safe-area-inset-top))
       24px
-      max(
-        34px,
-        env(safe-area-inset-bottom)
-      );
+      max(34px, env(safe-area-inset-bottom));
   }
 
-  .contenido {
-    max-width: 420px;
-  }
+  .contenido { max-width: 420px; }
 
   .sobrelinea {
     font-size: 10px;
-
     letter-spacing: 5px;
-
     margin-bottom: 24px;
   }
 
   .nombres {
-    font-size:
-      clamp(53px,15vw,72px);
-
+    font-size: clamp(53px,15vw,72px);
     line-height: .93;
-
     letter-spacing: -1px;
   }
 
   .ampersand {
-    margin:
-      12px 0;
-
+    margin: 12px 0;
     font-size: .5em;
   }
 
-  .separador {
-    margin:
-      30px auto 27px;
-  }
+  .separador { margin: 30px auto 27px; }
 
   .texto-invitacion {
     font-size: 9px;
-
     letter-spacing: 3px;
   }
 
-  #nombreInvitado {
-    font-size:
-      clamp(27px,8vw,38px);
-  }
+  #nombreInvitado { font-size: clamp(27px,8vw,38px); }
 
   #cupos {
     font-size: 13px;
-
     margin-top: 12px;
   }
 
   .boton {
     margin-top: 25px;
-
-    padding:
-      15px 25px;
+    padding: 15px 25px;
   }
 
   .detalle-inferior {
     margin-top: 27px;
-
     font-size: 8px;
-
     letter-spacing: 3px;
   }
 
   #error {
     max-width: 310px;
-
     margin-top: 12px;
-
     font-size: 14px;
-
     line-height: 1.6;
   }
-
-
-  /* RAMAS PORTADA */
 
   .floral-arriba-derecha {
     width: 150px;
     height: 355px;
-
     top: -10px;
     right: -65px;
-
     opacity: .72;
   }
 
   .floral-abajo-izquierda {
     width: 155px;
     height: 360px;
-
     bottom: -40px;
     left: -65px;
-
     opacity: .72;
   }
-
-
-  /* ======================================================
-     VERSÍCULO MÓVIL
-  ====================================================== */
 
   .segunda-seccion {
     min-height: 100svh;
     height: 100svh;
-
-    padding:
-      36px 20px
-      calc(
-        34px +
-        env(safe-area-inset-bottom)
-      );
-
+    padding: 36px 20px calc(34px + env(safe-area-inset-bottom));
     background-size: cover;
-
-    background-position:
-      50% 46%;
-
+    background-position: 50% 46%;
     display: none;
-
     align-items: center;
     justify-content: center;
   }
 
   .segunda-contenido {
     max-width: 390px;
-
     width: 100%;
-
     margin: auto;
   }
 
   .segunda-nombres {
     margin-bottom: 16px;
-
     font-size: 8px;
-
     letter-spacing: 4px;
   }
 
   .ramita-central {
     width: 68px;
     height: 52px;
-
-    margin:
-      0 auto 16px;
+    margin: 0 auto 16px;
   }
 
   .versiculo {
     max-width: 360px;
-
-    font-size:
-      clamp(
-        25px,
-        7vw,
-        31px
-      );
-
+    font-size: clamp(25px,7vw,31px);
     line-height: 1.27;
-
-    padding:
-      0 4px;
+    padding: 0 4px;
   }
 
   .referencia {
     margin-top: 18px;
-
     font-size: 7px;
-
     letter-spacing: 3px;
   }
 
   .linea-fecha {
     width: 72px;
-
-    margin:
-      20px auto;
+    margin: 20px auto;
   }
 
   .fecha-boda {
     font-size: 27px;
-
     letter-spacing: 5px;
   }
 
   .desliza {
     margin-top: 28px;
-
     font-size: 6.5px;
-
     letter-spacing: 3px;
   }
 
   .flecha {
     margin-top: 10px;
-
     font-size: 22px;
   }
 
-
-  /* BOTÁNICA */
-
-  .scroll-botanical {
-    opacity: .55;
-  }
+  .scroll-botanical { opacity: .55; }
 
   .botanica-izq {
     width: 145px;
     height: 330px;
-
     left: -70px;
   }
 
   .botanica-der {
     width: 140px;
     height: 320px;
-
     right: -70px;
   }
 
-
-  /* CONTADOR */
-
   .tercera-seccion {
     min-height: 100svh;
-
-    padding:
-      55px 20px;
+    padding: 55px 20px;
   }
 
-  .tercera-titulo {
-    font-size: 60px;
-  }
+  .tercera-titulo { font-size: 60px; }
 
   .contador {
-    grid-template-columns:
-      repeat(2,1fr);
-
-    gap:
-      28px 10px;
-
+    grid-template-columns: repeat(2,1fr);
+    gap: 28px 10px;
     max-width: 340px;
-
     margin-top: 50px;
   }
 
-  .contador-item:nth-child(2)::after {
-    display: none;
-  }
+  .contador-item:nth-child(2)::after { display: none; }
+  .contador-numero { font-size: 48px; }
+  .contador-separador { margin-top: 42px; }
 
-  .contador-numero {
-    font-size: 48px;
-  }
-
-  .contador-separador {
-    margin-top: 42px;
-  }
-
-
-  /* EVENTO */
-
-  .evento-seccion {
-    min-height: auto;
-  }
-
-  .evento-foto {
-    display: none;
-  }
+  .evento-seccion { min-height: auto; }
+  .evento-foto { display: none; }
 
   .evento-centro {
     width: 100%;
-
     min-height: 100svh;
-
-    padding:
-      55px 24px;
+    padding: 55px 24px;
   }
 
   .evento-botones {
     width: 100%;
-
     max-width: 300px;
-
     flex-direction: column;
-
     gap: 10px;
-
-    margin:
-      25px auto 0;
+    margin: 25px auto 0;
   }
 
   .evento-botones .evento-boton {
     width: 100%;
-
     margin: 0;
   }
 
-
-  /* DRESS */
-
   .dress-seccion {
     min-height: 100svh;
-
     height: auto;
-
-    padding:
-      55px 22px;
+    padding: 55px 22px;
   }
 
   .dress-opciones {
     grid-template-columns: 1fr;
-
     gap: 32px;
   }
 
-  .dress-item:first-child::after {
-    display: none;
-  }
+  .dress-item:first-child::after { display: none; }
 
   .dress-icono {
     width: 78px;
     height: 90px;
   }
 
-  .reservados {
-    margin-top: 26px;
-  }
-
-
-  /* REGALOS */
+  .reservados { margin-top: 26px; }
 
   .regalos-seccion {
     min-height: 100svh;
-
-    padding:
-      55px 20px;
+    padding: 55px 20px;
   }
 
   .bancos-preview {
     grid-template-columns: 1fr;
-
     max-width: 400px;
   }
 
-  .banco-preview {
-    min-height: auto;
-  }
-
-
-  /* RSVP */
+  .banco-preview { min-height: auto; }
 
   .rsvp-seccion {
     min-height: 100svh;
-
-    padding:
-      55px 20px;
+    padding: 55px 20px;
   }
 
   .rsvp-titulo {
-    font-size:
-      clamp(40px,12vw,50px);
+    font-size: clamp(40px,12vw,50px);
   }
 
   .rsvp-panel,
   .rsvp-resultado {
-    padding:
-      22px 18px;
+    padding: 22px 18px;
   }
 
-  .rsvp-opciones {
-    flex-direction: column;
-  }
+  .rsvp-opciones { flex-direction: column; }
+  .rsvp-opcion { width: 100%; }
+  .acompanantes-contenedor { grid-template-columns: 1fr; }
 
-  .rsvp-opcion {
-    width: 100%;
-  }
-
-  .acompanantes-contenedor {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* MODAL */
-
-  .modal-caja {
-    padding:
-      42px 20px 30px;
-  }
-
-  .datos-bancos-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* MÚSICA */
+  .modal-caja { padding: 42px 20px 30px; }
+  .datos-bancos-grid { grid-template-columns: 1fr; }
 
   .musica-control {
     width: 49px;
     height: 49px;
-
     right: 15px;
-
-    bottom:
-      calc(
-        15px +
-        env(safe-area-inset-bottom)
-      );
+    bottom: calc(15px + env(safe-area-inset-bottom));
   }
 
 }
 
-
-/* =========================================================
-   CELULARES BAJITOS
-========================================================= */
-
 @media (max-width:700px) and (max-height:750px) {
 
   .segunda-seccion {
-    padding:
-      28px 18px
-      calc(
-        26px +
-        env(safe-area-inset-bottom)
-      );
+    padding: 28px 18px calc(26px + env(safe-area-inset-bottom));
   }
 
-  .segunda-nombres {
-    margin-bottom: 12px;
-  }
+  .segunda-nombres { margin-bottom: 12px; }
 
   .ramita-central {
     width: 60px;
     height: 46px;
-
     margin-bottom: 12px;
   }
 
   .versiculo {
     font-size: 23px;
-
     line-height: 1.22;
   }
 
-  .referencia {
-    margin-top: 14px;
-  }
-
-  .linea-fecha {
-    margin:
-      16px auto;
-  }
-
-  .fecha-boda {
-    font-size: 24px;
-  }
-
-  .desliza {
-    margin-top: 20px;
-  }
+  .referencia { margin-top: 14px; }
+  .linea-fecha { margin: 16px auto; }
+  .fecha-boda { font-size: 24px; }
+  .desliza { margin-top: 20px; }
 
 }
 
@@ -3013,23 +1834,10 @@ select {
 
 </head>
 
-
 <body>
 
-
-<!-- =========================================================
-     MÚSICA
-========================================================= -->
-
-<audio
-  id="musicaBoda"
-  preload="auto"
-  loop
->
-  <source
-    src="cancion-boda.mp3"
-    type="audio/mpeg"
-  >
+<audio id="musicaBoda" preload="auto" loop>
+  <source src="cancion-boda.mp3" type="audio/mpeg">
 </audio>
 
 <button
@@ -3040,47 +1848,22 @@ select {
 ></button>
 
 
-<!-- =========================================================
-     PORTADA
-========================================================= -->
-
-<section
-  class="portada"
-  id="portada"
->
+<section class="portada" id="portada">
 
   <div class="mancha mancha-arriba"></div>
-
   <div class="mancha mancha-abajo"></div>
-
   <div class="linea-vertical linea-izquierda"></div>
-
   <div class="linea-vertical linea-derecha"></div>
 
-
-  <div
-    class="floral floral-arriba-derecha"
-  >
-
+  <div class="floral floral-arriba-derecha">
     <svg viewBox="0 0 280 620">
-
-      <path
-        class="tallo"
-        d="
-        M262 0
-        C245 70 232 130 217 185
-        C197 260 174 322 143 392
-        C115 455 84 525 44 620
-        "
-      />
-
+      <path class="tallo" d="M262 0 C245 70 232 130 217 185 C197 260 174 322 143 392 C115 455 84 525 44 620" />
       <path class="rama rama-1" d="M231 132 C205 118 186 97 172 73" />
       <path class="rama rama-2" d="M214 198 C240 178 254 154 262 126" />
       <path class="rama rama-3" d="M190 282 C160 260 139 236 124 205" />
       <path class="rama rama-4" d="M163 348 C193 332 216 306 228 275" />
       <path class="rama rama-5" d="M124 438 C94 418 74 394 58 365" />
       <path class="rama rama-6" d="M86 522 C111 509 130 489 145 462" />
-
       <ellipse class="hoja hoja-1" cx="182" cy="88" rx="9" ry="21" />
       <ellipse class="hoja hoja-2" cx="216" cy="122" rx="10" ry="23" />
       <ellipse class="hoja hoja-3" cx="248" cy="160" rx="9" ry="20" />
@@ -3091,35 +1874,18 @@ select {
       <ellipse class="hoja hoja-8" cx="126" cy="447" rx="10" ry="23" />
       <ellipse class="hoja hoja-9" cx="128" cy="488" rx="10" ry="22" />
       <ellipse class="hoja hoja-10" cx="68" cy="548" rx="9" ry="21" />
-
     </svg>
-
   </div>
 
-
-  <div
-    class="floral floral-abajo-izquierda"
-  >
-
+  <div class="floral floral-abajo-izquierda">
     <svg viewBox="0 0 280 620">
-
-      <path
-        class="tallo"
-        d="
-        M18 620
-        C40 545 58 485 75 430
-        C97 360 120 300 145 240
-        C170 178 197 110 235 0
-        "
-      />
-
+      <path class="tallo" d="M18 620 C40 545 58 485 75 430 C97 360 120 300 145 240 C170 178 197 110 235 0" />
       <path class="rama rama-1" d="M58 487 C30 470 16 447 8 420" />
       <path class="rama rama-2" d="M79 419 C108 402 127 378 140 349" />
       <path class="rama rama-3" d="M111 328 C79 306 58 281 45 250" />
       <path class="rama rama-4" d="M145 241 C174 224 193 201 206 172" />
       <path class="rama rama-5" d="M179 155 C150 134 132 111 120 83" />
       <path class="rama rama-6" d="M205 82 C226 67 240 48 250 26" />
-
       <ellipse class="hoja hoja-1" cx="23" cy="438" rx="10" ry="23" />
       <ellipse class="hoja hoja-2" cx="98" cy="396" rx="11" ry="24" />
       <ellipse class="hoja hoja-3" cx="124" cy="362" rx="9" ry="20" />
@@ -3130,71 +1896,39 @@ select {
       <ellipse class="hoja hoja-8" cx="221" cy="63" rx="10" ry="23" />
       <ellipse class="hoja hoja-9" cx="244" cy="38" rx="8" ry="18" />
       <ellipse class="hoja hoja-10" cx="44" cy="522" rx="10" ry="22" />
-
     </svg>
-
   </div>
-
 
   <div class="contenido">
 
-    <div class="sobrelinea">
-      Nos casamos
-    </div>
+    <div class="sobrelinea">Nos casamos</div>
 
     <h1 class="nombres">
-
       Carolina
-
-      <span class="ampersand">
-        &
-      </span>
-
+      <span class="ampersand">&</span>
       Alexander
-
     </h1>
 
     <div class="separador"></div>
 
-
-    <div id="cargando">
-      Preparando tu invitación...
-    </div>
-
+    <div id="cargando">Preparando tu invitación...</div>
 
     <div id="contenidoInvitado">
-
-      <div class="texto-invitacion">
-        Invitación especial para
-      </div>
-
+      <div class="texto-invitacion">Invitación especial para</div>
       <div id="nombreInvitado"></div>
-
       <div id="cupos"></div>
 
-      <button
-        class="boton"
-        id="abrirInvitacion"
-        type="button"
-      >
+      <button class="boton" id="abrirInvitacion" type="button">
         ABRIR INVITACIÓN
       </button>
 
-      <div class="detalle-inferior">
-        Nuestra historia comienza aquí
-      </div>
-
+      <div class="detalle-inferior">Nuestra historia comienza aquí</div>
     </div>
 
-
     <div id="error">
-
       No pudimos encontrar esta invitación.
-
       <br>
-
       Revisa que hayas abierto el enlace correcto.
-
     </div>
 
   </div>
@@ -3202,255 +1936,102 @@ select {
 </section>
 
 
-<!-- =========================================================
-     VERSÍCULO
-========================================================= -->
-
-<section
-  class="segunda-seccion"
-  id="segundaSeccion"
->
+<section class="segunda-seccion" id="segundaSeccion">
 
   <div class="segunda-contenido">
 
-    <div class="segunda-nombres">
-      Carolina & Alexander
-    </div>
-
+    <div class="segunda-nombres">Carolina & Alexander</div>
 
     <div class="ramita-central">
-
       <svg viewBox="0 0 120 90">
-
-        <path
-          d="
-          M60 84
-          C58 69 56 54 57 38
-          C58 29 59 21 59 12
-          "
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-
-        <path
-          d="M57 53 C47 49 38 42 30 32"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        />
-
-        <path
-          d="M58 40 C70 36 80 29 90 18"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        />
-
-        <path
-          d="M59 28 C52 24 47 18 44 12"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        />
-
-        <path
-          d="
-          M32 34
-          C22 31 17 23 18 15
-          C27 16 34 23 32 34 Z
-          "
-          fill="currentColor"
-          stroke="none"
-          opacity=".78"
-        />
-
-        <path
-          d="
-          M85 23
-          C90 13 99 8 106 11
-          C104 20 97 26 85 23 Z
-          "
-          fill="currentColor"
-          stroke="none"
-          opacity=".78"
-        />
-
-        <path
-          d="
-          M47 17
-          C40 14 36 8 38 3
-          C46 4 51 9 47 17 Z
-          "
-          fill="currentColor"
-          stroke="none"
-          opacity=".72"
-        />
-
+        <path d="M60 84 C58 69 56 54 57 38 C58 29 59 21 59 12" fill="none" stroke="currentColor" stroke-width="1.7" />
+        <path d="M57 53 C47 49 38 42 30 32" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <path d="M58 40 C70 36 80 29 90 18" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <path d="M59 28 C52 24 47 18 44 12" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <path d="M32 34 C22 31 17 23 18 15 C27 16 34 23 32 34 Z" fill="currentColor" stroke="none" opacity=".78" />
+        <path d="M85 23 C90 13 99 8 106 11 C104 20 97 26 85 23 Z" fill="currentColor" stroke="none" opacity=".78" />
+        <path d="M47 17 C40 14 36 8 38 3 C46 4 51 9 47 17 Z" fill="currentColor" stroke="none" opacity=".72" />
       </svg>
-
     </div>
 
-
     <blockquote class="versiculo">
-
       “Y sobre todas estas cosas,
       vestíos de amor,
       que es el vínculo perfecto.”
-
     </blockquote>
 
-    <div class="referencia">
-      Colosenses 3:14
-    </div>
-
+    <div class="referencia">Colosenses 3:14</div>
     <div class="linea-fecha"></div>
-
-    <div class="fecha-boda">
-      14 · 11 · 2026
-    </div>
-
-    <div class="desliza">
-      Desliza para continuar
-    </div>
-
-    <div class="flecha">
-      ↓
-    </div>
+    <div class="fecha-boda">14 · 11 · 2026</div>
+    <div class="desliza">Desliza para continuar</div>
+    <div class="flecha">↓</div>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
-     CONTADOR
-========================================================= -->
-
-<section
-  class="tercera-seccion scroll-section"
-  id="cuentaRegresiva"
->
+<section class="tercera-seccion scroll-section" id="cuentaRegresiva">
 
   <div class="scroll-botanical botanica-izq">
-
     <svg viewBox="0 0 260 540">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M20 540
-        C42 472 58 420 78 360
-        C98 300 126 240 151 180
-        C177 119 198 68 226 10
-        "
-      />
-
+      <path class="scroll-tallo" d="M20 540 C42 472 58 420 78 360 C98 300 126 240 151 180 C177 119 198 68 226 10" />
       <path class="scroll-rama" d="M61 410 C35 396 20 372 12 345" />
       <path class="scroll-rama" d="M90 327 C118 314 137 294 150 267" />
       <path class="scroll-rama" d="M122 249 C96 232 78 210 65 182" />
       <path class="scroll-rama" d="M161 159 C187 145 205 123 216 99" />
-
       <ellipse class="scroll-hoja" data-start=".18" cx="28" cy="382" rx="10" ry="23" />
       <ellipse class="scroll-hoja" data-start=".32" cx="119" cy="301" rx="10" ry="22" />
       <ellipse class="scroll-hoja" data-start=".46" cx="82" cy="213" rx="10" ry="23" />
       <ellipse class="scroll-hoja" data-start=".62" cx="195" cy="131" rx="10" ry="22" />
-
     </svg>
-
   </div>
 
-
   <div class="scroll-botanical botanica-der">
-
     <svg viewBox="0 0 250 520">
-
-      <path
-        class="scroll-tallo"
-        d="
-        M238 0
-        C220 62 203 118 186 174
-        C164 241 142 306 114 365
-        C88 418 60 469 22 520
-        "
-      />
-
+      <path class="scroll-tallo" d="M238 0 C220 62 203 118 186 174 C164 241 142 306 114 365 C88 418 60 469 22 520" />
       <path class="scroll-rama" d="M204 112 C179 96 160 76 151 52" />
       <path class="scroll-rama" d="M171 228 C198 210 217 189 228 162" />
       <path class="scroll-rama" d="M116 364 C90 346 72 324 60 297" />
-
       <ellipse class="scroll-hoja" data-start=".20" cx="168" cy="80" rx="9" ry="21" />
       <ellipse class="scroll-hoja" data-start=".40" cx="205" cy="193" rx="10" ry="22" />
       <ellipse class="scroll-hoja" data-start=".60" cx="79" cy="329" rx="10" ry="23" />
-
     </svg>
-
   </div>
 
-
   <div class="tercera-contenido">
-
-    <div class="tercera-etiqueta">
-      La espera casi termina
-    </div>
-
-    <h2 class="tercera-titulo">
-      Faltan
-    </h2>
-
-    <div class="tercera-subtitulo">
-      para celebrar nuestro amor
-    </div>
-
+    <div class="tercera-etiqueta">La espera casi termina</div>
+    <h2 class="tercera-titulo">Faltan</h2>
+    <div class="tercera-subtitulo">para celebrar nuestro amor</div>
 
     <div class="contador">
-
       <div class="contador-item">
         <span class="contador-numero" id="dias">00</span>
         <span class="contador-label">Días</span>
       </div>
-
       <div class="contador-item">
         <span class="contador-numero" id="horas">00</span>
         <span class="contador-label">Horas</span>
       </div>
-
       <div class="contador-item">
         <span class="contador-numero" id="minutos">00</span>
         <span class="contador-label">Minutos</span>
       </div>
-
       <div class="contador-item">
         <span class="contador-numero" id="segundos">00</span>
         <span class="contador-label">Segundos</span>
       </div>
-
     </div>
-
 
     <div class="contador-separador"></div>
-
-    <div class="gran-dia">
-      para nuestro gran día
-    </div>
-
-    <div class="fecha-pequena">
-      14 de noviembre de 2026
-    </div>
-
+    <div class="gran-dia">para nuestro gran día</div>
+    <div class="fecha-pequena">14 de noviembre de 2026</div>
   </div>
 
 </section>
 
 
-<!-- =========================================================
-     EVENTO
-========================================================= -->
-
-<section
-  class="evento-seccion"
-  id="eventoSeccion"
->
+<section class="evento-seccion" id="eventoSeccion">
 
   <div class="evento-foto evento-foto-izquierda">
     <img src="F1.jpeg" alt="">
@@ -3460,57 +2041,25 @@ select {
     <img src="F2.jpeg" alt="">
   </div>
 
-
   <div class="evento-centro">
 
     <div class="evento-logo-marco">
-
-      <img
-        src="LOGO.png"
-        class="evento-logo"
-        alt="Karla Ramírez Event Studio"
-      >
-
+      <img src="LOGO.png" class="evento-logo" alt="Karla Ramírez Event Studio">
     </div>
 
-    <div class="evento-etiqueta">
-      Aquí celebraremos nuestro sí
-    </div>
-
-    <h2 class="evento-titulo">
-      Karla Ramírez
-    </h2>
-
-    <div class="evento-subtitulo">
-      Event Studio · La Solé
-    </div>
-
+    <div class="evento-etiqueta">Aquí celebraremos nuestro sí</div>
+    <h2 class="evento-titulo">Karla Ramírez</h2>
+    <div class="evento-subtitulo">Event Studio · La Solé</div>
     <div class="evento-linea"></div>
-
-    <div class="evento-tipo">
-      Ceremonia & Recepción
-    </div>
-
-    <div class="evento-hora">
-      16:30
-    </div>
-
-    <div class="evento-hora-label">
-      HORA DE LA CEREMONIA
-    </div>
+    <div class="evento-tipo">Ceremonia & Recepción</div>
+    <div class="evento-hora">16:30</div>
+    <div class="evento-hora-label">HORA DE LA CEREMONIA</div>
 
     <div class="evento-direccion">
-
       Av. Gral. Rumiñahui S/N
-
       <br>
-
       171103 Quito
-
     </div>
-
-
-    <!-- BOTONES UBICACIÓN + CALENDARIO -->
 
     <div class="evento-botones">
 
@@ -3523,7 +2072,6 @@ select {
         ◇ &nbsp; CÓMO LLEGAR
       </a>
 
-
       <button
         class="evento-boton evento-boton-calendario"
         type="button"
@@ -3534,185 +2082,90 @@ select {
 
     </div>
 
-
-    <div class="evento-nota">
-      14 · 11 · 2026
-    </div>
+    <div class="evento-nota">14 · 11 · 2026</div>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
-     DRESS CODE
-========================================================= -->
-
-<section
-  class="dress-seccion scroll-section"
-  id="dressSeccion"
->
+<section class="dress-seccion scroll-section" id="dressSeccion">
 
   <div class="scroll-botanical botanica-izq">
-
     <svg viewBox="0 0 260 540">
-
-      <path
-        class="scroll-tallo"
-        d="M20 540 C45 450 65 370 90 290 C120 205 150 120 220 20"
-      />
-
+      <path class="scroll-tallo" d="M20 540 C45 450 65 370 90 290 C120 205 150 120 220 20" />
       <path class="scroll-rama" d="M72 355 C45 338 30 312 24 285" />
       <path class="scroll-rama" d="M125 195 C150 180 170 155 180 125" />
-
       <ellipse class="scroll-hoja" data-start=".23" cx="28" cy="278" rx="10" ry="23" />
       <ellipse class="scroll-hoja" data-start=".52" cx="182" cy="118" rx="10" ry="22" />
-
     </svg>
-
   </div>
-
 
   <div class="scroll-botanical botanica-der">
-
     <svg viewBox="0 0 250 520">
-
-      <path
-        class="scroll-tallo"
-        d="M238 0 C220 80 200 155 170 235 C140 315 100 410 22 520"
-      />
-
+      <path class="scroll-tallo" d="M238 0 C220 80 200 155 170 235 C140 315 100 410 22 520" />
       <path class="scroll-rama" d="M190 175 C215 155 225 132 230 105" />
       <path class="scroll-rama" d="M95 395 C72 375 60 352 55 325" />
-
       <ellipse class="scroll-hoja" data-start=".3" cx="225" cy="105" rx="10" ry="22" />
       <ellipse class="scroll-hoja" data-start=".62" cx="58" cy="320" rx="10" ry="23" />
-
     </svg>
-
   </div>
-
 
   <div class="dress-contenido">
 
-    <div class="dress-etiqueta">
-      CÓDIGO DE VESTIMENTA
-    </div>
-
-    <h2 class="dress-titulo">
-      Dress Code
-    </h2>
-
-    <div class="dress-formal">
-      Elegante / Formal
-    </div>
-
+    <div class="dress-etiqueta">CÓDIGO DE VESTIMENTA</div>
+    <h2 class="dress-titulo">Dress Code</h2>
+    <div class="dress-formal">Elegante / Formal</div>
     <div class="dress-linea"></div>
-
 
     <div class="dress-opciones">
 
       <div class="dress-item">
-
         <div class="dress-icono">
-
           <svg viewBox="0 0 120 150">
-
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-
+            <g fill="none" stroke="currentColor" stroke-width="2">
               <path d="M42 15 L60 30 L78 15" />
               <path d="M42 15 L25 31 L15 135" />
               <path d="M78 15 L95 31 L105 135" />
               <path d="M15 135 L105 135" />
-
             </g>
-
           </svg>
-
         </div>
-
-        <div class="dress-genero">
-          CABALLEROS
-        </div>
-
-        <div class="dress-descripcion">
-          Traje formal
-        </div>
-
+        <div class="dress-genero">CABALLEROS</div>
+        <div class="dress-descripcion">Traje formal</div>
       </div>
 
-
       <div class="dress-item">
-
         <div class="dress-icono">
-
           <svg viewBox="0 0 120 150">
-
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-
+            <g fill="none" stroke="currentColor" stroke-width="2">
               <path d="M46 12 C47 25 50 35 60 40 C70 35 73 25 74 12" />
-
               <path d="M43 60 C35 83 25 110 15 137" />
-
               <path d="M77 60 C85 83 95 110 105 137" />
-
               <path d="M15 137 C40 143 80 143 105 137" />
-
             </g>
-
           </svg>
-
         </div>
-
-        <div class="dress-genero">
-          DAMAS
-        </div>
-
-        <div class="dress-descripcion">
-          Vestido largo o midi elegante
-        </div>
-
+        <div class="dress-genero">DAMAS</div>
+        <div class="dress-descripcion">Vestido largo o midi elegante</div>
       </div>
 
     </div>
 
-
     <div class="reservados">
-
-      <div class="reservados-titulo">
-        COLORES RESERVADOS PARA LOS NOVIOS
-      </div>
+      <div class="reservados-titulo">COLORES RESERVADOS PARA LOS NOVIOS</div>
 
       <div class="paleta-reservada">
-
         <div class="color-reservado color-blanco"></div>
-
         <div class="color-reservado color-marfil"></div>
-
         <div class="color-reservado color-beige"></div>
-
       </div>
 
       <div class="reservados-texto">
-
         Con cariño, les pedimos reservar el
-
-        <strong>
-          blanco, el beige y sus tonalidades
-        </strong>
-
+        <strong>blanco, el beige y sus tonalidades</strong>
         exclusivamente para los novios.
-
       </div>
-
     </div>
 
   </div>
@@ -3720,122 +2173,58 @@ select {
 </section>
 
 
-<!-- =========================================================
-     REGALOS
-========================================================= -->
-
-<section
-  class="regalos-seccion scroll-section"
-  id="regalosSeccion"
->
+<section class="regalos-seccion scroll-section" id="regalosSeccion">
 
   <div class="scroll-botanical botanica-izq">
-
     <svg viewBox="0 0 260 540">
-
-      <path
-        class="scroll-tallo"
-        d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10"
-      />
-
+      <path class="scroll-tallo" d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10" />
       <path class="scroll-rama" d="M70 360 C44 345 28 320 20 292" />
       <path class="scroll-rama" d="M145 165 C170 150 190 125 200 98" />
-
       <ellipse class="scroll-hoja" data-start=".22" cx="26" cy="286" rx="10" ry="23" />
       <ellipse class="scroll-hoja" data-start=".55" cx="202" cy="92" rx="10" ry="22" />
-
     </svg>
-
   </div>
-
 
   <div class="scroll-botanical botanica-der">
-
     <svg viewBox="0 0 250 520">
-
-      <path
-        class="scroll-tallo"
-        d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520"
-      />
-
+      <path class="scroll-tallo" d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520" />
       <path class="scroll-rama" d="M185 185 C210 167 225 145 230 115" />
       <path class="scroll-rama" d="M92 405 C68 385 55 360 52 330" />
-
       <ellipse class="scroll-hoja" data-start=".3" cx="228" cy="110" rx="10" ry="22" />
       <ellipse class="scroll-hoja" data-start=".65" cx="55" cy="325" rx="10" ry="23" />
-
     </svg>
-
   </div>
-
 
   <div class="regalos-contenido">
 
-    <div class="regalos-icono">
-      ♡
-    </div>
-
-    <div class="regalos-etiqueta">
-      UN DETALLE PARA NOSOTROS
-    </div>
-
-    <h2 class="regalos-titulo">
-      Regalos
-    </h2>
+    <div class="regalos-icono">♡</div>
+    <div class="regalos-etiqueta">UN DETALLE PARA NOSOTROS</div>
+    <h2 class="regalos-titulo">Regalos</h2>
 
     <div class="regalos-texto">
-
       Si deseas regalarnos algo más que tu hermosa presencia,
       hemos preparado estas opciones para ti.
-
     </div>
 
     <div class="regalos-linea"></div>
 
-
     <div class="bancos-preview">
 
       <div class="banco-preview">
-
-        <div class="banco-icono">
-          ◇
-        </div>
-
-        <div class="banco-preview-nombre">
-          Banco Pichincha
-        </div>
-
-        <div class="banco-preview-titular">
-          Carolina Pricila González Almeida
-        </div>
-
+        <div class="banco-icono">◇</div>
+        <div class="banco-preview-nombre">Banco Pichincha</div>
+        <div class="banco-preview-titular">Carolina Pricila González Almeida</div>
       </div>
 
-
       <div class="banco-preview">
-
-        <div class="banco-icono">
-          ◇
-        </div>
-
-        <div class="banco-preview-nombre">
-          Banco Guayaquil
-        </div>
-
-        <div class="banco-preview-titular">
-          Darling Alexander Mendoza Pérez
-        </div>
-
+        <div class="banco-icono">◇</div>
+        <div class="banco-preview-nombre">Banco Guayaquil</div>
+        <div class="banco-preview-titular">Darling Alexander Mendoza Pérez</div>
       </div>
 
     </div>
 
-
-    <button
-      class="regalos-boton"
-      id="abrirBancos"
-      type="button"
-    >
+    <button class="regalos-boton" id="abrirBancos" type="button">
       VER DATOS PARA TRANSFERENCIA
     </button>
 
@@ -3848,184 +2237,70 @@ select {
 </section>
 
 
-<!-- =========================================================
-     RSVP
-========================================================= -->
-
-<section
-  class="rsvp-seccion scroll-section"
-  id="rsvpSeccion"
->
+<section class="rsvp-seccion scroll-section" id="rsvpSeccion">
 
   <div class="scroll-botanical botanica-izq">
-
     <svg viewBox="0 0 260 540">
-
-      <path
-        class="scroll-tallo"
-        d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10"
-      />
-
+      <path class="scroll-tallo" d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10" />
       <path class="scroll-rama" d="M70 360 C44 345 28 320 20 292" />
       <path class="scroll-rama" d="M145 165 C170 150 190 125 200 98" />
-
       <ellipse class="scroll-hoja" data-start=".22" cx="26" cy="286" rx="10" ry="23" />
       <ellipse class="scroll-hoja" data-start=".55" cx="202" cy="92" rx="10" ry="22" />
-
     </svg>
-
   </div>
-
 
   <div class="scroll-botanical botanica-der">
-
     <svg viewBox="0 0 250 520">
-
-      <path
-        class="scroll-tallo"
-        d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520"
-      />
-
+      <path class="scroll-tallo" d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520" />
       <path class="scroll-rama" d="M185 185 C210 167 225 145 230 115" />
       <path class="scroll-rama" d="M92 405 C68 385 55 360 52 330" />
-
       <ellipse class="scroll-hoja" data-start=".3" cx="228" cy="110" rx="10" ry="22" />
       <ellipse class="scroll-hoja" data-start=".65" cx="55" cy="325" rx="10" ry="23" />
-
     </svg>
-
   </div>
-
 
   <div class="rsvp-contenido">
 
-    <div class="rsvp-icono">
-      ♡
-    </div>
-
-    <div class="rsvp-etiqueta">
-      NUESTRO GRAN DÍA
-    </div>
-
-    <h2 class="rsvp-titulo">
-      Confirma tu asistencia
-    </h2>
-
-    <div class="rsvp-subtitulo">
-      Nos encantará compartir este momento contigo.
-    </div>
-
+    <div class="rsvp-icono">♡</div>
+    <div class="rsvp-etiqueta">NUESTRO GRAN DÍA</div>
+    <h2 class="rsvp-titulo">Confirma tu asistencia</h2>
+    <div class="rsvp-subtitulo">Nos encantará compartir este momento contigo.</div>
     <div class="rsvp-linea"></div>
 
+    <div class="rsvp-panel" id="rsvpPanel">
 
-    <div
-      class="rsvp-panel"
-      id="rsvpPanel"
-    >
-
-      <div class="rsvp-invitado-label">
-        INVITACIÓN PARA
-      </div>
-
-      <div
-        class="rsvp-invitado"
-        id="rsvpNombre"
-      ></div>
-
-      <div
-        class="rsvp-cupos"
-        id="rsvpCupos"
-      ></div>
-
-      <div class="rsvp-pregunta">
-        ¿Nos acompañarás?
-      </div>
-
+      <div class="rsvp-invitado-label">INVITACIÓN PARA</div>
+      <div class="rsvp-invitado" id="rsvpNombre"></div>
+      <div class="rsvp-cupos" id="rsvpCupos"></div>
+      <div class="rsvp-pregunta">¿Nos acompañarás?</div>
 
       <div class="rsvp-opciones">
+        <button class="rsvp-opcion" id="rsvpSi" type="button">SÍ, ASISTIRÉ</button>
+        <button class="rsvp-opcion" id="rsvpNo" type="button">NO PODRÉ ASISTIR</button>
+      </div>
 
-        <button
-          class="rsvp-opcion"
-          id="rsvpSi"
-          type="button"
-        >
-          SÍ, ASISTIRÉ
-        </button>
+      <div class="rsvp-detalles" id="rsvpDetalles">
 
-        <button
-          class="rsvp-opcion"
-          id="rsvpNo"
-          type="button"
-        >
-          NO PODRÉ ASISTIR
-        </button>
+        <div class="asistentes-label">¿CUÁNTAS PERSONAS ASISTIRÁN?</div>
+
+        <div class="asistentes-selector" id="asistentesSelector"></div>
+        <div class="acompanantes-contenedor" id="acompanantesContenedor"></div>
 
       </div>
 
+      <div class="rsvp-mensaje" id="rsvpMensaje"></div>
 
-      <div
-        class="rsvp-detalles"
-        id="rsvpDetalles"
-      >
-
-        <div class="asistentes-label">
-          ¿CUÁNTAS PERSONAS ASISTIRÁN?
-        </div>
-
-        <div
-          class="asistentes-selector"
-          id="asistentesSelector"
-        ></div>
-
-        <div
-          class="acompanantes-contenedor"
-          id="acompanantesContenedor"
-        ></div>
-
-      </div>
-
-
-      <div
-        class="rsvp-mensaje"
-        id="rsvpMensaje"
-      ></div>
-
-
-      <button
-        class="rsvp-confirmar"
-        id="rsvpConfirmar"
-        type="button"
-      >
+      <button class="rsvp-confirmar" id="rsvpConfirmar" type="button">
         CONFIRMAR ASISTENCIA
       </button>
 
     </div>
 
+    <div class="rsvp-resultado" id="rsvpResultado">
 
-    <div
-      class="rsvp-resultado"
-      id="rsvpResultado"
-    >
-
-      <div
-        class="rsvp-resultado-icono"
-        id="rsvpResultadoIcono"
-      >
-        ♡
-      </div>
-
-      <div
-        class="rsvp-resultado-titulo"
-        id="rsvpResultadoTitulo"
-      ></div>
-
-      <div
-        class="rsvp-resultado-texto"
-        id="rsvpResultadoTexto"
-      ></div>
-
-
-      <!-- APARECE SOLO SI CONFIRMÓ QUE SÍ -->
+      <div class="rsvp-resultado-icono" id="rsvpResultadoIcono">♡</div>
+      <div class="rsvp-resultado-titulo" id="rsvpResultadoTitulo"></div>
+      <div class="rsvp-resultado-texto" id="rsvpResultadoTexto"></div>
 
       <button
         class="rsvp-calendario"
@@ -4036,12 +2311,7 @@ select {
         ♡ &nbsp; AGREGAR AL CALENDARIO
       </button>
 
-
-      <button
-        class="rsvp-modificar"
-        id="rsvpModificar"
-        type="button"
-      >
+      <button class="rsvp-modificar" id="rsvpModificar" type="button">
         MODIFICAR RESPUESTA
       </button>
 
@@ -4052,41 +2322,20 @@ select {
 </section>
 
 
-<!-- =========================================================
-     MODAL BANCOS
-========================================================= -->
-
-<div
-  class="modal-bancos"
-  id="modalBancos"
->
+<div class="modal-bancos" id="modalBancos">
 
   <div class="modal-caja">
 
-    <button
-      class="modal-cerrar"
-      id="cerrarModalBancos"
-      type="button"
-    >
-      ×
-    </button>
+    <button class="modal-cerrar" id="cerrarModalBancos" type="button">×</button>
 
-    <h3 class="modal-titulo">
-      Datos para transferencia
-    </h3>
+    <h3 class="modal-titulo">Datos para transferencia</h3>
 
     <div class="modal-texto">
-
       Por seguridad, ingresa el código proporcionado
       por los novios.
-
     </div>
 
-
-    <div
-      class="pin-contenedor"
-      id="pinContenedor"
-    >
+    <div class="pin-contenedor" id="pinContenedor">
 
       <input
         type="password"
@@ -4098,29 +2347,16 @@ select {
         placeholder="••••"
       >
 
-      <button
-        class="pin-boton"
-        id="verificarPin"
-        type="button"
-      >
+      <button class="pin-boton" id="verificarPin" type="button">
         VER DATOS
       </button>
 
-      <div
-        class="pin-error"
-        id="pinError"
-      ></div>
+      <div class="pin-error" id="pinError"></div>
 
     </div>
 
-
     <div id="datosBancarios">
-
-      <div
-        class="datos-bancos-grid"
-        id="datosBancosGrid"
-      ></div>
-
+      <div class="datos-bancos-grid" id="datosBancosGrid"></div>
     </div>
 
   </div>
@@ -4137,12 +2373,8 @@ select {
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
 
-
 const parametros =
-new URLSearchParams(
-  window.location.search
-);
-
+new URLSearchParams(window.location.search);
 
 const codigo =
 String(
@@ -4153,13 +2385,9 @@ String(
 .trim()
 .toUpperCase();
 
-
 let invitadoActual = null;
-
 let respuestaRSVP = "";
-
 let cantidadAsistentes = 1;
-
 let invitadoCargado = false;
 
 
@@ -4168,279 +2396,156 @@ let invitadoCargado = false;
 ========================================================= */
 
 const musicaBoda =
-document.getElementById(
-  "musicaBoda"
-);
+document.getElementById("musicaBoda");
 
 const musicaControl =
-document.getElementById(
-  "musicaControl"
-);
-
+document.getElementById("musicaControl");
 
 function mostrarMusicaSonando() {
-
-  musicaControl.style.display =
-  "flex";
-
-  musicaControl.classList.remove(
-    "pausada"
-  );
-
-  musicaControl.classList.add(
-    "sonando"
-  );
-
+  musicaControl.style.display = "flex";
+  musicaControl.classList.remove("pausada");
+  musicaControl.classList.add("sonando");
 }
-
 
 function mostrarMusicaPausada() {
-
-  musicaControl.style.display =
-  "flex";
-
-  musicaControl.classList.remove(
-    "sonando"
-  );
-
-  musicaControl.classList.add(
-    "pausada"
-  );
-
+  musicaControl.style.display = "flex";
+  musicaControl.classList.remove("sonando");
+  musicaControl.classList.add("pausada");
 }
-
 
 function iniciarMusica() {
+  musicaBoda.volume = .55;
+  musicaBoda.loop = true;
 
-  musicaBoda.volume =
-  .55;
+  const intento = musicaBoda.play();
 
-  musicaBoda.loop =
-  true;
-
-
-  const intento =
-  musicaBoda.play();
-
-
-  if (
-    intento &&
-    typeof intento.then === "function"
-  ) {
-
+  if (intento && typeof intento.then === "function") {
     intento
-    .then(
-      function () {
-
-        mostrarMusicaSonando();
-
-      }
-    )
-    .catch(
-      function (error) {
-
-        console.log(
-          "Audio bloqueado:",
-          error
-        );
-
-        mostrarMusicaPausada();
-
-      }
-    );
-
+    .then(function () {
+      mostrarMusicaSonando();
+    })
+    .catch(function (error) {
+      console.log("Audio bloqueado:", error);
+      mostrarMusicaPausada();
+    });
   }
-
 }
 
+musicaControl.addEventListener("click", function () {
 
-musicaControl.addEventListener(
-  "click",
-  function () {
-
-    if (
-      musicaBoda.paused
-    ) {
-
-      musicaBoda
-      .play()
-      .then(
-        function () {
-
-          mostrarMusicaSonando();
-
-        }
-      )
-      .catch(
-        function () {
-
-          mostrarMusicaPausada();
-
-        }
-      );
-
-    } else {
-
-      musicaBoda.pause();
-
+  if (musicaBoda.paused) {
+    musicaBoda
+    .play()
+    .then(function () {
+      mostrarMusicaSonando();
+    })
+    .catch(function () {
       mostrarMusicaPausada();
-
-    }
-
+    });
+  } else {
+    musicaBoda.pause();
+    mostrarMusicaPausada();
   }
-);
+
+});
 
 
 /* =========================================================
-   AGREGAR AL CALENDARIO
+   CALENDARIO
+   iPHONE / iPAD -> boda.ics REAL
+   ANDROID -> GOOGLE CALENDAR
+   PC / OTROS -> GOOGLE CALENDAR
 ========================================================= */
 
-function agregarAlCalendario() {
+function esIOS() {
 
-  /*
-    Ceremonia:
-    14 noviembre 2026
-    16:30 Ecuador UTC-5
+  const ua =
+    navigator.userAgent || "";
 
-    En UTC:
-    21:30
-  */
-
-  const titulo =
-  "Carolina & Alexander | Nuestra Boda";
-
-
-  const ubicacion =
-  "Karla Ramírez Event Studio · La Solé, Av. Gral. Rumiñahui S/N, 171103 Quito";
-
-
-  const descripcion =
-  "Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.";
-
-
-  const contenido =
-  [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Carolina y Alexander//Boda 2026//ES",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
-
-    "BEGIN:VEVENT",
-
-    "UID:boda-carolina-alexander-14112026@invitacion",
-
-    "DTSTAMP:20260829T000000Z",
-
-    "DTSTART:20261114T213000Z",
-
-    "SUMMARY:" +
-    escaparICS(
-      titulo
-    ),
-
-    "LOCATION:" +
-    escaparICS(
-      ubicacion
-    ),
-
-    "DESCRIPTION:" +
-    escaparICS(
-      descripcion
-    ),
-
-    "STATUS:CONFIRMED",
-
-    "END:VEVENT",
-
-    "END:VCALENDAR"
-  ]
-  .join(
-    "\r\n"
-  );
-
-
-  const archivo =
-  new Blob(
-    [
-      contenido
-    ],
-    {
-      type:
-      "text/calendar;charset=utf-8"
-    }
-  );
-
-
-  const url =
-  URL.createObjectURL(
-    archivo
-  );
-
-
-  const enlace =
-  document.createElement(
-    "a"
-  );
-
-
-  enlace.href =
-  url;
-
-
-  enlace.download =
-  "Boda-Carolina-y-Alexander.ics";
-
-
-  document.body
-  .appendChild(
-    enlace
-  );
-
-
-  enlace.click();
-
-
-  enlace.remove();
-
-
-  setTimeout(
-    function () {
-
-      URL.revokeObjectURL(
-        url
-      );
-
-    },
-    1500
+  return (
+    /iPad|iPhone|iPod/.test(ua) ||
+    (
+      navigator.platform === "MacIntel" &&
+      navigator.maxTouchPoints > 1
+    )
   );
 
 }
 
+function esAndroid() {
 
-function escaparICS(
-  texto
-) {
-
-  return String(
-    texto
-  )
-  .replace(
-    /\\/g,
-    "\\\\"
-  )
-  .replace(
-    /;/g,
-    "\\;"
-  )
-  .replace(
-    /,/g,
-    "\\,"
-  )
-  .replace(
-    /\n/g,
-    "\\n"
+  return /Android/i.test(
+    navigator.userAgent || ""
   );
+
+}
+
+function agregarAlCalendario() {
+
+  if (esIOS()) {
+
+    /*
+      IMPORTANTE:
+      boda.ics debe estar subido en la raíz
+      del mismo repositorio, junto a index.html.
+    */
+
+    window.location.href =
+      "boda.ics?v=2";
+
+    return;
+  }
+
+  /*
+    Android y computadora:
+    abrimos Google Calendar con el evento listo.
+  */
+
+  abrirGoogleCalendar();
+
+}
+
+function abrirGoogleCalendar() {
+
+  const titulo =
+    "Carolina & Alexander | Nuestra Boda";
+
+  const ubicacion =
+    "Karla Ramírez Event Studio · La Solé, Av. Gral. Rumiñahui S/N, 171103 Quito";
+
+  const descripcion =
+    "Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.";
+
+  /*
+    Ecuador UTC-5:
+    16:30 Ecuador = 21:30 UTC.
+
+    Google Calendar exige inicio y fin para su
+    enlace web. Se utiliza una duración técnica
+    de una hora solo para abrir el formulario.
+  */
+
+  const inicio =
+    "20261114T213000Z";
+
+  const fin =
+    "20261114T223000Z";
+
+  const url =
+    "https://calendar.google.com/calendar/render" +
+    "?action=TEMPLATE" +
+    "&text=" +
+    encodeURIComponent(titulo) +
+    "&dates=" +
+    inicio +
+    "/" +
+    fin +
+    "&details=" +
+    encodeURIComponent(descripcion) +
+    "&location=" +
+    encodeURIComponent(ubicacion);
+
+  window.location.href = url;
 
 }
 
@@ -4456,158 +2561,87 @@ function consultaJSONP(
 ) {
 
   return new Promise(
-    function (
-      resolve,
-      reject
-    ) {
+    function (resolve, reject) {
 
       const script =
-      document.createElement(
-        "script"
-      );
+      document.createElement("script");
 
+      let terminado = false;
 
-      let terminado =
-      false;
+      const limpiar = function () {
 
-
-      const limpiar =
-      function () {
-
-        if (
-          script.parentNode
-        ) {
-
-          script.parentNode
-          .removeChild(
-            script
-          );
-
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
         }
 
-
         try {
-
-          delete window[
-            callbackNombre
-          ];
-
+          delete window[callbackNombre];
         } catch (e) {
-
-          window[
-            callbackNombre
-          ] = undefined;
-
+          window[callbackNombre] = undefined;
         }
 
       };
-
 
       const temporizador =
       setTimeout(
         function () {
 
-          if (
-            terminado
-          ) {
+          if (terminado) {
             return;
           }
 
-
-          terminado =
-          true;
-
+          terminado = true;
 
           limpiar();
 
-
           reject(
-            new Error(
-              "Tiempo de espera agotado"
-            )
+            new Error("Tiempo de espera agotado")
           );
 
         },
         timeoutMs || 9000
       );
 
+      window[callbackNombre] =
+      function (datos) {
 
-      window[
-        callbackNombre
-      ] =
-      function (
-        datos
-      ) {
-
-        if (
-          terminado
-        ) {
+        if (terminado) {
           return;
         }
 
+        terminado = true;
 
-        terminado =
-        true;
-
-
-        clearTimeout(
-          temporizador
-        );
-
+        clearTimeout(temporizador);
 
         limpiar();
 
-
-        resolve(
-          datos
-        );
+        resolve(datos);
 
       };
-
 
       script.onerror =
       function () {
 
-        if (
-          terminado
-        ) {
+        if (terminado) {
           return;
         }
 
+        terminado = true;
 
-        terminado =
-        true;
-
-
-        clearTimeout(
-          temporizador
-        );
-
+        clearTimeout(temporizador);
 
         limpiar();
 
-
         reject(
-          new Error(
-            "Error al cargar Apps Script"
-          )
+          new Error("Error al cargar Apps Script")
         );
 
       };
 
+      script.src = url;
+      script.async = true;
 
-      script.src =
-      url;
-
-
-      script.async =
-      true;
-
-
-      document.body
-      .appendChild(
-        script
-      );
+      document.body.appendChild(script);
 
     }
   );
@@ -4621,18 +2655,14 @@ function consultaJSONP(
 
 async function cargarInvitado() {
 
-  if (
-    !codigo
-  ) {
+  if (!codigo) {
 
     mostrarError(
       "No encontramos un código de invitación en este enlace."
     );
 
     return;
-
   }
-
 
   try {
 
@@ -4640,26 +2670,17 @@ async function cargarInvitado() {
     "bodaInvitado_" +
     Date.now() +
     "_" +
-    Math.floor(
-      Math.random() *
-      100000
-    );
-
+    Math.floor(Math.random() * 100000);
 
     const url1 =
     API_URL +
     "?accion=invitado" +
     "&codigo=" +
-    encodeURIComponent(
-      codigo
-    ) +
+    encodeURIComponent(codigo) +
     "&callback=" +
-    encodeURIComponent(
-      callback1
-    ) +
+    encodeURIComponent(callback1) +
     "&t=" +
     Date.now();
-
 
     const datos1 =
     await consultaJSONP(
@@ -4668,18 +2689,11 @@ async function cargarInvitado() {
       8000
     );
 
+    if (datos1 && datos1.ok) {
 
-    if (
-      datos1 &&
-      datos1.ok
-    ) {
-
-      recibirInvitado(
-        datos1
-      );
+      recibirInvitado(datos1);
 
       return;
-
     }
 
   } catch (error) {
@@ -4691,32 +2705,22 @@ async function cargarInvitado() {
 
   }
 
-
   try {
 
     const callback2 =
     "bodaInvitadoFallback_" +
     Date.now() +
     "_" +
-    Math.floor(
-      Math.random() *
-      100000
-    );
-
+    Math.floor(Math.random() * 100000);
 
     const url2 =
     API_URL +
     "?codigo=" +
-    encodeURIComponent(
-      codigo
-    ) +
+    encodeURIComponent(codigo) +
     "&callback=" +
-    encodeURIComponent(
-      callback2
-    ) +
+    encodeURIComponent(callback2) +
     "&t=" +
     Date.now();
-
 
     const datos2 =
     await consultaJSONP(
@@ -4725,24 +2729,15 @@ async function cargarInvitado() {
       8000
     );
 
+    if (datos2 && datos2.ok) {
 
-    if (
-      datos2 &&
-      datos2.ok
-    ) {
-
-      recibirInvitado(
-        datos2
-      );
+      recibirInvitado(datos2);
 
       return;
-
     }
 
-
     mostrarError(
-      datos2 &&
-      datos2.mensaje
+      datos2 && datos2.mensaje
       ? datos2.mensaje
       : "Invitación no encontrada."
     );
@@ -4753,7 +2748,6 @@ async function cargarInvitado() {
       "Intento 2 falló:",
       error
     );
-
 
     mostrarError(
       "No pudimos cargar tu invitación. Intenta recargar la página."
@@ -4768,50 +2762,29 @@ async function cargarInvitado() {
    RECIBIR INVITADO
 ========================================================= */
 
-function recibirInvitado(
-  datos
-) {
+function recibirInvitado(datos) {
 
-  if (
-    invitadoCargado
-  ) {
+  if (invitadoCargado) {
     return;
   }
 
-
-  if (
-    !datos ||
-    !datos.ok
-  ) {
+  if (!datos || !datos.ok) {
 
     mostrarError();
 
     return;
-
   }
 
-
-  invitadoCargado =
-  true;
-
-
-  invitadoActual =
-  datos;
-
+  invitadoCargado = true;
+  invitadoActual = datos;
 
   document
-  .getElementById(
-    "nombreInvitado"
-  )
+  .getElementById("nombreInvitado")
   .textContent =
   datos.invitado;
 
-
   const cupos =
-  Number(
-    datos.cupos
-  ) || 1;
-
+  Number(datos.cupos) || 1;
 
   const mensajeCupos =
   cupos === 1
@@ -4820,54 +2793,35 @@ function recibirInvitado(
     cupos +
     " lugares para ti";
 
-
   document
-  .getElementById(
-    "cupos"
-  )
+  .getElementById("cupos")
   .textContent =
   mensajeCupos;
 
-
   document
-  .getElementById(
-    "rsvpNombre"
-  )
+  .getElementById("rsvpNombre")
   .textContent =
   datos.invitado;
 
-
   document
-  .getElementById(
-    "rsvpCupos"
-  )
+  .getElementById("rsvpCupos")
   .textContent =
   mensajeCupos;
 
-
   document
-  .getElementById(
-    "cargando"
-  )
+  .getElementById("cargando")
   .style.display =
   "none";
 
-
   document
-  .getElementById(
-    "error"
-  )
+  .getElementById("error")
   .style.display =
   "none";
 
-
   document
-  .getElementById(
-    "contenidoInvitado"
-  )
+  .getElementById("contenidoInvitado")
   .style.display =
   "block";
-
 
   prepararRSVP();
 
@@ -4878,44 +2832,26 @@ function recibirInvitado(
    ERROR
 ========================================================= */
 
-function mostrarError(
-  mensaje
-) {
+function mostrarError(mensaje) {
 
   document
-  .getElementById(
-    "cargando"
-  )
+  .getElementById("cargando")
   .style.display =
   "none";
 
-
   document
-  .getElementById(
-    "contenidoInvitado"
-  )
+  .getElementById("contenidoInvitado")
   .style.display =
   "none";
-
 
   const error =
-  document.getElementById(
-    "error"
-  );
+  document.getElementById("error");
 
-
-  if (
-    mensaje
-  ) {
-
-    error.innerHTML =
-    mensaje;
-
+  if (mensaje) {
+    error.innerHTML = mensaje;
   }
 
-
-  error.style.display =
-  "block";
+  error.style.display = "block";
 
 }
 
@@ -4925,102 +2861,57 @@ function mostrarError(
 ========================================================= */
 
 document
-.getElementById(
-  "abrirInvitacion"
-)
+.getElementById("abrirInvitacion")
 .addEventListener(
   "click",
   function () {
 
     iniciarMusica();
 
-
     const portada =
-    document.getElementById(
-      "portada"
-    );
+    document.getElementById("portada");
 
-
-    portada.classList.add(
-      "saliendo"
-    );
-
+    portada.classList.add("saliendo");
 
     setTimeout(
       function () {
 
-        portada.style.display =
-        "none";
-
+        portada.style.display = "none";
 
         document
-        .getElementById(
-          "segundaSeccion"
-        )
-        .style.display =
-        "flex";
-
+        .getElementById("segundaSeccion")
+        .style.display = "flex";
 
         document
-        .getElementById(
-          "cuentaRegresiva"
-        )
-        .style.display =
-        "flex";
-
+        .getElementById("cuentaRegresiva")
+        .style.display = "flex";
 
         document
-        .getElementById(
-          "eventoSeccion"
-        )
-        .style.display =
-        "block";
-
+        .getElementById("eventoSeccion")
+        .style.display = "block";
 
         document
-        .getElementById(
-          "dressSeccion"
-        )
-        .style.display =
-        "flex";
-
+        .getElementById("dressSeccion")
+        .style.display = "flex";
 
         document
-        .getElementById(
-          "regalosSeccion"
-        )
-        .style.display =
-        "flex";
-
+        .getElementById("regalosSeccion")
+        .style.display = "flex";
 
         document
-        .getElementById(
-          "rsvpSeccion"
-        )
-        .style.display =
-        "flex";
+        .getElementById("rsvpSeccion")
+        .style.display = "flex";
 
-
-        window.scrollTo(
-          0,
-          0
-        );
-
+        window.scrollTo(0,0);
 
         requestAnimationFrame(
           function () {
 
             document
-            .getElementById(
-              "segundaSeccion"
-            )
-            .classList.add(
-              "visible"
-            );
-
+            .getElementById("segundaSeccion")
+            .classList.add("visible");
 
             prepararBotanicasScroll();
-
             actualizarBotanicasScroll();
 
           }
@@ -5041,34 +2932,23 @@ document
 function prepararBotanicasScroll() {
 
   document
-  .querySelectorAll(
-    ".scroll-botanical"
-  )
+  .querySelectorAll(".scroll-botanical")
   .forEach(
-    function (
-      botanica
-    ) {
+    function (botanica) {
 
       botanica
-      .querySelectorAll(
-        ".scroll-tallo, .scroll-rama"
-      )
+      .querySelectorAll(".scroll-tallo, .scroll-rama")
       .forEach(
-        function (
-          camino
-        ) {
+        function (camino) {
 
           const longitud =
           camino.getTotalLength();
 
-
           camino.dataset.longitud =
           longitud;
 
-
           camino.style.strokeDasharray =
           longitud;
-
 
           camino.style.strokeDashoffset =
           longitud;
@@ -5081,18 +2961,13 @@ function prepararBotanicasScroll() {
 
 }
 
-
-function progresoSeccion(
-  seccion
-) {
+function progresoSeccion(seccion) {
 
   const rect =
   seccion.getBoundingClientRect();
 
-
   const h =
   window.innerHeight;
-
 
   let progreso =
   (
@@ -5103,94 +2978,57 @@ function progresoSeccion(
     h * .82
   );
 
-
   progreso =
   Math.max(
     0,
-    Math.min(
-      1,
-      progreso
-    )
+    Math.min(1, progreso)
   );
-
 
   return progreso;
 
 }
 
-
 function actualizarBotanicasScroll() {
 
   document
-  .querySelectorAll(
-    ".scroll-section"
-  )
+  .querySelectorAll(".scroll-section")
   .forEach(
-    function (
-      seccion
-    ) {
+    function (seccion) {
 
       const progreso =
-      progresoSeccion(
-        seccion
-      );
-
+      progresoSeccion(seccion);
 
       seccion
-      .querySelectorAll(
-        ".scroll-botanical"
-      )
+      .querySelectorAll(".scroll-botanical")
       .forEach(
-        function (
-          botanica
-        ) {
+        function (botanica) {
 
           botanica
-          .querySelectorAll(
-            ".scroll-tallo"
-          )
+          .querySelectorAll(".scroll-tallo")
           .forEach(
-            function (
-              tallo
-            ) {
+            function (tallo) {
 
               const longitud =
-              Number(
-                tallo.dataset.longitud
-              );
-
+              Number(tallo.dataset.longitud);
 
               tallo.style.strokeDashoffset =
               longitud *
-              (
-                1 -
-                progreso
-              );
+              (1 - progreso);
 
             }
           );
 
-
           botanica
-          .querySelectorAll(
-            ".scroll-rama"
-          )
+          .querySelectorAll(".scroll-rama")
           .forEach(
-            function (
-              rama,
-              indice
-            ) {
+            function (rama, indice) {
 
               const longitud =
-              Number(
-                rama.dataset.longitud
-              );
-
+              Number(rama.dataset.longitud);
 
               const inicio =
               .15 +
               indice * .14;
-
 
               const p =
               Math.max(
@@ -5205,33 +3043,23 @@ function actualizarBotanicasScroll() {
                 )
               );
 
-
               rama.style.strokeDashoffset =
               longitud *
-              (
-                1 -
-                p
-              );
+              (1 - p);
 
             }
           );
 
-
           botanica
-          .querySelectorAll(
-            ".scroll-hoja"
-          )
+          .querySelectorAll(".scroll-hoja")
           .forEach(
-            function (
-              hoja
-            ) {
+            function (hoja) {
 
               const inicio =
               Number(
                 hoja.dataset.start ||
                 .3
               );
-
 
               const p =
               Math.max(
@@ -5246,10 +3074,8 @@ function actualizarBotanicasScroll() {
                 )
               );
 
-
               hoja.style.opacity =
               p * .82;
-
 
               hoja.style.transform =
               "scale(" +
@@ -5270,33 +3096,24 @@ function actualizarBotanicasScroll() {
 
 }
 
-
-let pendienteScroll =
-false;
-
+let pendienteScroll = false;
 
 window.addEventListener(
   "scroll",
   function () {
 
-    if (
-      pendienteScroll
-    ) {
+    if (pendienteScroll) {
       return;
     }
 
-
-    pendienteScroll =
-    true;
-
+    pendienteScroll = true;
 
     requestAnimationFrame(
       function () {
 
         actualizarBotanicasScroll();
 
-        pendienteScroll =
-        false;
+        pendienteScroll = false;
 
       }
     );
@@ -5313,39 +3130,25 @@ window.addEventListener(
 ========================================================= */
 
 const rsvpSi =
-document.getElementById(
-  "rsvpSi"
-);
+document.getElementById("rsvpSi");
 
 const rsvpNo =
-document.getElementById(
-  "rsvpNo"
-);
+document.getElementById("rsvpNo");
 
 const rsvpDetalles =
-document.getElementById(
-  "rsvpDetalles"
-);
+document.getElementById("rsvpDetalles");
 
 const rsvpConfirmar =
-document.getElementById(
-  "rsvpConfirmar"
-);
+document.getElementById("rsvpConfirmar");
 
 const rsvpMensaje =
-document.getElementById(
-  "rsvpMensaje"
-);
-
+document.getElementById("rsvpMensaje");
 
 function prepararRSVP() {
 
-  if (
-    !invitadoActual
-  ) {
+  if (!invitadoActual) {
     return;
   }
-
 
   const estado =
   String(
@@ -5355,12 +3158,9 @@ function prepararRSVP() {
   .trim()
   .toUpperCase();
 
-
   if (
-    estado ===
-    "CONFIRMADO" ||
-    estado ===
-    "NO ASISTE"
+    estado === "CONFIRMADO" ||
+    estado === "NO ASISTE"
   ) {
 
     mostrarRespuestaGuardada();
@@ -5373,118 +3173,70 @@ function prepararRSVP() {
 
 }
 
-
 function mostrarFormularioRSVP() {
 
   document
-  .getElementById(
-    "rsvpPanel"
-  )
+  .getElementById("rsvpPanel")
   .style.display =
   "block";
 
-
   document
-  .getElementById(
-    "rsvpResultado"
-  )
+  .getElementById("rsvpResultado")
   .style.display =
   "none";
 
-
   document
-  .getElementById(
-    "rsvpCalendario"
-  )
+  .getElementById("rsvpCalendario")
   .style.display =
   "none";
 
+  respuestaRSVP = "";
+  cantidadAsistentes = 1;
 
-  respuestaRSVP =
-  "";
-
-
-  cantidadAsistentes =
-  1;
-
-
-  rsvpSi.classList.remove(
-    "seleccionado"
-  );
-
-
-  rsvpNo.classList.remove(
-    "seleccionado"
-  );
-
+  rsvpSi.classList.remove("seleccionado");
+  rsvpNo.classList.remove("seleccionado");
 
   rsvpDetalles.style.display =
   "none";
 
-
   rsvpConfirmar.style.display =
   "none";
 
-
-  rsvpMensaje.textContent =
-  "";
+  rsvpMensaje.textContent = "";
 
 }
-
 
 rsvpSi.addEventListener(
   "click",
   function () {
 
-    respuestaRSVP =
-    "SI";
+    respuestaRSVP = "SI";
 
-
-    rsvpSi.classList.add(
-      "seleccionado"
-    );
-
-
-    rsvpNo.classList.remove(
-      "seleccionado"
-    );
-
+    rsvpSi.classList.add("seleccionado");
+    rsvpNo.classList.remove("seleccionado");
 
     rsvpDetalles.style.display =
     "block";
 
-
     rsvpConfirmar.style.display =
     "inline-block";
-
 
     crearSelectorAsistentes();
 
   }
 );
 
-
 rsvpNo.addEventListener(
   "click",
   function () {
 
-    respuestaRSVP =
-    "NO";
+    respuestaRSVP = "NO";
 
-
-    rsvpNo.classList.add(
-      "seleccionado"
-    );
-
-
-    rsvpSi.classList.remove(
-      "seleccionado"
-    );
-
+    rsvpNo.classList.add("seleccionado");
+    rsvpSi.classList.remove("seleccionado");
 
     rsvpDetalles.style.display =
     "none";
-
 
     rsvpConfirmar.style.display =
     "inline-block";
@@ -5492,24 +3244,15 @@ rsvpNo.addEventListener(
   }
 );
 
-
 function crearSelectorAsistentes() {
 
   const selector =
-  document.getElementById(
-    "asistentesSelector"
-  );
+  document.getElementById("asistentesSelector");
 
-
-  selector.innerHTML =
-  "";
-
+  selector.innerHTML = "";
 
   const cupos =
-  Number(
-    invitadoActual.cupos
-  ) || 1;
-
+  Number(invitadoActual.cupos) || 1;
 
   for (
     let i = 1;
@@ -5518,82 +3261,48 @@ function crearSelectorAsistentes() {
   ) {
 
     const boton =
-    document.createElement(
-      "button"
-    );
+    document.createElement("button");
 
+    boton.type = "button";
+    boton.className = "asistente-numero";
+    boton.textContent = i;
 
-    boton.type =
-    "button";
-
-
-    boton.className =
-    "asistente-numero";
-
-
-    boton.textContent =
-    i;
-
-
-    if (
-      i ===
-      cantidadAsistentes
-    ) {
-
-      boton.classList.add(
-        "seleccionado"
-      );
-
+    if (i === cantidadAsistentes) {
+      boton.classList.add("seleccionado");
     }
-
 
     boton.addEventListener(
       "click",
       function () {
 
-        cantidadAsistentes =
-        i;
-
+        cantidadAsistentes = i;
 
         crearSelectorAsistentes();
-
         crearCamposAcompanantes();
 
       }
     );
 
-
-    selector.appendChild(
-      boton
-    );
+    selector.appendChild(boton);
 
   }
-
 
   crearCamposAcompanantes();
 
 }
 
-
 function crearCamposAcompanantes() {
 
   const contenedor =
-  document.getElementById(
-    "acompanantesContenedor"
-  );
+  document.getElementById("acompanantesContenedor");
 
-
-  contenedor.innerHTML =
-  "";
-
+  contenedor.innerHTML = "";
 
   const cantidad =
   Math.max(
     0,
-    cantidadAsistentes -
-    1
+    cantidadAsistentes - 1
   );
-
 
   for (
     let i = 1;
@@ -5602,18 +3311,10 @@ function crearCamposAcompanantes() {
   ) {
 
     const input =
-    document.createElement(
-      "input"
-    );
+    document.createElement("input");
 
-
-    input.type =
-    "text";
-
-
-    input.className =
-    "acompanante-campo";
-
+    input.type = "text";
+    input.className = "acompanante-campo";
 
     input.placeholder =
     cantidad === 1
@@ -5621,121 +3322,83 @@ function crearCamposAcompanantes() {
     : "Nombre completo del acompañante " +
       i;
 
-
-    contenedor.appendChild(
-      input
-    );
+    contenedor.appendChild(input);
 
   }
 
 }
-
 
 rsvpConfirmar.addEventListener(
   "click",
   guardarRSVP
 );
 
-
 async function guardarRSVP() {
 
-  if (
-    !respuestaRSVP
-  ) {
+  if (!respuestaRSVP) {
 
     rsvpMensaje.textContent =
     "Selecciona una respuesta.";
 
     return;
-
   }
 
+  let acompanantes = [];
 
-  let acompanantes =
-  [];
-
-
-  if (
-    respuestaRSVP ===
-    "SI"
-  ) {
+  if (respuestaRSVP === "SI") {
 
     const campos =
     document.querySelectorAll(
       ".acompanante-campo"
     );
 
-
-    let incompleto =
-    false;
-
+    let incompleto = false;
 
     campos.forEach(
-      function (
-        campo
-      ) {
+      function (campo) {
 
         const nombre =
         campo.value.trim();
 
+        if (!nombre) {
 
-        if (
-          !nombre
-        ) {
-
-          incompleto =
-          true;
+          incompleto = true;
 
         } else {
 
-          acompanantes.push(
-            nombre
-          );
+          acompanantes.push(nombre);
 
         }
 
       }
     );
 
-
-    if (
-      incompleto
-    ) {
+    if (incompleto) {
 
       rsvpMensaje.textContent =
       "Escribe el nombre completo de cada acompañante.";
 
       return;
-
     }
 
   }
 
-
-  rsvpConfirmar.disabled =
-  true;
-
+  rsvpConfirmar.disabled = true;
 
   rsvpMensaje.textContent =
   "Guardando tu respuesta...";
-
 
   const callback =
   "bodaRSVP_" +
   Date.now();
 
-
   const url =
   API_URL +
   "?accion=confirmar" +
   "&codigo=" +
-  encodeURIComponent(
-    codigo
-  ) +
+  encodeURIComponent(codigo) +
   "&respuesta=" +
-  encodeURIComponent(
-    respuestaRSVP
-  ) +
+  encodeURIComponent(respuestaRSVP) +
   "&asisten=" +
   encodeURIComponent(
     respuestaRSVP === "SI"
@@ -5751,7 +3414,6 @@ async function guardarRSVP() {
   "&t=" +
   Date.now();
 
-
   try {
 
     const datos =
@@ -5761,16 +3423,11 @@ async function guardarRSVP() {
       10000
     );
 
-
-    recibirConfirmacion(
-      datos
-    );
+    recibirConfirmacion(datos);
 
   } catch (error) {
 
-    rsvpConfirmar.disabled =
-    false;
-
+    rsvpConfirmar.disabled = false;
 
     rsvpMensaje.textContent =
     "No pudimos guardar tu respuesta. Intenta nuevamente.";
@@ -5779,75 +3436,48 @@ async function guardarRSVP() {
 
 }
 
+function recibirConfirmacion(datos) {
 
-function recibirConfirmacion(
-  datos
-) {
+  rsvpConfirmar.disabled = false;
 
-  rsvpConfirmar.disabled =
-  false;
-
-
-  if (
-    !datos ||
-    !datos.ok
-  ) {
+  if (!datos || !datos.ok) {
 
     rsvpMensaje.textContent =
-    datos &&
-    datos.mensaje
+    datos && datos.mensaje
     ? datos.mensaje
     : "No pudimos guardar tu respuesta.";
 
-
     return;
-
   }
-
 
   invitadoActual.estado =
   datos.estado;
 
-
   invitadoActual.asisten =
   datos.asisten;
 
-
   invitadoActual.acompanantes =
-  datos.acompanantes ||
-  "";
-
+  datos.acompanantes || "";
 
   mostrarRespuestaGuardada();
 
 }
 
-
 function mostrarRespuestaGuardada() {
 
   document
-  .getElementById(
-    "rsvpPanel"
-  )
+  .getElementById("rsvpPanel")
   .style.display =
   "none";
 
-
   const resultado =
-  document.getElementById(
-    "rsvpResultado"
-  );
-
+  document.getElementById("rsvpResultado");
 
   const botonCalendario =
-  document.getElementById(
-    "rsvpCalendario"
-  );
-
+  document.getElementById("rsvpCalendario");
 
   resultado.style.display =
   "block";
-
 
   const estado =
   String(
@@ -5856,53 +3486,34 @@ function mostrarRespuestaGuardada() {
   )
   .toUpperCase();
 
-
-  if (
-    estado ===
-    "CONFIRMADO"
-  ) {
+  if (estado === "CONFIRMADO") {
 
     document
-    .getElementById(
-      "rsvpResultadoIcono"
-    )
+    .getElementById("rsvpResultadoIcono")
     .textContent =
     "✓";
 
-
     document
-    .getElementById(
-      "rsvpResultadoTitulo"
-    )
+    .getElementById("rsvpResultadoTitulo")
     .textContent =
     "¡Gracias, " +
     invitadoActual.invitado +
     "!";
 
-
     const cantidad =
-    Number(
-      invitadoActual.asisten
-    ) || 1;
+    Number(invitadoActual.asisten) || 1;
 
-
-    if (
-      cantidad === 1
-    ) {
+    if (cantidad === 1) {
 
       document
-      .getElementById(
-        "rsvpResultadoTexto"
-      )
+      .getElementById("rsvpResultadoTexto")
       .textContent =
       "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
 
     } else {
 
       document
-      .getElementById(
-        "rsvpResultadoTexto"
-      )
+      .getElementById("rsvpResultadoTexto")
       .textContent =
       "Hemos recibido tu confirmación para " +
       cantidad +
@@ -5910,45 +3521,25 @@ function mostrarRespuestaGuardada() {
 
     }
 
-
-    /*
-      Si confirmó asistencia,
-      mostramos botón de calendario.
-    */
-
     botonCalendario.style.display =
     "block";
 
   } else {
 
     document
-    .getElementById(
-      "rsvpResultadoIcono"
-    )
+    .getElementById("rsvpResultadoIcono")
     .textContent =
     "♡";
 
-
     document
-    .getElementById(
-      "rsvpResultadoTitulo"
-    )
+    .getElementById("rsvpResultadoTitulo")
     .textContent =
     "Gracias por avisarnos";
 
-
     document
-    .getElementById(
-      "rsvpResultadoTexto"
-    )
+    .getElementById("rsvpResultadoTexto")
     .textContent =
     "Hemos registrado que no podrás acompañarnos.";
-
-
-    /*
-      Si no asistirá,
-      ocultamos calendario.
-    */
 
     botonCalendario.style.display =
     "none";
@@ -5957,11 +3548,8 @@ function mostrarRespuestaGuardada() {
 
 }
 
-
 document
-.getElementById(
-  "rsvpModificar"
-)
+.getElementById("rsvpModificar")
 .addEventListener(
   "click",
   mostrarFormularioRSVP
@@ -5973,120 +3561,80 @@ document
 ========================================================= */
 
 const modalBancos =
-document.getElementById(
-  "modalBancos"
-);
+document.getElementById("modalBancos");
 
 const pinInput =
-document.getElementById(
-  "pinBancos"
-);
+document.getElementById("pinBancos");
 
 const pinError =
-document.getElementById(
-  "pinError"
-);
-
+document.getElementById("pinError");
 
 document
-.getElementById(
-  "abrirBancos"
-)
+.getElementById("abrirBancos")
 .addEventListener(
   "click",
   function () {
 
-    modalBancos.classList.add(
-      "activo"
-    );
+    modalBancos.classList.add("activo");
 
-
-    pinInput.value =
-    "";
-
-
-    pinError.textContent =
-    "";
-
+    pinInput.value = "";
+    pinError.textContent = "";
 
     document
-    .getElementById(
-      "datosBancarios"
-    )
+    .getElementById("datosBancarios")
     .style.display =
     "none";
 
-
     document
-    .getElementById(
-      "pinContenedor"
-    )
+    .getElementById("pinContenedor")
     .style.display =
     "block";
 
   }
 );
 
-
 document
-.getElementById(
-  "cerrarModalBancos"
-)
+.getElementById("cerrarModalBancos")
 .addEventListener(
   "click",
   function () {
 
-    modalBancos.classList.remove(
-      "activo"
-    );
+    modalBancos.classList.remove("activo");
 
   }
 );
-
 
 async function verificarPinBancos() {
 
   const pin =
   pinInput.value.trim();
 
-
-  if (
-    pin.length !== 4
-  ) {
+  if (pin.length !== 4) {
 
     pinError.textContent =
     "Ingresa el código de 4 dígitos.";
 
     return;
-
   }
-
 
   pinError.textContent =
   "Verificando...";
-
 
   const callback =
   "bodaBanco_" +
   Date.now();
 
-
   const url =
   API_URL +
   "?accion=bancos" +
   "&codigo=" +
-  encodeURIComponent(
-    codigo
-  ) +
+  encodeURIComponent(codigo) +
   "&pin=" +
-  encodeURIComponent(
-    pin
-  ) +
+  encodeURIComponent(pin) +
   "&callback=" +
   callback +
   "&t=" +
   Date.now();
-
 
   try {
 
@@ -6097,23 +3645,15 @@ async function verificarPinBancos() {
       10000
     );
 
-
-    if (
-      !datos ||
-      !datos.ok
-    ) {
+    if (!datos || !datos.ok) {
 
       pinError.textContent =
       "Código incorrecto.";
 
       return;
-
     }
 
-
-    pinError.textContent =
-    "";
-
+    pinError.textContent = "";
 
     mostrarDatosBancarios(
       datos.bancos
@@ -6128,68 +3668,42 @@ async function verificarPinBancos() {
 
 }
 
-
 document
-.getElementById(
-  "verificarPin"
-)
+.getElementById("verificarPin")
 .addEventListener(
   "click",
   verificarPinBancos
 );
 
-
 pinInput.addEventListener(
   "keydown",
-  function (
-    event
-  ) {
+  function (event) {
 
-    if (
-      event.key ===
-      "Enter"
-    ) {
-
+    if (event.key === "Enter") {
       verificarPinBancos();
-
     }
 
   }
 );
 
-
-function mostrarDatosBancarios(
-  bancos
-) {
+function mostrarDatosBancarios(bancos) {
 
   const grid =
-  document.getElementById(
-    "datosBancosGrid"
-  );
+  document.getElementById("datosBancosGrid");
 
-
-  grid.innerHTML =
-  "";
-
+  grid.innerHTML = "";
 
   bancos.forEach(
-    function (
-      banco
-    ) {
+    function (banco) {
 
       const tarjeta =
-      document.createElement(
-        "div"
-      );
-
+      document.createElement("div");
 
       tarjeta.className =
       "banco-datos";
 
-
       tarjeta.innerHTML =
       `
-
         <div class="banco-datos-titulo">
           ${banco.banco}
         </div>
@@ -6239,55 +3753,37 @@ function mostrarDatosBancarios(
         >
           COPIAR CÉDULA
         </button>
-
       `;
 
-
-      grid.appendChild(
-        tarjeta
-      );
+      grid.appendChild(tarjeta);
 
     }
   );
 
-
   document
-  .getElementById(
-    "pinContenedor"
-  )
+  .getElementById("pinContenedor")
   .style.display =
   "none";
 
-
   document
-  .getElementById(
-    "datosBancarios"
-  )
+  .getElementById("datosBancarios")
   .style.display =
   "block";
 
 }
 
-
-function copiarTexto(
-  texto,
-  boton
-) {
+function copiarTexto(texto, boton) {
 
   navigator.clipboard
-  .writeText(
-    texto
-  )
+  .writeText(texto)
   .then(
     function () {
 
       const original =
       boton.textContent;
 
-
       boton.textContent =
       "COPIADO ✓";
-
 
       setTimeout(
         function () {
@@ -6314,13 +3810,11 @@ new Date(
   "2026-11-14T16:30:00-05:00"
 );
 
-
 function actualizarContador() {
 
   let diferencia =
   fechaBoda.getTime() -
   Date.now();
-
 
   diferencia =
   Math.max(
@@ -6328,13 +3822,11 @@ function actualizarContador() {
     diferencia
   );
 
-
   const dias =
   Math.floor(
     diferencia /
     86400000
   );
-
 
   const horas =
   Math.floor(
@@ -6343,14 +3835,12 @@ function actualizarContador() {
     3600000
   );
 
-
   const minutos =
   Math.floor(
     diferencia %
     3600000 /
     60000
   );
-
 
   const segundos =
   Math.floor(
@@ -6359,67 +3849,33 @@ function actualizarContador() {
     1000
   );
 
+  document
+  .getElementById("dias")
+  .textContent =
+  String(dias)
+  .padStart(2,"0");
 
   document
-  .getElementById(
-    "dias"
-  )
+  .getElementById("horas")
   .textContent =
-  String(
-    dias
-  )
-  .padStart(
-    2,
-    "0"
-  );
-
+  String(horas)
+  .padStart(2,"0");
 
   document
-  .getElementById(
-    "horas"
-  )
+  .getElementById("minutos")
   .textContent =
-  String(
-    horas
-  )
-  .padStart(
-    2,
-    "0"
-  );
-
+  String(minutos)
+  .padStart(2,"0");
 
   document
-  .getElementById(
-    "minutos"
-  )
+  .getElementById("segundos")
   .textContent =
-  String(
-    minutos
-  )
-  .padStart(
-    2,
-    "0"
-  );
-
-
-  document
-  .getElementById(
-    "segundos"
-  )
-  .textContent =
-  String(
-    segundos
-  )
-  .padStart(
-    2,
-    "0"
-  );
+  String(segundos)
+  .padStart(2,"0");
 
 }
 
-
 actualizarContador();
-
 
 setInterval(
   actualizarContador,
@@ -6438,3 +3894,28 @@ cargarInvitado();
 </body>
 
 </html>
+'''
+
+ics = """BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Carolina y Alexander//Boda 2026//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:boda-carolina-alexander-14112026@invitacion
+DTSTAMP:20260830T005200Z
+DTSTART:20261114T213000Z
+SUMMARY:Carolina & Alexander | Nuestra Boda
+LOCATION:Karla Ramírez Event Studio · La Solé\\, Av. Gral. Rumiñahui S/N\\, 171103 Quito
+DESCRIPTION:Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
+"""
+
+Path("/mnt/data/index.html").write_text(index_html, encoding="utf-8")
+Path("/mnt/data/boda.ics").write_text(ics, encoding="utf-8", newline="\r\n")
+
+print("Archivos creados:")
+print("/mnt/data/index.html")
+print("/mnt/data/boda.ics")
