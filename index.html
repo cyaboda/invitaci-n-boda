@@ -1470,6 +1470,250 @@ select {
   cursor: pointer;
 }
 
+
+/* =========================================================
+   PÁGINA FINAL
+========================================================= */
+
+.final-seccion {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 70px 28px;
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(92,38,27,.70), rgba(55,21,17,.78)),
+    url("F3.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #fff8f3;
+}
+
+.final-seccion::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(216,135,96,.18), transparent 34%),
+    linear-gradient(to bottom, rgba(110,53,37,.08), rgba(45,16,13,.20));
+  z-index: 1;
+}
+
+.final-contenido {
+  width: 100%;
+  max-width: 760px;
+  position: relative;
+  z-index: 5;
+}
+
+.final-etiqueta {
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #f1cfbd;
+}
+
+.final-titulo {
+  margin: 13px 0 0;
+  font-size: clamp(46px,7vw,78px);
+  font-weight: 400;
+  line-height: 1.02;
+  color: #fff7f1;
+}
+
+.final-titulo span {
+  display: block;
+  margin-top: 8px;
+  font-size: .58em;
+  font-style: italic;
+  color: #e5a27e;
+}
+
+.final-separador {
+  width: 118px;
+  height: 1px;
+  margin: 30px auto;
+  position: relative;
+  background: rgba(255,237,226,.45);
+}
+
+.final-separador::after {
+  content: "♡";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 0 12px;
+  background: rgba(83,31,24,.78);
+  color: #efb390;
+  font-size: 18px;
+}
+
+.final-texto {
+  max-width: 650px;
+  margin: auto;
+  font-size: clamp(20px,2.4vw,29px);
+  line-height: 1.55;
+  font-style: italic;
+  color: #fff2e9;
+}
+
+.final-texto + .final-texto {
+  margin-top: 16px;
+}
+
+.final-nombres {
+  margin-top: 34px;
+  font-size: clamp(34px,4.5vw,52px);
+  color: #f0b18e;
+}
+
+.final-fecha {
+  margin-top: 12px;
+  font-family: Arial,sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #f4d6c5;
+}
+
+.final-cierre {
+  margin-top: 38px;
+  font-size: clamp(19px,2.2vw,27px);
+  font-style: italic;
+  color: #fff7f1;
+}
+
+.final-monograma {
+  width: 82px;
+  height: 82px;
+  margin: 24px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(239,179,144,.68);
+  border-radius: 50%;
+  font-size: 25px;
+  color: #f0b18e;
+  background: rgba(58,19,16,.18);
+  backdrop-filter: blur(2px);
+}
+
+.final-botanica {
+  position: absolute;
+  width: 240px;
+  height: 360px;
+  color: rgba(235,155,112,.70);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.final-botanica svg {
+  width: 100%;
+  height: 100%;
+}
+
+.final-botanica path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.final-botanica ellipse {
+  fill: currentColor;
+  opacity: .72;
+}
+
+.final-botanica-izq {
+  left: -55px;
+  bottom: -55px;
+}
+
+.final-botanica-der {
+  right: -55px;
+  top: -55px;
+  transform: scaleX(-1) scaleY(-1);
+}
+
+@media (max-width:700px) {
+
+  .final-seccion {
+    min-height: 100svh;
+    padding:
+      max(48px, env(safe-area-inset-top))
+      22px
+      max(42px, env(safe-area-inset-bottom));
+    background-position: center;
+  }
+
+  .final-contenido {
+    max-width: 390px;
+  }
+
+  .final-etiqueta {
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .final-titulo {
+    font-size: clamp(42px,13vw,58px);
+  }
+
+  .final-separador {
+    margin: 25px auto;
+  }
+
+  .final-texto {
+    font-size: clamp(18px,5.2vw,22px);
+    line-height: 1.48;
+  }
+
+  .final-nombres {
+    margin-top: 28px;
+    font-size: clamp(30px,8vw,39px);
+  }
+
+  .final-fecha {
+    font-size: 9px;
+    letter-spacing: 4px;
+  }
+
+  .final-cierre {
+    margin-top: 30px;
+    font-size: 19px;
+  }
+
+  .final-monograma {
+    width: 70px;
+    height: 70px;
+    margin-top: 20px;
+    font-size: 21px;
+  }
+
+  .final-botanica {
+    width: 150px;
+    height: 240px;
+    opacity: .65;
+  }
+
+  .final-botanica-izq {
+    left: -62px;
+    bottom: -45px;
+  }
+
+  .final-botanica-der {
+    right: -62px;
+    top: -45px;
+  }
+
+}
+
 /* =========================================================
    MÚSICA
 ========================================================= */
@@ -2324,6 +2568,76 @@ select {
 </section>
 
 
+
+<section class="final-seccion" id="finalSeccion">
+
+  <div class="final-botanica final-botanica-izq">
+    <svg viewBox="0 0 240 360">
+      <path d="M18 355 C42 294 57 245 82 195 C108 143 137 93 190 22" />
+      <path d="M55 267 C37 252 27 233 23 212" />
+      <path d="M91 178 C69 164 56 147 49 126" />
+      <path d="M127 111 C149 100 166 84 179 63" />
+      <ellipse cx="27" cy="214" rx="8" ry="18" />
+      <ellipse cx="57" cy="140" rx="8" ry="19" />
+      <ellipse cx="160" cy="86" rx="8" ry="18" />
+      <ellipse cx="83" cy="199" rx="7" ry="16" />
+    </svg>
+  </div>
+
+  <div class="final-botanica final-botanica-der">
+    <svg viewBox="0 0 240 360">
+      <path d="M18 355 C42 294 57 245 82 195 C108 143 137 93 190 22" />
+      <path d="M55 267 C37 252 27 233 23 212" />
+      <path d="M91 178 C69 164 56 147 49 126" />
+      <path d="M127 111 C149 100 166 84 179 63" />
+      <ellipse cx="27" cy="214" rx="8" ry="18" />
+      <ellipse cx="57" cy="140" rx="8" ry="19" />
+      <ellipse cx="160" cy="86" rx="8" ry="18" />
+      <ellipse cx="83" cy="199" rx="7" ry="16" />
+    </svg>
+  </div>
+
+  <div class="final-contenido">
+
+    <div class="final-etiqueta">GRACIAS POR SER PARTE</div>
+
+    <h2 class="final-titulo">
+      de nuestra
+      <span>historia</span>
+    </h2>
+
+    <div class="final-separador"></div>
+
+    <div class="final-texto">
+      Hay momentos que se vuelven eternos
+      por las personas con quienes los compartimos.
+    </div>
+
+    <div class="final-texto">
+      Nos hará muy felices celebrar este día junto a ustedes.
+    </div>
+
+    <div class="final-nombres">
+      Carolina & Alexander
+    </div>
+
+    <div class="final-fecha">
+      14 · 11 · 2026
+    </div>
+
+    <div class="final-cierre" id="finalCierre">
+      Esperamos celebrar este día junto a ti ♡
+    </div>
+
+    <div class="final-monograma">
+      C♡A
+    </div>
+
+  </div>
+
+</section>
+
+
 <div class="modal-bancos" id="modalBancos">
 
   <div class="modal-caja">
@@ -2956,6 +3270,10 @@ document
         .getElementById("rsvpSeccion")
         .style.display = "flex";
 
+        document
+        .getElementById("finalSeccion")
+        .style.display = "flex";
+
         window.scrollTo(0,0);
 
         requestAnimationFrame(
@@ -3578,6 +3896,11 @@ function mostrarRespuestaGuardada() {
     botonCalendario.style.display =
     "block";
 
+    document
+    .getElementById("finalCierre")
+    .textContent =
+    "Nos vemos el 14 de noviembre ♡";
+
   } else {
 
     document
@@ -3597,6 +3920,11 @@ function mostrarRespuestaGuardada() {
 
     botonCalendario.style.display =
     "none";
+
+    document
+    .getElementById("finalCierre")
+    .textContent =
+    "Gracias por ser parte de nuestra historia ♡";
 
   }
 
