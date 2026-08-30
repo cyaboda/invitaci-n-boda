@@ -1476,13 +1476,14 @@ select {
 ========================================================= */
 
 .final-seccion {
-  min-height: 82vh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: none;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 48px 28px;
+  padding: 54px 28px;
   text-align: center;
   background-image:
     linear-gradient(rgba(92,38,27,.66), rgba(55,21,17,.74)),
@@ -1502,27 +1503,73 @@ select {
   z-index: 1;
 }
 
-/* Velo sutil animado sobre la foto */
-.final-seccion::after {
-  content: "";
+
+.final-velo-animado {
   position: absolute;
-  left: -8%;
-  bottom: 6%;
-  width: 68%;
-  height: 42%;
+  left: -18%;
+  bottom: 4%;
+  width: 78%;
+  height: 48%;
   z-index: 2;
   pointer-events: none;
-  opacity: .18;
-  filter: blur(1.2px);
-  transform-origin: left center;
+  opacity: .30;
+  transform-origin: 12% 70%;
+  filter: blur(.7px);
   background:
-    radial-gradient(ellipse at 20% 50%,
-      rgba(255,247,242,.34) 0%,
-      rgba(255,247,242,.20) 28%,
-      rgba(255,247,242,.08) 52%,
-      transparent 72%);
-  border-radius: 48% 70% 58% 42% / 56% 48% 68% 45%;
-  animation: moverVeloFinal 6.8s ease-in-out infinite alternate;
+    linear-gradient(
+      12deg,
+      rgba(255,250,247,0) 0%,
+      rgba(255,250,247,.08) 18%,
+      rgba(255,250,247,.28) 42%,
+      rgba(255,250,247,.16) 62%,
+      rgba(255,250,247,0) 82%
+    );
+  clip-path: polygon(
+    0% 52%,
+    12% 38%,
+    30% 31%,
+    48% 37%,
+    68% 24%,
+    88% 36%,
+    100% 54%,
+    87% 68%,
+    65% 60%,
+    42% 73%,
+    20% 66%
+  );
+  animation: ondearVelo 5.2s ease-in-out infinite alternate;
+}
+
+.final-velo-animado::before,
+.final-velo-animado::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.final-velo-animado::before {
+  background:
+    radial-gradient(
+      ellipse at 42% 52%,
+      rgba(255,255,255,.28) 0%,
+      rgba(255,255,255,.10) 42%,
+      transparent 72%
+    );
+  transform: scale(1.03) skewX(-6deg);
+}
+
+.final-velo-animado::after {
+  background:
+    linear-gradient(
+      165deg,
+      transparent 10%,
+      rgba(255,255,255,.18) 34%,
+      transparent 62%
+    );
+  transform: translateX(5%);
+  opacity: .75;
 }
 
 .final-contenido {
@@ -1664,11 +1711,7 @@ select {
   transform: scaleX(-1) scaleY(-1);
 }
 
-@keyframes moverVeloFinal {
-  0% {
-    transform: translate3d(-1%, 2%, 0) rotate(-1.2deg) scaleX(1);
-  }
-  50% {
+50% {
     transform: translate3d(3%, -1%, 0) rotate(1.1deg) scaleX(1.025);
   }
   100% {
@@ -1676,10 +1719,37 @@ select {
   }
 }
 
+
+@keyframes ondearVelo {
+  0% {
+    transform:
+      translate3d(-2%, 1%, 0)
+      rotate(-2deg)
+      skewX(-3deg)
+      scaleX(1);
+  }
+
+  45% {
+    transform:
+      translate3d(7%, -2%, 0)
+      rotate(1.6deg)
+      skewX(2deg)
+      scaleX(1.05);
+  }
+
+  100% {
+    transform:
+      translate3d(13%, 2%, 0)
+      rotate(-.8deg)
+      skewX(-1deg)
+      scaleX(1.10);
+  }
+}
+
 @media (max-width:700px) {
 
   .final-seccion {
-    min-height: 92svh;
+    min-height: 100svh;
     padding:
       max(42px, env(safe-area-inset-top))
       22px
@@ -1687,15 +1757,7 @@ select {
     background-position: 52% center;
   }
 
-  .final-seccion::after {
-    left: -20%;
-    bottom: 8%;
-    width: 90%;
-    height: 34%;
-    opacity: .14;
-  }
-
-  .final-contenido {
+.final-contenido {
     max-width: 390px;
   }
 
@@ -2624,6 +2686,8 @@ select {
 
 
 <section class="final-seccion" id="finalSeccion">
+
+  <div class="final-velo-animado" aria-hidden="true"></div>
 
   <div class="final-botanica final-botanica-izq">
     <svg viewBox="0 0 240 360">
