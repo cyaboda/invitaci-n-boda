@@ -505,7 +505,7 @@ select {
 
 
 /* =========================================================
-   VERSÍCULO
+   VERSÍCULO DESKTOP
 ========================================================= */
 
 .segunda-seccion {
@@ -2426,6 +2426,7 @@ select {
 
 /* =========================================================
    MÓVIL
+   TODO LO DE AQUÍ SOLO AFECTA CELULARES
 ========================================================= */
 
 @media (max-width:700px) {
@@ -2545,59 +2546,106 @@ select {
   }
 
 
-  /* VERSÍCULO */
+  /* ======================================================
+     VERSÍCULO MÓVIL CORREGIDO
+     SOLO CAMBIA ESTA VERSIÓN
+  ====================================================== */
 
   .segunda-seccion {
     min-height: 100svh;
+    height: 100svh;
 
     padding:
-      45px 24px;
+      36px 20px
+      calc(
+        34px +
+        env(safe-area-inset-bottom)
+      );
+
+    background-size: cover;
 
     background-position:
-      47% center;
+      50% 46%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .segunda-contenido {
+    max-width: 390px;
+
+    width: 100%;
+
+    margin: auto;
   }
 
   .segunda-nombres {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 
-    font-size: 9px;
+    font-size: 8px;
+
+    letter-spacing: 4px;
   }
 
   .ramita-central {
-    width: 75px;
-    height: 58px;
+    width: 68px;
+    height: 52px;
 
-    margin-bottom: 20px;
+    margin:
+      0 auto 16px;
   }
 
   .versiculo {
-    font-size:
-      clamp(26px,7.6vw,34px);
+    max-width: 360px;
 
-    line-height: 1.32;
+    font-size:
+      clamp(
+        25px,
+        7vw,
+        31px
+      );
+
+    line-height: 1.27;
+
+    padding:
+      0 4px;
   }
 
   .referencia {
-    margin-top: 20px;
+    margin-top: 18px;
 
-    font-size: 8px;
+    font-size: 7px;
+
+    letter-spacing: 3px;
   }
 
   .linea-fecha {
+    width: 72px;
+
     margin:
-      23px auto;
+      20px auto;
   }
 
   .fecha-boda {
-    font-size: 30px;
+    font-size: 27px;
 
-    letter-spacing: 6px;
+    letter-spacing: 5px;
   }
 
   .desliza {
-    margin-top: 35px;
+    margin-top: 28px;
 
-    font-size: 7px;
+    font-size: 6.5px;
+
+    letter-spacing: 3px;
+  }
+
+  .flecha {
+    margin-top: 10px;
+
+    font-size: 22px;
   }
 
 
@@ -2793,6 +2841,58 @@ select {
 
 }
 
+
+/* =========================================================
+   CELULARES BAJITOS
+========================================================= */
+
+@media (max-width:700px) and (max-height:750px) {
+
+  .segunda-seccion {
+    padding:
+      28px 18px
+      calc(
+        26px +
+        env(safe-area-inset-bottom)
+      );
+  }
+
+  .segunda-nombres {
+    margin-bottom: 12px;
+  }
+
+  .ramita-central {
+    width: 60px;
+    height: 46px;
+
+    margin-bottom: 12px;
+  }
+
+  .versiculo {
+    font-size: 23px;
+
+    line-height: 1.22;
+  }
+
+  .referencia {
+    margin-top: 14px;
+  }
+
+  .linea-fecha {
+    margin:
+      16px auto;
+  }
+
+  .fecha-boda {
+    font-size: 24px;
+  }
+
+  .desliza {
+    margin-top: 20px;
+  }
+
+}
+
 </style>
 
 </head>
@@ -2842,8 +2942,6 @@ select {
   <div class="linea-vertical linea-derecha"></div>
 
 
-  <!-- RAMA DERECHA -->
-
   <div
     class="floral floral-arriba-derecha"
   >
@@ -2882,8 +2980,6 @@ select {
 
   </div>
 
-
-  <!-- RAMA IZQUIERDA -->
 
   <div
     class="floral floral-abajo-izquierda"
@@ -3112,7 +3208,6 @@ select {
 
 
 <!-- =========================================================
-     BOTÁNICA REUTILIZABLE
      CONTADOR
 ========================================================= -->
 
@@ -3242,21 +3337,11 @@ select {
 >
 
   <div class="evento-foto evento-foto-izquierda">
-
-    <img
-      src="F1.jpeg"
-      alt=""
-    >
-
+    <img src="F1.jpeg" alt="">
   </div>
 
   <div class="evento-foto evento-foto-derecha">
-
-    <img
-      src="F2.jpeg"
-      alt=""
-    >
-
+    <img src="F2.jpeg" alt="">
   </div>
 
 
@@ -3913,14 +3998,6 @@ new URLSearchParams(
 );
 
 
-/*
-  IMPORTANTE:
-  Permitimos ambas formas:
-
-  ?i=CYA022
-  ?codigo=CYA022
-*/
-
 const codigo =
 String(
   parametros.get("i") ||
@@ -3996,11 +4073,6 @@ function iniciarMusica() {
   true;
 
 
-  /*
-    play() se ejecuta directamente
-    desde el clic de ABRIR INVITACIÓN.
-  */
-
   const intento =
   musicaBoda.play();
 
@@ -4074,16 +4146,8 @@ musicaControl.addEventListener(
 
 
 /* =========================================================
-   CARGA ROBUSTA DEL INVITADO
+   JSONP
 ========================================================= */
-
-/*
-  Esta es la parte que corrige el problema móvil.
-
-  Ya no usamos un único callback fijo.
-  Cada intento crea un callback global único.
-*/
-
 
 function consultaJSONP(
   url,
@@ -4267,12 +4331,6 @@ async function cargarInvitado() {
   }
 
 
-  /*
-    INTENTO 1
-
-    Formato nuevo con accion=invitado
-  */
-
   try {
 
     const callback1 =
@@ -4330,13 +4388,6 @@ async function cargarInvitado() {
 
   }
 
-
-  /*
-    INTENTO 2
-
-    Compatibilidad con el Apps Script
-    original que recibía solo codigo.
-  */
 
   try {
 
@@ -4577,12 +4628,6 @@ document
 .addEventListener(
   "click",
   function () {
-
-    /*
-      PRIMERO reproducimos audio.
-      Así Safari/Chrome móvil consideran
-      que sigue siendo parte del clic.
-    */
 
     iniciarMusica();
 
@@ -5369,7 +5414,7 @@ async function guardarRSVP() {
   Date.now();
 
 
-  let url =
+  const url =
   API_URL +
   "?accion=confirmar" +
   "&codigo=" +
@@ -6025,7 +6070,7 @@ setInterval(
 
 
 /* =========================================================
-   INICIAR
+   INICIO
 ========================================================= */
 
 cargarInvitado();
