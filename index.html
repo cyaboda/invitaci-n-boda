@@ -1,6 +1,4 @@
-from pathlib import Path
-
-index_html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -2485,13 +2483,13 @@ function agregarAlCalendario() {
   if (esIOS()) {
 
     /*
-      IMPORTANTE:
-      boda.ics debe estar subido en la raíz
-      del mismo repositorio, junto a index.html.
+      iPhone / iPad:
+      generamos el .ics dentro del propio index.html.
+      Así NO depende de un archivo boda.ics separado
+      y se elimina por completo el error 404.
     */
 
-    window.location.href =
-      "boda.ics?v=2";
+    abrirCalendarioIOS();
 
     return;
   }
@@ -2502,6 +2500,40 @@ function agregarAlCalendario() {
   */
 
   abrirGoogleCalendar();
+
+}
+
+function abrirCalendarioIOS() {
+
+  const contenidoICS = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Carolina y Alexander//Boda 2026//ES",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    "BEGIN:VEVENT",
+    "UID:boda-carolina-alexander-14112026@invitacion",
+    "DTSTAMP:20260830T005200Z",
+    "DTSTART:20261114T213000Z",
+    "SUMMARY:Carolina & Alexander | Nuestra Boda",
+    "LOCATION:Karla Ramírez Event Studio · La Solé\\, Av. Gral. Rumiñahui S/N\\, 171103 Quito",
+    "DESCRIPTION:Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.",
+    "STATUS:CONFIRMED",
+    "END:VEVENT",
+    "END:VCALENDAR"
+  ].join("\r\n");
+
+  /*
+    Usamos una URL de tipo text/calendar directamente.
+    No apuntamos a ningún archivo externo, por lo que
+    ya no puede existir un 404.
+  */
+
+  const urlICS =
+    "data:text/calendar;charset=utf-8," +
+    encodeURIComponent(contenidoICS);
+
+  window.location.href = urlICS;
 
 }
 
@@ -3894,28 +3926,3 @@ cargarInvitado();
 </body>
 
 </html>
-'''
-
-ics = """BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Carolina y Alexander//Boda 2026//ES
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-BEGIN:VEVENT
-UID:boda-carolina-alexander-14112026@invitacion
-DTSTAMP:20260830T005200Z
-DTSTART:20261114T213000Z
-SUMMARY:Carolina & Alexander | Nuestra Boda
-LOCATION:Karla Ramírez Event Studio · La Solé\\, Av. Gral. Rumiñahui S/N\\, 171103 Quito
-DESCRIPTION:Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.
-STATUS:CONFIRMED
-END:VEVENT
-END:VCALENDAR
-"""
-
-Path("/mnt/data/index.html").write_text(index_html, encoding="utf-8")
-Path("/mnt/data/boda.ics").write_text(ics, encoding="utf-8", newline="\r\n")
-
-print("Archivos creados:")
-print("/mnt/data/index.html")
-print("/mnt/data/boda.ics")
