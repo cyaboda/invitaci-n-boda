@@ -2481,60 +2481,15 @@ function esAndroid() {
 function agregarAlCalendario() {
 
   if (esIOS()) {
-
-    /*
-      iPhone / iPad:
-      generamos el .ics dentro del propio index.html.
-      Así NO depende de un archivo boda.ics separado
-      y se elimina por completo el error 404.
-    */
-
-    abrirCalendarioIOS();
-
+    // iPhone / iPad: abre un archivo .ics real publicado por GitHub Pages.
+    // Usamos URL absoluta para evitar errores de ruta/404.
+    window.location.href =
+      "https://cyaboda.github.io/invitaci-n-boda/boda.ics?v=3";
     return;
   }
 
-  /*
-    Android y computadora:
-    abrimos Google Calendar con el evento listo.
-  */
-
+  // Android y computadora: Google Calendar.
   abrirGoogleCalendar();
-
-}
-
-function abrirCalendarioIOS() {
-
-  const contenidoICS = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Carolina y Alexander//Boda 2026//ES",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
-    "BEGIN:VEVENT",
-    "UID:boda-carolina-alexander-14112026@invitacion",
-    "DTSTAMP:20260830T005200Z",
-    "DTSTART:20261114T213000Z",
-    "SUMMARY:Carolina & Alexander | Nuestra Boda",
-    "LOCATION:Karla Ramírez Event Studio · La Solé\\, Av. Gral. Rumiñahui S/N\\, 171103 Quito",
-    "DESCRIPTION:Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.",
-    "STATUS:CONFIRMED",
-    "END:VEVENT",
-    "END:VCALENDAR"
-  ].join("\r\n");
-
-  /*
-    Usamos una URL de tipo text/calendar directamente.
-    No apuntamos a ningún archivo externo, por lo que
-    ya no puede existir un 404.
-  */
-
-  const urlICS =
-    "data:text/calendar;charset=utf-8," +
-    encodeURIComponent(contenidoICS);
-
-  window.location.href = urlICS;
-
 }
 
 function abrirGoogleCalendar() {
