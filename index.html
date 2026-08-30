@@ -505,7 +505,7 @@ select {
 
 
 /* =========================================================
-   VERSÍCULO DESKTOP
+   VERSÍCULO
 ========================================================= */
 
 .segunda-seccion {
@@ -1169,16 +1169,37 @@ select {
   color: #76584b;
 }
 
+
+/* =========================================================
+   BOTONES EVENTO
+========================================================= */
+
+.evento-botones {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 26px;
+}
+
 .evento-boton {
   display: inline-flex;
 
   align-items: center;
   justify-content: center;
 
-  margin-top: 26px;
+  min-height: 44px;
 
   padding:
-    15px 29px;
+    15px 27px;
+
+  border:
+    1px solid transparent;
 
   border-radius: 999px;
 
@@ -1195,9 +1216,41 @@ select {
 
   font-family: Arial,sans-serif;
 
-  font-size: 10px;
+  font-size: 9px;
 
-  letter-spacing: 2.4px;
+  letter-spacing: 2.2px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease;
+}
+
+.evento-boton:hover {
+  transform:
+    translateY(-2px);
+}
+
+.evento-boton-calendario {
+  appearance: none;
+
+  border:
+    1px solid
+    rgba(153,71,47,.42);
+
+  background: transparent;
+
+  color: #99472f;
+}
+
+.evento-boton-calendario:hover {
+  background: #99472f;
+
+  color: white;
 }
 
 .evento-nota {
@@ -2044,6 +2097,52 @@ select {
 }
 
 
+/* BOTÓN CALENDARIO DESPUÉS DEL RSVP */
+
+.rsvp-calendario {
+  display: none;
+
+  margin:
+    15px auto 0;
+
+  padding:
+    12px 23px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.28);
+
+  border-radius: 999px;
+
+  background:
+    #f0d6c9;
+
+  color: #58261f;
+
+  font-family: Arial,sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+.rsvp-calendario:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    #f7e7df;
+}
+
+
 /* =========================================================
    MODAL BANCOS
 ========================================================= */
@@ -2426,7 +2525,6 @@ select {
 
 /* =========================================================
    MÓVIL
-   TODO LO DE AQUÍ SOLO AFECTA CELULARES
 ========================================================= */
 
 @media (max-width:700px) {
@@ -2523,7 +2621,7 @@ select {
   }
 
 
-  /* RAMAS PORTADA MÓVIL */
+  /* RAMAS PORTADA */
 
   .floral-arriba-derecha {
     width: 150px;
@@ -2547,8 +2645,7 @@ select {
 
 
   /* ======================================================
-     VERSÍCULO MÓVIL CORREGIDO
-     SOLO CAMBIA ESTA VERSIÓN
+     VERSÍCULO MÓVIL
   ====================================================== */
 
   .segunda-seccion {
@@ -2725,6 +2822,25 @@ select {
 
     padding:
       55px 24px;
+  }
+
+  .evento-botones {
+    width: 100%;
+
+    max-width: 300px;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin:
+      25px auto 0;
+  }
+
+  .evento-botones .evento-boton {
+    width: 100%;
+
+    margin: 0;
   }
 
 
@@ -3393,14 +3509,31 @@ select {
 
     </div>
 
-    <a
-      class="evento-boton"
-      href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
-      target="_blank"
-      rel="noopener"
-    >
-      ◇ &nbsp; CÓMO LLEGAR
-    </a>
+
+    <!-- BOTONES UBICACIÓN + CALENDARIO -->
+
+    <div class="evento-botones">
+
+      <a
+        class="evento-boton"
+        href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
+        target="_blank"
+        rel="noopener"
+      >
+        ◇ &nbsp; CÓMO LLEGAR
+      </a>
+
+
+      <button
+        class="evento-boton evento-boton-calendario"
+        type="button"
+        onclick="agregarAlCalendario()"
+      >
+        ♡ &nbsp; AGREGAR AL CALENDARIO
+      </button>
+
+    </div>
+
 
     <div class="evento-nota">
       14 · 11 · 2026
@@ -3891,6 +4024,19 @@ select {
         id="rsvpResultadoTexto"
       ></div>
 
+
+      <!-- APARECE SOLO SI CONFIRMÓ QUE SÍ -->
+
+      <button
+        class="rsvp-calendario"
+        id="rsvpCalendario"
+        type="button"
+        onclick="agregarAlCalendario()"
+      >
+        ♡ &nbsp; AGREGAR AL CALENDARIO
+      </button>
+
+
       <button
         class="rsvp-modificar"
         id="rsvpModificar"
@@ -4146,6 +4292,160 @@ musicaControl.addEventListener(
 
 
 /* =========================================================
+   AGREGAR AL CALENDARIO
+========================================================= */
+
+function agregarAlCalendario() {
+
+  /*
+    Ceremonia:
+    14 noviembre 2026
+    16:30 Ecuador UTC-5
+
+    En UTC:
+    21:30
+  */
+
+  const titulo =
+  "Carolina & Alexander | Nuestra Boda";
+
+
+  const ubicacion =
+  "Karla Ramírez Event Studio · La Solé, Av. Gral. Rumiñahui S/N, 171103 Quito";
+
+
+  const descripcion =
+  "Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.";
+
+
+  const contenido =
+  [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Carolina y Alexander//Boda 2026//ES",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+
+    "BEGIN:VEVENT",
+
+    "UID:boda-carolina-alexander-14112026@invitacion",
+
+    "DTSTAMP:20260829T000000Z",
+
+    "DTSTART:20261114T213000Z",
+
+    "SUMMARY:" +
+    escaparICS(
+      titulo
+    ),
+
+    "LOCATION:" +
+    escaparICS(
+      ubicacion
+    ),
+
+    "DESCRIPTION:" +
+    escaparICS(
+      descripcion
+    ),
+
+    "STATUS:CONFIRMED",
+
+    "END:VEVENT",
+
+    "END:VCALENDAR"
+  ]
+  .join(
+    "\r\n"
+  );
+
+
+  const archivo =
+  new Blob(
+    [
+      contenido
+    ],
+    {
+      type:
+      "text/calendar;charset=utf-8"
+    }
+  );
+
+
+  const url =
+  URL.createObjectURL(
+    archivo
+  );
+
+
+  const enlace =
+  document.createElement(
+    "a"
+  );
+
+
+  enlace.href =
+  url;
+
+
+  enlace.download =
+  "Boda-Carolina-y-Alexander.ics";
+
+
+  document.body
+  .appendChild(
+    enlace
+  );
+
+
+  enlace.click();
+
+
+  enlace.remove();
+
+
+  setTimeout(
+    function () {
+
+      URL.revokeObjectURL(
+        url
+      );
+
+    },
+    1500
+  );
+
+}
+
+
+function escaparICS(
+  texto
+) {
+
+  return String(
+    texto
+  )
+  .replace(
+    /\\/g,
+    "\\\\"
+  )
+  .replace(
+    /;/g,
+    "\\;"
+  )
+  .replace(
+    /,/g,
+    "\\,"
+  )
+  .replace(
+    /\n/g,
+    "\\n"
+  );
+
+}
+
+
+/* =========================================================
    JSONP
 ========================================================= */
 
@@ -4213,10 +4513,13 @@ function consultaJSONP(
             return;
           }
 
+
           terminado =
           true;
 
+
           limpiar();
+
 
           reject(
             new Error(
@@ -5089,6 +5392,14 @@ function mostrarFormularioRSVP() {
   "none";
 
 
+  document
+  .getElementById(
+    "rsvpCalendario"
+  )
+  .style.display =
+  "none";
+
+
   respuestaRSVP =
   "";
 
@@ -5528,6 +5839,12 @@ function mostrarRespuestaGuardada() {
   );
 
 
+  const botonCalendario =
+  document.getElementById(
+    "rsvpCalendario"
+  );
+
+
   resultado.style.display =
   "block";
 
@@ -5563,12 +5880,44 @@ function mostrarRespuestaGuardada() {
     "!";
 
 
-    document
-    .getElementById(
-      "rsvpResultadoTexto"
-    )
-    .textContent =
-    "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
+    const cantidad =
+    Number(
+      invitadoActual.asisten
+    ) || 1;
+
+
+    if (
+      cantidad === 1
+    ) {
+
+      document
+      .getElementById(
+        "rsvpResultadoTexto"
+      )
+      .textContent =
+      "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
+
+    } else {
+
+      document
+      .getElementById(
+        "rsvpResultadoTexto"
+      )
+      .textContent =
+      "Hemos recibido tu confirmación para " +
+      cantidad +
+      " personas. Nos emociona compartir este día con ustedes.";
+
+    }
+
+
+    /*
+      Si confirmó asistencia,
+      mostramos botón de calendario.
+    */
+
+    botonCalendario.style.display =
+    "block";
 
   } else {
 
@@ -5594,6 +5943,15 @@ function mostrarRespuestaGuardada() {
     )
     .textContent =
     "Hemos registrado que no podrás acompañarnos.";
+
+
+    /*
+      Si no asistirá,
+      ocultamos calendario.
+    */
+
+    botonCalendario.style.display =
+    "none";
 
   }
 
