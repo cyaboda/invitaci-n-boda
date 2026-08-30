@@ -2374,14 +2374,73 @@ const API_URL =
 const parametros =
 new URLSearchParams(window.location.search);
 
+function obtenerCodigoInvitacion() {
+
+  // 1. Compatibilidad con enlaces antiguos:
+  // ?i=CYA022 o ?codigo=CYA022
+  const codigoQuery =
+    parametros.get("i") ||
+    parametros.get("codigo");
+
+  if (codigoQuery) {
+    return String(codigoQuery).trim().toUpperCase();
+  }
+
+  // 2. Si 404.html nos redirigió internamente,
+  // recuperamos el código sin mostrar ?i= en la URL.
+  const codigoGuardado =
+    sessionStorage.getItem("codigoInvitacion");
+
+  if (codigoGuardado) {
+    sessionStorage.removeItem("codigoInvitacion");
+    return String(codigoGuardado).trim().toUpperCase();
+  }
+
+  // 3. Acceso directo con URL bonita:
+  // carolinayalexander.com/CYA022
+  // En GitHub Pages también soporta:
+  // .../invitaci-n-boda/CYA022
+  const segmentos =
+    window.location.pathname
+      .split("/")
+      .filter(Boolean);
+
+  if (segmentos.length > 0) {
+
+    const ultimo =
+      decodeURIComponent(
+        segmentos[segmentos.length - 1]
+      )
+      .trim();
+
+    // Evita interpretar nombres de archivos como códigos.
+    if (
+      ultimo &&
+      !ultimo.includes(".") &&
+      ultimo.toLowerCase() !== "invitaci-n-boda"
+    ) {
+      return ultimo.toUpperCase();
+    }
+  }
+
+  return "";
+}
+
 const codigo =
-String(
-  parametros.get("i") ||
-  parametros.get("codigo") ||
-  ""
-)
-.trim()
-.toUpperCase();
+obtenerCodigoInvitacion();
+
+// Si venimos del 404 interno, recuperamos la URL bonita.
+const rutaBonitaPendiente =
+sessionStorage.getItem("rutaBonitaInvitacion");
+
+if (rutaBonitaPendiente) {
+  sessionStorage.removeItem("rutaBonitaInvitacion");
+  history.replaceState(
+    null,
+    "",
+    rutaBonitaPendiente
+  );
+}
 
 let invitadoActual = null;
 let respuestaRSVP = "";
@@ -2484,7 +2543,11 @@ function agregarAlCalendario() {
     // iPhone / iPad: abre un archivo .ics real publicado por GitHub Pages.
     // Usamos URL absoluta para evitar errores de ruta/404.
     window.location.href =
-      "https://cyaboda.github.io/invitaci-n-boda/boda.ics?v=3";
+      (
+        window.location.hostname.endsWith("github.io")
+          ? window.location.origin + "/invitaci-n-boda/boda.ics?v=4"
+          : window.location.origin + "/boda.ics?v=4"
+      );
     return;
   }
 
