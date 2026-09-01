@@ -694,7 +694,7 @@
         </div>
       </section>
 
-      <section class="list-section" id="listSection">
+      <section class="list-section hidden" id="listSection">
         <div class="list-head">
           <h2 class="list-title" id="listTitle">Confirmados</h2>
           <span class="list-count" id="listCount">0 invitaciones</span>
@@ -785,6 +785,7 @@
     function mostrarLogin() {
       $("dashboard").classList.add("hidden");
       $("loginScreen").classList.remove("hidden");
+      $("listSection").classList.add("hidden");
       $("pinInput").value = "";
       setTimeout(() => $("pinInput").focus(), 80);
     }
@@ -792,6 +793,7 @@
     function mostrarDashboard() {
       $("loginScreen").classList.add("hidden");
       $("dashboard").classList.remove("hidden");
+      $("listSection").classList.add("hidden");
     }
 
     function toast(mensaje) {
@@ -902,13 +904,13 @@
 
       $("updatedText").textContent = "Actualizado " + formatearHora(resumenActual.actualizado);
 
-      renderLista(listaActiva);
     }
 
     function renderLista(tipo) {
       if (!resumenActual) return;
 
       listaActiva = tipo;
+      $("listSection").classList.remove("hidden");
 
       document.querySelectorAll(".stat-card").forEach(card => {
         card.classList.toggle("active", card.dataset.list === tipo);
@@ -1046,7 +1048,13 @@
     document.querySelectorAll(".stat-card").forEach(card => {
       card.addEventListener("click", () => {
         renderLista(card.dataset.list);
-        $("listSection").scrollIntoView({ behavior: "smooth", block: "start" });
+
+        requestAnimationFrame(() => {
+          $("listSection").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        });
       });
     });
 
