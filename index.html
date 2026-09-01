@@ -1086,6 +1086,196 @@ select {
   color: rgba(255,235,225,.62);
 }
 
+
+/* =========================================================
+   NOTA SOBRE EL REGALO
+========================================================= */
+
+.regalo-nota-bloque {
+  margin: 22px auto 0;
+  max-width: 560px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.regalo-nota-pregunta {
+  margin: 0;
+  font-size: clamp(18px,1.8vw,22px);
+  line-height: 1.35;
+  font-style: italic;
+  color: #fff4ee;
+}
+
+.regalo-nota-boton {
+  margin-top: 14px;
+  padding: 12px 24px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  background: transparent;
+  color: #f8e1d5;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 2.4px;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.regalo-nota-boton:hover {
+  background: rgba(255,255,255,.08);
+  transform: translateY(-1px);
+}
+
+.regalo-nota-estado {
+  margin-top: 12px;
+  min-height: 16px;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: rgba(255,235,225,.74);
+}
+
+.modal-nota-regalo {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(36,14,11,.78);
+  backdrop-filter: blur(8px);
+}
+
+.modal-nota-regalo.activo {
+  display: flex;
+}
+
+.modal-nota-caja {
+  width: min(520px, 100%);
+  position: relative;
+  padding: 45px 34px 34px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(255,230,216,.10), transparent 36%),
+    linear-gradient(145deg, #6d3329, #54231e);
+  box-shadow: 0 24px 70px rgba(0,0,0,.30);
+  color: white;
+  text-align: center;
+}
+
+.modal-nota-cerrar {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255,255,255,.78);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.modal-nota-titulo {
+  margin: 0;
+  font-size: clamp(34px,5vw,48px);
+  font-weight: 400;
+  color: #fff8f3;
+}
+
+.modal-nota-subtitulo {
+  max-width: 390px;
+  margin: 10px auto 20px;
+  font-size: 16px;
+  line-height: 1.45;
+  font-style: italic;
+  color: #efd4c6;
+}
+
+.nota-regalo-textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  padding: 17px 18px;
+  border: 1px solid rgba(255,255,255,.20);
+  border-radius: 18px;
+  outline: none;
+  background: rgba(255,255,255,.08);
+  color: white;
+  font: 15px/1.5 Arial,sans-serif;
+}
+
+.nota-regalo-textarea::placeholder {
+  color: rgba(255,255,255,.46);
+}
+
+.nota-regalo-textarea:focus {
+  border-color: rgba(255,255,255,.42);
+  background: rgba(255,255,255,.11);
+}
+
+.nota-regalo-contador {
+  margin-top: 7px;
+  text-align: right;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: rgba(255,235,225,.54);
+}
+
+.nota-regalo-enviar {
+  margin-top: 18px;
+  padding: 14px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: #f6e2d6;
+  color: #633026;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.nota-regalo-enviar:disabled {
+  opacity: .55;
+  cursor: default;
+}
+
+.nota-regalo-mensaje {
+  margin-top: 13px;
+  min-height: 18px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #f6ddd0;
+}
+
+@media (max-width:700px) {
+  .regalo-nota-bloque {
+    margin-top: 18px;
+    padding-top: 17px;
+  }
+
+  .regalo-nota-pregunta {
+    font-size: 18px;
+  }
+
+  .modal-nota-caja {
+    padding: 42px 20px 28px;
+    border-radius: 24px;
+  }
+
+  .modal-nota-titulo {
+    font-size: 36px;
+  }
+
+  .nota-regalo-textarea {
+    min-height: 145px;
+  }
+}
+
 /* =========================================================
    RSVP
 ========================================================= */
@@ -2590,6 +2780,18 @@ select {
       VER DATOS PARA TRANSFERENCIA
     </button>
 
+    <div class="regalo-nota-bloque">
+      <p class="regalo-nota-pregunta">
+        ¿Deseas dejarnos una nota sobre tu regalo?
+      </p>
+
+      <button class="regalo-nota-boton" id="abrirNotaRegalo" type="button">
+        DEJAR UNA NOTA
+      </button>
+
+      <div class="regalo-nota-estado" id="estadoNotaRegalo"></div>
+    </div>
+
     <div class="regalos-nota">
       GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO
     </div>
@@ -2753,6 +2955,39 @@ select {
   </div>
 
 </section>
+
+
+
+<div class="modal-nota-regalo" id="modalNotaRegalo">
+
+  <div class="modal-nota-caja">
+
+    <button class="modal-nota-cerrar" id="cerrarNotaRegalo" type="button">×</button>
+
+    <h3 class="modal-nota-titulo">Unas palabras para nosotros</h3>
+
+    <div class="modal-nota-subtitulo">
+      Nos encantará guardar tus palabras como parte de este momento.
+    </div>
+
+    <textarea
+      class="nota-regalo-textarea"
+      id="notaRegaloTexto"
+      maxlength="500"
+      placeholder="Escribe aquí tu mensaje..."
+    ></textarea>
+
+    <div class="nota-regalo-contador" id="notaRegaloContador">0 / 500</div>
+
+    <button class="nota-regalo-enviar" id="enviarNotaRegalo" type="button">
+      ENVIAR NOTA
+    </button>
+
+    <div class="nota-regalo-mensaje" id="notaRegaloMensaje"></div>
+
+  </div>
+
+</div>
 
 
 <div class="modal-bancos" id="modalBancos">
@@ -4082,6 +4317,169 @@ document
     mostrarFormularioRSVP();
 
   }
+);
+
+
+
+/* =========================================================
+   NOTA SOBRE EL REGALO
+========================================================= */
+
+const modalNotaRegalo =
+document.getElementById("modalNotaRegalo");
+
+const notaRegaloTexto =
+document.getElementById("notaRegaloTexto");
+
+const notaRegaloContador =
+document.getElementById("notaRegaloContador");
+
+const notaRegaloMensaje =
+document.getElementById("notaRegaloMensaje");
+
+const estadoNotaRegalo =
+document.getElementById("estadoNotaRegalo");
+
+const botonAbrirNotaRegalo =
+document.getElementById("abrirNotaRegalo");
+
+const botonEnviarNotaRegalo =
+document.getElementById("enviarNotaRegalo");
+
+function abrirModalNotaRegalo() {
+
+  modalNotaRegalo.classList.add("activo");
+
+  notaRegaloMensaje.textContent = "";
+
+  setTimeout(function () {
+    notaRegaloTexto.focus();
+  }, 120);
+
+}
+
+function cerrarModalNotaRegalo() {
+  modalNotaRegalo.classList.remove("activo");
+}
+
+botonAbrirNotaRegalo.addEventListener(
+  "click",
+  abrirModalNotaRegalo
+);
+
+document
+.getElementById("cerrarNotaRegalo")
+.addEventListener(
+  "click",
+  cerrarModalNotaRegalo
+);
+
+modalNotaRegalo.addEventListener(
+  "click",
+  function (event) {
+
+    if (event.target === modalNotaRegalo) {
+      cerrarModalNotaRegalo();
+    }
+
+  }
+);
+
+notaRegaloTexto.addEventListener(
+  "input",
+  function () {
+
+    notaRegaloContador.textContent =
+    notaRegaloTexto.value.length +
+    " / 500";
+
+  }
+);
+
+async function guardarNotaRegalo() {
+
+  const nota =
+  notaRegaloTexto.value.trim();
+
+  if (!nota) {
+
+    notaRegaloMensaje.textContent =
+    "Escribe unas palabras antes de enviar.";
+
+    notaRegaloTexto.focus();
+    return;
+  }
+
+  botonEnviarNotaRegalo.disabled = true;
+
+  notaRegaloMensaje.textContent =
+  "Guardando tu nota...";
+
+  const callback =
+  "bodaNota_" +
+  Date.now();
+
+  const url =
+  API_URL +
+  "?accion=nota_regalo" +
+  "&codigo=" +
+  encodeURIComponent(codigo) +
+  "&nota=" +
+  encodeURIComponent(nota) +
+  "&callback=" +
+  callback +
+  "&t=" +
+  Date.now();
+
+  try {
+
+    const datos =
+    await consultaJSONP(
+      url,
+      callback,
+      10000
+    );
+
+    if (!datos || !datos.ok) {
+
+      notaRegaloMensaje.textContent =
+      datos && datos.mensaje
+      ? datos.mensaje
+      : "No pudimos guardar tu nota. Inténtalo nuevamente.";
+
+      botonEnviarNotaRegalo.disabled = false;
+      return;
+    }
+
+    notaRegaloMensaje.textContent =
+    "Gracias por tus palabras 🤍 Tu nota ha sido guardada.";
+
+    estadoNotaRegalo.textContent =
+    "TU NOTA HA SIDO GUARDADA ♡";
+
+    botonAbrirNotaRegalo.textContent =
+    "EDITAR MI NOTA";
+
+    setTimeout(function () {
+      cerrarModalNotaRegalo();
+    }, 1600);
+
+  } catch (error) {
+
+    notaRegaloMensaje.textContent =
+    "No pudimos guardar tu nota. Revisa tu conexión e inténtalo nuevamente.";
+
+  } finally {
+
+    botonEnviarNotaRegalo.disabled = false;
+
+  }
+
+}
+
+botonEnviarNotaRegalo.addEventListener(
+  "click",
+  guardarNotaRegalo
 );
 
 
