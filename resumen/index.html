@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f3ed">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Resumen privado · Caro & Alex</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f3ed;
+      --card: rgba(255,255,255,.82);
+      --ink: #23301f;
+      --text: #4d514b;
+      --muted: #8e918b;
+      --sage: #7d916d;
+      --sage-dark: #526746;
+      --sage-soft: #e8eee3;
+      --green: #67a751;
+      --amber: #d99542;
+      --rose: #b9837b;
+      --rose-soft: #f4e8e4;
+      --line: rgba(47,56,43,.10);
+      --shadow: 0 18px 45px rgba(44, 50, 38, .08);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(221,231,213,.72), transparent 32%),
+        radial-gradient(circle at 92% 4%, rgba(242,224,218,.62), transparent 28%),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    button, input { font: inherit; }
+
+    .hidden { display: none !important; }
+
+    .login-screen {
+      min-height: 100vh;
+      padding: 32px 22px;
+      display: grid;
+      place-items: center;
+    }
+
+    .login-card {
+      width: min(100%, 430px);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 38px 28px 30px;
+      text-align: center;
+    }
+
+    .monogram {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      letter-spacing: .04em;
+      color: var(--sage-dark);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: var(--sage-soft);
+      border-radius: 999px;
+      padding: 9px 13px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 10vw, 56px);
+      line-height: 1;
+      margin: 22px 0 14px;
+      font-weight: 600;
+    }
+
+    .login-copy {
+      color: var(--text);
+      line-height: 1.55;
+      margin: 0 auto 26px;
+      max-width: 320px;
+    }
+
+    .pin-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    #pinInput {
+      width: 170px;
+      height: 58px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+      text-align: center;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: .3em;
+      padding-left: .3em;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    #pinInput:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 4px rgba(125,145,109,.13);
+    }
+
+    .primary-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 17px;
+      background: var(--ink);
+      color: white;
+      padding: 16px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .primary-btn:active { transform: scale(.985); }
+    .primary-btn:disabled { opacity: .55; cursor: wait; }
+
+    .login-error {
+      min-height: 22px;
+      margin: 12px 0 0;
+      color: #a45249;
+      font-size: 13px;
+    }
+
+    .app {
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: calc(16px + env(safe-area-inset-top)) 20px 16px;
+      background: rgba(247,243,237,.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      color: var(--sage-dark);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+      border-radius: 14px;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 13px;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(100% - 32px, 900px);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 46px 0 24px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 10px 0 9px;
+      font-size: clamp(46px, 8vw, 68px);
+    }
+
+    .hero p {
+      margin: 0 auto;
+      color: var(--text);
+      max-width: 560px;
+      line-height: 1.55;
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      color: var(--sage-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #62ad52;
+      box-shadow: 0 0 0 5px rgba(98,173,82,.12);
+    }
+
+    .overview-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 26px;
+      margin-bottom: 18px;
+    }
+
+    .attendance-number {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .attendance-number strong {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(58px, 14vw, 88px);
+      line-height: .95;
+      font-weight: 600;
+    }
+
+    .attendance-number span {
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .progress {
+      height: 12px;
+      background: #e9e7e2;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 18px 0 12px;
+    }
+
+    .progress > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #7cab69, #5f9651);
+      transition: width .6s ease;
+    }
+
+    .progress-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .stat-card {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: 0 12px 28px rgba(44,50,38,.06);
+      padding: 20px 18px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      color: inherit;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(44,50,38,.09);
+    }
+
+    .stat-card.active {
+      border-color: rgba(82,103,70,.28);
+      box-shadow: 0 0 0 3px rgba(125,145,109,.10), 0 16px 34px rgba(44,50,38,.08);
+    }
+
+    .stat-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .stat-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+    }
+
+    .stat-arrow {
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .stat-value {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .stat-label {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .stat-sub {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .confirmed .stat-dot { background: var(--green); }
+    .pending .stat-dot { background: var(--amber); }
+    .declined .stat-dot { background: var(--rose); }
+
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,.64);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .mini-value {
+      font-family: "Playfair Display", serif;
+      font-size: 34px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .mini-label {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .list-section {
+      margin-top: 22px;
+      scroll-margin-top: 85px;
+    }
+
+    .list-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .list-title {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      margin: 0;
+    }
+
+    .list-count {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .guest-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .guest {
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 18px;
+      padding: 17px 18px;
+      box-shadow: 0 8px 20px rgba(44,50,38,.045);
+    }
+
+    .guest-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .guest-name {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .guest-meta {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .guest-badge {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--sage-soft);
+      color: var(--sage-dark);
+    }
+
+    .guest-extra {
+      display: grid;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 32px 20px;
+      background: rgba(255,255,255,.55);
+      border-radius: 18px;
+      border: 1px dashed rgba(82,103,70,.18);
+    }
+
+    .update-bar {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 17px;
+      border: 1px solid rgba(82,103,70,.12);
+      background: rgba(232,238,227,.55);
+      border-radius: 17px;
+      color: var(--sage-dark);
+      font-size: 12px;
+    }
+
+    .loading {
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 50;
+      left: 50%;
+      bottom: calc(24px + env(safe-area-inset-bottom));
+      transform: translate(-50%, 30px);
+      background: #263023;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 14px;
+      box-shadow: 0 16px 35px rgba(0,0,0,.18);
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      max-width: calc(100% - 32px);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 650px) {
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        column-gap: 14px;
+        padding: 17px 18px;
+      }
+
+      .stat-top {
+        margin: 0;
+        display: block;
+      }
+
+      .stat-arrow {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
+      .stat-value {
+        font-size: 34px;
+        margin: 0;
+      }
+
+      .stat-copy {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .stat-top {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .stat-card .stat-value {
+        display: none;
+      }
+
+      .stat-copy::before {
+        content: attr(data-count);
+        display: block;
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .secondary-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .overview-card {
+        padding: 22px 19px;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .secondary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="monogram">C & A</div>
+      <span class="eyebrow">🔒 Panel privado</span>
+      <h1>Resumen</h1>
+      <p class="login-copy">Acceso exclusivo para consultar las confirmaciones de nuestra boda.</p>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="pin-wrap">
+          <input
+            id="pinInput"
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            maxlength="8"
+            placeholder="••••"
+            aria-label="PIN privado"
+            required>
+        </div>
+
+        <button class="primary-btn" id="loginBtn" type="submit">Ingresar</button>
+        <p class="login-error" id="loginError"></p>
+      </form>
+    </div>
+  </section>
+
+  <main class="app hidden" id="dashboard">
+    <header class="topbar">
+      <div class="brand">C & A</div>
+
+      <div class="top-actions">
+        <button class="icon-btn" id="refreshBtn" type="button" aria-label="Actualizar" title="Actualizar">↻</button>
+        <button class="icon-btn" id="logoutBtn" type="button">Salir</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="hero">
+        <span class="eyebrow">14 · 11 · 2026</span>
+        <h1>Resumen</h1>
+        <p>Estado de las confirmaciones de nuestra boda.</p>
+        <div class="live-pill"><span class="dot"></span> En vivo</div>
+      </section>
+
+      <section class="overview-card">
+        <div class="attendance-number">
+          <strong id="totalAsisten">0</strong>
+          <span>personas asistirán</span>
+        </div>
+
+        <div class="progress">
+          <span id="progressFill"></span>
+        </div>
+
+        <div class="progress-caption">
+          <span id="progressText">0% de invitaciones respondidas</span>
+          <span id="totalCupos">0 cupos totales</span>
+        </div>
+      </section>
+
+      <section class="stat-grid" aria-label="Estados de confirmación">
+        <button class="stat-card confirmed active" data-list="confirmados" type="button">
+          <div class="stat-top"><span class="stat-dot"></span></div>
+          <span class="stat-value" id="confirmedValue">0</span>
+          <div class="stat-copy" id="confirmedCopy" data-count="0">
+            <span class="stat-label">Confirmados</span>
+            <span class="stat-sub">Toca para ver la lista</span>
+          </div>
+          <span class="stat-arrow">›</span>
+        </button>
+
+        <button class="stat-card pending" data-list="pendientes" type="button">
+          <div class="stat-top"><span class="stat-dot"></span></div>
+          <span class="stat-value" id="pendingValue">0</span>
+          <div class="stat-copy" id="pendingCopy" data-count="0">
+            <span class="stat-label">Sin responder</span>
+            <span class="stat-sub">Toca para ver la lista</span>
+          </div>
+          <span class="stat-arrow">›</span>
+        </button>
+
+        <button class="stat-card declined" data-list="noAsisten" type="button">
+          <div class="stat-top"><span class="stat-dot"></span></div>
+          <span class="stat-value" id="declinedValue">0</span>
+          <div class="stat-copy" id="declinedCopy" data-count="0">
+            <span class="stat-label">No asistirán</span>
+            <span class="stat-sub">Toca para ver la lista</span>
+          </div>
+          <span class="stat-arrow">›</span>
+        </button>
+      </section>
+
+      <section class="secondary-grid">
+        <div class="mini-card">
+          <span class="mini-value" id="totalInvitaciones">0</span>
+          <span class="mini-label">Invitaciones registradas</span>
+        </div>
+
+        <div class="mini-card">
+          <span class="mini-value" id="totalRespondidas">0</span>
+          <span class="mini-label">Invitaciones respondidas</span>
+        </div>
+      </section>
+
+      <section class="list-section" id="listSection">
+        <div class="list-head">
+          <h2 class="list-title" id="listTitle">Confirmados</h2>
+          <span class="list-count" id="listCount">0 invitaciones</span>
+        </div>
+
+        <div class="guest-list" id="guestList"></div>
+      </section>
+
+      <div class="update-bar">
+        <span>Los datos se actualizan automáticamente.</span>
+        <span id="updatedText">Actualizando…</span>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec';
+    const TOKEN_KEY = "caroalex_panel_token";
+    const EXPIRY_KEY = "caroalex_panel_expiry";
+
+    let resumenActual = null;
+    let listaActiva = "confirmados";
+    let refreshTimer = null;
+
+    const $ = (id) => document.getElementById(id);
+
+    function jsonp(params) {
+      return new Promise((resolve, reject) => {
+        const callback = "ca_cb_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+        const script = document.createElement("script");
+
+        const timeout = setTimeout(() => {
+          cleanup();
+          reject(new Error("La solicitud tardó demasiado."));
+        }, 15000);
+
+        function cleanup() {
+          clearTimeout(timeout);
+          delete window[callback];
+          script.remove();
+        }
+
+        window[callback] = (data) => {
+          cleanup();
+          resolve(data);
+        };
+
+        const query = new URLSearchParams({
+          ...params,
+          callback,
+          _: Date.now()
+        });
+
+        script.src = API_URL + "?" + query.toString();
+        script.onerror = () => {
+          cleanup();
+          reject(new Error("No se pudo conectar con el servidor."));
+        };
+
+        document.body.appendChild(script);
+      });
+    }
+
+    function guardarSesion(token, segundos) {
+      localStorage.setItem(TOKEN_KEY, token);
+      localStorage.setItem(EXPIRY_KEY, String(Date.now() + (segundos * 1000)));
+    }
+
+    function obtenerToken() {
+      const token = localStorage.getItem(TOKEN_KEY);
+      const expiry = Number(localStorage.getItem(EXPIRY_KEY) || 0);
+
+      if (!token || !expiry || Date.now() >= expiry) {
+        limpiarSesion();
+        return "";
+      }
+
+      return token;
+    }
+
+    function limpiarSesion() {
+      localStorage.removeItem(TOKEN_KEY);
+      localStorage.removeItem(EXPIRY_KEY);
+    }
+
+    function mostrarLogin() {
+      $("dashboard").classList.add("hidden");
+      $("loginScreen").classList.remove("hidden");
+      $("pinInput").value = "";
+      setTimeout(() => $("pinInput").focus(), 80);
+    }
+
+    function mostrarDashboard() {
+      $("loginScreen").classList.add("hidden");
+      $("dashboard").classList.remove("hidden");
+    }
+
+    function toast(mensaje) {
+      const el = $("toast");
+      el.textContent = mensaje;
+      el.classList.add("show");
+      clearTimeout(el._timer);
+      el._timer = setTimeout(() => el.classList.remove("show"), 2600);
+    }
+
+    async function login(pin) {
+      $("loginBtn").disabled = true;
+      $("loginBtn").textContent = "Ingresando…";
+      $("loginError").textContent = "";
+
+      try {
+        const data = await jsonp({
+          accion: "panel_login",
+          pin: pin
+        });
+
+        if (!data.ok) {
+          $("loginError").textContent = data.mensaje || "PIN incorrecto.";
+          return;
+        }
+
+        guardarSesion(data.token, Number(data.duracionSegundos) || 28800);
+        mostrarDashboard();
+        await cargarResumen(false);
+        iniciarAutoRefresh();
+
+      } catch (error) {
+        $("loginError").textContent = error.message || "No se pudo ingresar.";
+      } finally {
+        $("loginBtn").disabled = false;
+        $("loginBtn").textContent = "Ingresar";
+      }
+    }
+
+    async function cargarResumen(mostrarAviso = true) {
+      const token = obtenerToken();
+
+      if (!token) {
+        mostrarLogin();
+        return;
+      }
+
+      $("dashboard").classList.add("loading");
+
+      try {
+        const data = await jsonp({
+          accion: "resumen",
+          token: token
+        });
+
+        if (!data.ok) {
+          if (data.codigoError === "SESION_INVALIDA") {
+            limpiarSesion();
+            mostrarLogin();
+            toast("La sesión venció. Ingresa nuevamente.");
+            return;
+          }
+
+          throw new Error(data.mensaje || "No se pudo cargar el resumen.");
+        }
+
+        resumenActual = data;
+        renderResumen();
+
+        if (mostrarAviso) {
+          toast("Resumen actualizado");
+        }
+
+      } catch (error) {
+        toast(error.message || "No se pudo actualizar.");
+      } finally {
+        $("dashboard").classList.remove("loading");
+      }
+    }
+
+    function renderResumen() {
+      if (!resumenActual) return;
+
+      const t = resumenActual.totales || {};
+
+      const confirmados = Number(t.confirmados || 0);
+      const pendientes = Number(t.pendientes || 0);
+      const noAsisten = Number(t.noAsisten || 0);
+      const respondidas = confirmados + noAsisten;
+      const total = Number(t.invitaciones || 0);
+      const porcentaje = total ? Math.round((respondidas / total) * 100) : 0;
+
+      $("totalAsisten").textContent = Number(t.personasAsisten || 0);
+      $("totalCupos").textContent = Number(t.cupos || 0) + " cupos totales";
+      $("progressFill").style.width = porcentaje + "%";
+      $("progressText").textContent = porcentaje + "% de invitaciones respondidas";
+
+      $("confirmedValue").textContent = confirmados;
+      $("pendingValue").textContent = pendientes;
+      $("declinedValue").textContent = noAsisten;
+
+      $("confirmedCopy").dataset.count = confirmados;
+      $("pendingCopy").dataset.count = pendientes;
+      $("declinedCopy").dataset.count = noAsisten;
+
+      $("totalInvitaciones").textContent = total;
+      $("totalRespondidas").textContent = respondidas;
+
+      $("updatedText").textContent = "Actualizado " + formatearHora(resumenActual.actualizado);
+
+      renderLista(listaActiva);
+    }
+
+    function renderLista(tipo) {
+      if (!resumenActual) return;
+
+      listaActiva = tipo;
+
+      document.querySelectorAll(".stat-card").forEach(card => {
+        card.classList.toggle("active", card.dataset.list === tipo);
+      });
+
+      const config = {
+        confirmados: {
+          titulo: "Confirmados",
+          datos: resumenActual.listas?.confirmados || []
+        },
+        pendientes: {
+          titulo: "Sin responder",
+          datos: resumenActual.listas?.pendientes || []
+        },
+        noAsisten: {
+          titulo: "No asistirán",
+          datos: resumenActual.listas?.noAsisten || []
+        }
+      };
+
+      const actual = config[tipo] || config.confirmados;
+
+      $("listTitle").textContent = actual.titulo;
+      $("listCount").textContent = actual.datos.length + (actual.datos.length === 1 ? " invitación" : " invitaciones");
+
+      const contenedor = $("guestList");
+
+      if (!actual.datos.length) {
+        contenedor.innerHTML = '<div class="empty">No hay invitados en esta categoría.</div>';
+        return;
+      }
+
+      contenedor.innerHTML = actual.datos.map(item => {
+        const cupos = Number(item.cupos || 0);
+        const asisten = Number(item.asisten || 0);
+
+        let badge = cupos + (cupos === 1 ? " cupo" : " cupos");
+
+        if (tipo === "confirmados") {
+          badge = asisten + " de " + cupos;
+        }
+
+        const extras = [];
+
+        if (tipo === "confirmados" && item.acompanantes) {
+          extras.push("<div><strong>Acompañantes:</strong> " + escapeHtml(item.acompanantes) + "</div>");
+        }
+
+        if (item.fechaRespuesta && tipo !== "pendientes") {
+          extras.push("<div><strong>Respondió:</strong> " + escapeHtml(item.fechaRespuesta) + "</div>");
+        }
+
+        if (item.notaRegalo) {
+          extras.push("<div><strong>Nota de regalo:</strong> " + escapeHtml(item.notaRegalo) + "</div>");
+        }
+
+        return `
+          <article class="guest">
+            <div class="guest-top">
+              <div>
+                <div class="guest-name">${escapeHtml(item.invitado || "Invitado")}</div>
+                <div class="guest-meta">${escapeHtml(item.codigo || "")}</div>
+              </div>
+              <span class="guest-badge">${badge}</span>
+            </div>
+            ${extras.length ? '<div class="guest-extra">' + extras.join("") + '</div>' : ""}
+          </article>
+        `;
+      }).join("");
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function formatearHora(valor) {
+      if (!valor) return "ahora";
+
+      const match = String(valor).match(/(\d{2}):(\d{2})/);
+      return match ? match[1] + ":" + match[2] : "ahora";
+    }
+
+    function iniciarAutoRefresh() {
+      clearInterval(refreshTimer);
+      refreshTimer = setInterval(() => {
+        if (!document.hidden && obtenerToken()) {
+          cargarResumen(false);
+        }
+      }, 60000);
+    }
+
+    async function logout() {
+      const token = obtenerToken();
+
+      limpiarSesion();
+      clearInterval(refreshTimer);
+
+      if (token) {
+        try {
+          await jsonp({
+            accion: "panel_logout",
+            token: token
+          });
+        } catch (_) {}
+      }
+
+      mostrarLogin();
+    }
+
+    $("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const pin = $("pinInput").value.trim();
+
+      if (!pin) {
+        $("loginError").textContent = "Ingresa el PIN.";
+        return;
+      }
+
+      login(pin);
+    });
+
+    $("pinInput").addEventListener("input", (e) => {
+      e.target.value = e.target.value.replace(/\D/g, "");
+    });
+
+    $("refreshBtn").addEventListener("click", () => cargarResumen(true));
+    $("logoutBtn").addEventListener("click", logout);
+
+    document.querySelectorAll(".stat-card").forEach(card => {
+      card.addEventListener("click", () => {
+        renderLista(card.dataset.list);
+        $("listSection").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && obtenerToken()) {
+        cargarResumen(false);
+      }
+    });
+
+    (async function init() {
+      if (obtenerToken()) {
+        mostrarDashboard();
+        await cargarResumen(false);
+        iniciarAutoRefresh();
+      } else {
+        mostrarLogin();
+      }
+    })();
+  </script>
+</body>
+</html>
