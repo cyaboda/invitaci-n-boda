@@ -444,6 +444,27 @@
       font-size: 12px;
     }
 
+    .copy-invite-btn {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.78);
+      color: var(--sage-dark);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .guest-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex: 0 0 auto;
+    }
+
     .guest-badge {
       flex: 0 0 auto;
       border-radius: 999px;
@@ -716,6 +737,9 @@
     const API_URL = 'https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec';
     const TOKEN_KEY = "caroalex_panel_token";
     const EXPIRY_KEY = "caroalex_panel_expiry";
+    const AWAY_KEY = "caroalex_panel_away_since";
+    const AWAY_LIMIT_MS = 10 * 60 * 1000;
+    const INVITATION_BASE_URL = "https://caroyalex.date/";
 
     let resumenActual = null;
     let listaActiva = "confirmados";
@@ -780,6 +804,7 @@
     function limpiarSesion() {
       localStorage.removeItem(TOKEN_KEY);
       localStorage.removeItem(EXPIRY_KEY);
+      localStorage.removeItem(AWAY_KEY);
     }
 
     function mostrarLogin() {
@@ -906,6 +931,24 @@
 
     }
 
+    async function copiarInvitacion(codigo) {
+      const url = INVITATION_BASE_URL + encodeURIComponent(codigo || "");
+      try {
+        await navigator.clipboard.writeText(url);
+        toast("Invitación copiada");
+      } catch (_) {
+        const area = document.createElement("textarea");
+        area.value = url;
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        toast("Invitación copiada");
+      }
+    }
+
     function renderLista(tipo) {
       if (!resumenActual) return;
 
@@ -974,12 +1017,22 @@
                 <div class="guest-name">${escapeHtml(item.invitado || "Invitado")}</div>
                 <div class="guest-meta">${escapeHtml(item.codigo || "")}</div>
               </div>
-              <span class="guest-badge">${badge}</span>
+              <div class="guest-actions">
+                <button class="copy-invite-btn" type="button" data-copy-code="${escapeHtml(item.codigo || "")}">COPIAR INVITACIÓN</button>
+                <span class="guest-badge">${badge}</span>
+              </div>
             </div>
             ${extras.length ? '<div class="guest-extra">' + extras.join("") + '</div>' : ""}
           </article>
         `;
       }).join("");
+
+      contenedor.querySelectorAll("[data-copy-code]").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          copiarInvitacion(btn.dataset.copyCode);
+        });
+      });
     }
 
     function escapeHtml(value) {
@@ -1059,7 +1112,26 @@
     });
 
     document.addEventListener("visibilitychange", () => {
-      if (!document.hidden && obtenerToken()) {
+      if (document.hidden) {
+        localStorage.setItem(AWAY_KEY, String(Date.now()));
+        return;
+      }
+
+      // Al volver, nunca dejamos el panel atrapado en el estado opaco de carga.
+      $("dashboard").classList.remove("loading");
+
+      const awaySince = Number(localStorage.getItem(AWAY_KEY) || 0);
+      localStorage.removeItem(AWAY_KEY);
+
+      if (awaySince && (Date.now() - awaySince) >= AWAY_LIMIT_MS) {
+        limpiarSesion();
+        clearInterval(refreshTimer);
+        mostrarLogin();
+        toast("Por seguridad, ingresa nuevamente.");
+        return;
+      }
+
+      if (obtenerToken()) {
         cargarResumen(false);
       }
     });
