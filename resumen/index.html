@@ -509,9 +509,10 @@
       font-size: 12px;
     }
 
+    /* Las actualizaciones se realizan en segundo plano sin opacar ni bloquear el panel. */
     .loading {
-      opacity: .55;
-      pointer-events: none;
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .toast {
