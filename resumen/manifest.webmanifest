@@ -1,0 +1,25 @@
+{
+  "id": "./",
+  "name": "Caro & Alex · CELEA",
+  "short_name": "Caro & Alex",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f1eb",
+  "theme_color": "#f7f3ed",
+  "icons": [
+    {
+      "src": "./celea-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./celea-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
