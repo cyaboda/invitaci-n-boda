@@ -653,10 +653,31 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .celea-loader { position:fixed; inset:0; z-index:9999; display:grid; place-items:center; background:#fbf0e9; padding:24px; text-align:center; }
+    .celea-loader img { width:150px; height:150px; border-radius:28px; display:block; margin:0 auto 24px; }
+    .celea-loader h2 { font:500 25px "Playfair Display",serif; letter-spacing:.3em; color:#b88880; margin:0 0 20px; }
+    .celea-loader p { color:#63705f; font-size:15px; line-height:1.6; max-width:300px; }
+    .loader-dots { display:flex; gap:9px; justify-content:center; margin:24px 0; }
+    .loader-dots span { width:8px; height:8px; border-radius:50%; background:#b88880; animation:celeaPulse 1.3s ease-in-out infinite; }
+    .loader-dots span:nth-child(2) { animation-delay:.18s; background:#8b9b83; }
+    .loader-dots span:nth-child(3) { animation-delay:.36s; }
+    @keyframes celeaPulse { 0%,100% { opacity:.35; transform:translateY(0); } 50% { opacity:1; transform:translateY(-5px); } }
+    .sort-row { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 18px; }
+    .sort-row label { color:var(--text); font-size:14px; }
+    .sort-row select { font:inherit; font-size:14px; padding:12px; color:var(--ink); background:#fffaf6; border:1px solid #dfc9bf; border-radius:12px; max-width:100%; }
+    .sort-hint { width:100%; margin:0; color:var(--muted); font-size:12px; }
+    .refresh-status { color:#63705f; font-size:12px; align-self:center; }
+    @media (prefers-reduced-motion:reduce) { .loader-dots span { animation:none; } }
   </style>
 </head>
 
 <body>
+  <div class="celea-loader hidden" id="celeaLoader" role="status" aria-live="polite">
+    <div><img src="./celea-icon-512.png" alt="" width="150" height="150">
+    <h2>CELEA</h2><p>Preparando los detalles de tu celebración…</p>
+    <div class="loader-dots" aria-hidden="true"><span></span><span></span><span></span></div></div>
+  </div>
   <section class="login-screen" id="loginScreen">
     <div class="login-card">
       <div class="monogram">C & A</div>
@@ -688,6 +709,7 @@
       <div class="brand">C & A</div>
 
       <div class="top-actions">
+        <span class="refresh-status hidden" id="refreshStatus" role="status">Actualizando…</span>
         <button class="icon-btn" id="refreshBtn" type="button" aria-label="Actualizar" title="Actualizar">↻</button>
         <button class="icon-btn" id="logoutBtn" type="button">Salir</button>
       </div>
@@ -771,6 +793,15 @@
           <span class="list-count" id="listCount">0 invitaciones</span>
         </div>
 
+        <div class="sort-row">
+          <label for="sortOrder">Ordenar por</label>
+          <select id="sortOrder">
+            <option value="lista">Orden de lista</option>
+            <option value="recientes">Confirmación: más recientes primero</option>
+            <option value="antiguas">Confirmación: más antiguas primero</option>
+          </select>
+          <p class="sort-hint" id="sortHint"></p>
+        </div>
         <div class="guest-list" id="guestList"></div>
       </section>
 
@@ -799,6 +830,49 @@
     let resumenActual = null;
     let listaActiva = "confirmados";
     let refreshTimer = null;
+    let resumenEnCurso = false;
+    let ordenLista = "lista";
+    try { ordenLista = localStorage.getItem("celea_rsvp_orden") || "lista"; } catch (_) {}
+    if (!["lista", "recientes", "antiguas"].includes(ordenLista)) ordenLista = "lista";
+
+    function mostrarCarga(activa) {
+      $("celeaLoader").classList.toggle("hidden", !activa);
+      $("dashboard").setAttribute("aria-busy", String(activa));
+    }
+
+    function fechaParaOrdenar(valor) {
+      if (typeof valor !== "string" || !valor.trim()) return null;
+      const texto = valor.trim();
+      // Fechas locales recibidas por Apps Script: día/mes/año, con hora opcional.
+      const m = texto.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})(?:[,\s]+(\d{1,2}):(\d{2})(?::(\d{2}))?(?:\s*([ap])\.?\s*m\.?)?)?$/i);
+      if (m) {
+        let h = Number(m[4] || 0);
+        const min = Number(m[5] || 0), sec = Number(m[6] || 0);
+        if (m[7]) { if (h < 1 || h > 12) return null; h = h % 12 + (m[7].toLowerCase() === "p" ? 12 : 0); }
+        if (h > 23 || min > 59 || sec > 59) return null;
+        // La hora local de las respuestas corresponde a Ecuador (UTC-5).
+        const d = new Date(Date.UTC(+m[3], +m[2]-1, +m[1], h, min, sec));
+        if (d.getUTCFullYear() !== +m[3] || d.getUTCMonth() !== +m[2]-1 || d.getUTCDate() !== +m[1]) return null;
+        return d.getTime() + 5 * 3600000;
+      }
+      if (/^\d{4}-\d{2}-\d{2}T/.test(texto)) {
+        const zona = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(texto) ? texto : texto + "-05:00";
+        const t = Date.parse(zona);
+        return Number.isFinite(t) ? t : null;
+      }
+      return null;
+    }
+
+    function ordenarInvitados(datos, tipo, orden = ordenLista) {
+      if (orden === "lista" || tipo === "pendientes") return datos.slice();
+      return datos.map((item, i) => ({item, i, fecha:fechaParaOrdenar(item.fechaRespuesta)}))
+        .sort((a,b) => {
+          if (a.fecha === null && b.fecha === null) return a.i-b.i;
+          if (a.fecha === null) return 1;
+          if (b.fecha === null) return -1;
+          return (orden === "antiguas" ? a.fecha-b.fecha : b.fecha-a.fecha) || a.i-b.i;
+        }).map(x => x.item);
+    }
 
     const $ = (id) => document.getElementById(id);
 
@@ -863,6 +937,8 @@
     }
 
     function mostrarLogin() {
+      mostrarCarga(false);
+      resumenActual = null;
       $("dashboard").classList.add("hidden");
       $("loginScreen").classList.remove("hidden");
       $("listSection").classList.add("hidden");
@@ -885,6 +961,7 @@
     }
 
     async function login(pin) {
+      mostrarCarga(true);
       $("loginBtn").disabled = true;
       $("loginBtn").textContent = "Ingresando…";
       $("loginError").textContent = "";
@@ -908,6 +985,7 @@
       } catch (error) {
         $("loginError").textContent = error.message || "No se pudo ingresar.";
       } finally {
+        mostrarCarga(false);
         $("loginBtn").disabled = false;
         $("loginBtn").textContent = "Ingresar";
       }
@@ -921,13 +999,20 @@
         return;
       }
 
-      $("dashboard").classList.add("loading");
+      if (resumenEnCurso) return;
+      resumenEnCurso = true;
+      const primeraCarga = !resumenActual;
+      if (primeraCarga) mostrarCarga(true);
+      else $("refreshStatus").classList.remove("hidden");
+      $("refreshBtn").disabled = true;
 
       try {
         const data = await jsonp({
           accion: "resumen",
           token: token
         });
+
+        if (token !== obtenerToken()) return;
 
         if (!data.ok) {
           if (data.codigoError === "SESION_INVALIDA") {
@@ -950,7 +1035,10 @@
       } catch (error) {
         toast(error.message || "No se pudo actualizar.");
       } finally {
-        $("dashboard").classList.remove("loading");
+        resumenEnCurso = false;
+        mostrarCarga(false);
+        $("refreshStatus").classList.add("hidden");
+        $("refreshBtn").disabled = false;
       }
     }
 
@@ -983,6 +1071,7 @@
       $("totalRespondidas").textContent = respondidas;
 
       $("updatedText").textContent = "Actualizado " + formatearHora(resumenActual.actualizado);
+      if (!$("listSection").classList.contains("hidden")) renderLista(listaActiva);
 
     }
 
@@ -1007,7 +1096,7 @@
     function obtenerAsistentesParaExportar() {
       const confirmados = resumenActual?.listas?.confirmados || [];
 
-      return confirmados.map(item => ({
+      return ordenarInvitados(confirmados, "confirmados").map(item => ({
         "Código": item.codigo || "",
         "Invitado": item.invitado || "",
         "Cupos": Number(item.cupos || 0),
@@ -1101,6 +1190,14 @@
       };
 
       const actual = config[tipo] || config.confirmados;
+      const datosOrdenados = ordenarInvitados(actual.datos, tipo);
+      $("sortOrder").value = ordenLista;
+      $("sortOrder").disabled = tipo === "pendientes";
+      const sinFecha = actual.datos.some(item => fechaParaOrdenar(item.fechaRespuesta) === null);
+      $("sortHint").textContent = tipo === "pendientes"
+        ? "Los invitados sin responder conservan el orden de lista."
+        : ordenLista === "lista" ? "Se conserva el orden recibido de la lista."
+        : sinFecha ? "Las respuestas sin fecha reconocible aparecen al final." : "";
 
       $("listTitle").textContent = actual.titulo;
       $("listCount").textContent = actual.datos.length + (actual.datos.length === 1 ? " invitación" : " invitaciones");
@@ -1112,7 +1209,7 @@
         return;
       }
 
-      contenedor.innerHTML = actual.datos.map(item => {
+      contenedor.innerHTML = datosOrdenados.map(item => {
         const cupos = Number(item.cupos || 0);
         const asisten = Number(item.asisten || 0);
 
@@ -1190,6 +1287,7 @@
       const token = obtenerToken();
 
       limpiarSesion();
+      mostrarLogin();
       clearInterval(refreshTimer);
 
       if (token) {
@@ -1219,6 +1317,13 @@
 
     $("pinInput").addEventListener("input", (e) => {
       e.target.value = e.target.value.replace(/\D/g, "");
+    });
+
+    $("sortOrder").value = ordenLista;
+    $("sortOrder").addEventListener("change", (e) => {
+      ordenLista = e.target.value;
+      try { localStorage.setItem("celea_rsvp_orden", ordenLista); } catch (_) {}
+      renderLista(listaActiva);
     });
 
     $("refreshBtn").addEventListener("click", () => cargarResumen(true));
