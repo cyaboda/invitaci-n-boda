@@ -669,6 +669,33 @@
     .sort-hint { width:100%; margin:0; color:var(--muted); font-size:12px; }
     .refresh-status { color:#63705f; font-size:12px; align-self:center; }
     @media (prefers-reduced-motion:reduce) { .loader-dots span { animation:none; } }
+    .seating {margin:30px 0;padding:26px;background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow)}
+    .seat-heading {display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .seating h2,.seat-dialog h2 {font-family:"Playfair Display",serif;font-size:32px;margin:12px 0}
+    .seat-intro,.seat-help,.seat-notice {color:var(--text);font-size:13px;line-height:1.6}
+    .seat-summary {padding:14px 16px;border-radius:14px;background:var(--sage-soft);color:var(--sage-dark);font-size:14px;line-height:1.6}
+    .seat-layout {display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:22px;margin:22px 0}
+    .seat-map {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-content:start;background:var(--bg);padding:18px;border-radius:20px;min-height:230px}
+    .seat-table {border:1px solid var(--line);border-radius:18px;background:var(--card);padding:18px 8px;cursor:pointer;color:var(--ink);text-align:center;min-width:0}
+    .seat-table:hover,.seat-table:focus-visible,.seat-table.drag-over {outline:2px solid var(--sage);outline-offset:2px}
+    .seat-round {width:100px;height:100px;border:7px dotted var(--sage);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 10px;background:var(--sage-soft)}
+    .seat-round strong {font:600 27px "Playfair Display",serif}.seat-round small{font-size:11px}
+    .seat-table-name {display:block;font-weight:700;overflow-wrap:anywhere}.seat-table-info{display:block;font-size:12px;margin-top:5px;color:var(--text)}
+    .seat-table.overfull {border:2px solid var(--rose)}.seat-table.overfull .seat-table-info{font-weight:700;color:var(--sage-dark)}
+    .seat-pool h3 {font-size:17px;margin:0 0 15px}.seat-pool h3 span{font-weight:400;color:var(--muted)}
+    .seat-search-label{display:block;font-size:12px;color:var(--text);margin-bottom:7px}
+    #seatSearch,.seat-dialog input,.seat-dialog select{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:white;color:var(--ink);font:inherit;min-width:0}
+    #seatPool {margin-top:12px;max-height:430px;overflow:auto}
+    .seat-guest {border:1px solid var(--line);border-radius:14px;padding:12px;margin:9px 0;background:var(--card)}
+    .seat-guest strong{display:block;font-size:14px;overflow-wrap:anywhere}.seat-guest p{font-size:12px;line-height:1.5;color:var(--text);margin:5px 0 10px;overflow-wrap:anywhere}
+    .seat-guest button{font:inherit;font-size:12px;background:var(--sage-soft);border:0;color:var(--sage-dark);border-radius:9px;padding:9px 12px;cursor:pointer}
+    .seat-tools{display:flex;gap:8px;flex-wrap:wrap}.seat-tools button{height:auto;min-height:42px;font-size:12px}
+    .seat-dialog{width:min(520px,calc(100% - 24px));max-height:85dvh;border:1px solid var(--line);border-radius:24px;padding:24px;background:var(--bg);color:var(--ink);box-shadow:var(--shadow)}
+    .seat-dialog::backdrop{background:rgba(40,25,20,.35);backdrop-filter:blur(4px)}
+    .seat-dialog-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.seat-dialog-head h2{font-size:25px}
+    .seat-dialog label{display:block;margin:14px 0 7px;font-size:13px}.seat-dialog .primary-btn{margin-top:16px}.seat-dialog .seat-tools{margin-top:16px}
+    .seat-empty{grid-column:1/-1;text-align:center;color:var(--text);padding:25px 10px;line-height:1.6;font-size:14px}
+    @media(max-width:700px){.seating{padding:18px}.seat-layout{grid-template-columns:1fr}.seat-map{gap:10px;padding:12px}.seat-heading h2{font-size:29px}.seat-dialog{max-height:88dvh;margin:auto auto 0;width:100%;max-width:100%;border-radius:24px 24px 0 0;padding-bottom:calc(24px + env(safe-area-inset-bottom))}#seatPool{max-height:320px}}
   </style>
 </head>
 
@@ -805,6 +832,17 @@
         <div class="guest-list" id="guestList"></div>
       </section>
 
+      <section class="seating" id="seatingSection" aria-labelledby="seatingTitle">
+        <div class="seat-heading"><div><span class="eyebrow">Cada persona, su lugar</span><h2 id="seatingTitle">Nuestras mesas</h2></div><button type="button" class="export-btn" id="addTable">＋ Crear mesa</button></div>
+        <p class="seat-intro">Organiza a tus invitados confirmados. Cada invitación y sus acompañantes se ubican juntos.</p>
+        <p id="seatSummary" class="seat-summary" aria-live="polite"></p>
+        <div class="seat-layout"><div><div class="seat-map" id="seatMap" aria-label="Mapa de mesas"></div><p class="seat-help">Toca una mesa para ver sus invitados. En computadora también puedes arrastrar una invitación hacia ella.</p></div>
+        <aside class="seat-pool"><h3>Por ubicar <span id="poolCount"></span></h3><label class="seat-search-label" for="seatSearch">Buscar invitado</label><input id="seatSearch" type="search" placeholder="Nombre o código…"><div id="seatPool"></div></aside></div>
+        <p class="seat-notice" id="seatSaveStatus">La distribución se guarda solo en este navegador. Descarga un respaldo para conservarla o abrirla en otro dispositivo.</p>
+        <div class="seat-tools"><button type="button" class="icon-btn" id="backupTables">Guardar respaldo</button><button type="button" class="icon-btn" id="importTables">Importar respaldo</button><button type="button" class="icon-btn" id="exportTables">Descargar distribución</button><input type="file" id="tableFile" accept=".json,application/json" hidden></div>
+      </section>
+      <dialog id="seatDialog" class="seat-dialog"><div class="seat-dialog-head"><h2 id="seatDialogTitle">Mesa</h2><button type="button" class="icon-btn" id="closeSeatDialog" aria-label="Cerrar">✕</button></div><div id="seatDialogBody"></div></dialog>
+
       <div class="update-bar">
         <span>Los datos se actualizan automáticamente.</span>
         <span id="updatedText">Actualizando…</span>
@@ -937,6 +975,7 @@
     }
 
     function mostrarLogin() {
+      document.dispatchEvent(new Event("celea:logout"));
       mostrarCarga(false);
       resumenActual = null;
       $("dashboard").classList.add("hidden");
@@ -1043,6 +1082,7 @@
     }
 
     function renderResumen() {
+      document.dispatchEvent(new Event("celea:resumen"));
       if (!resumenActual) return;
 
       const t = resumenActual.totales || {};
@@ -1378,5 +1418,65 @@
       }
     })();
   </script>
+  <script>
+  (() => {
+    'use strict';
+    const KEY = 'caroalex_mesas_v1';
+    const byId = id => document.getElementById(id);
+    const esc = escapeHtml;
+    let plan = {version:1,event:'caroalex',tables:[],assignments:{}};
+    let ready = false;
+    function valid(p) {
+      return p && p.version===1 && p.event==='caroalex' && Array.isArray(p.tables) && p.tables.length<=100 && p.assignments && typeof p.assignments==='object' && !Array.isArray(p.assignments) &&
+        p.tables.every(t=>t && typeof t.id==='string' && /^t[\w-]+$/.test(t.id) && typeof t.name==='string' && t.name.trim().length>0 && t.name.length<=60 && Number.isInteger(t.capacity) && t.capacity>=1 && t.capacity<=100) && new Set(p.tables.map(t=>t.id)).size===p.tables.length && Object.entries(p.assignments).every(([k,v])=>k.length<=300 && p.tables.some(t=>t.id===v));
+    }
+    try {const saved=localStorage.getItem(KEY);if(saved){const parsed=JSON.parse(saved);if(!valid(parsed))throw Error();plan=parsed;}} catch(_){byId('seatSaveStatus').textContent='No se pudo recuperar la distribución. Puedes importar un respaldo; no guardes cambios si deseas recuperar los datos anteriores.';}
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(plan));byId('seatSaveStatus').textContent='Distribución guardada en este navegador. Usa un respaldo para trasladarla a otro dispositivo.';}catch(_){byId('seatSaveStatus').textContent='No se pudo guardar en este navegador. Descarga un respaldo antes de cerrar.';toast('No se pudo guardar. Descarga un respaldo.');}render();}
+    const keyOf=g=>String(g.codigo||'').trim();
+    const sizeOf=g=>Math.max(0,Math.floor(Number(g.asisten)||0));
+    const guests=()=> (resumenActual?.listas?.confirmados||[]).filter(g=>sizeOf(g)>0);
+    const tableOf=id=>plan.tables.find(t=>t.id===id);
+    const groupAt=id=>guests().filter(g=>plan.assignments[keyOf(g)]===id);
+    const occupied=id=>groupAt(id).reduce((n,g)=>n+sizeOf(g),0);
+    function open(title,body){byId('seatDialogTitle').textContent=title;byId('seatDialogBody').innerHTML=body;if(!byId('seatDialog').open)byId('seatDialog').showModal();}
+    function close(){byId('seatDialog').close();}
+    function guestCard(g,placed=false){const k=keyOf(g);return `<div class="seat-guest" draggable="${Boolean(k)}" data-drag-code="${esc(k)}"><strong>${esc(g.invitado||'Invitado')}</strong><p>${sizeOf(g)} ${sizeOf(g)===1?'persona':'personas'}${g.acompanantes?' · '+esc(g.acompanantes):''}</p>${k?`<button type="button" data-assign="${esc(k)}">${placed?'Cambiar mesa':'Ubicar'}</button>${placed?` <button type="button" data-remove="${esc(k)}">Retirar</button>`:''}`:'<p>Esta invitación necesita un código para poder asignarla.</p>'}</div>`;}
+    function render(){
+      if(!resumenActual){byId('seatSummary').textContent='Carga las confirmaciones para organizar las mesas.';return;}
+      ready=true;
+      const all=guests(), pool=all.filter(g=>!tableOf(plan.assignments[keyOf(g)]));
+      const total=all.reduce((n,g)=>n+sizeOf(g),0),pending=pool.reduce((n,g)=>n+sizeOf(g),0);
+      const over=plan.tables.filter(t=>occupied(t.id)>t.capacity).length;
+      byId('seatSummary').textContent=`${total-pending} personas ubicadas · ${pending} por ubicar · ${plan.tables.length} mesas${over?' · Revisa '+over+' mesa(s) con exceso de cupos':''}`;
+      byId('seatMap').innerHTML=plan.tables.length?plan.tables.map(t=>{const used=occupied(t.id),free=t.capacity-used;return `<button type="button" class="seat-table ${free<0?'overfull':''}" data-table="${esc(t.id)}"><span class="seat-round"><strong>${used}/${t.capacity}</strong><small>puestos</small></span><span class="seat-table-name">${esc(t.name)}</span><span class="seat-table-info">${free<0?'Exceso de '+(-free):free===0?'Completa':free+' disponibles'}</span></button>`;}).join(''):'<div class="seat-empty">El espacio para compartir empieza aquí.<br>Crea tu primera mesa y ubica a tus invitados.</div>';
+      byId('poolCount').textContent=`(${pending} personas)`;
+      const q=byId('seatSearch').value.trim().toLocaleLowerCase('es');
+      const filtered=pool.filter(g=>(String(g.invitado||'')+' '+keyOf(g)+' '+String(g.acompanantes||'')).toLocaleLowerCase('es').includes(q));
+      byId('seatPool').innerHTML=filtered.map(g=>guestCard(g)).join('')||`<p class="seat-help">${q?'No hay coincidencias.':all.length?'Todos los confirmados están ubicados.':'Los invitados aparecerán aquí cuando confirmen.'}</p>`;
+    }
+    function editTable(id){const t=tableOf(id);open(t?'Editar mesa':'Crear mesa',`<form id="seatTableForm"><label for="tableName">Nombre de la mesa</label><input id="tableName" maxlength="60" required value="${esc(t?.name||'Mesa '+(plan.tables.length+1))}"><label for="tableCapacity">Número de puestos</label><input id="tableCapacity" type="number" min="1" max="100" step="1" required value="${t?.capacity||8}"><button class="primary-btn" type="submit">${t?'Guardar cambios':'Crear mesa'}</button></form>`);byId('seatTableForm').onsubmit=e=>{e.preventDefault();const name=byId('tableName').value.trim(),capacity=Number(byId('tableCapacity').value);if(!name||!Number.isInteger(capacity)||capacity<1||capacity>100)return;if(t&&capacity<occupied(id)){toast('Retira invitados antes de reducir los puestos.');return;}if(t){t.name=name;t.capacity=capacity;}else{if(plan.tables.length>=100){toast('Límite de 100 mesas.');return;}plan.tables.push({id:'t'+Date.now().toString(36)+Math.random().toString(36).slice(2,8),name,capacity});}save();close();};}
+    function detail(id){const t=tableOf(id);if(!t)return;open(t.name,`<p class="seat-intro">${occupied(id)} de ${t.capacity} puestos ocupados.</p>${groupAt(id).map(g=>guestCard(g,true)).join('')||'<p class="seat-help">Esta mesa todavía no tiene invitados.</p>'}<div class="seat-tools"><button class="icon-btn" type="button" id="editThisTable">Editar mesa</button><button class="icon-btn" type="button" id="deleteThisTable">Eliminar mesa</button></div>`);byId('editThisTable').onclick=()=>editTable(id);byId('deleteThisTable').onclick=()=>{if(!confirm('¿Eliminar '+t.name+'? Sus invitados volverán a estar por ubicar.'))return;plan.tables=plan.tables.filter(x=>x.id!==id);for(const k of Object.keys(plan.assignments))if(plan.assignments[k]===id)delete plan.assignments[k];save();close();};}
+    function assign(code,id){const g=guests().find(g=>keyOf(g)===code),t=tableOf(id);if(!g||!code||!t){toast('Actualiza las confirmaciones e intenta de nuevo.');return false;}const used=occupied(id)-(plan.assignments[code]===id?sizeOf(g):0);if(used+sizeOf(g)>t.capacity){toast('No hay puestos suficientes para esta invitación.');return false;}Object.defineProperty(plan.assignments,code,{value:id,writable:true,enumerable:true,configurable:true});save();return true;}
+    function choose(code){const g=guests().find(g=>keyOf(g)===code);if(!g)return;const options=plan.tables.filter(t=>t.capacity-occupied(t.id)+(plan.assignments[code]===t.id?sizeOf(g):0)>=sizeOf(g));open('Ubicar invitación',`<p class="seat-intro">${esc(g.invitado||'Invitado')} · ${sizeOf(g)} personas</p>${options.length?`<form id="seatAssignForm"><label for="seatChoice">Mesa disponible</label><select id="seatChoice">${options.map(t=>`<option value="${esc(t.id)}">${esc(t.name)} · ${t.capacity-occupied(t.id)} libres</option>`).join('')}</select><button class="primary-btn" type="submit">Asignar mesa</button></form>`:'<p class="seat-help">No hay una mesa con suficientes puestos. Crea una mesa o amplía una existente.</p>'}`);if(options.length)byId('seatAssignForm').onsubmit=e=>{e.preventDefault();if(assign(code,byId('seatChoice').value))close();};}
+    function download(content,type,name){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+    byId('closeSeatDialog').onclick=close;
+    byId('addTable').onclick=()=>{if(!ready||!resumenActual){toast('Espera a que carguen las confirmaciones.');return;}editTable();};
+    byId('seatSearch').oninput=render;
+    document.addEventListener('click',e=>{const b=e.target.closest('[data-table],[data-assign],[data-remove]');if(!b||!resumenActual)return;if(b.hasAttribute('data-table'))detail(b.dataset.table);else if(b.hasAttribute('data-assign'))choose(b.dataset.assign);else{delete plan.assignments[b.dataset.remove];save();close();}});
+    document.addEventListener('dragstart',e=>{const g=e.target.closest('[data-drag-code]');if(g&&g.dataset.dragCode)e.dataTransfer.setData('text/plain',g.dataset.dragCode);});
+    byId('seatMap').addEventListener('dragover',e=>{const t=e.target.closest('[data-table]');if(t){e.preventDefault();t.classList.add('drag-over');}});
+    byId('seatMap').addEventListener('dragleave',e=>{const t=e.target.closest('[data-table]');if(t)t.classList.remove('drag-over');});
+    byId('seatMap').addEventListener('drop',e=>{e.preventDefault();const t=e.target.closest('[data-table]');if(t){t.classList.remove('drag-over');if(assign(e.dataTransfer.getData('text/plain'),t.dataset.table))toast('Invitación ubicada');}});
+    byId('backupTables').onclick=()=>download(JSON.stringify(plan,null,2),'application/json','Caro-Alex-Mesas-respaldo.json');
+    byId('importTables').onclick=()=>byId('tableFile').click();
+    byId('tableFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{if(f.size>2000000)throw Error();const p=JSON.parse(await f.text());if(!valid(p))throw Error();if(!confirm('¿Reemplazar la distribución de este dispositivo con el respaldo seleccionado?'))return;plan=p;save();toast('Respaldo importado');}catch(_){toast('El archivo no es un respaldo válido de Caro y Alex.');}finally{e.target.value='';}};
+    byId('exportTables').onclick=()=>{if(!resumenActual){toast('Espera a que carguen los datos.');return;}const rows=[];for(const t of plan.tables){const list=groupAt(t.id);if(!list.length)rows.push({'Mesa':t.name,'Puestos de mesa':t.capacity,'Invitado':'','Personas':0,'Acompañantes':'','Código':''});for(const g of list)rows.push({'Mesa':t.name,'Puestos de mesa':t.capacity,'Invitado':g.invitado||'','Personas':sizeOf(g),'Acompañantes':g.acompanantes||'','Código':keyOf(g)});}for(const g of guests().filter(g=>!tableOf(plan.assignments[keyOf(g)])))rows.push({'Mesa':'Por ubicar','Puestos de mesa':'','Invitado':g.invitado||'','Personas':sizeOf(g),'Acompañantes':g.acompanantes||'','Código':keyOf(g)});if(!rows.length){toast('Crea una mesa para descargar la distribución.');return;}if(window.XLSX){const ws=XLSX.utils.json_to_sheet(rows);ws['!cols']=[{wch:24},{wch:18},{wch:35},{wch:12},{wch:45},{wch:20}];const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Mesas');XLSX.writeFile(wb,'Caro-Alex-Distribucion.xlsx');}else{const headers=Object.keys(rows[0]);const quote=v=>'"'+String(v??'').replace(/^[=+@-]/,"'$&").replace(/"/g,'""')+'"';download('\ufeff'+[headers,...rows.map(r=>headers.map(k=>r[k]))].map(r=>r.map(quote).join(',')).join('\r\n'),'text/csv;charset=utf-8','Caro-Alex-Distribucion.csv');}};
+    window.addEventListener('storage',e=>{if(e.key===KEY){try{const p=JSON.parse(e.newValue);if(valid(p)){plan=p;render();}}catch(_){}}});
+    document.addEventListener('celea:resumen',render);
+    document.addEventListener('celea:logout',()=>{close();ready=false;byId('seatPool').innerHTML='';byId('seatMap').innerHTML='';});
+    render();
+  })();
+  </script>
+
 </body>
 </html>
