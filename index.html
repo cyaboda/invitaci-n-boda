@@ -3041,6 +3041,41 @@ select {
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
 
+// RSVP e invitados: Supabase
+const SUPABASE_URL =
+"https://vgoooyctkzvaeknrlzvu.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_X8f3MFYjB1DFVKqo40xajA_6PA3AMFE";
+
+const EVENTO_SUPABASE = "caro_alex";
+
+async function llamarSupabaseRPC(funcion, parametrosRPC) {
+  const respuesta = await fetch(
+    SUPABASE_URL + "/rest/v1/rpc/" + funcion,
+    {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_PUBLISHABLE_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(parametrosRPC || {}),
+      cache: "no-store"
+    }
+  );
+
+  if (!respuesta.ok) {
+    let detalle = "";
+    try { detalle = await respuesta.text(); } catch (e) {}
+    throw new Error(
+      "Supabase " + respuesta.status +
+      (detalle ? ": " + detalle : "")
+    );
+  }
+
+  return await respuesta.json();
+}
+
 const parametros =
 new URLSearchParams(window.location.search);
 
@@ -3376,105 +3411,48 @@ function consultaJSONP(
 async function cargarInvitado() {
 
   if (!codigo) {
-
     mostrarError(
       "No encontramos un código de invitación en este enlace."
     );
-
     return;
   }
 
   try {
-
-    const callback1 =
-    "bodaInvitado_" +
-    Date.now() +
-    "_" +
-    Math.floor(Math.random() * 100000);
-
-    const url1 =
-    API_URL +
-    "?accion=invitado" +
-    "&codigo=" +
-    encodeURIComponent(codigo) +
-    "&callback=" +
-    encodeURIComponent(callback1) +
-    "&t=" +
-    Date.now();
-
-    const datos1 =
-    await consultaJSONP(
-      url1,
-      callback1,
-      8000
+    const filas = await llamarSupabaseRPC(
+      "obtener_invitado",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo
+      }
     );
 
-    if (datos1 && datos1.ok) {
+    const invitado =
+      Array.isArray(filas) && filas.length
+      ? filas[0]
+      : null;
 
-      recibirInvitado(datos1);
-
+    if (!invitado) {
+      mostrarError();
       return;
     }
 
-  } catch (error) {
-
-    console.log(
-      "Intento 1 falló:",
-      error
-    );
-
-  }
-
-  try {
-
-    const callback2 =
-    "bodaInvitadoFallback_" +
-    Date.now() +
-    "_" +
-    Math.floor(Math.random() * 100000);
-
-    const url2 =
-    API_URL +
-    "?codigo=" +
-    encodeURIComponent(codigo) +
-    "&callback=" +
-    encodeURIComponent(callback2) +
-    "&t=" +
-    Date.now();
-
-    const datos2 =
-    await consultaJSONP(
-      url2,
-      callback2,
-      8000
-    );
-
-    if (datos2 && datos2.ok) {
-
-      recibirInvitado(datos2);
-
-      return;
-    }
-
-    mostrarError(
-      datos2 && datos2.mensaje
-      ? datos2.mensaje
-      : "Invitación no encontrada."
-    );
+    recibirInvitado({
+      ok: true,
+      codigo: invitado.codigo,
+      invitado: invitado.nombre,
+      cupos: invitado.cupos,
+      estado: invitado.estado || "",
+      asisten: Number(invitado.asisten) || 0,
+      acompanantes: invitado.acompanantes || "",
+      notaRegalo: invitado.nota || ""
+    });
 
   } catch (error) {
-
-    console.log(
-      "Intento 2 falló:",
-      error
-    );
-
+    console.error("Error cargando invitado desde Supabase:", error);
     mostrarError(
       "No pudimos cargar tu invitación. Intenta recargar la página."
     );
-
   }
-
 }
 
 
@@ -4056,17 +4034,14 @@ rsvpConfirmar.addEventListener(
 async function guardarRSVP() {
 
   if (!respuestaRSVP) {
-
     rsvpMensaje.textContent =
     "Selecciona una respuesta.";
-
     return;
   }
 
   let acompanantes = [];
 
   if (respuestaRSVP === "SI") {
-
     const campos =
     document.querySelectorAll(
       ".acompanante-campo"
@@ -4074,86 +4049,76 @@ async function guardarRSVP() {
 
     let incompleto = false;
 
-    campos.forEach(
-      function (campo) {
-
-        const nombre =
-        campo.value.trim();
-
-        if (!nombre) {
-
-          incompleto = true;
-
-        } else {
-
-          acompanantes.push(nombre);
-
-        }
-
+    campos.forEach(function (campo) {
+      const nombre = campo.value.trim();
+      if (!nombre) {
+        incompleto = true;
+      } else {
+        acompanantes.push(nombre);
       }
-    );
+    });
 
     if (incompleto) {
-
       rsvpMensaje.textContent =
       "Escribe el nombre completo de cada acompañante.";
-
       return;
     }
-
   }
 
   rsvpConfirmar.disabled = true;
-
   rsvpMensaje.textContent =
   "Guardando tu respuesta...";
 
-  const callback =
-  "bodaRSVP_" +
-  Date.now();
+  const estado =
+    respuestaRSVP === "SI"
+    ? "CONFIRMADO"
+    : "NO ASISTE";
 
-  const url =
-  API_URL +
-  "?accion=confirmar" +
-  "&codigo=" +
-  encodeURIComponent(codigo) +
-  "&respuesta=" +
-  encodeURIComponent(respuestaRSVP) +
-  "&asisten=" +
-  encodeURIComponent(
+  const asisten =
     respuestaRSVP === "SI"
     ? cantidadAsistentes
-    : 0
-  ) +
-  "&acompanantes=" +
-  encodeURIComponent(
-    acompanantes.join("|")
-  ) +
-  "&callback=" +
-  callback +
-  "&t=" +
-  Date.now();
+    : 0;
+
+  const nombresAcompanantes =
+    respuestaRSVP === "SI"
+    ? acompanantes.join(", ")
+    : "";
 
   try {
-
-    const datos =
-    await consultaJSONP(
-      url,
-      callback,
-      10000
+    const guardado = await llamarSupabaseRPC(
+      "responder_invitacion",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo,
+        p_estado: estado,
+        p_asisten: asisten,
+        p_acompanantes: nombresAcompanantes || null,
+        p_nota: invitadoActual && invitadoActual.notaRegalo
+          ? invitadoActual.notaRegalo
+          : null
+      }
     );
 
-    recibirConfirmacion(datos);
+    if (guardado !== true) {
+      rsvpConfirmar.disabled = false;
+      rsvpMensaje.textContent =
+      "No pudimos guardar tu respuesta.";
+      return;
+    }
+
+    recibirConfirmacion({
+      ok: true,
+      estado: estado,
+      asisten: asisten,
+      acompanantes: nombresAcompanantes
+    });
 
   } catch (error) {
-
+    console.error("Error guardando RSVP en Supabase:", error);
     rsvpConfirmar.disabled = false;
-
     rsvpMensaje.textContent =
     "No pudimos guardar tu respuesta. Intenta nuevamente.";
-
   }
-
 }
 
 function recibirConfirmacion(datos) {
@@ -4398,57 +4363,38 @@ notaRegaloTexto.addEventListener(
 
 async function guardarNotaRegalo() {
 
-  const nota =
-  notaRegaloTexto.value.trim();
+  const nota = notaRegaloTexto.value.trim();
 
   if (!nota) {
-
     notaRegaloMensaje.textContent =
     "Escribe unas palabras antes de enviar.";
-
     notaRegaloTexto.focus();
     return;
   }
 
   botonEnviarNotaRegalo.disabled = true;
-
   notaRegaloMensaje.textContent =
   "Guardando tu nota...";
 
-  const callback =
-  "bodaNota_" +
-  Date.now();
-
-  const url =
-  API_URL +
-  "?accion=nota_regalo" +
-  "&codigo=" +
-  encodeURIComponent(codigo) +
-  "&nota=" +
-  encodeURIComponent(nota) +
-  "&callback=" +
-  callback +
-  "&t=" +
-  Date.now();
-
   try {
-
-    const datos =
-    await consultaJSONP(
-      url,
-      callback,
-      10000
+    const guardado = await llamarSupabaseRPC(
+      "guardar_nota_regalo",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo,
+        p_nota: nota
+      }
     );
 
-    if (!datos || !datos.ok) {
-
+    if (guardado !== true) {
       notaRegaloMensaje.textContent =
-      datos && datos.mensaje
-      ? datos.mensaje
-      : "No pudimos guardar tu nota. Inténtalo nuevamente.";
-
+      "No pudimos guardar tu nota. Inténtalo nuevamente.";
       botonEnviarNotaRegalo.disabled = false;
       return;
+    }
+
+    if (invitadoActual) {
+      invitadoActual.notaRegalo = nota;
     }
 
     notaRegaloMensaje.textContent =
@@ -4465,16 +4411,12 @@ async function guardarNotaRegalo() {
     }, 1600);
 
   } catch (error) {
-
+    console.error("Error guardando nota en Supabase:", error);
     notaRegaloMensaje.textContent =
     "No pudimos guardar tu nota. Revisa tu conexión e inténtalo nuevamente.";
-
   } finally {
-
     botonEnviarNotaRegalo.disabled = false;
-
   }
-
 }
 
 botonEnviarNotaRegalo.addEventListener(
