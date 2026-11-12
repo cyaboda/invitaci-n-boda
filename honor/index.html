@@ -4,24 +4,86 @@
 
 .intro.opening .envelope{animation:envelopeExit .8s cubic-bezier(.2,.7,.2,1) both}.intro.opening .intro-content> :not(.envelope){animation:softFade .5s ease both}@keyframes envelopeExit{0%{transform:translateY(0) scale(1);opacity:1}35%{transform:translateY(-15px) scale(1.035);opacity:1}100%{transform:translateY(65px) scale(.92);opacity:0}}@keyframes softFade{to{opacity:0;transform:translateY(-10px)}}
 .story{display:none;position:relative;max-width:620px;margin:0 auto;padding:48px 22px 85px;text-align:center}.story.visible{display:block;animation:fade .8s ease both}.story .kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#e0a17e}.story h2{font-family:Italiana,serif;font-weight:400;font-size:clamp(44px,11vw,76px);line-height:1.1;margin:18px 0;color:#fae9dc}.story .rule{height:1px;width:80px;background:#bd7354;margin:28px auto}.story p{line-height:1.8;color:#d6bfb3}.detail-card{border:1px solid #7c4b3c;border-radius:22px;padding:32px 18px;margin:22px 0;background:linear-gradient(145deg,#291b1b,#171112)}.detail-card .value{font-family:'Playfair Display',serif;font-size:clamp(26px,7vw,42px);color:#f7dfcf;margin:10px 0}.detail-card .small{font-size:13px;color:#d5b2a0}.rsvp{margin-top:75px;padding-top:34px;border-top:1px solid #5b3932}.rsvp h2{font-size:clamp(38px,10vw,58px)}.rsvp form{display:grid;gap:14px;text-align:left;margin:25px auto 0;max-width:410px}.rsvp label{font-size:12px;color:#e6c3af;letter-spacing:.04em}.rsvp input,.rsvp select{width:100%;background:#211819;color:#fbe9dc;border:1px solid #86553f;border-radius:12px;padding:14px;font:inherit;font-size:16px}.rsvp input:focus,.rsvp select:focus{outline:2px solid #d68b65}.rsvp .cta{width:100%;margin-top:5px}.rsvp .status{min-height:30px;color:#efc2a7;text-align:center;font-size:13px;line-height:1.5}.rsvp .person{color:#f5e1d2;text-align:center;font-family:'Playfair Display',serif;font-size:20px}.rsvp .hidden{display:none}.closing{font-family:'Playfair Display',serif;font-style:italic;color:#e9b69c;font-size:20px;margin-top:65px}.letter-section .actions{margin:10px auto 0}.letter-section .actions button{font-size:12px;padding:8px 15px;opacity:.75}.story .venue-note{font-size:12px;color:#bca39a}
+
+/* La carta crece naturalmente: los textos largos nunca quedan cortados. */
+.letter-wrap{width:min(100%,670px);filter:drop-shadow(0 18px 45px #0009)}
+.letter-content{position:relative;inset:auto;display:block;overflow:visible;min-height:760px;padding:clamp(72px,13vw,115px) clamp(30px,9vw,100px) 105px;background:#f2e1ca url('carta_honor_C_A.webp') center center / 100% 100% no-repeat;text-align:center}
+.letter-content h2{margin-bottom:28px}.letter-content p{font-size:clamp(13px,2.5vw,16px);line-height:1.75;margin-bottom:19px}
+.letter-content .signature{margin-top:30px;font-size:clamp(14px,3vw,18px)}
+#textoCarta{max-width:480px;margin:auto}
+@media(max-width:520px){.letter-content{padding:75px 37px 85px;background-size:100% 100%}.letter-content p{font-size:13px;line-height:1.66;margin-bottom:16px}}
 </style></head><body>
 <img class="fold a" src="pliegue_superior_izquierdo.webp" alt="" aria-hidden="true"><img class="fold b" src="pliegue_inferior_derecho.webp" alt="" aria-hidden="true">
 <main><section class="intro" id="intro"><div class="intro-content"><div class="eyebrow">Una invitación de honor</div><div class="monogram">C<span>&</span>A</div><div class="names">CAROLINA & ALEXANDER</div><div class="line"></div><h1>Tenemos una carta muy especial para ti</h1><div class="envelope"><img src="sobre_C_A.webp" alt="Sobre personalizado con sello C y A"></div><button class="cta" id="open" type="button">Abrir mi carta &nbsp; ›</button><span class="hint">Preparada con mucho cariño</span></div></section>
-<section class="letter-section" id="letter" aria-label="Carta personal"><div class="letter-wrap"><img class="letter-bg" src="carta_honor_C_A.webp" alt="Papel de carta decorado con terracota"><article class="letter-content"><h2 id="saludo">Para ti, con cariño</h2><p id="mensaje1"></p><p id="mensaje2"></p><p class="signature" id="firma"></p></article></div></section>
+<section class="letter-section" id="letter" aria-label="Carta personal"><div class="letter-wrap"><article class="letter-content"><h2 id="saludo">Para ti, con cariño</h2><div id="textoCarta"></div><p class="signature" id="firma"></p></article></div></section>
 <section class="story" id="story" aria-label="Detalles de la boda"><div class="kicker">Carolina &amp; Alexander</div><h2>Nos casamos</h2><p>Nos encantaría que nos acompañaras a celebrar el comienzo de esta nueva etapa.</p><div class="rule"></div><div class="detail-card"><div class="kicker">El día</div><div class="value">14 · 11 · 2026</div><div class="small">Sábado</div></div><div class="detail-card"><div class="kicker">La ceremonia</div><div class="value">17:00</div><div class="small">La celebración continuará después de la ceremonia</div></div><div class="detail-card"><div class="kicker">El lugar</div><div class="value">Quito, Ecuador</div><p class="venue-note">El nombre y la dirección exacta del lugar están pendientes de incorporar.</p></div>
-<div class="rsvp" id="rsvp"><div class="kicker">Tu presencia es nuestro regalo</div><h2>Confirma tu asistencia</h2><p>Ingresa tu código personal de invitación para consultar tus cupos y enviarnos tu respuesta.</p><form id="rsvpForm"><div><label for="codigo">Código de invitación</label><input id="codigo" name="codigo" placeholder="Tu código personal" autocomplete="off" required></div><button type="button" class="cta" id="buscar">Buscar mi invitación</button><div id="rsvpDetails" class="hidden"><div class="person" id="invitadoNombre"></div><p id="cuposTexto" style="text-align:center"></p><div><label for="respuesta">¿Nos acompañarás?</label><select id="respuesta"><option value="SI">Sí, asistiré</option><option value="NO">No podré asistir</option></select></div><div id="asistentesBox"><label for="asistentes">Número de asistentes</label><select id="asistentes"></select></div><button type="submit" class="cta" id="guardar">Guardar mi respuesta</button></div><div id="rsvpStatus" class="status" role="status" aria-live="polite"></div></form></div><div class="closing">Con amor, Carolina &amp; Alexander ♡</div><div class="actions"><button class="smallbtn" id="back" type="button">Volver al sobre</button><button class="smallbtn" id="share" type="button">Compartir carta</button></div></section></main>
+<div class="rsvp" id="rsvp"><div class="kicker">Tu presencia es nuestro regalo</div><h2>Confirma tu asistencia</h2><p>Tu invitación está preparada especialmente para ti. Aquí podrás confirmar tu asistencia.</p><form id="rsvpForm"><div class="hidden"><label for="codigo">Código de invitación</label><input id="codigo" name="codigo" autocomplete="off" readonly></div><button type="button" class="cta" id="buscar">Consultar mi invitación</button><div id="rsvpDetails" class="hidden"><div class="person" id="invitadoNombre"></div><p id="cuposTexto" style="text-align:center"></p><div><label for="respuesta">¿Nos acompañarás?</label><select id="respuesta"><option value="SI">Sí, asistiré</option><option value="NO">No podré asistir</option></select></div><div id="asistentesBox"><label for="asistentes">Número de asistentes</label><select id="asistentes"></select></div><button type="submit" class="cta" id="guardar">Guardar mi respuesta</button></div><div id="rsvpStatus" class="status" role="status" aria-live="polite"></div></form></div><div class="closing">Con amor, Carolina &amp; Alexander ♡</div><div class="actions"><button class="smallbtn" id="back" type="button">Volver al sobre</button><button class="smallbtn" id="share" type="button">Compartir carta</button></div></section></main>
 <script>
-/* EDITAR AQUÍ: las rutas y las dedicatorias de los cuatro padres. Los nombres son provisionales. */
 const cartas={
- 'mama-alex':{saludo:'Querida mamá,',mensaje1:'Antes de comenzar esta nueva etapa, quiero agradecerte por cada esfuerzo, por tu amor y por estar siempre presente.',mensaje2:'Nos haría inmensamente felices compartir contigo el día en que uniremos nuestras vidas.',firma:'Con amor, Alexander y Carolina'},
- 'papa-alex':{saludo:'Querido papá,',mensaje1:'Gracias por acompañarme, enseñarme y ayudarme a convertirme en la persona que soy hoy.',mensaje2:'Queremos que estés a nuestro lado en uno de los días más importantes de nuestras vidas.',firma:'Con cariño, Alexander y Carolina'},
- 'mama-caro':{saludo:'Querida mamá,',mensaje1:'Tu amor y tu compañía son parte de la historia que hoy nos trae hasta este momento.',mensaje2:'Queremos celebrar nuestra boda contigo y guardar juntos un recuerdo inolvidable.',firma:'Con amor, Carolina y Alexander'},
- 'papa-caro':{saludo:'Querido papá,',mensaje1:'Hoy queremos darte las gracias por ser parte de nuestro camino y de todo lo que nos ha traído hasta aquí.',mensaje2:'Será un honor tenerte junto a nosotros cuando celebremos nuestra unión.',firma:'Con cariño, Carolina y Alexander'}
+  "AnaP": {
+    "saludo": "Querida mamá,",
+    "parrafos": [
+      "Antes de comenzar una nueva etapa de mi vida, quiero detenerme un momento para agradecerte por todo lo que has hecho por mí.",
+      "Hoy entiendo que detrás de cada paso que he dado hubo muchos sacrificios tuyos que quizá nunca llegué a conocer. Muchas veces dejaste tus propias necesidades para atender las mías y, aun en los días difíciles, encontraste la manera de darme amor.",
+      "Tal vez no te lo he dicho tantas veces como debería, pero gran parte de la persona que soy hoy existe gracias a ti.",
+      "Ahora que estoy por formar mi propia familia, comprendo un poquito más lo que significa amar, cuidar y estar presente, incluso cuando no es fácil.",
+      "Por eso, en uno de los días más importantes de mi vida, no podría imaginarme sin ti a mi lado.",
+      "Mamá, antes de que yo comenzara a construir mi propia historia, tú ya habías entregado tanto de la tuya por mí. Gracias por ser mi hogar mucho antes de que yo supiera lo que significaba esa palabra."
+    ],
+    "firma": "Con todo mi amor, tu hijo, Alexander."
+  },
+  "SantiagoP": {
+    "saludo": "Querido papá,",
+    "parrafos": [
+      "Hay cosas que uno comprende mejor cuando crece. Hoy, mientras me preparo para formar mi propia familia, pienso en todo lo que aprendí de ti, muchas veces sin que tuvieras que decir una sola palabra.",
+      "Pienso en tu esfuerzo, en tus consejos, en las veces que estuviste presente y en todas esas cosas que hiciste por mí sin esperar nada a cambio.",
+      "Quizá nunca te agradecí lo suficiente. A veces uno crece creyendo que sus padres siempre estarán ahí, sin darse cuenta de cuánto amor hay detrás de cada sacrificio.",
+      "Hoy estoy a punto de comenzar una nueva historia, y quiero llevar conmigo lo mejor de lo que me enseñaste.",
+      "Si algún día logro ser para mi familia la mitad del hombre que tú has sido para mí, sabré que he hecho las cosas bien.",
+      "Por eso quiero que estés conmigo el día de mi boda. No solamente como un invitado, sino como una de las personas que hicieron posible que llegara hasta aquí.",
+      "Porque antes de aprender a construir mi propio hogar, tuve la fortuna de crecer bajo tu cuidado."
+    ],
+    "firma": "Con todo mi cariño y gratitud, tu hijo, Alexander."
+  },
+  "GloriaA": {
+    "saludo": "Querida mamá,",
+    "parrafos": [
+      "Desde pequeña, siempre encontré en ti un lugar seguro. Tus brazos fueron mi refugio, tus palabras mi tranquilidad y tu amor una de las primeras cosas que aprendí a reconocer en este mundo.",
+      "Hoy, mientras me preparo para vivir uno de los días más importantes de mi vida, no puedo evitar pensar en aquella niña que alguna vez tomó tu mano para sentirse segura.",
+      "Esa niña ha crecido, mamá. Está a punto de casarse, de construir su propio hogar y de comenzar una historia junto a la persona que ama. Pero hay algo que nunca va a cambiar: siempre voy a necesitar un poquito de ti.",
+      "Ahora entiendo que ser mamá significa entregar partes de una misma sin esperar que alguien las devuelva. Y sé que detrás de la mujer que soy existen tantos esfuerzos, preocupaciones y muestras de amor tuyas que quizá nunca podré agradecerte por completo.",
+      "Por eso quiero que estés conmigo en este día tan especial. Porque mientras todos verán a una novia caminando hacia el altar, tú verás a la niña que un día llevaste de la mano.",
+      "Y aunque ese día comience una nueva etapa de mi vida, siempre habrá una parte de mí que seguirá siendo tu niña. Te amo, mamá."
+    ],
+    "firma": "Con todo mi corazón, tu hija, Carolina."
+  },
+  "OscarG": {
+    "saludo": "Querido papá,",
+    "parrafos": [
+      "Hay momentos en la vida que nos hacen mirar hacia atrás y recordar de dónde venimos. Para mí, uno de esos momentos ha llegado.",
+      "Estoy a punto de casarme, papá. Y aunque me emociona muchísimo comenzar esta nueva etapa, también me conmueve pensar en lo rápido que ha pasado el tiempo.",
+      "A veces quisiera regresar por un instante a aquellos días en los que era pequeña, cuando el mundo parecía enorme y tenerte cerca hacía que todo se sintiera un poco más sencillo.",
+      "Tal vez no siempre supe expresar cuánto significaban para mí tus esfuerzos, tus consejos y esas maneras tan tuyas de demostrarme cariño. Pero hoy quiero que sepas que cada una de esas cosas tiene un lugar especial en mi corazón.",
+      "Pronto estaré construyendo un hogar junto a Alexander, y deseo llevar a esa nueva familia todo lo bueno que aprendí de ti.",
+      "Por eso, cuando llegue el momento de celebrar nuestra boda, quiero mirarte y saber que estás ahí, compartiendo conmigo un sueño que también tiene un pedacito de tu historia.",
+      "Porque aunque la vida me lleve a construir mi propio camino, nunca dejaré de ser tu hija. Gracias por formar parte de la mujer que soy hoy."
+    ],
+    "firma": "Con todo mi amor, tu hija, Carolina."
+  }
 };
-const key=decodeURIComponent(location.pathname.replace(/\/+$/,'').split('/').pop()||'').toLowerCase();const carta=cartas[key]||cartas['papa-alex'];for(const [id,value] of Object.entries({saludo:carta.saludo,mensaje1:carta.mensaje1,mensaje2:carta.mensaje2,firma:carta.firma}))document.getElementById(id).textContent=value;
+const key=decodeURIComponent(location.pathname.replace(/\/+$/,'').split('/').pop()||'');
+const carta=cartas[key];
+if(!carta){document.querySelector('.intro-content').innerHTML='<div class="eyebrow">Invitación privada</div><h1>Este enlace no corresponde a una carta de honor.</h1><p>Comprueba el enlace que recibiste.</p>';}
+else {
+ document.getElementById('saludo').textContent=carta.saludo;
+ const texto=document.getElementById('textoCarta');
+ carta.parrafos.forEach(p=>{const el=document.createElement('p');el.textContent=p;texto.appendChild(el)});
+ document.getElementById('firma').textContent=carta.firma;
+ document.querySelector('.intro h1').textContent='Tenemos una carta muy especial para ti';
+}
 const intro=document.getElementById('intro'),letter=document.getElementById('letter'),story=document.getElementById('story');
 const openBtn=document.getElementById('open');let opening=false;
-openBtn.addEventListener('click',()=>{if(opening)return;opening=true;openBtn.disabled=true;intro.classList.add('opening');setTimeout(()=>{intro.classList.add('closed');letter.classList.add('visible');story.classList.add('visible');window.scrollTo({top:0,behavior:'instant'});opening=false;openBtn.disabled=false;},730)});
+openBtn.addEventListener('click',()=>{if(!carta||opening)return;opening=true;openBtn.disabled=true;intro.classList.add('opening');setTimeout(()=>{intro.classList.add('closed');letter.classList.add('visible');story.classList.add('visible');window.scrollTo({top:0,behavior:'instant'});opening=false;openBtn.disabled=false;},730)});
 document.getElementById('back').addEventListener('click',()=>{letter.classList.remove('visible');story.classList.remove('visible');intro.classList.remove('closed','opening');window.scrollTo({top:0,behavior:'instant'})});
 document.getElementById('share').addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title:'Una carta para ti · Carolina & Alexander',url:location.href})}catch{}}else{try{await navigator.clipboard.writeText(location.href);alert('Enlace copiado')}catch{alert(location.href)}}});
 // RSVP: se conecta al mismo evento de Supabase que la invitación original.
@@ -31,12 +93,12 @@ const EVENTO='caro_alex';
 const status=document.getElementById('rsvpStatus'),details=document.getElementById('rsvpDetails');let invitado=null;
 async function rpc(fn,params){const res=await fetch(SUPABASE_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify(params),cache:'no-store'});if(!res.ok)throw Error('No se pudo conectar con el servicio de confirmaciones');return res.json()}
 const codigoInput=document.getElementById('codigo');
-const routeKey=decodeURIComponent(location.pathname.replace(/\/+$/,'').split('/').pop()||'');
-// Un código se puede preasignar por ruta usando el objeto siguiente, sin mostrarlo en la carta.
-const codigosHonor={'mama-alex':'','papa-alex':'','mama-caro':'','papa-caro':''};
-if(codigosHonor[key])codigoInput.value=codigosHonor[key];
+if(carta) codigoInput.value=key;
+else document.getElementById('rsvpForm').classList.add('hidden');
 const resp=document.getElementById('respuesta'),asist=document.getElementById('asistentes'),asistBox=document.getElementById('asistentesBox');
 resp.addEventListener('change',()=>{asistBox.classList.toggle('hidden',resp.value==='NO')});
-document.getElementById('buscar').addEventListener('click',async()=>{const codigo=codigoInput.value.trim();details.classList.add('hidden');invitado=null;if(!codigo){status.textContent='Ingresa el código de invitación.';return}status.textContent='Buscando tu invitación…';try{const rows=await rpc('obtener_invitado',{p_evento:EVENTO,p_codigo:codigo});invitado=Array.isArray(rows)?rows[0]:null;if(!invitado){status.textContent='No encontramos una invitación con ese código.';return}document.getElementById('invitadoNombre').textContent=invitado.nombre;const cupos=Math.max(1,Number(invitado.cupos)||1);document.getElementById('cuposTexto').textContent='Cupos disponibles: '+cupos;asist.innerHTML='';for(let i=1;i<=cupos;i++){const opt=document.createElement('option');opt.value=i;opt.textContent=i+' '+(i===1?'persona':'personas');asist.appendChild(opt)}if(invitado.asisten>0)asist.value=String(Math.min(cupos,Number(invitado.asisten)));resp.value=(invitado.estado||'').toUpperCase()==='NO ASISTE'?'NO':'SI';asistBox.classList.toggle('hidden',resp.value==='NO');details.classList.remove('hidden');status.textContent='Invitación encontrada.'}catch(e){status.textContent='No pudimos consultar tu invitación. Inténtalo nuevamente.'}});
+async function buscarInvitacion(){const codigo=codigoInput.value.trim();details.classList.add('hidden');invitado=null;if(!codigo){status.textContent='Ingresa el código de invitación.';return}status.textContent='Buscando tu invitación…';try{const rows=await rpc('obtener_invitado',{p_evento:EVENTO,p_codigo:codigo});invitado=Array.isArray(rows)?rows[0]:null;if(!invitado){status.textContent='No encontramos una invitación con ese código.';return}document.getElementById('invitadoNombre').textContent=invitado.nombre;const cupos=Math.max(1,Number(invitado.cupos)||1);document.getElementById('cuposTexto').textContent='Cupos disponibles: '+cupos;asist.innerHTML='';for(let i=1;i<=cupos;i++){const opt=document.createElement('option');opt.value=i;opt.textContent=i+' '+(i===1?'persona':'personas');asist.appendChild(opt)}if(invitado.asisten>0)asist.value=String(Math.min(cupos,Number(invitado.asisten)));resp.value=(invitado.estado||'').toUpperCase()==='NO ASISTE'?'NO':'SI';asistBox.classList.toggle('hidden',resp.value==='NO');details.classList.remove('hidden');status.textContent=((invitado.estado||'').toUpperCase()==='CONFIRMADO'?'Tu asistencia ya figura confirmada. Puedes actualizarla aquí.':(invitado.estado||'').toUpperCase()==='NO ASISTE'?'Tu respuesta actual indica que no asistirás. Puedes actualizarla aquí.':'Tu confirmación está pendiente. Nos encantará recibir tu respuesta.')}catch(e){status.textContent='No pudimos consultar tu invitación. Inténtalo nuevamente.'}}
+document.getElementById('buscar').addEventListener('click',buscarInvitacion);
+if(carta) buscarInvitacion();
 document.getElementById('rsvpForm').addEventListener('submit',async(e)=>{e.preventDefault();if(!invitado)return;const btn=document.getElementById('guardar');btn.disabled=true;status.textContent='Guardando tu respuesta…';try{const result=await rpc('responder_invitacion',{p_evento:EVENTO,p_codigo:codigoInput.value.trim(),p_estado:resp.value==='SI'?'CONFIRMADO':'NO ASISTE',p_asisten:resp.value==='SI'?Number(asist.value):0,p_acompanantes:null,p_nota:invitado.nota||null});status.textContent=result===true?'¡Respuesta guardada! Gracias por confirmarnos.':'No pudimos guardar la respuesta. Verifica los datos e inténtalo otra vez.'}catch(e){status.textContent='No se pudo guardar tu respuesta. Inténtalo nuevamente.'}finally{btn.disabled=false}});
 </script></body></html>
