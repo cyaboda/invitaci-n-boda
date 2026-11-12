@@ -5,29 +5,31 @@
 .intro.opening .envelope{animation:envelopeExit .8s cubic-bezier(.2,.7,.2,1) both}.intro.opening .intro-content> :not(.envelope){animation:softFade .5s ease both}@keyframes envelopeExit{0%{transform:translateY(0) scale(1);opacity:1}35%{transform:translateY(-15px) scale(1.035);opacity:1}100%{transform:translateY(65px) scale(.92);opacity:0}}@keyframes softFade{to{opacity:0;transform:translateY(-10px)}}
 .story{display:none;position:relative;max-width:620px;margin:0 auto;padding:48px 22px 85px;text-align:center}.story.visible{display:block;animation:fade .8s ease both}.story .kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#e0a17e}.story h2{font-family:Italiana,serif;font-weight:400;font-size:clamp(44px,11vw,76px);line-height:1.1;margin:18px 0;color:#fae9dc}.story .rule{height:1px;width:80px;background:#bd7354;margin:28px auto}.story p{line-height:1.8;color:#d6bfb3}.detail-card{border:1px solid #7c4b3c;border-radius:22px;padding:32px 18px;margin:22px 0;background:linear-gradient(145deg,#291b1b,#171112)}.detail-card .value{font-family:'Playfair Display',serif;font-size:clamp(26px,7vw,42px);color:#f7dfcf;margin:10px 0}.detail-card .small{font-size:13px;color:#d5b2a0}.rsvp{margin-top:75px;padding-top:34px;border-top:1px solid #5b3932}.rsvp h2{font-size:clamp(38px,10vw,58px)}.rsvp form{display:grid;gap:14px;text-align:left;margin:25px auto 0;max-width:410px}.rsvp label{font-size:12px;color:#e6c3af;letter-spacing:.04em}.rsvp input,.rsvp select{width:100%;background:#211819;color:#fbe9dc;border:1px solid #86553f;border-radius:12px;padding:14px;font:inherit;font-size:16px}.rsvp input:focus,.rsvp select:focus{outline:2px solid #d68b65}.rsvp .cta{width:100%;margin-top:5px}.rsvp .status{min-height:30px;color:#efc2a7;text-align:center;font-size:13px;line-height:1.5}.rsvp .person{color:#f5e1d2;text-align:center;font-family:'Playfair Display',serif;font-size:20px}.rsvp .hidden{display:none}.closing{font-family:'Playfair Display',serif;font-style:italic;color:#e9b69c;font-size:20px;margin-top:65px}.letter-section .actions{margin:10px auto 0}.letter-section .actions button{font-size:12px;padding:8px 15px;opacity:.75}.story .venue-note{font-size:12px;color:#bca39a}
 
-/* La carta crece naturalmente: los textos largos nunca quedan cortados. */
-.letter-wrap{width:min(100%,670px);filter:drop-shadow(0 18px 45px #0009)}
-.letter-content{position:relative;inset:auto;display:block;overflow:visible;min-height:760px;padding:clamp(72px,13vw,115px) clamp(30px,9vw,100px) 105px;background:#f2e1ca url('carta_honor_C_A.webp') center center / 100% 100% no-repeat;text-align:center}
-.letter-content h2{margin-bottom:28px}.letter-content p{font-size:clamp(13px,2.5vw,16px);line-height:1.75;margin-bottom:19px}
-.letter-content .signature{margin-top:30px;font-size:clamp(14px,3vw,18px)}
-#textoCarta{max-width:480px;margin:auto}
-@media(max-width:520px){.letter-content{padding:75px 37px 85px;background-size:100% 100%}.letter-content p{font-size:13px;line-height:1.66;margin-bottom:16px}}
 
-/* CORRECCION VISUAL V3: pergamino original transparente, sin rectangulo de fondo */
-.letter-section{padding:32px 9px 20px;background:transparent}
-.letter-wrap{width:min(100%,670px);filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
-.letter-content{position:relative;inset:auto;display:block;overflow:visible;min-height:0;background:transparent url('carta_honor_C_A.webp') center / 100% 100% no-repeat !important;clip-path:none !important;padding:clamp(130px,21vw,175px) clamp(48px,11%,85px) clamp(150px,21vw,185px);color:#513022;text-align:center}
-.letter-content::before,.letter-content::after{display:none !important}
-.letter-content h2{position:relative;margin:0 0 30px;font-size:clamp(23px,4.7vw,32px);line-height:1.35;color:#8f3e26}
-.letter-content p{position:relative;font-size:clamp(14px,2.65vw,17px);line-height:1.75;margin:0 0 23px}
-.letter-content .signature{margin:38px 0 0;font-size:clamp(14px,2.8vw,18px);font-style:italic}
-#textoCarta{max-width:470px;margin:auto}
-@media(max-width:520px){.letter-section{padding:20px 6px 12px}.letter-content{padding:clamp(98px,22vw,125px) 13% clamp(105px,22vw,140px)}.letter-content h2{font-size:clamp(20px,5vw,25px);margin-bottom:23px}.letter-content p{font-size:clamp(12px,3.15vw,14px);line-height:1.62;margin-bottom:18px}.letter-content .signature{font-size:clamp(12px,3.1vw,14px);margin-top:26px}}
+
+/* Corrección final: papel transparente, márgenes seguros y texto fluido. */
+.letter-section{padding:22px 8px 12px;background:transparent}
+.letter-wrap{width:min(100%,620px);margin:0 auto;filter:drop-shadow(0 20px 32px rgba(0,0,0,.48))}
+.letter-content{position:relative;inset:auto;display:block;overflow:visible;min-height:0;box-sizing:border-box;background:none!important;padding:clamp(195px,31vw,235px) 19% clamp(150px,22vw,190px);text-align:center;color:#513022;isolation:isolate}
+.letter-content::before{content:'';position:absolute;inset:0;z-index:-1;background:url('carta_honor_C_A.webp') center center / 100% 100% no-repeat;pointer-events:none}
+.letter-content::after{display:none!important}
+.letter-content h2{position:relative;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#8f3e26;font-size:clamp(21px,4.5vw,29px);line-height:1.35;margin:0 0 28px}
+#textoCarta{max-width:410px;margin:auto}
+.letter-content p{position:relative;font-family:'Playfair Display',serif;font-size:clamp(12px,2.4vw,16px);line-height:1.67;margin:0 0 22px;overflow-wrap:break-word}
+.letter-content .signature{margin:32px 0 0;font-size:clamp(12px,2.6vw,17px);font-style:italic;color:#914f35}
+@media(max-width:520px){
+ .letter-section{padding:18px 7px 10px}
+ .letter-content{padding:clamp(190px,55vw,225px) 19% clamp(145px,40vw,170px)}
+ .letter-content h2{font-size:clamp(20px,5.3vw,24px);margin-bottom:24px}
+ .letter-content p{font-size:clamp(11.5px,3.05vw,13px);line-height:1.62;margin-bottom:18px}
+ .letter-content .signature{font-size:clamp(11.5px,3.1vw,14px);margin-top:27px}
+}
+@media(max-width:360px){.letter-content{padding-left:18%;padding-right:18%;padding-top:190px}.letter-content p{font-size:11px}}
 </style></head><body>
 <img class="fold a" src="pliegue_superior_izquierdo.webp" alt="" aria-hidden="true"><img class="fold b" src="pliegue_inferior_derecho.webp" alt="" aria-hidden="true">
 <main><section class="intro" id="intro"><div class="intro-content"><div class="eyebrow">Una invitación de honor</div><div class="monogram">C<span>&</span>A</div><div class="names">CAROLINA & ALEXANDER</div><div class="line"></div><h1>Tenemos una carta muy especial para ti</h1><div class="envelope"><img src="sobre_C_A.webp" alt="Sobre personalizado con sello C y A"></div><button class="cta" id="open" type="button">Abrir mi carta &nbsp; ›</button><span class="hint">Preparada con mucho cariño</span></div></section>
 <section class="letter-section" id="letter" aria-label="Carta personal"><div class="letter-wrap"><article class="letter-content"><h2 id="saludo">Para ti, con cariño</h2><div id="textoCarta"></div><p class="signature" id="firma"></p></article></div></section>
-<section class="story" id="story" aria-label="Detalles de la boda"><div class="kicker">Carolina &amp; Alexander</div><h2>Nos casamos</h2><p>Nos encantaría que nos acompañaras a celebrar el comienzo de esta nueva etapa.</p><div class="rule"></div><div class="detail-card"><div class="kicker">El día</div><div class="value">14 · 11 · 2026</div><div class="small">Sábado</div></div><div class="detail-card"><div class="kicker">La ceremonia</div><div class="value">17:00</div><div class="small">La celebración continuará después de la ceremonia</div></div><div class="detail-card"><div class="kicker">El lugar</div><div class="value">Quito, Ecuador</div><p class="venue-note">El nombre y la dirección exacta del lugar están pendientes de incorporar.</p></div>
+<section class="story" id="story" aria-label="Detalles de la boda"><div class="kicker">Carolina &amp; Alexander</div><h2>Nos casamos</h2><p>Nos encantaría que nos acompañaras a celebrar el comienzo de esta nueva etapa.</p><div class="rule"></div><div class="detail-card"><div class="kicker">El día</div><div class="value">14 · 11 · 2026</div><div class="small">Sábado</div></div><div class="detail-card"><div class="kicker">La ceremonia</div><div class="value">17:00</div><div class="small">La celebración continuará después de la ceremonia</div></div><div class="detail-card"><div class="kicker">El lugar</div><div class="value">Quito, Ecuador</div><p class="venue-note">Los detalles de la ubicación se compartirán directamente con la familia.</p></div>
 <div class="rsvp" id="rsvp"><div class="kicker">Un día que guardaremos para siempre</div><h2>Nos hará felices tenerte aquí</h2><p>Gracias por ser parte de nuestra historia y acompañarnos en este momento tan especial.</p><div style="max-width:410px;margin:30px auto 0"><button type="button" class="cta" id="confirmar" style="width:100%">Confirmar mi asistencia</button><p id="rsvpStatus" class="status" role="status" aria-live="polite"></p></div></div><div class="closing">Con amor, Carolina &amp; Alexander ♡</div><div class="actions"><button class="smallbtn" id="back" type="button">Volver al sobre</button><button class="smallbtn" id="share" type="button">Compartir carta</button></div></section></main>
 <script>
 const cartas={
