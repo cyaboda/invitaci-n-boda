@@ -1,124 +1,6028 @@
-<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#110f10"><title>Una carta para ti | Carolina & Alexander</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"><style>
-:root{--bg:#110f10;--copper:#c66c47;--cream:#f9e9d8;--ink:#513022}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #f2b48f;outline-offset:4px}.fold{position:fixed;pointer-events:none;width:min(74vw,550px);z-index:0;opacity:.68;mix-blend-mode:screen}.fold.a{top:-70px;left:-80px}.fold.b{bottom:-70px;right:-80px}.intro{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:52px 20px;isolation:isolate}.intro:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,#3a211c80,transparent 65%);z-index:-1}.intro-content{width:min(100%,490px);text-align:center;z-index:1}.eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:10px;color:#dfaa8e}.monogram{font-family:Italiana,serif;font-size:clamp(66px,17vw,100px);line-height:1;color:#f8e8dd}.monogram span{color:var(--copper)}.names{font-family:'Playfair Display',serif;letter-spacing:.25em;font-size:clamp(11px,2.5vw,15px);margin:13px 0 30px}.line{width:78px;height:1px;background:var(--copper);margin:0 auto 27px}.intro h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(27px,6.5vw,40px);line-height:1.3;margin:0 auto 25px;max-width:390px}.envelope{display:block;width:min(88%,340px);margin:0 auto 18px;filter:drop-shadow(0 16px 25px #0009);transition:transform .5s}.envelope img{width:100%;height:auto;display:block}.envelope:hover{transform:translateY(-5px)}.cta{background:linear-gradient(120deg,#db8056,#a94727);color:white;border:1px solid #f4a67b;border-radius:999px;padding:15px 30px;min-width:205px;box-shadow:0 10px 28px #7e2e1d50}.cta:hover{filter:brightness(1.1)}.hint{display:block;font-size:11px;opacity:.6;margin-top:15px}.letter-section{display:none;position:relative;padding:38px 12px 24px;min-height:0}.letter-section.visible{display:block;animation:fade .7s ease both}@keyframes fade{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}.letter-wrap{position:relative;width:min(100%,620px);margin:auto;filter:drop-shadow(0 15px 40px #0009)}.letter-bg{display:block;width:100%;height:auto}.letter-content{position:absolute;inset:18% 13% 14%;color:var(--ink);display:flex;flex-direction:column;justify-content:center;text-align:center;overflow:hidden}.letter-content h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#8f3e26;font-size:clamp(23px,5vw,36px);margin:0 0 15px}.letter-content p{font-family:'Playfair Display',serif;font-size:clamp(12px,2.6vw,17px);line-height:1.62;margin:0 0 12px}.letter-content .signature{font-size:clamp(13px,3vw,18px);font-style:italic;color:#914f35}.letter-content .divider{width:48px;height:1px;background:#b8785a;margin:12px auto}.letter-content .date{font-family:Italiana,serif;font-size:clamp(24px,6vw,38px);color:#923f27;line-height:1}.letter-content .detail{font-family:'DM Sans',sans-serif;font-size:clamp(10px,2.2vw,13px);line-height:1.5;margin-top:8px}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:25px auto}.smallbtn{border:1px solid #b87557;border-radius:99px;padding:12px 22px;background:#281c1b;color:#f7e8df}.smallbtn:hover{background:#503025}.note{color:#bca49b;font-size:12px;text-align:center;max-width:440px;margin:auto;line-height:1.5}.intro.closed{display:none}@media(max-width:390px){.letter-content{inset:17% 12% 12%}.letter-content p{font-size:11px;line-height:1.5;margin-bottom:7px}.letter-content h2{font-size:23px;margin-bottom:8px}.letter-content .divider{margin:6px auto}.letter-content .date{font-size:25px}.letter-content .detail{font-size:10px;margin-top:4px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+<!DOCTYPE html>
+<html lang="es">
 
-.intro.opening .envelope{animation:envelopeExit .8s cubic-bezier(.2,.7,.2,1) both}.intro.opening .intro-content> :not(.envelope){animation:softFade .5s ease both}@keyframes envelopeExit{0%{transform:translateY(0) scale(1);opacity:1}35%{transform:translateY(-15px) scale(1.035);opacity:1}100%{transform:translateY(65px) scale(.92);opacity:0}}@keyframes softFade{to{opacity:0;transform:translateY(-10px)}}
-.story{display:none;position:relative;max-width:620px;margin:0 auto;padding:48px 22px 85px;text-align:center}.story.visible{display:block;animation:fade .8s ease both}.story .kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#e0a17e}.story h2{font-family:Italiana,serif;font-weight:400;font-size:clamp(44px,11vw,76px);line-height:1.1;margin:18px 0;color:#fae9dc}.story .rule{height:1px;width:80px;background:#bd7354;margin:28px auto}.story p{line-height:1.8;color:#d6bfb3}.detail-card{border:1px solid #7c4b3c;border-radius:22px;padding:32px 18px;margin:22px 0;background:linear-gradient(145deg,#291b1b,#171112)}.detail-card .value{font-family:'Playfair Display',serif;font-size:clamp(26px,7vw,42px);color:#f7dfcf;margin:10px 0}.detail-card .small{font-size:13px;color:#d5b2a0}.rsvp{margin-top:75px;padding-top:34px;border-top:1px solid #5b3932}.rsvp h2{font-size:clamp(38px,10vw,58px)}.rsvp form{display:grid;gap:14px;text-align:left;margin:25px auto 0;max-width:410px}.rsvp label{font-size:12px;color:#e6c3af;letter-spacing:.04em}.rsvp input,.rsvp select{width:100%;background:#211819;color:#fbe9dc;border:1px solid #86553f;border-radius:12px;padding:14px;font:inherit;font-size:16px}.rsvp input:focus,.rsvp select:focus{outline:2px solid #d68b65}.rsvp .cta{width:100%;margin-top:5px}.rsvp .status{min-height:30px;color:#efc2a7;text-align:center;font-size:13px;line-height:1.5}.rsvp .person{color:#f5e1d2;text-align:center;font-family:'Playfair Display',serif;font-size:20px}.rsvp .hidden{display:none}.closing{font-family:'Playfair Display',serif;font-style:italic;color:#e9b69c;font-size:20px;margin-top:65px}.letter-section .actions{margin:10px auto 0}.letter-section .actions button{font-size:12px;padding:8px 15px;opacity:.75}.story .venue-note{font-size:12px;color:#bca39a}
+<head>
 
+<meta charset="UTF-8">
 
-/* CARTA V4: un solo sistema de estilos, sin rectángulo de fondo. */
-.letter-section{padding:28px 10px 20px;background:transparent}
-.letter-wrap{width:min(100%,650px);margin:0 auto;filter:drop-shadow(0 18px 35px rgba(0,0,0,.52))}
-.letter-content{
-  position:relative;inset:auto;display:block;overflow:visible;min-height:0;
-  background-color:transparent !important;
-  background-image:none !important;
-  padding:clamp(148px,23vw,190px) 15% clamp(145px,21vw,185px);
-  color:#513022;text-align:center;isolation:isolate;
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta
+  name="theme-color"
+  content="#f7f1eb"
+>
+
+<title>Carolina & Alexander | 14.11.2026</title>
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+
+<style>
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+  box-sizing: border-box;
 }
-/* La ilustración tiene transparencia real: se pinta sola, detrás del texto. */
-.letter-content::before{
-  content:'';display:block !important;position:absolute;inset:0;z-index:-1;
-  background: url('carta_honor_C_A.webp') center center / 100% 100% no-repeat;
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f7f1eb;
+  color: #4b342a;
+  overflow-x: hidden;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+.portada {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 24px;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(190,102,67,.13), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(190,102,67,.12), transparent 32%),
+    #f7f1eb;
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.portada.saliendo {
+  opacity: 0;
+  transform: scale(1.02);
+}
+
+.mancha {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mancha-arriba {
+  width: 420px;
+  height: 420px;
+  top: -220px;
+  right: -180px;
+  background:
+    radial-gradient(circle, rgba(190,102,67,.13), rgba(190,102,67,.04) 60%, transparent 72%);
+}
+
+.mancha-abajo {
+  width: 470px;
+  height: 470px;
+  bottom: -260px;
+  left: -210px;
+  background:
+    radial-gradient(circle, rgba(167,83,52,.14), rgba(190,102,67,.04) 60%, transparent 72%);
+}
+
+.linea-vertical {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  width: 1px;
+  background:
+    linear-gradient(to bottom, transparent, rgba(155,82,53,.18), transparent);
+  z-index: 1;
+}
+
+.linea-izquierda { left: 7%; }
+.linea-derecha { right: 7%; }
+
+/* =========================================================
+   RAMAS PORTADA
+========================================================= */
+
+.floral {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  color: #b85f3d;
+}
+
+.floral svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.floral .tallo {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: crecerTallo 3.2s cubic-bezier(.45,.05,.22,.97) forwards;
+}
+
+.floral .rama {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: crecerRama 1.5s ease forwards;
+}
+
+.floral .rama-1 { animation-delay: .9s; }
+.floral .rama-2 { animation-delay: 1.2s; }
+.floral .rama-3 { animation-delay: 1.5s; }
+.floral .rama-4 { animation-delay: 1.8s; }
+.floral .rama-5 { animation-delay: 2.1s; }
+.floral .rama-6 { animation-delay: 2.35s; }
+
+.floral .hoja {
+  fill: currentColor;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: aparecerHoja .75s ease forwards;
+}
+
+.floral .hoja-1 { animation-delay: 1.15s; }
+.floral .hoja-2 { animation-delay: 1.4s; }
+.floral .hoja-3 { animation-delay: 1.65s; }
+.floral .hoja-4 { animation-delay: 1.9s; }
+.floral .hoja-5 { animation-delay: 2.15s; }
+.floral .hoja-6 { animation-delay: 2.4s; }
+.floral .hoja-7 { animation-delay: 2.65s; }
+.floral .hoja-8 { animation-delay: 2.9s; }
+.floral .hoja-9 { animation-delay: 3.1s; }
+.floral .hoja-10 { animation-delay: 3.3s; }
+
+.floral-arriba-derecha {
+  width: 290px;
+  height: 610px;
+  top: -55px;
+  right: -38px;
+  transform-origin: bottom right;
+  animation: respirarDerecha 7s ease-in-out 3.5s infinite alternate;
+}
+
+.floral-abajo-izquierda {
+  width: 285px;
+  height: 610px;
+  bottom: -70px;
+  left: -40px;
+  transform-origin: bottom left;
+  animation: respirarIzquierda 7.5s ease-in-out 3.5s infinite alternate;
+}
+
+/* =========================================================
+   PORTADA CONTENIDO
+========================================================= */
+
+.contenido {
+  width: 100%;
+  max-width: 760px;
+  position: relative;
+  z-index: 5;
+  animation: aparecer 1.1s ease forwards;
+}
+
+.sobrelinea {
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #a45c3f;
+  margin-bottom: 28px;
+}
+
+.nombres {
+  margin: 0;
+  font-size: clamp(52px,8vw,92px);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: -2px;
+  color: #85452f;
+}
+
+.ampersand {
+  display: block;
+  font-size: .53em;
+  font-style: italic;
+  margin: 13px 0 11px;
+  color: #bc6947;
+}
+
+.separador {
+  width: 120px;
+  height: 1px;
+  margin: 37px auto;
+  position: relative;
+  background: rgba(166,86,55,.48);
+}
+
+.separador::after {
+  content: "♥";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 0 13px;
+  background: #f7f1eb;
+  color: #b75f3d;
+  font-size: 11px;
+}
+
+.texto-invitacion {
+  font-family: Arial,sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a77b68;
+  margin-bottom: 15px;
+}
+
+#nombreInvitado {
+  font-size: clamp(31px,5vw,46px);
+  line-height: 1.15;
+  color: #4f3429;
+}
+
+#cupos {
+  margin-top: 17px;
+  font-family: Arial,sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6d554a;
+}
+
+#cargando {
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  color: #8a6a5d;
+  margin-top: 28px;
+}
+
+#contenidoInvitado { display: none; }
+
+#error {
+  display: none;
+  max-width: 500px;
+  margin: 25px auto 0;
+  font-family: Arial,sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #765347;
+}
+
+.boton {
+  margin-top: 34px;
+  min-width: 235px;
+  padding: 17px 31px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #c16a46, #a54e31);
+  color: white;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(117,62,42,.20);
+}
+
+.detalle-inferior {
+  margin-top: 38px;
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #b07a66;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   PÁGINA 02 · NUESTRO VÍNCULO · ATELIER EDITORIAL
+========================================================= */
+
+.segunda-seccion {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  background-image: url("foto-carolina-alexanderv2.jpeg");
+  background-size: cover;
+  background-position: center 42%;
+  color: #fff8f1;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.15s ease, transform 1.15s ease;
+  isolation: isolate;
+}
+
+.segunda-seccion::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    /* Capa editorial cálida: une visualmente esta página con la portada */
+    linear-gradient(rgba(108,52,34,.23), rgba(108,52,34,.23)),
+    /* Más profundidad detrás del versículo, sin oscurecer los rostros */
+    linear-gradient(90deg, rgba(31,15,11,.78) 0%, rgba(39,19,14,.58) 30%, rgba(51,25,18,.26) 52%, rgba(61,31,22,.08) 72%, rgba(50,25,18,.12) 100%),
+    /* Sombra inferior muy sutil para cerrar la composición */
+    linear-gradient(0deg, rgba(29,14,10,.30) 0%, transparent 40%);
+}
+
+.segunda-seccion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 76% 38%, transparent 0 27%, rgba(52,25,17,.08) 62%, rgba(35,17,12,.24) 100%);
+}
+
+.segunda-seccion.visible { opacity: 1; transform: translateY(0); }
+
+.segunda-contenido {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  max-width: none;
+  position: relative;
+  z-index: 5;
+  padding: clamp(34px,4vw,66px) clamp(30px,5.5vw,100px);
+}
+
+.segunda-editorial-head {
+  position: absolute;
+  top: clamp(34px,4.2vw,66px);
+  left: clamp(30px,5.5vw,100px);
+  font-family: Arial,sans-serif;
+  text-transform: uppercase;
+  color: rgba(255,239,225,.90);
+}
+
+.segunda-numero { font-family: Georgia,serif; font-size: 22px; letter-spacing: 7px; margin-bottom: 16px; }
+.segunda-capitulo { font-size: 9px; letter-spacing: 5px; line-height: 1.75; }
+.segunda-mini-linea { width: 55px; height: 1px; margin: 13px 0 13px; background: rgba(255,236,220,.62); }
+.segunda-nombres { font-family: Arial,sans-serif; font-size: 8px; line-height: 1.75; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,244,235,.88); margin: 0; }
+
+.segunda-verso-wrap {
+  position: absolute;
+  left: clamp(46px,7vw,125px);
+  bottom: clamp(90px,12vh,145px);
+  width: min(720px,48vw);
+}
+
+.versiculo {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(38px,4.15vw,72px);
+  font-weight: 400;
+  line-height: 1.06;
+  font-style: normal;
+  letter-spacing: -.025em;
+  color: #fffaf5;
+  text-shadow: 0 2px 18px rgba(24,12,9,.14);
+}
+
+.versiculo .verso-linea { display: block; }
+.versiculo .verso-cursiva { font-style: italic; color: #f0c5a9; }
+
+.referencia {
+  margin-top: 32px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255,239,227,.88);
+}
+
+.linea-fecha { width: 82px; height: 1px; margin: 28px 0 0; background: rgba(255,237,224,.56); }
+.fecha-boda { display: none; }
+.ramita-central { display: none; }
+
+.segunda-side {
+  position: absolute;
+  right: clamp(26px,4vw,72px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,239,226,.84);
+}
+.segunda-side-line { width: 1px; height: 120px; background: rgba(255,236,222,.62); }
+.segunda-side-heart { font-size: 10px; color: #f3c2a5; margin: 2px 0; }
+
+.desliza {
+  position: absolute;
+  right: clamp(25px,4vw,72px);
+  bottom: clamp(40px,5vw,68px);
+  margin: 0;
+  font-family: Arial,sans-serif;
+  font-size: 7px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,241,231,.80);
+}
+.flecha {
+  position: absolute;
+  right: calc(clamp(25px,4vw,72px) + 25px);
+  bottom: clamp(17px,2.5vw,35px);
+  margin: 0;
+  font-size: 20px;
+  color: #fff1e7;
+  animation: flotarFlecha 1.8s ease-in-out infinite;
+}
+
+@media (min-width: 761px) {
+  .evento-seccion.evento-atelier { display: none; }
+  .evento-seccion.evento-atelier[style*="display: grid"] { display: grid !important; }
+}
+
+@media (max-width: 760px) {
+  .segunda-seccion { background-position: 56% center; }
+  .segunda-seccion::before {
+    background:
+      linear-gradient(0deg, rgba(31,16,12,.78) 0%, rgba(39,20,14,.46) 47%, rgba(43,22,16,.12) 78%),
+      linear-gradient(90deg, rgba(34,17,12,.28), transparent 68%);
+  }
+  .segunda-contenido { padding: 28px 22px calc(34px + env(safe-area-inset-bottom)); }
+  .segunda-editorial-head { top: 28px; left: 22px; }
+  .segunda-numero { font-size: 16px; letter-spacing: 5px; margin-bottom: 10px; }
+  .segunda-capitulo { font-size: 6.5px; letter-spacing: 3.2px; }
+  .segunda-mini-linea { width: 40px; margin: 9px 0; }
+  .segunda-nombres { font-size: 6px; letter-spacing: 3px; }
+  .segunda-verso-wrap { left: 24px; right: 24px; bottom: 88px; width: auto; }
+  .versiculo { font-size: clamp(31px,9.3vw,43px); line-height: 1.08; }
+  .referencia { margin-top: 22px; font-size: 6.5px; letter-spacing: 3px; }
+  .linea-fecha { width: 60px; margin-top: 20px; }
+  .segunda-side { right: 16px; top: 34%; gap: 8px; font-size: 5.5px; letter-spacing: 2.4px; }
+  .segunda-side-line { height: 65px; }
+  .desliza { right: 18px; bottom: 37px; font-size: 5.5px; letter-spacing: 2.6px; }
+  .flecha { right: 35px; bottom: 12px; font-size: 17px; }
+}
+
+/* =========================================================
+   BOTÁNICA DE SCROLL
+========================================================= */
+
+.scroll-botanical {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.scroll-botanical svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.scroll-botanical .scroll-tallo,
+.scroll-botanical .scroll-rama {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scroll-botanical .scroll-tallo { stroke-width: 1.6; }
+.scroll-botanical .scroll-rama { stroke-width: 1.25; }
+
+.scroll-botanical .scroll-hoja {
+  fill: currentColor;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(.05);
+}
+
+.botanica-izq {
+  width: 245px;
+  height: 520px;
+  left: -55px;
+  bottom: -80px;
+  transform-origin: bottom left;
+}
+
+.botanica-der {
+  width: 235px;
+  height: 500px;
+  right: -55px;
+  top: -75px;
+  transform-origin: top right;
+}
+
+/* =========================================================
+   CONTADOR · 03 / LA ESPERA · ATELIER EDITORIAL V7
+========================================================= */
+
+.tercera-seccion {
+  min-height:100vh;
+  min-height:100svh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:0;
+  text-align:left;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(190,102,67,.07), transparent 27%),
+    radial-gradient(circle at 18% 78%, rgba(129,91,59,.05), transparent 31%),
+    linear-gradient(145deg,#f6eee4 0%,#f8f2e9 55%,#f2e6da 100%);
+  color:#743923;
+}
+
+/* textura y sombras botánicas ambientales */
+.tercera-seccion::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:-8%;
+  pointer-events:none;
+  opacity:.24;
+  filter:blur(13px);
+  background:
+    radial-gradient(ellipse at 5% 82%, rgba(78,67,43,.34) 0 2.5%, transparent 3.4%),
+    radial-gradient(ellipse at 12% 73%, rgba(78,67,43,.25) 0 2.8%, transparent 3.8%),
+    radial-gradient(ellipse at 20% 88%, rgba(78,67,43,.22) 0 2.5%, transparent 3.5%),
+    radial-gradient(ellipse at 80% 5%, rgba(78,67,43,.28) 0 2.6%, transparent 3.5%),
+    radial-gradient(ellipse at 87% 13%, rgba(78,67,43,.22) 0 2.4%, transparent 3.3%),
+    radial-gradient(ellipse at 94% 7%, rgba(78,67,43,.18) 0 2.3%, transparent 3.2%);
+  transform:rotate(-7deg) scale(1.18);
+}
+
+.tercera-seccion::after {
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg, rgba(126,74,46,.035), transparent 18%, transparent 82%, rgba(126,74,46,.035)),
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.24), transparent 48%);
+}
+
+.tercera-seccion .scroll-botanical { display:none; }
+
+.tercera-editorial {
+  width:100%;
+  min-height:100vh;
+  min-height:100svh;
+  position:relative;
+  z-index:3;
+  padding:clamp(58px,7vh,82px) clamp(58px,5vw,96px) clamp(50px,6vh,72px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.espera-kicker {
+  position:absolute;
+  top:clamp(54px,6.5vh,76px);
+  left:clamp(58px,5vw,96px);
+  font-family:Arial,sans-serif;
+  color:#7f432d;
+  text-transform:uppercase;
+}
+.espera-numero { font-family:Georgia,"Times New Roman",serif; font-size:19px; letter-spacing:.28em; }
+.espera-kicker-texto { margin-top:15px; font-size:10px; letter-spacing:.42em; line-height:1.6; }
+.espera-kicker-linea { width:42px; height:1px; margin-top:17px; background:rgba(116,57,35,.52); }
+
+.espera-main {
+  width:min(100%,1120px);
+  margin:0 auto;
+  padding:clamp(30px,5vh,58px) 0 0;
+  text-align:center;
+}
+
+.espera-titulo {
+  margin:0 auto;
+  font-size:clamp(68px,7vw,116px);
+  line-height:.82;
+  font-weight:400;
+  letter-spacing:-.04em;
+  color:#7b3c25;
+}
+.espera-titulo em {
+  display:block;
+  margin-top:.22em;
+  font-size:.54em;
+  line-height:1.02;
+  font-weight:400;
+  letter-spacing:-.02em;
+  color:#79503f;
+}
+
+.contador {
+  width:min(100%,980px);
+  margin:clamp(54px,7vh,78px) auto 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.contador-item { position:relative; padding:0 clamp(18px,2vw,32px); text-align:center; }
+.contador-item:not(:last-child)::after {
+  content:"";
+  position:absolute;
+  right:0;
+  top:6%;
+  width:1px;
+  height:84%;
+  background:rgba(116,57,35,.18);
+}
+.contador-numero {
+  display:block;
+  font-size:clamp(60px,5.6vw,92px);
+  line-height:.92;
+  font-weight:400;
+  color:#7b3c25;
+  font-variant-numeric:tabular-nums;
+}
+.contador-label {
+  display:block;
+  margin-top:18px;
+  font-family:Arial,sans-serif;
+  font-size:9px;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+  color:#9a5d43;
+}
+
+.espera-cierre { margin-top:clamp(48px,6.5vh,68px); text-align:center; }
+.espera-cierre-linea { width:72px; height:1px; background:rgba(116,57,35,.40); margin:0 auto 20px; }
+.gran-dia { margin:0; font-size:clamp(28px,2.6vw,42px); font-style:italic; color:#704b3b; }
+
+/* El lateral ya no es un panel: flota sobre el lienzo */
+.espera-lateral {
+  position:absolute;
+  z-index:4;
+  inset:0;
+  pointer-events:none;
+  font-family:Arial,sans-serif;
+  color:#7d432d;
+  text-transform:uppercase;
+}
+.espera-nombres {
+  position:absolute;
+  right:clamp(38px,3.4vw,66px);
+  top:50%;
+  transform:translateY(-58%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  font-size:9px;
+  letter-spacing:.32em;
+}
+.espera-nombres-linea { width:1px; height:43px; background:rgba(116,57,35,.40); }
+.espera-corazon { font-family:Georgia,serif; font-size:12px; color:#8c4b33; }
+.espera-fecha-lateral {
+  position:absolute;
+  right:clamp(37px,3.4vw,65px);
+  bottom:clamp(45px,5.5vh,65px);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.espera-fecha-linea { width:26px; height:1px; background:rgba(116,57,35,.38); }
+.espera-fecha-linea:last-child { display:none; }
+.espera-fecha {
+  font-family:Arial,sans-serif;
+  font-size:9px;
+  line-height:1;
+  letter-spacing:.24em;
+  white-space:nowrap;
+}
+.espera-fecha br { display:none; }
+
+@media (max-width:760px) {
+  .tercera-seccion::before { opacity:.16; filter:blur(11px); }
+  .tercera-editorial {
+    padding:50px 22px 38px;
+    justify-content:center;
+  }
+  .espera-kicker {
+    top:42px;
+    left:22px;
+  }
+  .espera-numero { font-size:15px; }
+  .espera-kicker-texto { margin-top:10px; font-size:8px; letter-spacing:.34em; }
+  .espera-kicker-linea { width:34px; margin-top:12px; }
+  .espera-main {
+    width:100%;
+    padding:58px 0 0;
+  }
+  .espera-titulo { font-size:clamp(54px,16vw,76px); line-height:.86; }
+  .espera-titulo em { font-size:.49em; margin-top:.30em; }
+  .contador {
+    margin-top:44px;
+    width:100%;
+    grid-template-columns:repeat(2,1fr);
+    row-gap:30px;
+  }
+  .contador-item { padding:0 12px 20px; }
+  .contador-item:nth-child(2)::after { display:none; }
+  .contador-item:nth-child(1), .contador-item:nth-child(3) { padding-left:0; }
+  .contador-item:nth-child(2), .contador-item:nth-child(4) { padding-right:0; }
+  .contador-item:not(:last-child)::after { top:0; height:78%; }
+  .contador-numero { font-size:clamp(48px,14vw,66px); }
+  .contador-label { margin-top:10px; font-size:7.5px; letter-spacing:.25em; }
+  .espera-cierre { margin-top:28px; }
+  .espera-cierre-linea { width:52px; margin-bottom:14px; }
+  .gran-dia { font-size:clamp(24px,7.4vw,31px); }
+  .espera-lateral {
+    position:static;
+    margin-top:28px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+  }
+  .espera-nombres {
+    position:static;
+    transform:none;
+    flex-direction:row;
+    gap:8px;
+    font-size:7.5px;
+    letter-spacing:.16em;
+  }
+  .espera-nombres-linea { width:18px; height:1px; }
+  .espera-fecha-lateral {
+    position:static;
+    display:flex;
+    flex-direction:row;
+    gap:8px;
+  }
+  .espera-fecha-linea { width:18px; height:1px; }
+  .espera-fecha { font-size:8px; letter-spacing:.16em; }
+}
+
+@media (max-width:390px) {
+  .tercera-editorial { padding-left:19px; padding-right:19px; }
+  .espera-kicker { left:19px; }
+  .espera-main { padding-top:54px; }
+  .espera-titulo { font-size:52px; }
+  .contador { margin-top:38px; row-gap:24px; }
+  .contador-numero { font-size:47px; }
+  .espera-lateral { margin-top:23px; }
+}
+
+/* =========================================================
+   EVENTO
+========================================================= */
+
+.evento-seccion {
+  min-height: 100vh;
+  display: none;
+  position: relative;
+  overflow: hidden;
+  background: #f7f1eb;
+}
+
+.evento-foto {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 31%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.evento-foto-izquierda { left: 0; }
+.evento-foto-derecha { right: 0; }
+
+.evento-foto img {
+  width: 100%;
+  height: 118%;
+  object-fit: cover;
+}
+
+.evento-foto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background:
+    linear-gradient(rgba(132,54,31,.52), rgba(95,38,24,.62));
+}
+
+.evento-foto-izquierda::after,
+.evento-foto-derecha::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.evento-foto-izquierda::after {
+  background:
+    linear-gradient(to right, transparent 45%, #f7f1eb 100%);
+}
+
+.evento-foto-derecha::after {
+  background:
+    linear-gradient(to left, transparent 45%, #f7f1eb 100%);
+}
+
+.evento-centro {
+  min-height: 100vh;
+  width: 44%;
+  max-width: 650px;
+  margin: auto;
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 30px;
+}
+
+.evento-logo-marco {
+  width: 105px;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #b96140, #88412e);
+}
+
+.evento-logo {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.evento-etiqueta {
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #ad7157;
+  margin-bottom: 22px;
+}
+
+.evento-titulo {
+  margin: 0;
+  font-size: clamp(42px,5vw,68px);
+  font-weight: 400;
+  color: #82452f;
+}
+
+.evento-subtitulo {
+  margin-top: 12px;
+  font-size: clamp(20px,2vw,28px);
+  font-style: italic;
+  color: #9b634c;
+}
+
+.evento-linea {
+  width: 90px;
+  height: 1px;
+  margin: 28px auto;
+  background: rgba(162,84,56,.38);
+}
+
+.evento-tipo {
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #b06f53;
+}
+
+.evento-hora {
+  margin-top: 18px;
+  font-size: clamp(36px,4vw,52px);
+  color: #87472f;
+}
+
+.evento-hora-label {
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #b1826c;
+}
+
+.evento-direccion {
+  margin-top: 25px;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #76584b;
+}
+
+/* =========================================================
+   BOTONES EVENTO
+========================================================= */
+
+.evento-botones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.evento-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 15px 27px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #bb6543, #99472f);
+  color: white;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+
+.evento-boton:hover {
+  transform: translateY(-2px);
+}
+
+.evento-boton-calendario {
+  appearance: none;
+  border: 1px solid rgba(153,71,47,.42);
+  background: transparent;
+  color: #99472f;
+}
+
+.evento-boton-calendario:hover {
+  background: #99472f;
+  color: white;
+}
+
+.evento-nota {
+  margin-top: 25px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #b98d78;
+}
+
+/* =========================================================
+   DRESS CODE
+========================================================= */
+
+.dress-seccion {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 42px 30px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top right, rgba(255,245,239,.16), transparent 32%),
+    linear-gradient(135deg, #d7a38c, #c9896f 45%, #b97358);
+}
+
+.dress-seccion .scroll-botanical {
+  color: rgba(255,245,238,.24);
+}
+
+.dress-contenido {
+  width: 100%;
+  max-width: 930px;
+  position: relative;
+  z-index: 5;
+}
+
+.dress-etiqueta {
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,.78);
+}
+
+.dress-titulo {
+  margin: 10px 0 0;
+  font-size: clamp(46px,6vw,70px);
+  font-weight: 400;
+  color: #fff8f4;
+}
+
+.dress-formal {
+  margin-top: 8px;
+  font-size: clamp(18px,2vw,24px);
+  font-style: italic;
+  color: #fbe9df;
+}
+
+.dress-linea {
+  width: 100px;
+  height: 1px;
+  margin: 22px auto 30px;
+  background: rgba(255,255,255,.45);
+}
+
+.dress-opciones {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  max-width: 700px;
+  margin: auto;
+  gap: 60px;
+}
+
+.dress-item { position: relative; }
+
+.dress-item:first-child::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: 6%;
+  width: 1px;
+  height: 88%;
+  background: rgba(255,255,255,.25);
+}
+
+.dress-icono {
+  width: 108px;
+  height: 125px;
+  margin: 0 auto 16px;
+  color: #fff4ee;
+}
+
+.dress-icono svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dress-genero {
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,.78);
+}
+
+.dress-descripcion {
+  margin-top: 8px;
+  font-size: clamp(20px,2.1vw,27px);
+  font-style: italic;
+  color: #fffaf6;
+}
+
+.reservados {
+  max-width: 660px;
+  margin: 32px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.28);
+}
+
+.reservados-titulo {
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,.78);
+}
+
+.paleta-reservada {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0 16px;
+}
+
+.color-reservado {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.65);
+}
+
+.color-blanco { background:#fff; }
+.color-marfil { background:#f3ebdb; }
+.color-beige { background:#d9c1a3; }
+
+.reservados-texto {
+  max-width: 600px;
+  margin: auto;
+  font-size: clamp(16px,1.7vw,21px);
+  line-height: 1.45;
+  font-style: italic;
+  color: #fff9f5;
+}
+
+/* =========================================================
+   REGALOS
+========================================================= */
+
+.regalos-seccion {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 32px 30px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top right, rgba(255,225,205,.09), transparent 32%),
+    linear-gradient(145deg, #633026, #79392c 42%, #57261f);
+  color: white;
+}
+
+.regalos-seccion .scroll-botanical {
+  color: rgba(245,211,193,.22);
+}
+
+.regalos-contenido {
+  width: 100%;
+  max-width: 1020px;
+  position: relative;
+  z-index: 5;
+}
+
+.regalos-icono,
+.rsvp-icono {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 50%;
+}
+
+.regalos-etiqueta,
+.rsvp-etiqueta {
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: #eec4ae;
+}
+
+.regalos-titulo {
+  margin: 10px 0 0;
+  font-size: clamp(48px,6vw,72px);
+  font-weight: 400;
+  color: #fff7f1;
+}
+
+.regalos-texto {
+  max-width: 620px;
+  margin: 15px auto 0;
+  font-size: clamp(17px,1.8vw,22px);
+  line-height: 1.45;
+  font-style: italic;
+  color: #f6ddd0;
+}
+
+.regalos-linea {
+  width: 100px;
+  height: 1px;
+  margin: 21px auto 23px;
+  background: rgba(255,255,255,.35);
+}
+
+.bancos-preview {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 22px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.banco-preview {
+  min-height: 170px;
+  padding: 23px 24px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 24px;
+  background: rgba(255,255,255,.07);
+}
+
+.banco-icono {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 13px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.28);
+}
+
+.banco-preview-nombre {
+  font-size: 24px;
+  color: #fff8f3;
+}
+
+.banco-preview-titular {
+  margin-top: 8px;
+  font-family: Arial,sans-serif;
+  font-size: 11px;
+  color: #e9cbbb;
+}
+
+.regalos-boton {
+  margin-top: 25px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 999px;
+  background: #f6e2d6;
+  color: #633026;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.regalos-nota {
+  margin-top: 17px;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: rgba(255,235,225,.62);
+}
+
+
+/* =========================================================
+   NOTA SOBRE EL REGALO
+========================================================= */
+
+.regalo-nota-bloque {
+  margin: 22px auto 0;
+  max-width: 560px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.regalo-nota-pregunta {
+  margin: 0;
+  font-size: clamp(18px,1.8vw,22px);
+  line-height: 1.35;
+  font-style: italic;
+  color: #fff4ee;
+}
+
+.regalo-nota-boton {
+  margin-top: 14px;
+  padding: 12px 24px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  background: transparent;
+  color: #f8e1d5;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 2.4px;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.regalo-nota-boton:hover {
+  background: rgba(255,255,255,.08);
+  transform: translateY(-1px);
+}
+
+.regalo-nota-estado {
+  margin-top: 12px;
+  min-height: 16px;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: rgba(255,235,225,.74);
+}
+
+.modal-nota-regalo {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(36,14,11,.78);
+  backdrop-filter: blur(8px);
+}
+
+.modal-nota-regalo.activo {
+  display: flex;
+}
+
+.modal-nota-caja {
+  width: min(520px, 100%);
+  position: relative;
+  padding: 45px 34px 34px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(255,230,216,.10), transparent 36%),
+    linear-gradient(145deg, #6d3329, #54231e);
+  box-shadow: 0 24px 70px rgba(0,0,0,.30);
+  color: white;
+  text-align: center;
+}
+
+.modal-nota-cerrar {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255,255,255,.78);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.modal-nota-titulo {
+  margin: 0;
+  font-size: clamp(34px,5vw,48px);
+  font-weight: 400;
+  color: #fff8f3;
+}
+
+.modal-nota-subtitulo {
+  max-width: 390px;
+  margin: 10px auto 20px;
+  font-size: 16px;
+  line-height: 1.45;
+  font-style: italic;
+  color: #efd4c6;
+}
+
+.nota-regalo-textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  padding: 17px 18px;
+  border: 1px solid rgba(255,255,255,.20);
+  border-radius: 18px;
+  outline: none;
+  background: rgba(255,255,255,.08);
+  color: white;
+  font: 15px/1.5 Arial,sans-serif;
+}
+
+.nota-regalo-textarea::placeholder {
+  color: rgba(255,255,255,.46);
+}
+
+.nota-regalo-textarea:focus {
+  border-color: rgba(255,255,255,.42);
+  background: rgba(255,255,255,.11);
+}
+
+.nota-regalo-contador {
+  margin-top: 7px;
+  text-align: right;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: rgba(255,235,225,.54);
+}
+
+.nota-regalo-enviar {
+  margin-top: 18px;
+  padding: 14px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: #f6e2d6;
+  color: #633026;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.nota-regalo-enviar:disabled {
+  opacity: .55;
+  cursor: default;
+}
+
+.nota-regalo-mensaje {
+  margin-top: 13px;
+  min-height: 18px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #f6ddd0;
+}
+
+@media (max-width:700px) {
+  .regalo-nota-bloque {
+    margin-top: 18px;
+    padding-top: 17px;
+  }
+
+  .regalo-nota-pregunta {
+    font-size: 18px;
+  }
+
+  .modal-nota-caja {
+    padding: 42px 20px 28px;
+    border-radius: 24px;
+  }
+
+  .modal-nota-titulo {
+    font-size: 36px;
+  }
+
+  .nota-regalo-textarea {
+    min-height: 145px;
+  }
+}
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-seccion {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 35px 30px;
+  text-align: center;
+  background:
+    linear-gradient(145deg, #4b211d, #602921 45%, #3f1917);
+  color: #fff9f5;
+}
+
+.rsvp-seccion .scroll-botanical {
+  color: rgba(245,218,205,.18);
+}
+
+.rsvp-contenido {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  z-index: 5;
+}
+
+.rsvp-titulo {
+  margin: 10px 0 0;
+  font-size: clamp(45px,5.5vw,68px);
+  font-weight: 400;
+  color: #fff8f3;
+}
+
+.rsvp-subtitulo {
+  margin-top: 12px;
+  font-size: clamp(16px,1.7vw,20px);
+  font-style: italic;
+  color: #ebcfc3;
+}
+
+.rsvp-linea {
+  width: 90px;
+  height: 1px;
+  margin: 18px auto;
+  background: rgba(255,255,255,.28);
+}
+
+.rsvp-panel,
+.rsvp-resultado {
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  padding: 22px 28px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 25px;
+  background: rgba(255,255,255,.055);
+}
+
+.rsvp-resultado { display: none; }
+
+.rsvp-invitado-label {
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: #cea493;
+}
+
+.rsvp-invitado {
+  margin-top: 5px;
+  font-size: clamp(24px,3vw,33px);
+  color: #fff7f2;
+}
+
+.rsvp-cupos {
+  margin-top: 5px;
+  font-family: Arial,sans-serif;
+  font-size: 11px;
+  color: #d9baad;
+}
+
+.rsvp-pregunta {
+  margin-top: 17px;
+  font-size: 18px;
+}
+
+.rsvp-opciones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 13px;
+}
+
+.rsvp-opcion {
+  min-width: 170px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  color: #f8e7df;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+}
+
+.rsvp-opcion.seleccionado {
+  background: #f2d7ca;
+  color: #55261f;
+}
+
+.rsvp-detalles {
+  display: none;
+  margin-top: 17px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.asistentes-label {
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  color: #cba293;
+}
+
+.asistentes-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.asistente-numero {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.asistente-numero.seleccionado {
+  background: #efd0c1;
+  color: #51231d;
+}
+
+.acompanantes-contenedor {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  max-width: 600px;
+  margin: 13px auto 0;
+}
+
+.acompanante-campo {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(255,255,255,.08);
+  color: white;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+}
+
+.acompanante-campo::placeholder {
+  color: rgba(255,236,227,.5);
+}
+
+.rsvp-mensaje {
+  min-height: 18px;
+  margin-top: 10px;
+  font-family: Arial,sans-serif;
+  font-size: 11px;
+  color: #ffd7c8;
+}
+
+.rsvp-confirmar {
+  display: none;
+  margin-top: 11px;
+  padding: 13px 28px;
+  border: none;
+  border-radius: 999px;
+  background: #f3ded3;
+  color: #57251e;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.rsvp-resultado-icono {
+  width: 53px;
+  height: 53px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+}
+
+.rsvp-resultado-titulo {
+  font-size: clamp(27px,3vw,37px);
+}
+
+.rsvp-resultado-texto {
+  margin-top: 9px;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  line-height: 1.65;
+  color: #ddc0b4;
+}
+
+.rsvp-modificar {
+  margin-top: 18px;
+  padding: 11px 22px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  background: transparent;
+  color: #f1d9ce;
+  cursor: pointer;
+}
+
+.rsvp-calendario {
+  display: none;
+  margin: 15px auto 0;
+  padding: 12px 23px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  background: #f0d6c9;
+  color: #58261f;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.rsvp-calendario:hover {
+  transform: translateY(-2px);
+  background: #f7e7df;
+}
+
+/* =========================================================
+   MODAL BANCOS
+========================================================= */
+
+.modal-bancos {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: rgba(35,10,8,.78);
+  backdrop-filter: blur(8px);
+}
+
+.modal-bancos.activo { display: flex; }
+
+.modal-caja {
+  width: 100%;
+  max-width: 720px;
+  max-height: 90svh;
+  overflow-y: auto;
+  position: relative;
+  padding: 44px 40px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #fbf5f0, #f1e3da);
+  color: #54352b;
+  text-align: center;
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(116,57,41,.08);
+  color: #7c432f;
+  cursor: pointer;
+}
+
+.modal-titulo {
+  font-size: clamp(31px,4vw,43px);
+  font-weight: 400;
+}
+
+.modal-texto {
+  margin-top: 14px;
+  font-family: Arial,sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.pin-contenedor {
+  max-width: 320px;
+  margin: 28px auto 0;
+}
+
+.pin-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid rgba(126,67,46,.24);
+  border-radius: 999px;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 12px;
+  background: white;
+}
+
+.pin-boton {
+  width: 100%;
+  margin-top: 14px;
+  padding: 15px;
+  border: none;
+  border-radius: 999px;
+  background: #713425;
+  color: white;
+  cursor: pointer;
+}
+
+.pin-error {
+  margin-top: 12px;
+  font-family: Arial,sans-serif;
+  color: #ad3e33;
+}
+
+#datosBancarios {
+  display: block;
+  margin-top: 18px;
+}
+
+.datos-bancos-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.banco-datos {
+  padding: 25px 22px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.75);
+  text-align: left;
+}
+
+.banco-datos-titulo { font-size: 24px; }
+
+.dato-label {
+  margin-top: 14px;
+  font-family: Arial,sans-serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #a07968;
+}
+
+.dato-valor {
+  margin-top: 4px;
+  font-family: Arial,sans-serif;
+}
+
+.dato-numero { font-size: 18px; }
+
+.copiar-boton {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid #d7b8aa;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   PÁGINA FINAL
+========================================================= */
+
+.final-seccion {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 54px 28px;
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(92,38,27,.66), rgba(55,21,17,.74)),
+    url("F3.jpeg");
+  background-size: cover;
+  background-position: center 46%;
+  color: #fff8f3;
+}
+
+.final-seccion::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(216,135,96,.16), transparent 34%),
+    linear-gradient(to bottom, rgba(110,53,37,.04), rgba(45,16,13,.16));
+  z-index: 1;
+}
+
+
+.final-velo-animado {
+  position: absolute;
+  left: -18%;
+  bottom: 4%;
+  width: 78%;
+  height: 48%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .30;
+  transform-origin: 12% 70%;
+  filter: blur(.7px);
+  background:
+    linear-gradient(
+      12deg,
+      rgba(255,250,247,0) 0%,
+      rgba(255,250,247,.08) 18%,
+      rgba(255,250,247,.28) 42%,
+      rgba(255,250,247,.16) 62%,
+      rgba(255,250,247,0) 82%
+    );
+  clip-path: polygon(
+    0% 52%,
+    12% 38%,
+    30% 31%,
+    48% 37%,
+    68% 24%,
+    88% 36%,
+    100% 54%,
+    87% 68%,
+    65% 60%,
+    42% 73%,
+    20% 66%
+  );
+  animation: ondearVelo 5.2s ease-in-out infinite alternate;
+}
+
+.final-velo-animado::before,
+.final-velo-animado::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.final-velo-animado::before {
+  background:
+    radial-gradient(
+      ellipse at 42% 52%,
+      rgba(255,255,255,.28) 0%,
+      rgba(255,255,255,.10) 42%,
+      transparent 72%
+    );
+  transform: scale(1.03) skewX(-6deg);
+}
+
+.final-velo-animado::after {
+  background:
+    linear-gradient(
+      165deg,
+      transparent 10%,
+      rgba(255,255,255,.18) 34%,
+      transparent 62%
+    );
+  transform: translateX(5%);
+  opacity: .75;
+}
+
+.final-contenido {
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  z-index: 5;
+}
+
+.final-etiqueta {
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #f1cfbd;
+}
+
+.final-titulo {
+  margin: 8px auto 0;
+  max-width: 760px;
+  font-size: clamp(42px,5.2vw,68px);
+  font-weight: 400;
+  line-height: 1.08;
+  color: #fff7f1;
+}
+
+.final-titulo span {
+  display: inline;
+  margin: 0;
+  font-size: 1em;
+  font-style: italic;
+  color: #e5a27e;
+}
+
+.final-separador {
+  width: 104px;
+  height: 1px;
+  margin: 22px auto;
+  position: relative;
+  background: rgba(255,237,226,.45);
+}
+
+.final-separador::after {
+  content: "♡";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 0 10px;
+  background: rgba(83,31,24,.72);
+  color: #efb390;
+  font-size: 17px;
+}
+
+.final-texto {
+  max-width: 650px;
+  margin: auto;
+  font-size: clamp(18px,1.85vw,24px);
+  line-height: 1.48;
+  font-style: italic;
+  color: #fff2e9;
+}
+
+.final-texto + .final-texto {
+  margin-top: 10px;
+}
+
+.final-nombres {
+  margin-top: 24px;
+  font-size: clamp(31px,3.5vw,46px);
+  color: #f0b18e;
+}
+
+.final-fecha {
+  margin-top: 8px;
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #f4d6c5;
+}
+
+.final-cierre {
+  margin-top: 24px;
+  font-size: clamp(17px,1.8vw,23px);
+  font-style: italic;
+  color: #fff7f1;
+}
+
+.final-monograma {
+  width: 70px;
+  height: 70px;
+  margin: 16px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(239,179,144,.68);
+  border-radius: 50%;
+  font-size: 21px;
+  color: #f0b18e;
+  background: rgba(58,19,16,.16);
+  backdrop-filter: blur(2px);
+}
+
+.final-botanica {
+  position: absolute;
+  width: 205px;
+  height: 310px;
+  color: rgba(235,155,112,.66);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.final-botanica svg {
+  width: 100%;
+  height: 100%;
+}
+
+.final-botanica path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.final-botanica ellipse {
+  fill: currentColor;
+  opacity: .72;
+}
+
+.final-botanica-izq {
+  left: -58px;
+  bottom: -54px;
+}
+
+.final-botanica-der {
+  right: -58px;
+  top: -54px;
+  transform: scaleX(-1) scaleY(-1);
+}
+
+50% {
+    transform: translate3d(3%, -1%, 0) rotate(1.1deg) scaleX(1.025);
+  }
+  100% {
+    transform: translate3d(6%, 1%, 0) rotate(-.4deg) scaleX(1.045);
+  }
+}
+
+
+@keyframes ondearVelo {
+  0% {
+    transform:
+      translate3d(-2%, 1%, 0)
+      rotate(-2deg)
+      skewX(-3deg)
+      scaleX(1);
+  }
+
+  45% {
+    transform:
+      translate3d(7%, -2%, 0)
+      rotate(1.6deg)
+      skewX(2deg)
+      scaleX(1.05);
+  }
+
+  100% {
+    transform:
+      translate3d(13%, 2%, 0)
+      rotate(-.8deg)
+      skewX(-1deg)
+      scaleX(1.10);
+  }
+}
+
+@media (max-width:700px) {
+
+  .final-seccion {
+    min-height: 100svh;
+    padding:
+      max(42px, env(safe-area-inset-top))
+      22px
+      max(34px, env(safe-area-inset-bottom));
+    background-position: 52% center;
+  }
+
+.final-contenido {
+    max-width: 390px;
+  }
+
+  .final-etiqueta {
+    font-size: 7.5px;
+    letter-spacing: 3.6px;
+  }
+
+  .final-titulo {
+    margin-top: 7px;
+    font-size: clamp(36px,10.5vw,48px);
+    line-height: 1.06;
+  }
+
+  .final-titulo span {
+    display: block;
+    margin-top: 2px;
+  }
+
+  .final-separador {
+    margin: 19px auto;
+  }
+
+  .final-texto {
+    font-size: clamp(16px,4.7vw,20px);
+    line-height: 1.42;
+  }
+
+  .final-texto + .final-texto {
+    margin-top: 8px;
+  }
+
+  .final-nombres {
+    margin-top: 21px;
+    font-size: clamp(27px,7.5vw,35px);
+  }
+
+  .final-fecha {
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .final-cierre {
+    margin-top: 21px;
+    font-size: 17px;
+  }
+
+  .final-monograma {
+    width: 64px;
+    height: 64px;
+    margin-top: 15px;
+    font-size: 19px;
+  }
+
+  .final-botanica {
+    width: 135px;
+    height: 215px;
+    opacity: .58;
+  }
+
+  .final-botanica-izq {
+    left: -62px;
+    bottom: -42px;
+  }
+
+  .final-botanica-der {
+    right: -62px;
+    top: -42px;
+  }
+
+}
+
+/* =========================================================
+   MÚSICA
+========================================================= */
+
+.musica-control {
+  position: fixed;
+  right: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  z-index: 9000;
+  width: 54px;
+  height: 54px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 50%;
+  background: rgba(91,39,31,.90);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(35,10,8,.25);
+}
+
+.musica-control::before {
+  content: "♪";
+  font-size: 25px;
+}
+
+.musica-control.pausada::before {
+  content: "▶";
+  font-family: Arial,sans-serif;
+  font-size: 13px;
+}
+
+.musica-control.sonando {
+  animation: musicaPulso 2.5s ease-in-out infinite;
+}
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes crecerTallo { to { stroke-dashoffset: 0; } }
+@keyframes crecerRama { to { stroke-dashoffset: 0; } }
+
+@keyframes aparecerHoja {
+  from { opacity: 0; transform: scale(.15); }
+  to { opacity: .82; transform: scale(1); }
+}
+
+@keyframes respirarDerecha {
+  from { transform: rotate(0); }
+  to { transform: rotate(1.5deg) translateY(5px); }
+}
+
+@keyframes respirarIzquierda {
+  from { transform: rotate(0); }
+  to { transform: rotate(-1.4deg) translateY(-4px); }
+}
+
+@keyframes flotarFlecha {
+  50% { transform: translateY(8px); }
+}
+
+@keyframes musicaPulso {
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 12px 35px rgba(238,200,182,.18);
+  }
+}
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width:700px) {
+
+  .portada {
+    height: 100svh;
+    min-height: 100svh;
+    padding:
+      max(38px, env(safe-area-inset-top))
+      24px
+      max(34px, env(safe-area-inset-bottom));
+  }
+
+  .contenido { max-width: 420px; }
+
+  .sobrelinea {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 24px;
+  }
+
+  .nombres {
+    font-size: clamp(53px,15vw,72px);
+    line-height: .93;
+    letter-spacing: -1px;
+  }
+
+  .ampersand {
+    margin: 12px 0;
+    font-size: .5em;
+  }
+
+  .separador { margin: 30px auto 27px; }
+
+  .texto-invitacion {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  #nombreInvitado { font-size: clamp(27px,8vw,38px); }
+
+  #cupos {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  .boton {
+    margin-top: 25px;
+    padding: 15px 25px;
+  }
+
+  .detalle-inferior {
+    margin-top: 27px;
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
+  #error {
+    max-width: 310px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .floral-arriba-derecha {
+    width: 150px;
+    height: 355px;
+    top: -10px;
+    right: -65px;
+    opacity: .72;
+  }
+
+  .floral-abajo-izquierda {
+    width: 155px;
+    height: 360px;
+    bottom: -40px;
+    left: -65px;
+    opacity: .72;
+  }
+
+  .segunda-seccion {
+    min-height: 100svh;
+    height: 100svh;
+    padding: 36px 20px calc(34px + env(safe-area-inset-bottom));
+    background-size: cover;
+    background-position: 50% 46%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .segunda-contenido {
+    max-width: 390px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .segunda-nombres {
+    margin-bottom: 16px;
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .ramita-central {
+    width: 68px;
+    height: 52px;
+    margin: 0 auto 16px;
+  }
+
+  .versiculo {
+    max-width: 360px;
+    font-size: clamp(25px,7vw,31px);
+    line-height: 1.27;
+    padding: 0 4px;
+  }
+
+  .referencia {
+    margin-top: 18px;
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  .linea-fecha {
+    width: 72px;
+    margin: 20px auto;
+  }
+
+  .fecha-boda {
+    font-size: 27px;
+    letter-spacing: 5px;
+  }
+
+  .desliza {
+    margin-top: 28px;
+    font-size: 6.5px;
+    letter-spacing: 3px;
+  }
+
+  .flecha {
+    margin-top: 10px;
+    font-size: 22px;
+  }
+
+  .scroll-botanical { opacity: .55; }
+
+  .botanica-izq {
+    width: 145px;
+    height: 330px;
+    left: -70px;
+  }
+
+  .botanica-der {
+    width: 140px;
+    height: 320px;
+    right: -70px;
+  }
+
+  .tercera-seccion {
+    min-height: 100svh;
+    padding: 55px 20px;
+  }
+
+  .tercera-titulo { font-size: 60px; }
+
+  .contador {
+    grid-template-columns: repeat(2,1fr);
+    gap: 28px 10px;
+    max-width: 340px;
+    margin-top: 50px;
+  }
+
+  .contador-item:nth-child(2)::after { display: none; }
+  .contador-numero { font-size: 48px; }
+  .contador-separador { margin-top: 42px; }
+
+  .evento-seccion { min-height: auto; }
+  .evento-foto { display: none; }
+
+  .evento-centro {
+    width: 100%;
+    min-height: 100svh;
+    padding: 55px 24px;
+  }
+
+  .evento-botones {
+    width: 100%;
+    max-width: 300px;
+    flex-direction: column;
+    gap: 10px;
+    margin: 25px auto 0;
+  }
+
+  .evento-botones .evento-boton {
+    width: 100%;
+    margin: 0;
+  }
+
+  .dress-seccion {
+    min-height: 100svh;
+    height: auto;
+    padding: 55px 22px;
+  }
+
+  .dress-opciones {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .dress-item:first-child::after { display: none; }
+
+  .dress-icono {
+    width: 78px;
+    height: 90px;
+  }
+
+  .reservados { margin-top: 26px; }
+
+  .regalos-seccion {
+    min-height: 100svh;
+    padding: 55px 20px;
+  }
+
+  .bancos-preview {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .banco-preview { min-height: auto; }
+
+  .rsvp-seccion {
+    min-height: 100svh;
+    padding: 55px 20px;
+  }
+
+  .rsvp-titulo {
+    font-size: clamp(40px,12vw,50px);
+  }
+
+  .rsvp-panel,
+  .rsvp-resultado {
+    padding: 22px 18px;
+  }
+
+  .rsvp-opciones { flex-direction: column; }
+  .rsvp-opcion { width: 100%; }
+  .acompanantes-contenedor { grid-template-columns: 1fr; }
+
+  .modal-caja { padding: 42px 20px 30px; }
+  .datos-bancos-grid { grid-template-columns: 1fr; }
+
+  .musica-control {
+    width: 49px;
+    height: 49px;
+    right: 15px;
+    bottom: calc(15px + env(safe-area-inset-bottom));
+  }
+
+}
+
+@media (max-width:700px) and (max-height:750px) {
+
+  .segunda-seccion {
+    padding: 28px 18px calc(26px + env(safe-area-inset-bottom));
+  }
+
+  .segunda-nombres { margin-bottom: 12px; }
+
+  .ramita-central {
+    width: 60px;
+    height: 46px;
+    margin-bottom: 12px;
+  }
+
+  .versiculo {
+    font-size: 23px;
+    line-height: 1.22;
+  }
+
+  .referencia { margin-top: 14px; }
+  .linea-fecha { margin: 16px auto; }
+  .fecha-boda { font-size: 24px; }
+  .desliza { margin-top: 20px; }
+
+}
+
+
+/* ===== Ajuste para el nuevo FONDOPC panorámico 1833×858 ===== */
+@media (min-width:761px){
+  .atelier-panel{
+    left:46.8%;
+    top:44.4%;
+    width:30.5vw;
+    min-height:42vh;
+    padding:22px 34px;
+  }
+
+  .atelier-monogram{
+    font-size:34px;
+  }
+
+  .atelier-monogram i{
+    height:40px;
+    margin:0 14px;
+  }
+
+  .atelier-sprig{
+    width:88px;
+    margin:5px 0 17px;
+  }
+
+  .portada-atelier-real .atelier-welcome{
+    margin-bottom:11px;
+  }
+
+  .portada-atelier-real #nombreInvitado{
+    font-size:clamp(28px,2.65vw,43px);
+  }
+
+  .atelier-rule{
+    margin:14px auto 12px;
+  }
+
+  .atelier-enter{
+    min-width:230px;
+    margin-top:19px;
+    padding:12px 24px;
+  }
+}
+
+
+/* =========================================================
+   ATELIER V7 · AJUSTE ÓPTICO FINAL DEL CUADRO
+========================================================= */
+.atelier-sprig{
+  overflow:visible;
+}
+.atelier-sprig .sprig-stem{
+  fill:none;
+  stroke:#8a533e;
+  stroke-width:1.15;
+  stroke-linecap:round;
+}
+.atelier-sprig .sprig-leaves{
+  fill:#8a533e;
+  stroke:none;
+  opacity:.82;
+}
+
+@media (min-width:761px){
+  /* Centro real del panel físico del FONDOPC panorámico */
+  .atelier-panel{
+    left:48.05%;
+    top:45.65%;
+    width:31.4vw;
+    height:45.2vh;
+    min-height:0;
+    padding:0 2.1vw;
+    box-sizing:border-box;
+    justify-content:center;
+  }
+
+  .atelier-monogram{
+    font-size:32px;
+    line-height:1;
+  }
+  .atelier-monogram i{
+    height:38px;
+    margin:0 13px;
+  }
+
+  .atelier-sprig{
+    width:82px;
+    height:auto;
+    margin:4px 0 13px;
+  }
+
+  .portada-atelier-real .atelier-welcome{
+    margin:0 0 10px;
+    font-size:7px;
+    letter-spacing:4.4px;
+  }
+
+  .portada-atelier-real #nombreInvitado{
+    margin:0;
+    font-size:clamp(27px,2.35vw,39px);
+    line-height:1.02;
+  }
+
+  .atelier-rule{
+    width:40px;
+    margin:13px auto 11px;
+  }
+
+  .portada-atelier-real #cupos{
+    max-width:330px;
+    font-size:7px;
+    line-height:1.55;
+    letter-spacing:3px;
+  }
+
+  .atelier-enter{
+    min-width:220px;
+    margin-top:18px;
+    padding:11px 23px;
+    gap:34px;
+    font-size:8px;
+    letter-spacing:3.7px;
+  }
+}
+
+
+/* Atelier V8 · ramita botánica fina */
+.atelier-sprig-fina{
+  width:74px !important;
+  height:auto;
+  margin:5px 0 15px !important;
+  color:#9a5a43;
+  overflow:visible;
+}
+.atelier-sprig-fina .sprig-main{
+  stroke-width:1.35;
+}
+.atelier-sprig-fina .sprig-leaf{
+  stroke-width:1.05;
+}
+
+
+/* Atelier V9 · ramita simple de tres hojas */
+.atelier-sprig-v9{
+  width:68px !important;
+  height:auto;
+  margin:7px 0 15px !important;
+  color:#94543f;
+}
+.atelier-sprig-v9 .sprig-main{
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.15 !important;
+}
+.atelier-sprig-v9 .sprig-leaf{
+  fill:rgba(148,84,63,.10) !important;
+  stroke:currentColor !important;
+  stroke-width:1.05 !important;
+}
+
+
+/* =========================================================
+   ATELIER V10 · ENTRADA EDITORIAL COREOGRAFIADA
+========================================================= */
+.portada-atelier-real.atelier-intro-ready .atelier-meta-left,
+.portada-atelier-real.atelier-intro-ready .atelier-meta-right,
+.portada-atelier-real.atelier-intro-ready .atelier-side-left,
+.portada-atelier-real.atelier-intro-ready .atelier-side-right,
+.portada-atelier-real.atelier-intro-ready .atelier-panel > *{
+  opacity:0;
+}
+
+.portada-atelier-real.atelier-intro-ready .atelier-meta-left{
+  transform:translateX(-12px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-meta-right{
+  transform:translateX(12px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-side-left{
+  transform:translateX(-10px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-side-right{
+  transform:translateX(10px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-panel > *{
+  transform:translateY(10px);
+}
+
+.portada-atelier-real.atelier-intro-play .atelier-meta-left{
+  animation:atelierFadeLeft .85s cubic-bezier(.22,.61,.36,1) .22s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-meta-right{
+  animation:atelierFadeRight .85s cubic-bezier(.22,.61,.36,1) .48s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-side-left{
+  animation:atelierFadeLeft .9s cubic-bezier(.22,.61,.36,1) .72s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-side-right{
+  animation:atelierFadeRight .9s cubic-bezier(.22,.61,.36,1) .98s forwards;
+}
+
+/* El centro se construye pieza por pieza */
+.portada-atelier-real.atelier-intro-play .atelier-panel > *{
+  animation:atelierCenterIn .82s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(1){animation-delay:1.22s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(2){animation-delay:1.34s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(3){animation-delay:1.50s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(4){animation-delay:1.66s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(5){animation-delay:1.80s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(6){animation-delay:1.94s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(7){animation-delay:2.10s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(8){animation-delay:2.24s;}
+
+@keyframes atelierFadeLeft{
+  from{opacity:0;transform:translateX(-12px);}
+  to{opacity:1;transform:translateX(0);}
+}
+@keyframes atelierFadeRight{
+  from{opacity:0;transform:translateX(12px);}
+  to{opacity:1;transform:translateX(0);}
+}
+@keyframes atelierCenterIn{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Las líneas crecen después de aparecer sus bloques */
+.portada-atelier-real.atelier-intro-ready .atelier-meta-left::after,
+.portada-atelier-real.atelier-intro-ready .atelier-meta-right::after{
+  transform-origin:top;
+  transform:scaleY(0);
+}
+.portada-atelier-real.atelier-intro-play .atelier-meta-left::after{
+  animation:atelierLineY .75s ease .72s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-meta-right::after{
+  animation:atelierLineY .65s ease .95s forwards;
+}
+@keyframes atelierLineY{
+  to{transform:scaleY(1);}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .portada-atelier-real.atelier-intro-ready .atelier-meta-left,
+  .portada-atelier-real.atelier-intro-ready .atelier-meta-right,
+  .portada-atelier-real.atelier-intro-ready .atelier-side-left,
+  .portada-atelier-real.atelier-intro-ready .atelier-side-right,
+  .portada-atelier-real.atelier-intro-ready .atelier-panel > *{
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+  }
+}
+
+
+
+/* =========================================================
+   ENTRADA ATELIER · REVEAL CINEMÁTICO
+========================================================= */
+@keyframes atelierReveal { from { opacity:0; transform:translateY(18px); filter:blur(5px); } to { opacity:1; transform:translateY(0); filter:blur(0); } }
+@keyframes atelierLine { from { transform:scaleY(0); opacity:0; } to { transform:scaleY(1); opacity:1; } }
+@keyframes atelierMonogram { 0% { opacity:0; transform:scale(.92); letter-spacing:.22em; } 100% { opacity:1; transform:scale(1); letter-spacing:normal; } }
+@keyframes atelierSprigDraw { from { stroke-dashoffset:220; opacity:0; } to { stroke-dashoffset:0; opacity:1; } }
+@keyframes atelierButtonIn { 0% { opacity:0; transform:translateY(14px) scale(.97); } 100% { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes atelierArrow { 0%,100% { transform:translateX(0); } 50% { transform:translateX(5px); } }
+
+.portada .atelier-side,
+.portada .atelier-monogram,
+.portada .atelier-sprig,
+.portada .atelier-chapter { opacity:0; }
+
+.portada.atelier-intro-play .atelier-side { animation:atelierReveal 1.05s cubic-bezier(.22,.75,.25,1) .18s forwards; }
+.portada.atelier-intro-play .atelier-side-right { animation-delay:.32s; }
+.portada.atelier-intro-play .atelier-monogram { animation:atelierMonogram 1.25s cubic-bezier(.2,.75,.2,1) .42s forwards; }
+.portada.atelier-intro-play .atelier-sprig { animation:atelierReveal .9s ease .78s forwards; }
+.portada.atelier-intro-play .atelier-sprig path { stroke-dasharray:220; stroke-dashoffset:220; animation:atelierSprigDraw 1.35s ease .88s forwards; }
+.portada.atelier-intro-play .atelier-chapter { animation:atelierReveal 1s ease 1.15s forwards; }
+
+.portada .atelier-guest .atelier-welcome,
+.portada .atelier-guest #nombreInvitado,
+.portada .atelier-guest .atelier-rule,
+.portada .atelier-guest #cupos,
+.portada .atelier-guest .atelier-enter { opacity:0; }
+
+.portada.atelier-intro-play .atelier-guest.revelar .atelier-welcome { animation:atelierReveal .8s ease .05s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar #nombreInvitado { animation:atelierReveal 1s cubic-bezier(.2,.75,.2,1) .20s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar .atelier-rule { animation:atelierReveal .8s ease .38s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar #cupos { animation:atelierReveal .85s ease .52s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar .atelier-enter { animation:atelierButtonIn .9s cubic-bezier(.2,.8,.2,1) .72s forwards; }
+
+.atelier-enter { transition:transform .35s ease, box-shadow .35s ease, filter .35s ease; overflow:hidden; position:relative; }
+.atelier-enter:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(117,62,42,.26); filter:brightness(1.04); }
+.atelier-enter span { display:inline-block; margin-left:8px; animation:atelierArrow 1.8s ease-in-out 2.2s infinite; }
+
+/* Fallback de seguridad: el invitado nunca queda invisible si la carga terminó */
+.portada .atelier-guest.revelar .atelier-welcome,
+.portada .atelier-guest.revelar #nombreInvitado,
+.portada .atelier-guest.revelar .atelier-rule,
+.portada .atelier-guest.revelar #cupos,
+.portada .atelier-guest.revelar .atelier-enter {
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portada .atelier-side,.portada .atelier-monogram,.portada .atelier-sprig,.portada .atelier-chapter,
+  .portada .atelier-guest .atelier-welcome,.portada .atelier-guest #nombreInvitado,.portada .atelier-guest .atelier-rule,.portada .atelier-guest #cupos,.portada .atelier-guest .atelier-enter { opacity:1 !important; animation:none !important; transform:none !important; filter:none !important; }
+}
+
+
+/* =========================================================
+   04 · EL LUGAR — ATELIER EDITORIAL V8
+========================================================= */
+.evento-atelier {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  grid-template-columns: minmax(0, 58%) minmax(0, 42%);
+  position: relative;
+  overflow: hidden;
+  background: #f3eadf;
+}
+.evento-atelier .evento-visual {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #6d3829;
+}
+.evento-atelier .evento-visual-principal {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  filter: saturate(.86) contrast(.96) sepia(.08);
+  transform: scale(1.01);
+}
+.evento-atelier .evento-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(58,25,18,.26), rgba(98,43,29,.08) 58%, rgba(79,34,24,.20)),
+    linear-gradient(180deg, rgba(43,20,15,.10), transparent 48%, rgba(48,22,16,.20));
+  z-index: 1;
+}
+.evento-atelier .evento-visual-meta {
+  position: absolute;
+  left: 42px;
+  z-index: 3;
+  color: rgba(255,248,240,.88);
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+}
+.evento-atelier .evento-visual-meta-top { top: 58px; }
+.evento-atelier .evento-visual-meta-bottom { bottom: 58px; }
+.evento-atelier .evento-polaroid {
+  position: absolute;
+  z-index: 4;
+  width: clamp(210px, 20vw, 330px);
+  aspect-ratio: .78;
+  right: -10%;
+  bottom: 8%;
+  padding: 10px;
+  background: #f8f0e6;
+  box-shadow: 0 22px 55px rgba(57,27,18,.28);
+  transform: rotate(-4deg);
+}
+.evento-atelier .evento-polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.evento-atelier .evento-editorial {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 18%, rgba(190,115,79,.08), transparent 30%),
+    #f7f0e7;
+}
+.evento-atelier .evento-editorial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .20;
+  pointer-events: none;
+  background-image: repeating-radial-gradient(circle at 0 0, rgba(91,57,41,.16) 0 0.55px, transparent .65px 4px);
+  background-size: 7px 7px;
+}
+.evento-atelier .evento-sombra {
+  position: absolute;
+  pointer-events: none;
+  opacity: .10;
+  filter: blur(10px);
+  background: #5e4a36;
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+.evento-atelier .evento-sombra-a { width: 250px; height: 65px; right: -50px; top: 11%; }
+.evento-atelier .evento-sombra-b { width: 310px; height: 70px; right: -90px; bottom: 12%; transform: rotate(28deg); }
+.evento-atelier .evento-editorial-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(48px, 5.5vh, 76px) clamp(42px, 4.5vw, 76px);
+  text-align: left;
+}
+.evento-atelier .evento-capitulo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: clamp(42px, 6vh, 72px);
+  font-family: Arial,sans-serif;
+  color: #8f4933;
+  text-transform: uppercase;
+}
+.evento-atelier .evento-numero { font-family: Georgia,serif; font-size: 21px; letter-spacing: 5px; }
+.evento-atelier .evento-capitulo-titulo { font-size: 10px; letter-spacing: 5px; }
+.evento-atelier .evento-capitulo-linea { width: 46px; height: 1px; margin-top: 12px; background: rgba(143,73,51,.65); }
+.evento-atelier .evento-etiqueta {
+  margin: 0 0 22px;
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #a35f47;
+}
+.evento-atelier .evento-titulo {
+  margin: 0;
+  font-size: clamp(48px, 4.5vw, 76px);
+  line-height: .98;
+  font-weight: 400;
+  color: #7d3f2d;
+}
+.evento-atelier .evento-subtitulo {
+  margin-top: 13px;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.15;
+  font-style: italic;
+  color: #9b5a43;
+}
+.evento-atelier .evento-linea { width: 72px; height: 1px; margin: 28px 0 22px; background: rgba(143,73,51,.45); }
+.evento-atelier .evento-hora {
+  margin: 0;
+  font-size: clamp(64px, 6.5vw, 104px);
+  line-height: .9;
+  letter-spacing: -3px;
+  color: #8b432d;
+}
+.evento-atelier .evento-tipo {
+  margin-top: 12px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a5634c;
+}
+.evento-atelier .evento-direccion {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 30px;
+  font-family: Arial,sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #755347;
+}
+.evento-atelier .evento-pin { color: #a65137; font-size: 9px; margin-top: 5px; }
+.evento-atelier .evento-links { width: 100%; max-width: 430px; margin-top: 28px; }
+.evento-atelier .evento-link {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 0;
+  border-bottom: 1px solid rgba(143,73,51,.50);
+  border-radius: 0;
+  background: transparent;
+  color: #934b35;
+  text-decoration: none;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: padding .25s ease, color .25s ease;
+}
+.evento-atelier .evento-link:hover { padding-left: 8px; padding-right: 8px; color: #6f3527; }
+.evento-atelier .evento-link-button { appearance: none; }
+.evento-atelier .evento-nota {
+  margin-top: 30px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #a36d58;
+}
+
+@media (max-width: 760px) {
+  .evento-atelier {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    background: #f7f0e7;
+  }
+  .evento-atelier .evento-visual {
+    min-height: 64svh;
+    height: 64svh;
+    overflow: visible;
+    z-index: 2;
+  }
+  .evento-atelier .evento-visual-principal {
+    object-position: center 36%;
+  }
+  .evento-atelier .evento-visual-meta {
+    left: 20px;
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+  .evento-atelier .evento-visual-meta-top { top: 30px; }
+  .evento-atelier .evento-visual-meta-bottom { bottom: 50px; }
+  .evento-atelier .evento-polaroid {
+    width: 43vw;
+    max-width: 185px;
+    min-width: 138px;
+    right: 8vw;
+    bottom: -13vh;
+    padding: 7px;
+    transform: rotate(-5deg);
+  }
+  .evento-atelier .evento-editorial {
+    min-height: auto;
+    overflow: hidden;
+    margin-top: 0;
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    padding-top: 8vh;
+  }
+  .evento-atelier .evento-editorial-inner {
+    min-height: auto;
+    padding: 92px 30px 64px;
+    justify-content: flex-start;
+  }
+  .evento-atelier .evento-capitulo { margin-bottom: 52px; }
+  .evento-atelier .evento-numero { font-size: 18px; }
+  .evento-atelier .evento-capitulo-titulo { font-size: 9px; }
+  .evento-atelier .evento-etiqueta { font-size: 9px; line-height: 1.8; margin-bottom: 18px; }
+  .evento-atelier .evento-titulo { font-size: clamp(43px, 13vw, 60px); line-height: .98; }
+  .evento-atelier .evento-subtitulo { font-size: clamp(22px, 7vw, 30px); }
+  .evento-atelier .evento-linea { margin: 27px 0 24px; }
+  .evento-atelier .evento-hora { font-size: clamp(72px, 23vw, 102px); letter-spacing: -4px; }
+  .evento-atelier .evento-tipo { font-size: 8px; letter-spacing: 3px; }
+  .evento-atelier .evento-direccion { margin-top: 30px; font-size: 13px; }
+  .evento-atelier .evento-links { margin-top: 30px; max-width: none; }
+  .evento-atelier .evento-link { min-height: 54px; font-size: 8px; letter-spacing: 2.5px; }
+  .evento-atelier .evento-nota { margin-top: 36px; }
+}
+
+
+
+/* =========================================================
+   04 · EL LUGAR — ATELIER V10 · AJUSTE VISUAL FINAL
+   Más fiel al mockup aprobado
+========================================================= */
+@media (min-width: 761px) {
+  .evento-atelier {
+    grid-template-columns: minmax(0, 54%) minmax(0, 46%);
+    background:#f7f0e7;
+  }
+  .evento-atelier .evento-visual {
+    overflow: visible;
+    isolation:isolate;
+  }
+  .evento-atelier .evento-visual::after {
+    content:"";
+    position:absolute;
+    z-index:5;
+    top:-2%;
+    right:-12px;
+    width:30px;
+    height:104%;
+    pointer-events:none;
+    background:#f7f0e7;
+    clip-path:polygon(42% 0,72% 5%,45% 10%,69% 16%,40% 22%,70% 29%,43% 35%,67% 42%,39% 49%,72% 56%,44% 63%,68% 70%,40% 77%,72% 84%,46% 91%,65% 96%,43% 100%,100% 100%,100% 0);
+    filter:drop-shadow(-4px 0 8px rgba(69,36,25,.08));
+  }
+  .evento-atelier .evento-visual-principal {
+    object-position: 50% 50%;
+    transform:scale(.93);
+    width:107.6%;
+    height:107.6%;
+    left:-3.8%;
+    top:-3.8%;
+    max-width:none;
+    filter:saturate(.84) contrast(.95) sepia(.09) brightness(.98);
+  }
+  .evento-atelier .evento-visual-overlay {
+    background:
+      linear-gradient(90deg,rgba(50,22,16,.22),rgba(96,43,29,.05) 60%,rgba(76,33,23,.10)),
+      linear-gradient(180deg,rgba(43,20,15,.06),transparent 52%,rgba(48,22,16,.14));
+  }
+  .evento-atelier .evento-polaroid {
+    width:clamp(175px,15vw,245px);
+    right:-8.5%;
+    bottom:9%;
+    padding:8px 8px 12px;
+    transform:rotate(-3deg);
+    box-shadow:0 18px 44px rgba(57,27,18,.24);
+  }
+  .evento-atelier .evento-editorial {
+    overflow:hidden;
+  }
+  .evento-atelier .evento-editorial::after {
+    content:"";
+    position:absolute;
+    z-index:1;
+    width:430px;
+    height:430px;
+    right:-165px;
+    top:-95px;
+    opacity:.13;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse at 45% 50%, rgba(82,66,45,.48) 0 7%, transparent 8%),
+      radial-gradient(ellipse at 62% 37%, rgba(82,66,45,.40) 0 6%, transparent 7%),
+      radial-gradient(ellipse at 70% 58%, rgba(82,66,45,.38) 0 7%, transparent 8%),
+      linear-gradient(125deg, transparent 45%, rgba(82,66,45,.40) 46% 47%, transparent 48%);
+    filter:blur(12px);
+    transform:rotate(-18deg);
+  }
+  .evento-atelier .evento-editorial-inner {
+    padding:clamp(42px,5vh,66px) clamp(46px,4vw,68px) clamp(38px,4vh,56px) clamp(66px,5vw,92px);
+  }
+  .evento-atelier .evento-capitulo {
+    margin-bottom:clamp(28px,4vh,45px);
+  }
+  .evento-atelier .evento-titulo {
+    font-size:clamp(43px,3.8vw,64px);
+    max-width:100%;
+    white-space:nowrap;
+  }
+  .evento-atelier .evento-subtitulo {
+    font-size:clamp(21px,1.8vw,29px);
+  }
+  .evento-atelier .evento-linea {
+    margin:24px 0 20px;
+  }
+  .evento-atelier .evento-hora {
+    font-size:clamp(62px,5.5vw,88px);
+  }
+  .evento-atelier .evento-direccion { margin-top:25px; }
+  .evento-atelier .evento-links { margin-top:22px; }
+  .evento-atelier .evento-nota { margin-top:24px; }
+}
+
+@media (max-width: 760px) {
+  .evento-atelier .evento-visual-principal {
+    object-position:center 42%;
+    transform:scale(1);
+  }
+  .evento-atelier .evento-polaroid {
+    width:39vw;
+    max-width:168px;
+    right:7vw;
+    bottom:-10vh;
+  }
+  .evento-atelier .evento-editorial-inner {
+    padding-top:84px;
+  }
+}
+
+
+/* ATELIER: Dress Code con ilustraciones WebP, sin alterar las otras secciones */
+.dress-seccion { isolation:isolate; }
+.dress-contenido { z-index: 3; }
+.dress-rama {
+  position:absolute; z-index:1; pointer-events:none; user-select:none;
+  width:clamp(145px, 23vw, 330px); height:auto; object-fit:contain;
+  opacity:.82;
+}
+.dress-rama-izquierda { left:-4%; bottom:-8%; }
+.dress-rama-derecha { right:-4%; top:-8%; }
+.dress-opciones { position:relative; z-index:2; }
+.dress-icono {
+  width:clamp(110px, 12vw, 160px);
+  height:clamp(140px, 16vw, 200px);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:12px;
+}
+.dress-icono img { display:block; width:100%; height:100%; object-fit:contain; }
+@media (max-width: 650px) {
+  .dress-seccion { padding:40px 20px 46px; }
+  .dress-rama { width:clamp(115px, 32vw, 190px); opacity:.48; }
+  .dress-rama-izquierda { left:-12%; bottom:-3%; }
+  .dress-rama-derecha { right:-13%; top:-2%; }
+  .dress-opciones { gap:16px; }
+  .dress-item:first-child::after { right:-8px; }
+  .dress-icono { width:min(31vw, 135px); height:min(37vw, 160px); }
+}
+@media (max-height: 740px) and (max-width: 650px) {
+  .dress-seccion { padding-top:24px; padding-bottom:24px; }
+  .dress-linea { margin:12px auto 18px; }
+  .reservados { margin-top:20px; padding-top:16px; }
+}
+
+
+/* ATELIER 06 · Regalos: diseño editorial realizable en CSS */
+.regalos-seccion { isolation:isolate; background:#743a2d; }
+.regalos-contenido { max-width:1020px; }
+.regalos-numero {font: 12px Georgia,serif;letter-spacing:5px;color:#efd0bd;margin:0 0 7px}
+.regalos-icono {width:32px;height:32px;margin-bottom:8px;font-size:15px}
+.regalos-titulo {font-size:clamp(52px,6.4vw,82px);margin:7px 0 0}
+.regalos-linea {width:65px;margin:13px auto 14px}
+.regalos-texto {max-width:610px;font-size:clamp(16px,1.55vw,20px);line-height:1.45;font-style:normal;margin:0 auto 30px}
+.regalos-texto em {font-size:1.14em}
+.bancos-preview {max-width:940px;gap:30px}
+.banco-preview {font:inherit;min-height:145px;display:flex;align-items:center;text-align:left;gap:18px;padding:25px 28px;border-radius:16px;border:1px solid rgba(245,209,186,.42);background:rgba(255,255,255,.035);color:#fff6ef;cursor:pointer;transition:background .2s,transform .2s}
+.banco-preview:hover,.banco-preview:focus-visible {background:rgba(255,255,255,.085);transform:translateY(-2px)}
+.banco-icono {flex:none;width:57px;height:57px;margin:0;border:1px solid rgba(250,223,206,.48);border-radius:50%;font-size:27px;font-family:Georgia,serif;color:#f3d3bf}
+.banco-preview-info {display:flex;flex-direction:column;gap:7px;flex:1;min-width:0}
+.banco-preview-nombre {font:normal clamp(19px,2vw,27px) Georgia,serif;color:#fff8f1}
+.banco-preview-titular {font:9px/1.65 Arial,sans-serif;letter-spacing:1.8px;text-transform:uppercase;margin:0;color:#edc9b7}
+.banco-preview-flecha {display:flex;align-items:center;justify-content:center;flex:none;width:35px;height:35px;border:1px solid rgba(245,209,186,.5);border-radius:50%;font:25px Georgia,serif}
+.regalo-nota-bloque {margin-top:38px}
+.regalo-nota-pregunta {font-style:italic}
+.regalos-nota {margin-top:36px}
+.atelier-regalos-rama {position:absolute;z-index:0;pointer-events:none;width:clamp(145px,22vw,290px);opacity:.46}
+.atelier-regalos-rama img {display:block;width:100%;height:auto}
+.atelier-regalos-rama-izq {top:-12%;left:-8%;transform:rotate(165deg)}
+.atelier-regalos-rama-der {bottom:-19%;right:-7%;transform:rotate(12deg)}
+.atelier-modal-caja {max-width:510px;border-radius:18px;padding:38px 32px}
+.atelier-modal-eyebrow {font:9px Arial,sans-serif;letter-spacing:3px;color:#a96d58}
+.atelier-modal-banco-nombre {font:normal 25px Georgia,serif;margin:5px 0 16px}
+.atelier-modal-dato {padding:11px 0;border-top:1px solid #e3cec0}
+.atelier-modal-dato .dato-valor {overflow-wrap:anywhere}
+.atelier-modal-dato .copiar-boton {margin:9px auto 0}
+@media(max-width:650px){
+ .regalos-seccion {padding:45px 20px}
+ .regalos-texto {margin-bottom:22px}
+ .bancos-preview {gap:13px;max-width:420px}
+ .banco-preview {min-height:100px;padding:16px;gap:12px}
+ .banco-icono {width:45px;height:45px;font-size:22px}
+ .banco-preview-nombre {font-size:20px}
+ .banco-preview-titular {font-size:8px;letter-spacing:1px}
+ .regalo-nota-bloque {margin-top:25px}
+ .regalos-nota {margin-top:25px;line-height:1.7}
+ .atelier-regalos-rama {width:145px;opacity:.27}
+ .atelier-regalos-rama-izq {left:-80px;top:-15px}
+ .atelier-regalos-rama-der {right:-80px;bottom:-25px}
+}
+
+/* Corrección popup Regalos: el contenedor estaba oculto por CSS heredado */
+.atelier-modal-caja #datosBancarios { display:block; margin-top:12px; }
+.atelier-modal-caja .datos-bancos-grid { display:flex; flex-direction:column; gap:0; text-align:left; }
+.atelier-modal-caja .atelier-modal-dato { padding:12px 0; }
+.atelier-modal-caja .atelier-modal-dato .dato-label { font-size:10px; letter-spacing:.16em; color:#a97564; margin-bottom:6px; }
+.atelier-modal-caja .atelier-modal-dato .dato-valor { font-size:16px; color:#5a352c; }
+.atelier-modal-caja { max-height:calc(100dvh - 36px); overflow-y:auto; }
+
+/* ATELIER 07 — RSVP editorial aprobado; sin alterar la lógica existente */
+.rsvp-seccion {
+  background: linear-gradient(135deg,#612c25 0%,#57231e 52%,#491b18 100%);
+  padding: clamp(42px,6vh,70px) 24px;
+}
+.rsvp-seccion .scroll-botanical {color:rgba(230,185,155,.27)}
+.rsvp-contenido {max-width:1040px}
+.rsvp-icono {
+  display:flex;align-items:center;justify-content:center;
+  width:58px;height:58px;margin:0 auto 18px;
+  border:1px solid rgba(255,226,207,.43);border-radius:50%;
+  font-family:Georgia,serif;font-size:28px;color:#ffe5d4;
+}
+.rsvp-etiqueta {letter-spacing:5px;font-size:10px;color:#e4b5a0}
+.rsvp-titulo {
+  font-size:clamp(42px,6.7vw,88px);
+  letter-spacing:-.035em;line-height:1.12;margin:18px 0 0;
+}
+.rsvp-subtitulo {font-size:clamp(17px,2.1vw,25px);margin-top:17px}
+.rsvp-linea {width:112px;margin:22px auto 30px;background:rgba(255,227,208,.44)}
+.rsvp-panel,.rsvp-resultado {
+  max-width:920px;border-radius:28px;
+  border:1px solid rgba(255,227,208,.58);
+  background:rgba(255,255,255,.018);
+  padding:32px clamp(18px,5vw,58px);
+  box-shadow:none;
+}
+.rsvp-invitado-label {font-size:10px;letter-spacing:4px;color:#e9bca9}
+.rsvp-invitado {font-size:clamp(31px,4vw,49px);margin-top:12px}
+.rsvp-cupos {font-size:14px;margin-top:9px;color:#e9c9bb}
+.rsvp-ornamento {display:flex;align-items:center;justify-content:center;gap:20px;margin-top:22px;color:#e8bca8;font-size:25px}
+.rsvp-ornamento span {height:1px;width:min(17%,120px);background:rgba(255,225,208,.33)}
+.rsvp-pregunta {margin-top:9px;font-size:clamp(20px,2.2vw,26px)}
+.rsvp-opciones {gap:20px;margin-top:24px}
+.rsvp-opcion {
+  min-width:0;width:min(50%,375px);min-height:64px;
+  display:flex;align-items:center;justify-content:center;gap:15px;
+  border:1px solid rgba(255,224,207,.62);
+  background:transparent;color:#fff3eb;
+  font-size:11px;letter-spacing:2.7px;font-weight:600;
+  transition:background .2s ease,color .2s ease,transform .2s ease;
+}
+.rsvp-opcion:hover {background:rgba(255,235,221,.12);transform:translateY(-2px)}
+.rsvp-opcion.seleccionado {background:#f9e7d7;color:#55231e;border-color:#f9e7d7}
+.rsvp-boton-icono {display:grid;place-items:center;flex:0 0 30px;height:30px;border:1px solid currentColor;border-radius:50%;font-size:18px;font-weight:400}
+.rsvp-cierre {display:flex;align-items:center;flex-direction:column;gap:10px;margin-top:31px;color:#e5bba7;font:10px Arial,sans-serif;letter-spacing:4px}
+.rsvp-cierre-rama {font:29px Georgia,serif;line-height:1}
+.rsvp-confirmar {padding:15px 32px;font-weight:600}
+@media(max-width:700px){
+ .rsvp-seccion {padding:42px 17px 55px}
+ .rsvp-icono {width:48px;height:48px;margin-bottom:13px}
+ .rsvp-etiqueta {font-size:8px;letter-spacing:3px}
+ .rsvp-titulo {font-size:clamp(36px,9vw,52px);line-height:1.13}
+ .rsvp-subtitulo {font-size:17px}
+ .rsvp-linea {margin:18px auto 22px}
+ .rsvp-panel,.rsvp-resultado {padding:26px 17px;border-radius:22px}
+ .rsvp-invitado {font-size:clamp(27px,8vw,38px)}
+ .rsvp-cupos {font-size:12px}
+ .rsvp-opciones {flex-direction:column;gap:12px}
+ .rsvp-opcion {width:100%;min-height:54px;font-size:10px}
+ .rsvp-cierre {font-size:8px;letter-spacing:2px;line-height:1.8}
+}
+@media(prefers-reduced-motion:reduce){.rsvp-opcion{transition:none}.rsvp-opcion:hover{transform:none}}
+
+</style>
+
+
+<style id="atelier-real-background-cover">
+/* =========================================================
+   CARO & ALEX · ATELIER
+   FONDO REAL + INTERFAZ HTML
+========================================================= */
+.portada-atelier-real{
+  min-height:100vh;
+  min-height:100svh;
+  padding:24px;
+  overflow:hidden;
+  background:#ead7c1 url("FONDOPC.webp") center center / cover no-repeat;
+  color:#6e3e2e;
+  isolation:isolate;
+}
+.portada-atelier-real::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(70,37,22,.03),transparent 22%,transparent 78%,rgba(70,37,22,.035));
+}
+.atelier-meta,.atelier-side,.atelier-panel,.atelier-chapter{z-index:2}
+.atelier-meta{
+  position:absolute;
+  font-family:Arial,sans-serif;
+  font-size:8px;
+  line-height:1.65;
+  letter-spacing:4px;
+  color:#724332;
+  text-shadow:0 1px 8px rgba(255,246,233,.65);
+}
+.atelier-meta span{display:block}
+.atelier-meta-left{left:3.3%;top:5.2%;text-align:left}
+.atelier-meta-left i{
+  display:block;width:1px;height:48px;margin-top:13px;
+  background:rgba(111,62,44,.55)
+}
+.atelier-meta-center{
+  left:50%;top:6.6%;transform:translateX(-50%);
+  white-space:nowrap;
+}
+.atelier-meta-right{right:4%;top:5.2%;text-align:right}
+.atelier-meta-right i{
+  display:block;width:40px;height:1px;margin:11px 0 0 auto;
+  background:rgba(111,62,44,.5)
+}
+.atelier-side{
+  position:absolute;
+  font-family:Arial,sans-serif;
+  font-size:7px;
+  letter-spacing:4px;
+  color:#744533;
+  text-shadow:0 1px 8px rgba(255,246,233,.65);
+}
+.atelier-side-left{
+  left:3.4%;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px
+}
+.atelier-side-left b{font-size:7px;font-weight:400;color:#a55a3e}
+.atelier-side-right{
+  right:4%;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px
+}
+.atelier-side-right i{
+  display:block;width:1px;height:125px;background:rgba(111,62,44,.52)
+}
+.atelier-side-right i.short{height:56px}
+.atelier-side-right b{font-size:13px;color:#a65b40;font-weight:400}
+.atelier-panel{
+  position:absolute;
+  left:50%;
+  top:47%;
+  transform:translate(-50%,-50%);
+  width:min(45vw,690px);
+  min-height:48vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:32px 50px;
+  text-align:center;
+  color:#683b2c;
+}
+.atelier-monogram{
+  display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:40px;
+  line-height:1;
+  letter-spacing:.03em;
+  color:#74412f;
+}
+.atelier-monogram i{
+  display:block;width:1px;height:47px;margin:0 17px;
+  background:rgba(115,64,46,.62)
+}
+.atelier-sprig{
+  width:105px;height:auto;margin:7px 0 22px;
+  fill:none;stroke:#8a533e;stroke-width:1.1;stroke-linecap:round;
+  opacity:.85
+}
+.atelier-loading{
+  margin:12px 0;
+  font:10px Arial,sans-serif;
+  letter-spacing:2px;
+  color:#7d5d50;
+}
+.atelier-guest{width:100%}
+.portada-atelier-real .atelier-welcome{
+  margin:0 0 14px;
+  font:8px Arial,sans-serif;
+  letter-spacing:5px;
+  color:#7c4a38;
+}
+.portada-atelier-real #nombreInvitado{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(30px,3.15vw,49px);
+  line-height:1.05;
+  color:#643a2c;
+}
+.atelier-rule{
+  width:48px;height:1px;
+  margin:17px auto 15px;
+  background:rgba(139,78,56,.65)
+}
+.portada-atelier-real #cupos{
+  margin:0 auto;
+  max-width:380px;
+  font:8px/1.65 Arial,sans-serif;
+  letter-spacing:3.6px;
+  text-transform:uppercase;
+  color:#754a3a;
+}
+.atelier-enter{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  min-width:255px;
+  margin:24px auto 0;
+  padding:14px 26px;
+  border:0;
+  border-radius:999px;
+  background:linear-gradient(135deg,#b86140,#9f4d33);
+  color:#fff7ef;
+  box-shadow:0 12px 24px rgba(86,44,29,.16);
+  font:9px Arial,sans-serif;
+  letter-spacing:4px;
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+}
+.atelier-enter:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.04);
+  box-shadow:0 16px 30px rgba(86,44,29,.21)
+}
+.atelier-enter span{font-size:16px;line-height:0}
+.atelier-error{
+  color:#754f42;
+  font-size:12px;
+  line-height:1.6;
+}
+.atelier-chapter{
+  position:absolute;
+  left:0;right:0;bottom:6%;
+  width:100%;
+  text-align:center;
+  transform:none;
+  white-space:nowrap;
+  font:7px Arial,sans-serif;
+  letter-spacing:4.5px;
+  color:#744737;
+}
+.atelier-chapter i{
+  display:block;width:38px;height:1px;margin:0 auto 15px;
+  background:rgba(117,67,48,.52)
+}
+.portada-atelier-real.saliendo{
+  transition:opacity .7s ease,transform .7s ease,filter .7s ease;
+  opacity:0;
+  transform:scale(1.015);
+  filter:blur(3px);
+}
+
+@media(max-width:760px){
+  .portada-atelier-real{
+    padding:14px;
+    background-image:url("FONDOCELL.webp");
+    background-position:center center;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-color:#ead7c1;
+  }
+  .atelier-meta-left{
+    left:18px;top:24px;
+    font-size:5.5px;letter-spacing:2.4px
+  }
+  .atelier-meta-left i{height:30px;margin-top:8px}
+  .atelier-meta-center{
+    top:28px;
+    font-size:5.5px;letter-spacing:2.4px
+  }
+  .atelier-meta-right{
+    right:16px;top:24px;
+    font-size:5.5px;letter-spacing:2.2px
+  }
+  .atelier-meta-right i{width:27px;margin-top:7px}
+  .atelier-side{display:none}
+  .atelier-panel{
+    top:49.5%;
+    width:72vw;
+    min-height:31vh;
+    padding:18px 12px;
+  }
+  .atelier-monogram{font-size:29px}
+  .atelier-monogram i{height:34px;margin:0 12px}
+  .atelier-sprig{width:77px;margin:4px 0 13px}
+  .portada-atelier-real .atelier-welcome{
+    font-size:6px;letter-spacing:3.2px;margin-bottom:9px
+  }
+  .portada-atelier-real #nombreInvitado{
+    font-size:clamp(24px,7.8vw,34px)
+  }
+  .atelier-rule{width:35px;margin:11px auto 10px}
+  .portada-atelier-real #cupos{
+    font-size:6px;letter-spacing:2.2px;max-width:250px
+  }
+  .atelier-enter{
+    min-width:190px;
+    margin-top:16px;
+    padding:11px 18px;
+    gap:25px;
+    font-size:7px;
+    letter-spacing:3px
+  }
+  .atelier-chapter{
+    bottom:5.5%;
+    font-size:5.5px;
+    letter-spacing:3px
+  }
+}
+@media(max-width:430px){
+  .atelier-meta-center{display:none}
+  .atelier-panel{width:75vw;top:49%}
+}
+</style>
+
+
+<link rel="preload" as="image" href="FONDOPC.webp" type="image/webp" media="(min-width: 761px)">
+<link rel="preload" as="image" href="FONDOCELL.webp" type="image/webp" media="(max-width: 760px)">
+
+
+<style id="atelier-editorial-v4-final">
+@media (max-width:760px){
+  #segundaSeccion.segunda-seccion{padding:0;text-align:left;align-items:stretch;justify-content:stretch;background-position:56% center;}
+  #segundaSeccion .segunda-contenido{max-width:none;width:100%;min-height:100svh;margin:0;padding:28px 22px calc(34px + env(safe-area-inset-bottom));}
+  #segundaSeccion .segunda-nombres{margin:0;font-size:6px;letter-spacing:3px;}
+  #segundaSeccion .versiculo{max-width:none;padding:0;font-size:clamp(31px,9.3vw,43px);line-height:1.08;font-style:normal;}
+  #segundaSeccion .referencia{margin-top:22px;font-size:6.5px;letter-spacing:3px;}
+  #segundaSeccion .linea-fecha{width:60px;margin:20px 0 0;}
+  #segundaSeccion .desliza{margin:0;}
+  #segundaSeccion .flecha{margin:0;}
+}
+</style>
+
+<style id="atelier-lugar-v11">
+/* =========================================================
+   04 · EL LUGAR · ATELIER V11
+   Diseño realizable 100% con HTML/CSS + JARDIN.png
+========================================================= */
+.evento-atelier-lugar-v11{
+  grid-template-columns:minmax(0,56%) minmax(0,44%);
+}
+.evento-atelier-lugar-v11 .evento-visual{
+  overflow:hidden;
+}
+.evento-atelier-lugar-v11 .evento-visual::after{
+  display:none !important;
+}
+.evento-atelier-lugar-v11 .evento-visual-principal{
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  transform:none;
+  object-position:center 42%;
+}
+.evento-atelier-lugar-v11 .evento-editorial-inner{
+  width:100%;
+  min-height:100vh;
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(175px,.72fr);
+  align-items:center;
+  gap:clamp(26px,2.5vw,48px);
+  padding:clamp(42px,5vh,68px) clamp(34px,3.2vw,58px);
+}
+.evento-atelier-lugar-v11 .evento-info{
+  min-width:0;
+}
+.evento-atelier-lugar-v11 .evento-capitulo{
+  margin-bottom:clamp(30px,4.5vh,48px);
+}
+.evento-atelier-lugar-v11 .evento-titulo{
+  font-size:clamp(42px,3.25vw,61px);
+  white-space:nowrap;
+}
+.evento-atelier-lugar-v11 .evento-subtitulo{
+  font-size:clamp(20px,1.7vw,29px);
+}
+.evento-atelier-lugar-v11 .evento-hora-fila{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.evento-atelier-lugar-v11 .evento-reloj{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(139,67,45,.72);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-family:Georgia,serif;
+  font-size:25px;
+  line-height:1;
+  color:#8b432d;
+}
+.evento-atelier-lugar-v11 .evento-hora{
+  font-size:clamp(58px,5vw,86px);
+}
+.evento-atelier-lugar-v11 .evento-tipo{
+  margin-top:8px;
+}
+.evento-atelier-lugar-v11 .evento-ubicacion{
+  margin-top:28px;
+}
+.evento-atelier-lugar-v11 .evento-ciudad{
+  width:max-content;
+  max-width:100%;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 14px;
+  border:1px solid rgba(143,73,51,.50);
+  border-radius:999px;
+  font-family:Arial,sans-serif;
+  font-size:8px;
+  letter-spacing:2.5px;
+  color:#934b35;
+  text-transform:uppercase;
+}
+.evento-atelier-lugar-v11 .evento-ciudad span{
+  font-size:7px;
+}
+.evento-atelier-lugar-v11 .evento-direccion{
+  margin-top:12px;
+  padding-left:3px;
+}
+.evento-atelier-lugar-v11 .evento-links{
+  margin-top:22px;
+}
+.evento-atelier-lugar-v11 .evento-jardin{
+  align-self:center;
+  width:100%;
+  margin:0;
+}
+.evento-atelier-lugar-v11 .evento-jardin img{
+  display:block;
+  width:100%;
+  aspect-ratio:.72;
+  object-fit:cover;
+  object-position:center;
+  border-radius:120px 120px 0 0;
+  box-shadow:0 20px 42px rgba(77,43,31,.12);
+}
+.evento-atelier-lugar-v11 .evento-jardin figcaption{
+  margin-top:18px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(13px,1vw,16px);
+  line-height:1.55;
+  font-style:italic;
+  color:#a26c57;
+}
+.evento-atelier-lugar-v11 .evento-nota{
+  margin-top:24px;
+}
+
+@media (max-width:1180px) and (min-width:761px){
+  .evento-atelier-lugar-v11{
+    grid-template-columns:minmax(0,52%) minmax(0,48%);
+  }
+  .evento-atelier-lugar-v11 .evento-editorial-inner{
+    grid-template-columns:minmax(0,1fr) minmax(145px,.55fr);
+    gap:22px;
+    padding-left:36px;
+    padding-right:30px;
+  }
+  .evento-atelier-lugar-v11 .evento-titulo{
+    font-size:clamp(38px,3.7vw,52px);
+  }
+}
+
+@media (max-width:760px){
+  .evento-atelier-lugar-v11{
+    display:none;
+    grid-template-columns:1fr;
+    background:#f7f0e7;
+  }
+  .evento-seccion.evento-atelier-lugar-v11[style*="display: grid"]{
+    display:grid !important;
+  }
+  .evento-atelier-lugar-v11 .evento-visual{
+    height:68svh;
+    min-height:68svh;
+    overflow:hidden;
+  }
+  .evento-atelier-lugar-v11 .evento-visual-principal{
+    object-position:center 42%;
+  }
+  .evento-atelier-lugar-v11 .evento-editorial{
+    margin-top:0;
+    clip-path:none;
+    padding-top:0;
+  }
+  .evento-atelier-lugar-v11 .evento-editorial-inner{
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:54px 28px 56px;
+  }
+  .evento-atelier-lugar-v11 .evento-capitulo{
+    margin-bottom:48px;
+  }
+  .evento-atelier-lugar-v11 .evento-titulo{
+    font-size:clamp(45px,13vw,60px);
+    white-space:normal;
+  }
+  .evento-atelier-lugar-v11 .evento-subtitulo{
+    font-size:clamp(22px,7vw,30px);
+  }
+  .evento-atelier-lugar-v11 .evento-hora-fila{
+    gap:14px;
+  }
+  .evento-atelier-lugar-v11 .evento-reloj{
+    width:35px;
+    height:35px;
+    font-size:23px;
+  }
+  .evento-atelier-lugar-v11 .evento-hora{
+    font-size:clamp(68px,21vw,94px);
+    letter-spacing:-3px;
+  }
+  .evento-atelier-lugar-v11 .evento-ubicacion{
+    margin-top:30px;
+  }
+  .evento-atelier-lugar-v11 .evento-ciudad{
+    font-size:8px;
+    letter-spacing:2.2px;
+  }
+  .evento-atelier-lugar-v11 .evento-direccion{
+    margin-top:13px;
+  }
+  .evento-atelier-lugar-v11 .evento-links{
+    margin-top:27px;
+  }
+  .evento-atelier-lugar-v11 .evento-jardin{
+    margin-top:40px;
+  }
+  .evento-atelier-lugar-v11 .evento-jardin img{
+    aspect-ratio:1.18;
+    border-radius:72px 0 0 0;
+  }
+  .evento-atelier-lugar-v11 .evento-jardin figcaption{
+    margin-top:16px;
+    font-size:15px;
+  }
+  .evento-atelier-lugar-v11 .evento-nota{
+    margin-top:28px;
+  }
+}
+</style>
+
+
+<style id="atelier-lugar-encuadre-prueba-v12">
+/* ATELIER PRUEBA: encuadre completo de ambos rostros, sin recortes. */
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual {
+  position:relative;
+  isolation:isolate;
+  background:#39271f;
+}
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual::before {
+  content:"";
+  position:absolute; inset:-24px;
+  background:url('F1.jpeg') center center / cover no-repeat;
+  filter:blur(24px) brightness(.67);
+  transform:scale(1.06);
+  z-index:0;
   pointer-events:none;
 }
-.letter-content::after{display:none !important}
-.letter-content h2{position:relative;margin:0 0 30px;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(23px,4.8vw,32px);line-height:1.35;color:#8f3e26}
-.letter-content p{position:relative;font-family:'Playfair Display',serif;font-size:clamp(14px,2.55vw,17px);line-height:1.72;margin:0 0 22px}
-.letter-content .signature{margin:35px 0 0;font-size:clamp(14px,2.7vw,18px);font-style:italic;color:#914f35}
-#textoCarta{max-width:440px;margin:0 auto}
-@media(max-width:520px){
- .letter-section{padding:18px 6px 12px}
- .letter-content{padding:clamp(155px,43vw,185px) 16% clamp(145px,36vw,170px)}
- .letter-content h2{font-size:clamp(21px,5.4vw,25px);margin-bottom:24px}
- .letter-content p{font-size:clamp(12px,3.15vw,14px);line-height:1.63;margin-bottom:19px}
- .letter-content .signature{font-size:clamp(12px,3.15vw,14px);margin-top:28px}
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:contain;
+  object-position:center center;
+  transform:none;
+  z-index:1;
 }
-@media(max-width:360px){.letter-content{padding-left:15%;padding-right:15%}.letter-content p{font-size:12px}}
-</style></head><body>
-<img class="fold a" src="pliegue_superior_izquierdo.webp" alt="" aria-hidden="true"><img class="fold b" src="pliegue_inferior_derecho.webp" alt="" aria-hidden="true">
-<main><section class="intro" id="intro"><div class="intro-content"><div class="eyebrow">Una invitación de honor</div><div class="monogram">C<span>&</span>A</div><div class="names">CAROLINA & ALEXANDER</div><div class="line"></div><h1>Tenemos una carta muy especial para ti</h1><div class="envelope"><img src="sobre_C_A.webp" alt="Sobre personalizado con sello C y A"></div><button class="cta" id="open" type="button">Abrir mi carta &nbsp; ›</button><span class="hint">Preparada con mucho cariño</span></div></section>
-<section class="letter-section" id="letter" aria-label="Carta personal"><div class="letter-wrap"><article class="letter-content"><h2 id="saludo">Para ti, con cariño</h2><div id="textoCarta"></div><p class="signature" id="firma"></p></article></div></section>
-<section class="story" id="story" aria-label="Detalles de la boda"><div class="kicker">Carolina &amp; Alexander</div><h2>Nos casamos</h2><p>Nos encantaría que nos acompañaras a celebrar el comienzo de esta nueva etapa.</p><div class="rule"></div><div class="detail-card"><div class="kicker">El día</div><div class="value">14 · 11 · 2026</div><div class="small">Sábado</div></div><div class="detail-card"><div class="kicker">La ceremonia</div><div class="value">17:00</div><div class="small">La celebración continuará después de la ceremonia</div></div><div class="detail-card"><div class="kicker">El lugar</div><div class="value">Quito, Ecuador</div><p class="venue-note">Los detalles de la ubicación se compartirán directamente con la familia.</p></div>
-<div class="rsvp" id="rsvp"><div class="kicker">Un día que guardaremos para siempre</div><h2>Nos hará felices tenerte aquí</h2><p>Gracias por ser parte de nuestra historia y acompañarnos en este momento tan especial.</p><div style="max-width:410px;margin:30px auto 0"><button type="button" class="cta" id="confirmar" style="width:100%">Confirmar mi asistencia</button><p id="rsvpStatus" class="status" role="status" aria-live="polite"></p></div></div><div class="closing">Con amor, Carolina &amp; Alexander ♡</div><div class="actions"><button class="smallbtn" id="back" type="button">Volver al sobre</button><button class="smallbtn" id="share" type="button">Compartir carta</button></div></section></main>
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual-meta {z-index:3;}
+@media (max-width:760px){
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal {
+    object-fit:contain; object-position:center center;
+  }
+}
+</style>
+<style id="atelier-lugar-editorial-v13">
+/* PRUEBA ATELIER · Foto vertical al borde izquierdo y panel contiguo. */
+@media (min-width:761px){
+  #eventoSeccion.evento-atelier-lugar-v11{
+    grid-template-columns:minmax(260px,28%) minmax(0,72%);
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual{
+    background:#39271f;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual::before{
+    display:none !important;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal{
+    inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center center;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-editorial{
+    min-width:0;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-editorial-inner{
+    min-height:100svh;
+    grid-template-columns:minmax(0,1.3fr) minmax(180px,.75fr);
+    gap:clamp(28px,3.5vw,64px);
+    padding:clamp(38px,5vh,65px) clamp(32px,4vw,76px);
+    align-items:center;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-info{
+    display:flex; flex-direction:column; align-items:flex-start;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-capitulo{
+    margin-bottom:clamp(28px,5vh,55px);
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-titulo{
+    font-size:clamp(38px,3.4vw,62px);
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-hora{
+    font-size:clamp(54px,5vw,78px);
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-jardin{
+    width:100%; max-width:300px; justify-self:center;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-jardin img{
+    max-height:42svh;
+  }
+}
+@media (min-width:761px) and (max-width:1100px){
+  #eventoSeccion.evento-atelier-lugar-v11{
+    grid-template-columns:minmax(225px,30%) minmax(0,70%);
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-editorial-inner{
+    grid-template-columns:minmax(0,1fr) minmax(130px,.6fr);
+    gap:20px; padding:32px 28px;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-titulo{
+    font-size:clamp(34px,3.6vw,48px);
+  }
+}
+@media (max-width:760px){
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual::before{
+    display:none !important;
+  }
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal{
+    object-fit:cover; object-position:center 30%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musicaBoda" preload="auto" loop>
+  <source src="cancion-boda.mp3" type="audio/mpeg">
+</audio>
+
+<button
+  class="musica-control"
+  id="musicaControl"
+  type="button"
+  aria-label="Pausar música"
+></button>
+
+
+
+<section class="portada portada-atelier-real" id="portada">
+
+  <div class="atelier-meta atelier-meta-left">
+    <span>NUESTRA</span><span>HISTORIA</span><span>CONTINÚA</span>
+    <i></i>
+  </div>
+
+  <div class="atelier-meta atelier-meta-center">
+    CAROLINA &amp; ALEXANDER
+  </div>
+
+  <div class="atelier-meta atelier-meta-right">
+    <span>14 · 11 · 2026</span>
+    <span>QUITO, ECUADOR</span>
+    <i></i>
+  </div>
+
+  <div class="atelier-side atelier-side-left">
+    <span>AMOR</span><b>•</b><span>FAMILIA</span><b>•</b>
+    <span>AMIGOS</span><b>•</b><span>SIEMPRE</span>
+  </div>
+
+  <div class="atelier-side atelier-side-right">
+    <i></i><b>♥</b><i class="short"></i>
+    <span>JUNTOS</span><span>SIEMPRE</span>
+  </div>
+
+  <div class="atelier-panel">
+
+    <div class="atelier-monogram">
+      <span>C</span><i></i><span>A</span>
+    </div>
+
+    <svg class="atelier-sprig atelier-sprig-fina atelier-sprig-v9" viewBox="0 0 150 50" aria-hidden="true">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path class="sprig-main" d="M28 35 C58 34 87 28 124 18"/>
+    <path class="sprig-leaf" d="M58 32 C49 24 43 23 38 25 C43 31 49 34 58 32 Z"/>
+    <path class="sprig-leaf" d="M82 28 C79 18 82 12 88 9 C90 17 88 23 82 28 Z"/>
+    <path class="sprig-leaf" d="M105 23 C113 14 120 13 126 15 C121 21 114 24 105 23 Z"/>
+  </g>
+</svg>
+
+    <div id="cargando" class="atelier-loading">Preparando tu invitación...</div>
+
+    <div id="contenidoInvitado" class="atelier-guest">
+      <div class="texto-invitacion atelier-welcome">BIENVENIDO</div>
+      <div id="nombreInvitado"></div>
+      <div class="atelier-rule"></div>
+      <div id="cupos"></div>
+
+      <button class="boton atelier-enter" id="abrirInvitacion" type="button">
+        ABRIR INVITACIÓN <span>→</span>
+      </button>
+    </div>
+
+    <div id="error" class="atelier-error">
+      No pudimos encontrar esta invitación.
+      <br>
+      Revisa que hayas abierto el enlace correcto.
+    </div>
+
+  </div>
+
+  <div class="atelier-chapter">
+    <i></i>
+    UN NUEVO CAPÍTULO JUNTOS
+  </div>
+
+</section>
+
+
+
+<section class="segunda-seccion" id="segundaSeccion">
+
+  <div class="segunda-contenido">
+
+    <div class="segunda-editorial-head">
+      <div class="segunda-numero">02 /</div>
+      <div class="segunda-capitulo">NUESTRO<br>VÍNCULO</div>
+      <div class="segunda-mini-linea"></div>
+      <div class="segunda-nombres">CAROLINA &amp;<br>ALEXANDER</div>
+    </div>
+
+    <div class="segunda-verso-wrap">
+      <blockquote class="versiculo">
+        <span class="verso-linea">“Y sobre todas estas cosas,</span>
+        <span class="verso-linea verso-cursiva">vestíos de amor,</span>
+        <span class="verso-linea">que es el vínculo perfecto.”</span>
+      </blockquote>
+      <div class="referencia">COLOSENSES 3:14 &nbsp;·&nbsp; 14 NOV 2026</div>
+      <div class="linea-fecha"></div>
+    </div>
+
+    <div class="segunda-side" aria-hidden="true">
+      <div class="segunda-side-line"></div>
+      <span>AMOR</span>
+      <span>COMPROMISO</span>
+      <span>SIEMPRE</span>
+      <span class="segunda-side-heart">♥</span>
+      <div class="segunda-side-line"></div>
+    </div>
+
+    <div class="desliza">CONTINÚA</div>
+    <div class="flecha">↓</div>
+
+  </div>
+
+</section>
+
+
+<section class="tercera-seccion scroll-section" id="cuentaRegresiva">
+  <div class="tercera-editorial">
+    <div class="espera-kicker">
+      <div class="espera-numero">03 /</div>
+      <div class="espera-kicker-texto">LA ESPERA</div>
+      <div class="espera-kicker-linea"></div>
+    </div>
+
+    <div class="espera-main">
+      <h2 class="espera-titulo">Cada día<em>un poco más cerca.</em></h2>
+
+      <div class="contador" aria-label="Cuenta regresiva para nuestra boda">
+        <div class="contador-item">
+          <span class="contador-numero" id="dias">00</span>
+          <span class="contador-label">Días</span>
+        </div>
+        <div class="contador-item">
+          <span class="contador-numero" id="horas">00</span>
+          <span class="contador-label">Horas</span>
+        </div>
+        <div class="contador-item">
+          <span class="contador-numero" id="minutos">00</span>
+          <span class="contador-label">Minutos</span>
+        </div>
+        <div class="contador-item">
+          <span class="contador-numero" id="segundos">00</span>
+          <span class="contador-label">Segundos</span>
+        </div>
+      </div>
+
+      <div class="espera-cierre">
+        <div class="espera-cierre-linea"></div>
+        <div class="gran-dia">para nuestro gran día</div>
+      </div>
+    </div>
+
+    <aside class="espera-lateral" aria-hidden="true">
+      <div class="espera-nombres">
+        <span>CAROLINA</span>
+        <span class="espera-nombres-linea"></span>
+        <span class="espera-corazon">♥</span>
+        <span class="espera-nombres-linea"></span>
+        <span>ALEXANDER</span>
+      </div>
+      <div class="espera-fecha-lateral">
+        <span class="espera-fecha-linea"></span>
+        <span class="espera-fecha">14<br>NOV<br>2026</span>
+        <span class="espera-fecha-linea"></span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+<section class="evento-seccion evento-atelier evento-atelier-lugar-v11" id="eventoSeccion">
+  <div class="evento-visual">
+    <img src="F1.jpeg" class="evento-visual-principal" alt="Carolina y Alexander">
+    <div class="evento-visual-overlay"></div>
+    <div class="evento-visual-meta evento-visual-meta-top">QUITO · ECUADOR</div>
+    <div class="evento-visual-meta evento-visual-meta-bottom">14 NOV 2026</div>
+  </div>
+
+  <div class="evento-editorial">
+    <div class="evento-editorial-inner">
+      <div class="evento-info">
+        <div class="evento-capitulo">
+          <span class="evento-numero">04 /</span>
+          <span class="evento-capitulo-titulo">EL LUGAR</span>
+          <span class="evento-capitulo-linea"></span>
+        </div>
+
+        <div class="evento-etiqueta">Aquí celebraremos<br>nuestro sí</div>
+        <h2 class="evento-titulo">Karla Ramírez</h2>
+        <div class="evento-subtitulo">Event Studio · La Solé</div>
+        <div class="evento-linea"></div>
+
+        <div class="evento-hora-fila">
+          <span class="evento-reloj" aria-hidden="true">◷</span>
+          <div>
+            <div class="evento-hora">16:30</div>
+            <div class="evento-tipo">Ceremonia &amp; Recepción</div>
+          </div>
+        </div>
+
+        <div class="evento-ubicacion">
+          <div class="evento-ciudad"><span aria-hidden="true">●</span> QUITO · ECUADOR</div>
+          <div class="evento-direccion">
+            <span>Av. Gral. Rumiñahui S/N<br>171103 Quito</span>
+          </div>
+        </div>
+
+        <div class="evento-links">
+          <a href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6" target="_blank" rel="noopener" class="evento-link">
+            <span>CÓMO LLEGAR</span><span>↗</span>
+          </a>
+          <button type="button" onclick="agregarAlCalendario()" class="evento-link evento-link-button">
+            <span>AGREGAR AL CALENDARIO</span><span>+</span>
+          </button>
+        </div>
+
+        <div class="evento-nota">14 · 11 · 2026</div>
+      </div>
+
+      <figure class="evento-jardin">
+        <img src="JARDIN.png" alt="Jardín de Karla Ramírez Event Studio · La Solé">
+        <figcaption>Un lugar donde los grandes momentos<br>se vuelven eternos.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="dress-seccion scroll-section" id="dressSeccion">
+
+  <img class="dress-rama dress-rama-izquierda" src="rama_izquierda.webp" decoding="async" alt="" aria-hidden="true" loading="eager">
+  <img class="dress-rama dress-rama-derecha" src="rama_derecha.webp" decoding="async" alt="" aria-hidden="true" loading="eager">
+
+  <div class="dress-contenido">
+
+    <div class="dress-etiqueta">CÓDIGO DE VESTIMENTA</div>
+    <h2 class="dress-titulo">Dress Code</h2>
+    <div class="dress-formal">Elegante / Formal</div>
+    <div class="dress-linea"></div>
+
+    <div class="dress-opciones">
+
+      <div class="dress-item">
+        <div class="dress-icono"><img src="terno.webp" decoding="async" alt="Ilustración de traje formal para caballeros" loading="eager"></div>
+        <div class="dress-genero">CABALLEROS</div>
+        <div class="dress-descripcion">Traje formal</div>
+      </div>
+
+      <div class="dress-item">
+        <div class="dress-icono"><img src="vestido.webp" decoding="async" alt="Ilustración de vestido elegante para damas" loading="eager"></div>
+        <div class="dress-genero">DAMAS</div>
+        <div class="dress-descripcion">Vestido largo o midi elegante</div>
+      </div>
+
+    </div>
+
+    <div class="reservados">
+      <div class="reservados-titulo">COLORES RESERVADOS PARA LOS NOVIOS</div>
+
+      <div class="paleta-reservada">
+        <div class="color-reservado color-blanco"></div>
+        <div class="color-reservado color-marfil"></div>
+        <div class="color-reservado color-beige"></div>
+      </div>
+
+      <div class="reservados-texto">
+        Con cariño, les pedimos reservar el
+        <strong>blanco, el beige y sus tonalidades</strong>
+        exclusivamente para los novios.
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="regalos-seccion scroll-section" id="regalosSeccion">
+  <div class="atelier-regalos-rama atelier-regalos-rama-izq" aria-hidden="true"><img src="rama_izquierda.webp" alt="" loading="lazy"></div>
+  <div class="atelier-regalos-rama atelier-regalos-rama-der" aria-hidden="true"><img src="rama_derecha.webp" alt="" loading="lazy"></div>
+  <div class="regalos-contenido">
+    <div class="regalos-icono">♡</div>
+    <div class="regalos-numero">06</div>
+    <div class="regalos-etiqueta">UN DETALLE PARA NOSOTROS</div>
+    <h2 class="regalos-titulo">Regalos</h2>
+    <div class="regalos-linea"></div>
+    <div class="regalos-texto"><em>Tu presencia es el regalo más especial.</em><br>Si deseas tener un detalle adicional, te compartimos estas opciones con mucho cariño.</div>
+    <div class="bancos-preview">
+      <button class="banco-preview" type="button" data-banco="pichincha" aria-label="Ver datos de Banco Pichincha">
+        <span class="banco-icono" aria-hidden="true">♧</span>
+        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Pichincha</span><span class="banco-preview-titular">González Almeida Carolina Pricila</span></span>
+        <span class="banco-preview-flecha" aria-hidden="true">›</span>
+      </button>
+      <button class="banco-preview" type="button" data-banco="guayaquil" aria-label="Ver datos de Banco Guayaquil">
+        <span class="banco-icono" aria-hidden="true">♧</span>
+        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Guayaquil</span><span class="banco-preview-titular">Mendoza Pérez Darling Alexander</span></span>
+        <span class="banco-preview-flecha" aria-hidden="true">›</span>
+      </button>
+    </div>
+    <div class="regalo-nota-bloque"><p class="regalo-nota-pregunta">¿Deseas dejarnos una nota sobre tu regalo?</p>
+      <button class="regalo-nota-boton" id="abrirNotaRegalo" type="button">DEJAR UNA NOTA &nbsp; ›</button>
+      <div class="regalo-nota-estado" id="estadoNotaRegalo"></div>
+    </div>
+    <div class="regalos-nota">GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO</div>
+  </div>
+</section>
+
+
+<section class="rsvp-seccion scroll-section" id="rsvpSeccion">
+
+  <div class="scroll-botanical botanica-izq">
+    <svg viewBox="0 0 260 540">
+      <path class="scroll-tallo" d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10" />
+      <path class="scroll-rama" d="M70 360 C44 345 28 320 20 292" />
+      <path class="scroll-rama" d="M145 165 C170 150 190 125 200 98" />
+      <ellipse class="scroll-hoja" data-start=".22" cx="26" cy="286" rx="10" ry="23" />
+      <ellipse class="scroll-hoja" data-start=".55" cx="202" cy="92" rx="10" ry="22" />
+    </svg>
+  </div>
+
+  <div class="scroll-botanical botanica-der">
+    <svg viewBox="0 0 250 520">
+      <path class="scroll-tallo" d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520" />
+      <path class="scroll-rama" d="M185 185 C210 167 225 145 230 115" />
+      <path class="scroll-rama" d="M92 405 C68 385 55 360 52 330" />
+      <ellipse class="scroll-hoja" data-start=".3" cx="228" cy="110" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".65" cx="55" cy="325" rx="10" ry="23" />
+    </svg>
+  </div>
+
+  <div class="rsvp-contenido">
+
+    <div class="rsvp-icono">♡</div>
+    <div class="rsvp-etiqueta">NUESTRO GRAN DÍA</div>
+    <h2 class="rsvp-titulo">Confirma tu asistencia</h2>
+    <div class="rsvp-subtitulo">Nos encantará compartir este momento contigo.</div>
+    <div class="rsvp-linea"></div>
+
+    <div class="rsvp-panel" id="rsvpPanel">
+
+      <div class="rsvp-invitado-label">INVITACIÓN PARA</div>
+      <div class="rsvp-invitado" id="rsvpNombre"></div>
+      <div class="rsvp-cupos" id="rsvpCupos"></div>
+      <div class="rsvp-ornamento" aria-hidden="true"><span></span>♡<span></span></div><div class="rsvp-pregunta">¿Nos acompañarás?</div>
+
+      <div class="rsvp-opciones">
+        <button class="rsvp-opcion" id="rsvpSi" type="button"><span class="rsvp-boton-icono" aria-hidden="true">✓</span>SÍ, ASISTIRÉ</button>
+        <button class="rsvp-opcion" id="rsvpNo" type="button"><span class="rsvp-boton-icono" aria-hidden="true">×</span>NO PODRÉ ASISTIR</button>
+      </div>
+
+      <div class="rsvp-detalles" id="rsvpDetalles">
+
+        <div class="asistentes-label">¿CUÁNTAS PERSONAS ASISTIRÁN?</div>
+
+        <div class="asistentes-selector" id="asistentesSelector"></div>
+        <div class="acompanantes-contenedor" id="acompanantesContenedor"></div>
+
+      </div>
+
+      <div class="rsvp-mensaje" id="rsvpMensaje"></div>
+
+      <button class="rsvp-confirmar" id="rsvpConfirmar" type="button">
+        CONFIRMAR ASISTENCIA
+      </button>
+
+    </div>
+
+    <div class="rsvp-resultado" id="rsvpResultado">
+
+      <div class="rsvp-resultado-icono" id="rsvpResultadoIcono">♡</div>
+      <div class="rsvp-resultado-titulo" id="rsvpResultadoTitulo"></div>
+      <div class="rsvp-resultado-texto" id="rsvpResultadoTexto"></div>
+
+      <button
+        class="rsvp-calendario"
+        id="rsvpCalendario"
+        type="button"
+        onclick="agregarAlCalendario()"
+      >
+        ♡ &nbsp; AGREGAR AL CALENDARIO
+      </button>
+
+      <button class="rsvp-modificar" id="rsvpModificar" type="button">
+        MODIFICAR RESPUESTA
+      </button>
+
+    </div>
+    <div class="rsvp-cierre" aria-hidden="true"><span class="rsvp-cierre-rama">❧</span><span>GRACIAS POR SER PARTE DE NUESTRA HISTORIA</span></div>
+  </div>
+
+</section>
+
+
+
+<section class="final-seccion" id="finalSeccion">
+
+  <div class="final-velo-animado" aria-hidden="true"></div>
+
+  <div class="final-botanica final-botanica-izq">
+    <svg viewBox="0 0 240 360">
+      <path d="M18 355 C42 294 57 245 82 195 C108 143 137 93 190 22" />
+      <path d="M55 267 C37 252 27 233 23 212" />
+      <path d="M91 178 C69 164 56 147 49 126" />
+      <path d="M127 111 C149 100 166 84 179 63" />
+      <ellipse cx="27" cy="214" rx="8" ry="18" />
+      <ellipse cx="57" cy="140" rx="8" ry="19" />
+      <ellipse cx="160" cy="86" rx="8" ry="18" />
+      <ellipse cx="83" cy="199" rx="7" ry="16" />
+    </svg>
+  </div>
+
+  <div class="final-botanica final-botanica-der">
+    <svg viewBox="0 0 240 360">
+      <path d="M18 355 C42 294 57 245 82 195 C108 143 137 93 190 22" />
+      <path d="M55 267 C37 252 27 233 23 212" />
+      <path d="M91 178 C69 164 56 147 49 126" />
+      <path d="M127 111 C149 100 166 84 179 63" />
+      <ellipse cx="27" cy="214" rx="8" ry="18" />
+      <ellipse cx="57" cy="140" rx="8" ry="19" />
+      <ellipse cx="160" cy="86" rx="8" ry="18" />
+      <ellipse cx="83" cy="199" rx="7" ry="16" />
+    </svg>
+  </div>
+
+  <div class="final-contenido">
+
+    <div class="final-etiqueta">GRACIAS POR SER PARTE</div>
+
+    <h2 class="final-titulo">
+      de nuestra <span>historia</span>
+    </h2>
+
+    <div class="final-separador"></div>
+
+    <div class="final-texto">
+      Hay momentos que se vuelven eternos
+      por las personas con quienes los compartimos.
+    </div>
+
+    <div class="final-texto">
+      Nos hará muy felices celebrar este día junto a ustedes.
+    </div>
+
+    <div class="final-nombres">
+      Carolina & Alexander
+    </div>
+
+    <div class="final-fecha">
+      14 · 11 · 2026
+    </div>
+
+    <div class="final-cierre" id="finalCierre">
+      Esperamos celebrar este día junto a ti ♡
+    </div>
+
+    <div class="final-monograma">
+      C♡A
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<div class="modal-nota-regalo" id="modalNotaRegalo">
+
+  <div class="modal-nota-caja">
+
+    <button class="modal-nota-cerrar" id="cerrarNotaRegalo" type="button">×</button>
+
+    <h3 class="modal-nota-titulo">Unas palabras para nosotros</h3>
+
+    <div class="modal-nota-subtitulo">
+      Nos encantará guardar tus palabras como parte de este momento.
+    </div>
+
+    <textarea
+      class="nota-regalo-textarea"
+      id="notaRegaloTexto"
+      maxlength="500"
+      placeholder="Escribe aquí tu mensaje..."
+    ></textarea>
+
+    <div class="nota-regalo-contador" id="notaRegaloContador">0 / 500</div>
+
+    <button class="nota-regalo-enviar" id="enviarNotaRegalo" type="button">
+      ENVIAR NOTA
+    </button>
+
+    <div class="nota-regalo-mensaje" id="notaRegaloMensaje"></div>
+
+  </div>
+
+</div>
+
+
+<div class="modal-bancos" id="modalBancos" role="dialog" aria-modal="true" aria-labelledby="tituloModalBanco">
+  <div class="modal-caja atelier-modal-caja">
+    <button class="modal-cerrar" id="cerrarModalBancos" type="button" aria-label="Cerrar">×</button>
+    <div class="atelier-modal-eyebrow">UN DETALLE PARA NOSOTROS</div>
+    <h3 class="modal-titulo" id="tituloModalBanco">Datos para transferencia</h3>
+    <p class="modal-texto" id="modalBancoEstado" aria-live="polite">Consultando datos de la cuenta…</p>
+    <div id="datosBancarios"><div class="datos-bancos-grid" id="datosBancosGrid"></div></div>
+  </div>
+</div>
+
 <script>
-const cartas={
-  "AnaP": {
-    "saludo": "Querida mamá,",
-    "parrafos": [
-      "Antes de comenzar una nueva etapa de mi vida, quiero detenerme un momento para agradecerte por todo lo que has hecho por mí.",
-      "Hoy entiendo que detrás de cada paso que he dado hubo muchos sacrificios tuyos que quizá nunca llegué a conocer. Muchas veces dejaste tus propias necesidades para atender las mías y, aun en los días difíciles, encontraste la manera de darme amor.",
-      "Tal vez no te lo he dicho tantas veces como debería, pero gran parte de la persona que soy hoy existe gracias a ti.",
-      "Ahora que estoy por formar mi propia familia, comprendo un poquito más lo que significa amar, cuidar y estar presente, incluso cuando no es fácil.",
-      "Por eso, en uno de los días más importantes de mi vida, no podría imaginarme sin ti a mi lado.",
-      "Mamá, antes de que yo comenzara a construir mi propia historia, tú ya habías entregado tanto de la tuya por mí. Gracias por ser mi hogar mucho antes de que yo supiera lo que significaba esa palabra."
-    ],
-    "firma": "Con todo mi amor, tu hijo, Alexander."
+
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
+
+/* Invitaciones y RSVP conectados a Supabase. */
+const SUPABASE_URL = "https://vgoooyctkzvaeknrlzvu.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_X8f3MFYjB1DFVKqo40xajA_6PA3AMFE";
+const EVENTO_SUPABASE = "caro_alex";
+
+async function llamarSupabaseRPC(funcion, parametrosRPC) {
+  const respuesta = await fetch(
+    SUPABASE_URL + "/rest/v1/rpc/" + funcion,
+    {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_PUBLISHABLE_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(parametrosRPC || {}),
+      cache: "no-store"
+    }
+  );
+
+  if (!respuesta.ok) {
+    let detalle = "";
+    try { detalle = await respuesta.text(); } catch (e) {}
+    throw new Error(
+      "Supabase " + respuesta.status +
+      (detalle ? ": " + detalle : "")
+    );
+  }
+
+  return await respuesta.json();
+}
+
+const parametros =
+new URLSearchParams(window.location.search);
+
+function obtenerCodigoInvitacion() {
+
+  // 1. Compatibilidad con enlaces antiguos:
+  // ?i=CYA022 o ?codigo=CYA022
+  const codigoQuery =
+    parametros.get("i") ||
+    parametros.get("codigo");
+
+  if (codigoQuery) {
+    return String(codigoQuery).trim().toUpperCase();
+  }
+
+  // 2. Si 404.html nos redirigió internamente,
+  // recuperamos el código sin mostrar ?i= en la URL.
+  const codigoGuardado =
+    sessionStorage.getItem("codigoInvitacion");
+
+  if (codigoGuardado) {
+    sessionStorage.removeItem("codigoInvitacion");
+    return String(codigoGuardado).trim().toUpperCase();
+  }
+
+  // 3. Acceso directo con URL bonita:
+  // carolinayalexander.com/CYA022
+  // En GitHub Pages también soporta:
+  // .../invitaci-n-boda/CYA022
+  const segmentos =
+    window.location.pathname
+      .split("/")
+      .filter(Boolean);
+
+  if (segmentos.length > 0) {
+
+    const ultimo =
+      decodeURIComponent(
+        segmentos[segmentos.length - 1]
+      )
+      .trim();
+
+    // Evita interpretar nombres de archivos como códigos.
+    if (
+      ultimo &&
+      !ultimo.includes(".") &&
+      ultimo.toLowerCase() !== "invitaci-n-boda"
+    ) {
+      return ultimo.toUpperCase();
+    }
+  }
+
+  return "";
+}
+
+const codigo = obtenerCodigoInvitacion();
+
+// Si venimos del 404 interno, recuperamos la URL bonita.
+const rutaBonitaPendiente =
+sessionStorage.getItem("rutaBonitaInvitacion");
+
+if (rutaBonitaPendiente) {
+  sessionStorage.removeItem("rutaBonitaInvitacion");
+  history.replaceState(
+    null,
+    "",
+    rutaBonitaPendiente
+  );
+}
+
+let invitadoActual = null;
+let respuestaRSVP = "";
+let cantidadAsistentes = 1;
+let invitadoCargado = false;
+
+
+/* =========================================================
+   MÚSICA
+========================================================= */
+
+const musicaBoda =
+document.getElementById("musicaBoda");
+
+const musicaControl =
+document.getElementById("musicaControl");
+
+function mostrarMusicaSonando() {
+  musicaControl.style.display = "flex";
+  musicaControl.classList.remove("pausada");
+  musicaControl.classList.add("sonando");
+}
+
+function mostrarMusicaPausada() {
+  musicaControl.style.display = "flex";
+  musicaControl.classList.remove("sonando");
+  musicaControl.classList.add("pausada");
+}
+
+function iniciarMusica() {
+  musicaBoda.volume = .55;
+  musicaBoda.loop = true;
+
+  const intento = musicaBoda.play();
+
+  if (intento && typeof intento.then === "function") {
+    intento
+    .then(function () {
+      mostrarMusicaSonando();
+    })
+    .catch(function (error) {
+      console.log("Audio bloqueado:", error);
+      mostrarMusicaPausada();
+    });
+  }
+}
+
+musicaControl.addEventListener("click", function () {
+
+  if (musicaBoda.paused) {
+    musicaBoda
+    .play()
+    .then(function () {
+      mostrarMusicaSonando();
+    })
+    .catch(function () {
+      mostrarMusicaPausada();
+    });
+  } else {
+    musicaBoda.pause();
+    mostrarMusicaPausada();
+  }
+
+});
+
+
+/* =========================================================
+   CALENDARIO
+   iPHONE / iPAD -> boda.ics REAL
+   ANDROID -> GOOGLE CALENDAR
+   PC / OTROS -> GOOGLE CALENDAR
+========================================================= */
+
+function esIOS() {
+
+  const ua =
+    navigator.userAgent || "";
+
+  return (
+    /iPad|iPhone|iPod/.test(ua) ||
+    (
+      navigator.platform === "MacIntel" &&
+      navigator.maxTouchPoints > 1
+    )
+  );
+
+}
+
+function esAndroid() {
+
+  return /Android/i.test(
+    navigator.userAgent || ""
+  );
+
+}
+
+function agregarAlCalendario() {
+
+  if (esIOS()) {
+    // iPhone / iPad: abre un archivo .ics real publicado por GitHub Pages.
+    // Usamos URL absoluta para evitar errores de ruta/404.
+    window.location.href =
+      (
+        window.location.hostname.endsWith("github.io")
+          ? window.location.origin + "/invitaci-n-boda/boda.ics?v=4"
+          : window.location.origin + "/boda.ics?v=4"
+      );
+    return;
+  }
+
+  // Android y computadora: Google Calendar.
+  abrirGoogleCalendar();
+}
+
+function abrirGoogleCalendar() {
+
+  const titulo =
+    "Carolina & Alexander | Nuestra Boda";
+
+  const ubicacion =
+    "Karla Ramírez Event Studio · La Solé, Av. Gral. Rumiñahui S/N, 171103 Quito";
+
+  const descripcion =
+    "Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.";
+
+  /*
+    Ecuador UTC-5:
+    16:30 Ecuador = 21:30 UTC.
+
+    Google Calendar exige inicio y fin para su
+    enlace web. Se utiliza una duración técnica
+    de una hora solo para abrir el formulario.
+  */
+
+  const inicio =
+    "20261114T213000Z";
+
+  const fin =
+    "20261114T223000Z";
+
+  const url =
+    "https://calendar.google.com/calendar/render" +
+    "?action=TEMPLATE" +
+    "&text=" +
+    encodeURIComponent(titulo) +
+    "&dates=" +
+    inicio +
+    "/" +
+    fin +
+    "&details=" +
+    encodeURIComponent(descripcion) +
+    "&location=" +
+    encodeURIComponent(ubicacion);
+
+  window.location.href = url;
+
+}
+
+
+/* =========================================================
+   JSONP
+========================================================= */
+
+/* Consulta JSONP eliminada: no se utiliza Google Apps Script. */
+
+
+/* =========================================================
+   CARGAR INVITADO
+========================================================= */
+
+async function cargarInvitado() {
+
+  if (!codigo) {
+    mostrarError(
+      "No encontramos un código de invitación en este enlace."
+    );
+    return;
+  }
+
+  try {
+    const filas = await llamarSupabaseRPC(
+      "obtener_invitado",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo
+      }
+    );
+
+    const invitado =
+      Array.isArray(filas) && filas.length
+      ? filas[0]
+      : null;
+
+    if (!invitado) {
+      mostrarError();
+      return;
+    }
+
+    recibirInvitado({
+      ok: true,
+      codigo: invitado.codigo,
+      invitado: invitado.nombre,
+      cupos: invitado.cupos,
+      estado: invitado.estado || "",
+      asisten: Number(invitado.asisten) || 0,
+      acompanantes: invitado.acompanantes || "",
+      notaRegalo: invitado.nota || ""
+    });
+
+  } catch (error) {
+    console.error("Error cargando invitado desde Supabase:", error);
+    mostrarError(
+      "No pudimos cargar tu invitación. Intenta recargar la página."
+    );
+  }
+}
+
+
+/* =========================================================
+   RECIBIR INVITADO
+========================================================= */
+
+function recibirInvitado(datos) {
+
+  if (invitadoCargado) {
+    return;
+  }
+
+  if (!datos || !datos.ok) {
+
+    mostrarError();
+
+    return;
+  }
+
+  invitadoCargado = true;
+  invitadoActual = datos;
+
+  document
+  .getElementById("nombreInvitado")
+  .textContent =
+  datos.invitado;
+
+  const cupos =
+  Number(datos.cupos) || 1;
+
+  const mensajeCupos =
+  cupos === 1
+  ? "Hemos reservado 1 lugar para ti"
+  : "Hemos reservado " +
+    cupos +
+    " lugares para ti";
+
+  document
+  .getElementById("cupos")
+  .textContent =
+  mensajeCupos;
+
+  document
+  .getElementById("rsvpNombre")
+  .textContent =
+  datos.invitado;
+
+  document
+  .getElementById("rsvpCupos")
+  .textContent =
+  mensajeCupos;
+
+  document
+  .getElementById("cargando")
+  .style.display =
+  "none";
+
+  document
+  .getElementById("error")
+  .style.display =
+  "none";
+
+  const contenidoInvitado =
+  document.getElementById("contenidoInvitado");
+
+  contenidoInvitado.style.display = "block";
+
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      contenidoInvitado.classList.add("revelar");
+    });
+  });
+
+  prepararRSVP();
+
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+function mostrarError(mensaje) {
+
+  document
+  .getElementById("cargando")
+  .style.display =
+  "none";
+
+  document
+  .getElementById("contenidoInvitado")
+  .style.display =
+  "none";
+
+  const error =
+  document.getElementById("error");
+
+  if (mensaje) {
+    error.innerHTML = mensaje;
+  }
+
+  error.style.display = "block";
+
+}
+
+
+/* =========================================================
+   ABRIR INVITACIÓN
+========================================================= */
+
+document
+.getElementById("abrirInvitacion")
+.addEventListener(
+  "click",
+  function () {
+
+    iniciarMusica();
+
+    const portada =
+    document.getElementById("portada");
+
+    portada.classList.add("saliendo");
+
+    setTimeout(
+      function () {
+
+        portada.style.display = "none";
+
+        document
+        .getElementById("segundaSeccion")
+        .style.display = "flex";
+
+        document
+        .getElementById("cuentaRegresiva")
+        .style.display = "flex";
+
+        document
+        .getElementById("eventoSeccion")
+        .style.display = "grid";
+
+        document
+        .getElementById("dressSeccion")
+        .style.display = "flex";
+
+        document
+        .getElementById("regalosSeccion")
+        .style.display = "flex";
+
+        document
+        .getElementById("rsvpSeccion")
+        .style.display = "flex";
+
+        window.scrollTo(0,0);
+
+        requestAnimationFrame(
+          function () {
+
+            document
+            .getElementById("segundaSeccion")
+            .classList.add("visible");
+
+            prepararBotanicasScroll();
+            actualizarBotanicasScroll();
+
+          }
+        );
+
+      },
+      700
+    );
+
+  }
+);
+
+
+/* =========================================================
+   BOTÁNICA POR SCROLL
+========================================================= */
+
+function prepararBotanicasScroll() {
+
+  document
+  .querySelectorAll(".scroll-botanical")
+  .forEach(
+    function (botanica) {
+
+      botanica
+      .querySelectorAll(".scroll-tallo, .scroll-rama")
+      .forEach(
+        function (camino) {
+
+          const longitud =
+          camino.getTotalLength();
+
+          camino.dataset.longitud =
+          longitud;
+
+          camino.style.strokeDasharray =
+          longitud;
+
+          camino.style.strokeDashoffset =
+          longitud;
+
+        }
+      );
+
+    }
+  );
+
+}
+
+function progresoSeccion(seccion) {
+
+  const rect =
+  seccion.getBoundingClientRect();
+
+  const h =
+  window.innerHeight;
+
+  let progreso =
+  (
+    h * .93 -
+    rect.top
+  ) /
+  (
+    h * .82
+  );
+
+  progreso =
+  Math.max(
+    0,
+    Math.min(1, progreso)
+  );
+
+  return progreso;
+
+}
+
+function actualizarBotanicasScroll() {
+
+  document
+  .querySelectorAll(".scroll-section")
+  .forEach(
+    function (seccion) {
+
+      const progreso =
+      progresoSeccion(seccion);
+
+      seccion
+      .querySelectorAll(".scroll-botanical")
+      .forEach(
+        function (botanica) {
+
+          botanica
+          .querySelectorAll(".scroll-tallo")
+          .forEach(
+            function (tallo) {
+
+              const longitud =
+              Number(tallo.dataset.longitud);
+
+              tallo.style.strokeDashoffset =
+              longitud *
+              (1 - progreso);
+
+            }
+          );
+
+          botanica
+          .querySelectorAll(".scroll-rama")
+          .forEach(
+            function (rama, indice) {
+
+              const longitud =
+              Number(rama.dataset.longitud);
+
+              const inicio =
+              .15 +
+              indice * .14;
+
+              const p =
+              Math.max(
+                0,
+                Math.min(
+                  1,
+                  (
+                    progreso -
+                    inicio
+                  ) /
+                  .32
+                )
+              );
+
+              rama.style.strokeDashoffset =
+              longitud *
+              (1 - p);
+
+            }
+          );
+
+          botanica
+          .querySelectorAll(".scroll-hoja")
+          .forEach(
+            function (hoja) {
+
+              const inicio =
+              Number(
+                hoja.dataset.start ||
+                .3
+              );
+
+              const p =
+              Math.max(
+                0,
+                Math.min(
+                  1,
+                  (
+                    progreso -
+                    inicio
+                  ) /
+                  .18
+                )
+              );
+
+              hoja.style.opacity =
+              p * .82;
+
+              hoja.style.transform =
+              "scale(" +
+              (
+                .08 +
+                .92 * p
+              ) +
+              ")";
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+}
+
+let pendienteScroll = false;
+
+window.addEventListener(
+  "scroll",
+  function () {
+
+    if (pendienteScroll) {
+      return;
+    }
+
+    pendienteScroll = true;
+
+    requestAnimationFrame(
+      function () {
+
+        actualizarBotanicasScroll();
+
+        pendienteScroll = false;
+
+      }
+    );
+
   },
-  "SantiagoP": {
-    "saludo": "Querido papá,",
-    "parrafos": [
-      "Hay cosas que uno comprende mejor cuando crece. Hoy, mientras me preparo para formar mi propia familia, pienso en todo lo que aprendí de ti, muchas veces sin que tuvieras que decir una sola palabra.",
-      "Pienso en tu esfuerzo, en tus consejos, en las veces que estuviste presente y en todas esas cosas que hiciste por mí sin esperar nada a cambio.",
-      "Quizá nunca te agradecí lo suficiente. A veces uno crece creyendo que sus padres siempre estarán ahí, sin darse cuenta de cuánto amor hay detrás de cada sacrificio.",
-      "Hoy estoy a punto de comenzar una nueva historia, y quiero llevar conmigo lo mejor de lo que me enseñaste.",
-      "Si algún día logro ser para mi familia la mitad del hombre que tú has sido para mí, sabré que he hecho las cosas bien.",
-      "Por eso quiero que estés conmigo el día de mi boda. No solamente como un invitado, sino como una de las personas que hicieron posible que llegara hasta aquí.",
-      "Porque antes de aprender a construir mi propio hogar, tuve la fortuna de crecer bajo tu cuidado."
-    ],
-    "firma": "Con todo mi cariño y gratitud, tu hijo, Alexander."
+  {
+    passive: true
+  }
+);
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+const rsvpSi =
+document.getElementById("rsvpSi");
+
+const rsvpNo =
+document.getElementById("rsvpNo");
+
+const rsvpDetalles =
+document.getElementById("rsvpDetalles");
+
+const rsvpConfirmar =
+document.getElementById("rsvpConfirmar");
+
+const rsvpMensaje =
+document.getElementById("rsvpMensaje");
+
+function prepararRSVP() {
+
+  if (!invitadoActual) {
+    return;
+  }
+
+  const estado =
+  String(
+    invitadoActual.estado ||
+    ""
+  )
+  .trim()
+  .toUpperCase();
+
+  if (
+    estado === "CONFIRMADO" ||
+    estado === "NO ASISTE"
+  ) {
+
+    mostrarRespuestaGuardada(false);
+
+  } else {
+
+    mostrarFormularioRSVP();
+
+  }
+
+}
+
+function mostrarFormularioRSVP() {
+
+  document
+  .getElementById("rsvpPanel")
+  .style.display =
+  "block";
+
+  document
+  .getElementById("rsvpResultado")
+  .style.display =
+  "none";
+
+  document
+  .getElementById("rsvpCalendario")
+  .style.display =
+  "none";
+
+  respuestaRSVP = "";
+  cantidadAsistentes = 1;
+
+  rsvpSi.classList.remove("seleccionado");
+  rsvpNo.classList.remove("seleccionado");
+
+  rsvpDetalles.style.display =
+  "none";
+
+  rsvpConfirmar.style.display =
+  "none";
+
+  rsvpMensaje.textContent = "";
+
+}
+
+rsvpSi.addEventListener(
+  "click",
+  function () {
+
+    respuestaRSVP = "SI";
+
+    rsvpSi.classList.add("seleccionado");
+    rsvpNo.classList.remove("seleccionado");
+
+    rsvpDetalles.style.display =
+    "block";
+
+    rsvpConfirmar.style.display =
+    "inline-block";
+
+    crearSelectorAsistentes();
+
+  }
+);
+
+rsvpNo.addEventListener(
+  "click",
+  function () {
+
+    respuestaRSVP = "NO";
+
+    rsvpNo.classList.add("seleccionado");
+    rsvpSi.classList.remove("seleccionado");
+
+    rsvpDetalles.style.display =
+    "none";
+
+    rsvpConfirmar.style.display =
+    "inline-block";
+
+  }
+);
+
+function crearSelectorAsistentes() {
+
+  const selector =
+  document.getElementById("asistentesSelector");
+
+  selector.innerHTML = "";
+
+  const cupos =
+  Number(invitadoActual.cupos) || 1;
+
+  for (
+    let i = 1;
+    i <= cupos;
+    i++
+  ) {
+
+    const boton =
+    document.createElement("button");
+
+    boton.type = "button";
+    boton.className = "asistente-numero";
+    boton.textContent = i;
+
+    if (i === cantidadAsistentes) {
+      boton.classList.add("seleccionado");
+    }
+
+    boton.addEventListener(
+      "click",
+      function () {
+
+        cantidadAsistentes = i;
+
+        crearSelectorAsistentes();
+        crearCamposAcompanantes();
+
+      }
+    );
+
+    selector.appendChild(boton);
+
+  }
+
+  crearCamposAcompanantes();
+
+}
+
+function crearCamposAcompanantes() {
+
+  const contenedor =
+  document.getElementById("acompanantesContenedor");
+
+  contenedor.innerHTML = "";
+
+  const cantidad =
+  Math.max(
+    0,
+    cantidadAsistentes - 1
+  );
+
+  for (
+    let i = 1;
+    i <= cantidad;
+    i++
+  ) {
+
+    const input =
+    document.createElement("input");
+
+    input.type = "text";
+    input.className = "acompanante-campo";
+
+    input.placeholder =
+    cantidad === 1
+    ? "Nombre completo de tu acompañante"
+    : "Nombre completo del acompañante " +
+      i;
+
+    contenedor.appendChild(input);
+
+  }
+
+}
+
+rsvpConfirmar.addEventListener(
+  "click",
+  guardarRSVP
+);
+
+async function guardarRSVP() {
+
+  if (!respuestaRSVP) {
+    rsvpMensaje.textContent =
+    "Selecciona una respuesta.";
+    return;
+  }
+
+  let acompanantes = [];
+
+  if (respuestaRSVP === "SI") {
+    const campos =
+    document.querySelectorAll(
+      ".acompanante-campo"
+    );
+
+    let incompleto = false;
+
+    campos.forEach(function (campo) {
+      const nombre = campo.value.trim();
+      if (!nombre) {
+        incompleto = true;
+      } else {
+        acompanantes.push(nombre);
+      }
+    });
+
+    if (incompleto) {
+      rsvpMensaje.textContent =
+      "Escribe el nombre completo de cada acompañante.";
+      return;
+    }
+  }
+
+  rsvpConfirmar.disabled = true;
+  rsvpMensaje.textContent =
+  "Guardando tu respuesta...";
+
+  const estado =
+    respuestaRSVP === "SI"
+    ? "CONFIRMADO"
+    : "NO ASISTE";
+
+  const asisten =
+    respuestaRSVP === "SI"
+    ? cantidadAsistentes
+    : 0;
+
+  const nombresAcompanantes =
+    respuestaRSVP === "SI"
+    ? acompanantes.join(", ")
+    : "";
+
+  try {
+    const guardado = await llamarSupabaseRPC(
+      "responder_invitacion",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo,
+        p_estado: estado,
+        p_asisten: asisten,
+        p_acompanantes: nombresAcompanantes || null,
+        p_nota: invitadoActual && invitadoActual.notaRegalo
+          ? invitadoActual.notaRegalo
+          : null
+      }
+    );
+
+    if (guardado !== true) {
+      rsvpConfirmar.disabled = false;
+      rsvpMensaje.textContent =
+      "No pudimos guardar tu respuesta.";
+      return;
+    }
+
+    recibirConfirmacion({
+      ok: true,
+      estado: estado,
+      asisten: asisten,
+      acompanantes: nombresAcompanantes
+    });
+
+  } catch (error) {
+    console.error("Error guardando RSVP en Supabase:", error);
+    rsvpConfirmar.disabled = false;
+    rsvpMensaje.textContent =
+    "No pudimos guardar tu respuesta. Intenta nuevamente.";
+  }
+}
+
+function recibirConfirmacion(datos) {
+
+  rsvpConfirmar.disabled = false;
+
+  if (!datos || !datos.ok) {
+
+    rsvpMensaje.textContent =
+    datos && datos.mensaje
+    ? datos.mensaje
+    : "No pudimos guardar tu respuesta.";
+
+    return;
+  }
+
+  invitadoActual.estado =
+  datos.estado;
+
+  invitadoActual.asisten =
+  datos.asisten;
+
+  invitadoActual.acompanantes =
+  datos.acompanantes || "";
+
+  mostrarRespuestaGuardada(true);
+
+}
+
+function mostrarRespuestaGuardada(desdeConfirmacion) {
+
+  document
+  .getElementById("rsvpPanel")
+  .style.display =
+  "none";
+
+  const resultado =
+  document.getElementById("rsvpResultado");
+
+  const botonCalendario =
+  document.getElementById("rsvpCalendario");
+
+  resultado.style.display =
+  "block";
+
+  const estado =
+  String(
+    invitadoActual.estado ||
+    ""
+  )
+  .toUpperCase();
+
+  if (estado === "CONFIRMADO") {
+
+    document
+    .getElementById("rsvpResultadoIcono")
+    .textContent =
+    "✓";
+
+    document
+    .getElementById("rsvpResultadoTitulo")
+    .textContent =
+    "¡Gracias, " +
+    invitadoActual.invitado +
+    "!";
+
+    const cantidad =
+    Number(invitadoActual.asisten) || 1;
+
+    if (cantidad === 1) {
+
+      document
+      .getElementById("rsvpResultadoTexto")
+      .textContent =
+      "Tu asistencia ha sido confirmada. Nos emociona compartir este día contigo.";
+
+    } else {
+
+      document
+      .getElementById("rsvpResultadoTexto")
+      .textContent =
+      "Hemos recibido tu confirmación para " +
+      cantidad +
+      " personas. Nos emociona compartir este día con ustedes.";
+
+    }
+
+    botonCalendario.style.display =
+    "block";
+
+    document
+    .getElementById("finalCierre")
+    .textContent =
+    "Nos vemos el 14 de noviembre ♡";
+
+  } else {
+
+    document
+    .getElementById("rsvpResultadoIcono")
+    .textContent =
+    "♡";
+
+    document
+    .getElementById("rsvpResultadoTitulo")
+    .textContent =
+    "Gracias por avisarnos";
+
+    document
+    .getElementById("rsvpResultadoTexto")
+    .textContent =
+    "Hemos registrado que no podrás acompañarnos.";
+
+    botonCalendario.style.display =
+    "none";
+
+    document
+    .getElementById("finalCierre")
+    .textContent =
+    "Gracias por ser parte de nuestra historia ♡";
+
+  }
+
+  if (desdeConfirmacion) {
+
+    const finalSeccion =
+    document.getElementById("finalSeccion");
+
+    /*
+      La página final NO forma parte del scroll normal.
+      Solo aparece después de guardar una confirmación.
+    */
+    finalSeccion.style.display = "flex";
+
+    setTimeout(
+      function () {
+
+        finalSeccion.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      },
+      1200
+    );
+
+  }
+
+}
+
+document
+.getElementById("rsvpModificar")
+.addEventListener(
+  "click",
+  function () {
+
+    document
+    .getElementById("finalSeccion")
+    .style.display =
+    "none";
+
+    mostrarFormularioRSVP();
+
+  }
+);
+
+
+
+/* =========================================================
+   NOTA SOBRE EL REGALO
+========================================================= */
+
+const modalNotaRegalo =
+document.getElementById("modalNotaRegalo");
+
+const notaRegaloTexto =
+document.getElementById("notaRegaloTexto");
+
+const notaRegaloContador =
+document.getElementById("notaRegaloContador");
+
+const notaRegaloMensaje =
+document.getElementById("notaRegaloMensaje");
+
+const estadoNotaRegalo =
+document.getElementById("estadoNotaRegalo");
+
+const botonAbrirNotaRegalo =
+document.getElementById("abrirNotaRegalo");
+
+const botonEnviarNotaRegalo =
+document.getElementById("enviarNotaRegalo");
+
+function abrirModalNotaRegalo() {
+
+  modalNotaRegalo.classList.add("activo");
+
+  notaRegaloMensaje.textContent = "";
+
+  setTimeout(function () {
+    notaRegaloTexto.focus();
+  }, 120);
+
+}
+
+function cerrarModalNotaRegalo() {
+  modalNotaRegalo.classList.remove("activo");
+}
+
+botonAbrirNotaRegalo.addEventListener(
+  "click",
+  abrirModalNotaRegalo
+);
+
+document
+.getElementById("cerrarNotaRegalo")
+.addEventListener(
+  "click",
+  cerrarModalNotaRegalo
+);
+
+modalNotaRegalo.addEventListener(
+  "click",
+  function (event) {
+
+    if (event.target === modalNotaRegalo) {
+      cerrarModalNotaRegalo();
+    }
+
+  }
+);
+
+notaRegaloTexto.addEventListener(
+  "input",
+  function () {
+
+    notaRegaloContador.textContent =
+    notaRegaloTexto.value.length +
+    " / 500";
+
+  }
+);
+
+async function guardarNotaRegalo() {
+
+  const nota = notaRegaloTexto.value.trim();
+
+  if (!nota) {
+    notaRegaloMensaje.textContent =
+    "Escribe unas palabras antes de enviar.";
+    notaRegaloTexto.focus();
+    return;
+  }
+
+  botonEnviarNotaRegalo.disabled = true;
+  notaRegaloMensaje.textContent =
+  "Guardando tu nota...";
+
+  try {
+    const guardado = await llamarSupabaseRPC(
+      "guardar_nota_regalo",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo,
+        p_nota: nota
+      }
+    );
+
+    if (guardado !== true) {
+      notaRegaloMensaje.textContent =
+      "No pudimos guardar tu nota. Inténtalo nuevamente.";
+      botonEnviarNotaRegalo.disabled = false;
+      return;
+    }
+
+    if (invitadoActual) {
+      invitadoActual.notaRegalo = nota;
+    }
+
+    notaRegaloMensaje.textContent =
+    "Gracias por tus palabras 🤍 Tu nota ha sido guardada.";
+
+    estadoNotaRegalo.textContent =
+    "TU NOTA HA SIDO GUARDADA ♡";
+
+    botonAbrirNotaRegalo.textContent =
+    "EDITAR MI NOTA";
+
+    setTimeout(function () {
+      cerrarModalNotaRegalo();
+    }, 1600);
+
+  } catch (error) {
+    console.error("Error guardando nota en Supabase:", error);
+    notaRegaloMensaje.textContent =
+    "No pudimos guardar tu nota. Revisa tu conexión e inténtalo nuevamente.";
+  } finally {
+    botonEnviarNotaRegalo.disabled = false;
+  }
+}
+
+botonEnviarNotaRegalo.addEventListener(
+  "click",
+  guardarNotaRegalo
+);
+
+
+/* =========================================================
+   BANCOS · Datos estáticos proporcionados por los novios.
+   Sin PIN, Apps Script ni solicitudes externas.
+========================================================= */
+const modalBancos = document.getElementById("modalBancos");
+const modalBancoEstado = document.getElementById("modalBancoEstado");
+const datosBancosGrid = document.getElementById("datosBancosGrid");
+const CUENTAS_BODA = {
+  pichincha: {
+    banco: "Banco Pichincha",
+    titular: "González Almeida Carolina Pricila",
+    tipoCuenta: "Cuenta de ahorros",
+    cuenta: "7702688193",
+    cedula: "1726921131"
   },
-  "GloriaA": {
-    "saludo": "Querida mamá,",
-    "parrafos": [
-      "Desde pequeña, siempre encontré en ti un lugar seguro. Tus brazos fueron mi refugio, tus palabras mi tranquilidad y tu amor una de las primeras cosas que aprendí a reconocer en este mundo.",
-      "Hoy, mientras me preparo para vivir uno de los días más importantes de mi vida, no puedo evitar pensar en aquella niña que alguna vez tomó tu mano para sentirse segura.",
-      "Esa niña ha crecido, mamá. Está a punto de casarse, de construir su propio hogar y de comenzar una historia junto a la persona que ama. Pero hay algo que nunca va a cambiar: siempre voy a necesitar un poquito de ti.",
-      "Ahora entiendo que ser mamá significa entregar partes de una misma sin esperar que alguien las devuelva. Y sé que detrás de la mujer que soy existen tantos esfuerzos, preocupaciones y muestras de amor tuyas que quizá nunca podré agradecerte por completo.",
-      "Por eso quiero que estés conmigo en este día tan especial. Porque mientras todos verán a una novia caminando hacia el altar, tú verás a la niña que un día llevaste de la mano.",
-      "Y aunque ese día comience una nueva etapa de mi vida, siempre habrá una parte de mí que seguirá siendo tu niña. Te amo, mamá."
-    ],
-    "firma": "Con todo mi corazón, tu hija, Carolina."
-  },
-  "OscarG": {
-    "saludo": "Querido papá,",
-    "parrafos": [
-      "Hay momentos en la vida que nos hacen mirar hacia atrás y recordar de dónde venimos. Para mí, uno de esos momentos ha llegado.",
-      "Estoy a punto de casarme, papá. Y aunque me emociona muchísimo comenzar esta nueva etapa, también me conmueve pensar en lo rápido que ha pasado el tiempo.",
-      "A veces quisiera regresar por un instante a aquellos días en los que era pequeña, cuando el mundo parecía enorme y tenerte cerca hacía que todo se sintiera un poco más sencillo.",
-      "Tal vez no siempre supe expresar cuánto significaban para mí tus esfuerzos, tus consejos y esas maneras tan tuyas de demostrarme cariño. Pero hoy quiero que sepas que cada una de esas cosas tiene un lugar especial en mi corazón.",
-      "Pronto estaré construyendo un hogar junto a Alexander, y deseo llevar a esa nueva familia todo lo bueno que aprendí de ti.",
-      "Por eso, cuando llegue el momento de celebrar nuestra boda, quiero mirarte y saber que estás ahí, compartiendo conmigo un sueño que también tiene un pedacito de tu historia.",
-      "Porque aunque la vida me lleve a construir mi propio camino, nunca dejaré de ser tu hija. Gracias por formar parte de la mujer que soy hoy."
-    ],
-    "firma": "Con todo mi amor, tu hija, Carolina."
+  guayaquil: {
+    banco: "Banco Guayaquil",
+    titular: "Mendoza Pérez Darling Alexander",
+    tipoCuenta: "Cuenta de ahorros",
+    cuenta: "0044038638",
+    cedula: "1753215993"
   }
 };
-const key=decodeURIComponent(location.pathname.replace(/\/+$/,'').split('/').pop()||'');
-const carta=cartas[key];
-if(!carta){document.querySelector('.intro-content').innerHTML='<div class="eyebrow">Invitación privada</div><h1>Este enlace no corresponde a una carta de honor.</h1><p>Comprueba el enlace que recibiste.</p>';}
-else {
- document.getElementById('saludo').textContent=carta.saludo;
- const texto=document.getElementById('textoCarta');
- carta.parrafos.forEach(p=>{const el=document.createElement('p');el.textContent=p;texto.appendChild(el)});
- document.getElementById('firma').textContent=carta.firma;
- document.querySelector('.intro h1').textContent='Tenemos una carta muy especial para ti';
+function crearDato(etiqueta, valor, copiar) {
+  const bloque = document.createElement("div"); bloque.className = "atelier-modal-dato";
+  const label = document.createElement("div"); label.className = "dato-label"; label.textContent = etiqueta;
+  const texto = document.createElement("div"); texto.className = "dato-valor"; texto.textContent = valor;
+  bloque.append(label, texto);
+  if (copiar) {
+    const boton = document.createElement("button"); boton.type = "button";
+    boton.className = "copiar-boton"; boton.textContent = "COPIAR " + etiqueta;
+    boton.addEventListener("click", () => copiarTexto(valor, boton));
+    bloque.appendChild(boton);
+  }
+  return bloque;
 }
-const intro=document.getElementById('intro'),letter=document.getElementById('letter'),story=document.getElementById('story');
-const openBtn=document.getElementById('open');let opening=false;
-openBtn.addEventListener('click',()=>{if(!carta||opening)return;opening=true;openBtn.disabled=true;intro.classList.add('opening');setTimeout(()=>{intro.classList.add('closed');letter.classList.add('visible');story.classList.add('visible');window.scrollTo({top:0,behavior:'instant'});opening=false;openBtn.disabled=false;},730)});
-document.getElementById('back').addEventListener('click',()=>{letter.classList.remove('visible');story.classList.remove('visible');intro.classList.remove('closed','opening');window.scrollTo({top:0,behavior:'instant'})});
-document.getElementById('share').addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title:'Una carta para ti · Carolina & Alexander',url:location.href})}catch{}}else{try{await navigator.clipboard.writeText(location.href);alert('Enlace copiado')}catch{alert(location.href)}}});
-// RSVP: se conecta al mismo evento de Supabase que la invitación original.
-const SUPABASE_URL='https://vgoooyctkzvaeknrlzvu.supabase.co';
-const SUPABASE_KEY='sb_publishable_X8f3MFYjB1DFVKqo40xajA_6PA3AMFE';
-const EVENTO='caro_alex';
-const status=document.getElementById('rsvpStatus');
-async function rpc(fn,params){const res=await fetch(SUPABASE_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify(params),cache:'no-store'});if(!res.ok)throw Error('No se pudo conectar con el servicio de confirmaciones');return res.json()}
-const confirmar=document.getElementById('confirmar');
-if(!carta){confirmar.hidden=true;}else{
-  async function obtener(){const rows=await rpc('obtener_invitado',{p_evento:EVENTO,p_codigo:key});return Array.isArray(rows)?rows[0]:null}
-  (async()=>{try{const inv=await obtener();if(inv&&String(inv.estado||'').toUpperCase()==='CONFIRMADO'){confirmar.textContent='Asistencia confirmada ✓';confirmar.disabled=true;status.textContent='Gracias por acompañarnos. ♡'}}catch(e){}})();
-  confirmar.addEventListener('click',async()=>{confirmar.disabled=true;confirmar.textContent='Confirmando…';status.textContent='';try{const inv=await obtener();if(!inv)throw Error('Invitación no encontrada');const result=await rpc('responder_invitacion',{p_evento:EVENTO,p_codigo:key,p_estado:'CONFIRMADO',p_asisten:1,p_acompanantes:null,p_nota:inv.nota||null});if(result!==true)throw Error('Respuesta no confirmada');confirmar.textContent='Asistencia confirmada ✓';status.textContent='Gracias por acompañarnos. Será un honor compartir este día contigo. ♡'}catch(e){confirmar.disabled=false;confirmar.textContent='Confirmar mi asistencia';status.textContent='No pudimos registrar tu confirmación. Inténtalo nuevamente.'}});
+function abrirBanco(clave) {
+  const banco = CUENTAS_BODA[clave];
+  if (!banco) return;
+  document.getElementById("tituloModalBanco").textContent = banco.banco;
+  modalBancos.classList.add("activo");
+  modalBancoEstado.textContent = "";
+  datosBancosGrid.replaceChildren();
+  datosBancosGrid.append(
+    crearDato("TITULAR", banco.titular, false),
+    crearDato("TIPO DE CUENTA", banco.tipoCuenta, false),
+    crearDato("NÚMERO DE CUENTA", banco.cuenta, true),
+    crearDato("NÚMERO DE CÉDULA", banco.cedula, true));
 }
-</script></body></html>
+document.querySelectorAll(".banco-preview[data-banco]").forEach(boton => boton.addEventListener("click", () => abrirBanco(boton.dataset.banco)));
+document.getElementById("cerrarModalBancos").addEventListener("click", () => modalBancos.classList.remove("activo"));
+modalBancos.addEventListener("click", e => { if (e.target === modalBancos) modalBancos.classList.remove("activo"); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") modalBancos.classList.remove("activo"); });
+
+function copiarTexto(texto, boton) {
+
+  navigator.clipboard
+  .writeText(texto)
+  .then(
+    function () {
+
+      const original =
+      boton.textContent;
+
+      boton.textContent =
+      "COPIADO ✓";
+
+      setTimeout(
+        function () {
+
+          boton.textContent =
+          original;
+
+        },
+        1300
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+const fechaBoda =
+new Date(
+  "2026-11-14T16:30:00-05:00"
+);
+
+function actualizarContador() {
+
+  let diferencia =
+  fechaBoda.getTime() -
+  Date.now();
+
+  diferencia =
+  Math.max(
+    0,
+    diferencia
+  );
+
+  const dias =
+  Math.floor(
+    diferencia /
+    86400000
+  );
+
+  const horas =
+  Math.floor(
+    diferencia %
+    86400000 /
+    3600000
+  );
+
+  const minutos =
+  Math.floor(
+    diferencia %
+    3600000 /
+    60000
+  );
+
+  const segundos =
+  Math.floor(
+    diferencia %
+    60000 /
+    1000
+  );
+
+  document
+  .getElementById("dias")
+  .textContent =
+  String(dias)
+  .padStart(2,"0");
+
+  document
+  .getElementById("horas")
+  .textContent =
+  String(horas)
+  .padStart(2,"0");
+
+  document
+  .getElementById("minutos")
+  .textContent =
+  String(minutos)
+  .padStart(2,"0");
+
+  document
+  .getElementById("segundos")
+  .textContent =
+  String(segundos)
+  .padStart(2,"0");
+
+}
+
+actualizarContador();
+
+setInterval(
+  actualizarContador,
+  1000
+);
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+cargarInvitado();
+
+</script>
+
+
+<script>
+(function(){
+  const portada = document.getElementById('portada');
+  if(!portada) return;
+
+  // Prepare before the first painted animation frame.
+  portada.classList.add('atelier-intro-ready');
+
+  const iniciarIntroAtelier = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        portada.classList.add('atelier-intro-play');
+      });
+    });
+  };
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', iniciarIntroAtelier, {once:true});
+  }else{
+    iniciarIntroAtelier();
+  }
+})();
+</script>
+
+</body>
+
+</html>
