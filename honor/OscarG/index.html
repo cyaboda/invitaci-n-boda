@@ -27,12 +27,46 @@
 @media(max-width:360px){.letter-content{padding-left:18%;padding-right:18%;padding-top:190px}.letter-content p{font-size:11px}}
 
 .map-link{display:inline-block;margin-top:14px;padding:13px 20px;border:1px solid #c66c47;border-radius:999px;color:#f9e9d8;text-decoration:none;font-size:13px;letter-spacing:.025em;background:rgba(198,108,71,.12)}.map-link:hover,.map-link:focus-visible{background:rgba(198,108,71,.25)}
-</style></head><body>
+</style><style>
+/* Reproductor personalizado de las cartas de honor */
+.honor-audio{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin:18px auto 25px;padding:13px 16px;max-width:410px;border:1px solid rgba(199,126,91,.38);border-radius:18px;background:rgba(26,20,18,.75);color:#f7e9dd;text-align:center;box-shadow:0 8px 26px #0002}
+.honor-audio-label{flex:1 1 100%;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e7c6b3}
+.honor-audio button{appearance:none;cursor:pointer;background:#b9694d;border:1px solid #d99576;border-radius:999px;color:#fff;padding:10px 15px;font:inherit;font-size:13px}
+.honor-audio button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.honor-audio-time{font-size:12px;font-variant-numeric:tabular-nums;min-width:84px}
+.honor-audio-note{font-size:11px;color:#e7c6b3;flex:1 1 100%}
+</style>
+</head><body>
 <img class="fold a" src="../pliegue_superior_izquierdo.webp" alt="" aria-hidden="true"><img class="fold b" src="../pliegue_inferior_derecho.webp" alt="" aria-hidden="true">
 <main><section class="intro" id="intro"><div class="intro-content"><div class="eyebrow">Una invitación de honor</div><div class="monogram">C<span>&</span>A</div><div class="names">CAROLINA & ALEXANDER</div><div class="line"></div><h1>Tenemos una carta muy especial para ti</h1><div class="envelope"><img src="../sobre_C_A.webp" alt="Sobre personalizado con sello C y A"></div><button class="cta" id="open" type="button">Abrir mi carta &nbsp; ›</button><span class="hint">Preparada con mucho cariño</span></div></section>
 <section class="letter-section" id="letter" aria-label="Carta personal"><div class="letter-wrap"><article class="letter-content"><h2 id="saludo">Para ti, con cariño</h2><div id="textoCarta"></div><p class="signature" id="firma"></p></article></div></section>
 <section class="story" id="story" aria-label="Detalles de la boda"><div class="kicker">Carolina &amp; Alexander</div><h2>Nos casamos</h2><p>Nos encantaría que nos acompañaras a celebrar el comienzo de esta nueva etapa.</p><div class="rule"></div><div class="detail-card"><div class="kicker">El día</div><div class="value">14 · 11 · 2026</div><div class="small">Sábado</div></div><div class="detail-card"><div class="kicker">Ceremonia &amp; Recepción</div><div class="value">16:30</div><div class="small">Te esperamos para compartir este día tan especial</div></div><div class="detail-card"><div class="kicker">El lugar</div><div class="value">Karla Ramírez</div><p class="venue-note">Event Studio · La Solé</p><p><a class="map-link" href="https://maps.app.goo.gl/CSXKojLs7EcYX1ad8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps ↗</a></p></div>
-<div class="rsvp" id="rsvp"><div class="kicker">Un día que guardaremos para siempre</div><h2>Nos hará felices tenerte aquí</h2><p>Gracias por ser parte de nuestra historia y acompañarnos en este momento tan especial.</p><div style="max-width:410px;margin:30px auto 0"><button type="button" class="cta" id="confirmar" style="width:100%">Confirmar mi asistencia</button><p id="rsvpStatus" class="status" role="status" aria-live="polite"></p></div></div><div class="closing">Con amor, Carolina &amp; Alexander ♡</div><div class="actions"><button class="smallbtn" id="back" type="button">Volver al sobre</button><button class="smallbtn" id="share" type="button">Compartir carta</button></div></section></main>
+<div class="rsvp" id="rsvp"><div class="kicker">Un día que guardaremos para siempre</div><h2>Nos hará felices tenerte aquí</h2><p>Gracias por ser parte de nuestra historia y acompañarnos en este momento tan especial.</p><div style="max-width:410px;margin:30px auto 0"><button type="button" class="cta" id="confirmar" style="width:100%">Confirmar mi asistencia</button><p id="rsvpStatus" class="status" role="status" aria-live="polite"></p></div></div><div class="closing">Con amor, Carolina &amp; Alexander ♡</div><div class="honor-audio" id="honorAudioPlayer" aria-label="Mensaje de voz personalizado">
+ <div class="honor-audio-label">Un mensaje de voz para ti ♡</div>
+ <button id="honorAudioToggle" type="button" aria-label="Pausar o reproducir mensaje">▶ Escuchar</button>
+ <button id="honorAudioReplay" type="button" aria-label="Volver a escuchar desde el principio">↺ Repetir</button>
+ <span id="honorAudioTime" class="honor-audio-time">0:00 / 0:00</span>
+ <span id="honorAudioNote" class="honor-audio-note" aria-live="polite"></span>
+ <audio id="honorAudio" preload="metadata" src="CAROLINA_PAPA.wav"></audio>
+ </div><div class="actions"><button class="smallbtn" id="back" type="button">Volver al sobre</button><button class="smallbtn" id="share" type="button">Compartir carta</button></div></section></main>
+<script>
+/* La reproducción comienza dentro del gesto del usuario (Safari/iOS). */
+const honorAudio=document.getElementById('honorAudio');
+const honorToggle=document.getElementById('honorAudioToggle');
+const honorReplay=document.getElementById('honorAudioReplay');
+const honorTime=document.getElementById('honorAudioTime');
+const honorNote=document.getElementById('honorAudioNote');
+function honorFormat(t){if(!Number.isFinite(t))return '0:00';const n=Math.floor(t);return Math.floor(n/60)+':'+String(n%60).padStart(2,'0')}
+function honorUpdate(){honorToggle.textContent=honorAudio.paused?'▶ Escuchar':'Ⅱ Pausar';honorTime.textContent=honorFormat(honorAudio.currentTime)+' / '+honorFormat(honorAudio.duration)}
+honorAudio.loop=false;
+honorAudio.removeAttribute('loop');
+function honorPlay(){honorNote.textContent='';const attempt=honorAudio.play();if(attempt&&typeof attempt.catch==='function')attempt.catch(()=>{honorNote.textContent='Toca «Escuchar» para reproducir el mensaje.';honorUpdate()});honorUpdate()}
+honorToggle.addEventListener('click',()=>{if(honorAudio.paused)honorPlay();else{honorAudio.pause();honorUpdate()}});
+honorReplay.addEventListener('click',()=>{honorAudio.currentTime=0;honorPlay()});
+['timeupdate','loadedmetadata','play','pause','ended'].forEach(ev=>honorAudio.addEventListener(ev,honorUpdate));
+honorAudio.addEventListener('ended',()=>{honorAudio.pause();honorNote.textContent='Mensaje finalizado ♡';honorUpdate()});
+honorAudio.addEventListener('error',()=>{honorNote.textContent='No se pudo cargar el audio. Comprueba el nombre del archivo WAV.'});
+</script>
 <script>
 const cartas={
   "AnaP": {
@@ -98,8 +132,8 @@ else {
 }
 const intro=document.getElementById('intro'),letter=document.getElementById('letter'),story=document.getElementById('story');
 const openBtn=document.getElementById('open');let opening=false;
-openBtn.addEventListener('click',()=>{if(!carta||opening)return;opening=true;openBtn.disabled=true;intro.classList.add('opening');setTimeout(()=>{intro.classList.add('closed');letter.classList.add('visible');story.classList.add('visible');window.scrollTo({top:0,behavior:'instant'});opening=false;openBtn.disabled=false;},730)});
-document.getElementById('back').addEventListener('click',()=>{letter.classList.remove('visible');story.classList.remove('visible');intro.classList.remove('closed','opening');window.scrollTo({top:0,behavior:'instant'})});
+openBtn.addEventListener('click',()=>{if(!carta||opening)return;honorPlay();opening=true;openBtn.disabled=true;intro.classList.add('opening');setTimeout(()=>{intro.classList.add('closed');letter.classList.add('visible');story.classList.add('visible');window.scrollTo({top:0,behavior:'instant'});opening=false;openBtn.disabled=false;},730)});
+document.getElementById('back').addEventListener('click',()=>{honorAudio.pause();honorAudio.currentTime=0;honorUpdate();letter.classList.remove('visible');story.classList.remove('visible');intro.classList.remove('closed','opening');window.scrollTo({top:0,behavior:'instant'})});
 document.getElementById('share').addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title:'Una carta para ti · Carolina & Alexander',url:location.href})}catch{}}else{try{await navigator.clipboard.writeText(location.href);alert('Enlace copiado')}catch{alert(location.href)}}});
 // RSVP: se conecta al mismo evento de Supabase que la invitación original.
 const SUPABASE_URL='https://vgoooyctkzvaeknrlzvu.supabase.co';
